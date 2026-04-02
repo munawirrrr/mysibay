@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "NIK_atau_KK_salah",
+	"beforeJsCode": "window.popup = Runner.displayPopup({\n                                   url: Runner.pages.getUrl(\"nik_atau_kk_salah\",\"list\"),\n                                   width: 1000,\n                                   height: 700,\n                                   header: 'laporan satker belum proses'\n                                });"
+}

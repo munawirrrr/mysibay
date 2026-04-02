@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "sptjm",
+	"afterJsCode": "window.open(\"sptjm_list.php\", \"_blank\");\nreturn false;"
+}

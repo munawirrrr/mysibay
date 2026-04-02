@@ -1,0 +1,4 @@
+{
+	"name": "data_sibay_snippet",
+	"serverCode": "// Put your code here.\necho \" <a href='https://wa.me/6285260589003' class='wa-button' target='_blank'>\n  <img src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg' alt='WhatsApp' />\n  bagi yang sudah upload & mau Ganti File Scan (Chat via WhatsApp)\n</a>\n\n<style>\n.wa-button {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  background-color: #25D366;\n  color: white;\n  padding: 8px 12px;\n  border-radius: 6px;\n  text-decoration: none;\n  font-weight: bold;\n  transition: background-color 0.2s;\n}\n.wa-button:hover {\n  background-color: #1EBE5D;\n}\n.wa-button img {\n  width: 20px;\n  height: 20px;\n}\n</style>\n\";"
+}

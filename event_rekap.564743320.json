@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "rekap",
+	"beforeJsCode": "window.popup = Runner.displayPopup({\n                                   url: Runner.pages.getUrl(\"rekap\",\"list\"),\n                                   width: 800,\n                                   height: 900,\n                                   header: 'rekap'\n                                });"
+}

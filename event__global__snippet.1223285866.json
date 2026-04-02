@@ -1,0 +1,4 @@
+{
+	"name": "_global__snippet",
+	"serverCode": "// Put your code here.\necho \"<div style='text-align: center;'>\n  <img id='navbarlogo' \n       alt='Project logo' \n       src='https://appmadrasah.kemenag.go.id/__statics/img/logo.png' \n       width='150' \n       height='150' \n       style='display: block; margin: 0 auto;'>\n  \n  <div class='running-text'>sibay@PenmadPidie.com</div>\n</div>\n\n<style>\n  .running-text {\n    font-weight: bold;\n    font-size: 25px;\n    margin-top: 10px;\n    width: 100%;\n    overflow: hidden;\n    white-space: nowrap;\n    box-sizing: border-box;\n    animation: scroll-left 10s linear infinite;\n  }\n\n  @keyframes scroll-left {\n    0% {\n      transform: translateX(100%);\n    }\n    100% {\n      transform: translateX(-100%);\n    }\n  }\n</style>\n\n\";"
+}

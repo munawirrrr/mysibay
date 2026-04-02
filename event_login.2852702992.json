@@ -1,0 +1,4 @@
+{
+	"name": "login",
+	"serverCode": "// Put your code here.\necho \"\n<html lang='id'>\n<head>\n    <meta charset='UTF-8'>\n    <title>Warning</title>\n    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>\n</head>\n<body>\n\n<script>\n    // Tampilkan peringatan segera setelah halaman dimuat\n    document.addEventListener('DOMContentLoaded', function () {\n        Swal.fire({\n            icon: 'warning',\n            title: 'Peringatan',\n            text: 'Gunakan user dan password SSO sispendik/izop/ dan atau user ketika login penmadpidie.com',\n            confirmButtonText: 'OK',\n            allowOutsideClick: false\n        });\n    });\n</script>\n\n</body>\n\n\";"
+}

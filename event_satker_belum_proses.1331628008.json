@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "satker_belum_proses",
+	"beforeJsCode": "window.popup = Runner.displayPopup({\n                                   url: Runner.pages.getUrl(\"satker_belum_proses\",\"list\"),\n                                   width: 800,\n                                   height: 1000,\n                                   header: 'laporan satker belum proses'\n                                });"
+}
