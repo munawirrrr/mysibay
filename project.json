@@ -2260,12 +2260,13 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "lumen",
+		"theme": "readable",
 		"sidebarWidth": "210px",
+		"sidebarColor": "light",
 		"sidebarTheme": "legacy",
 		"sidebarCompact": true,
 		"topbarTheme": "white",
-		"logoTheme": "dark",
+		"logoTheme": "white",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#e67723",
