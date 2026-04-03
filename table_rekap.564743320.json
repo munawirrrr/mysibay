@@ -7,7 +7,7 @@
 			"asc": true
 		}
 	],
-	"sql": "SELECT\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas\n\t\nORDER BY\n\tprofil.`tingkat madrasah`\n",
+	"sql": "SELECT\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -632,6 +632,13 @@
 			"showCount": true
 		}
 	],
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
+			"pageType": "list",
+			"code": "if ($data[\"ceklis_berkas\"] == \"0\" && $data[\"selisih belum upload\"] == \"0\") {\r\n    $record[\"ceklis_berkas_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}"
+		}
+	],
 	"sortByFields": {
 		"sortOrder": []
 	},
@@ -1132,7 +1139,6 @@
 								"export_field1",
 								"export_field8",
 								"export_field9",
-								"export_field10",
 								"export_field12",
 								"export_field11"
 							]
@@ -1226,10 +1232,6 @@
 				},
 				"export_field9": {
 					"field": "selesai upload",
-					"type": "export_field"
-				},
-				"export_field10": {
-					"field": "selisih belum upload",
 					"type": "export_field"
 				},
 				"export_field12": {
@@ -1562,7 +1564,7 @@
 									"cell": "headcell_field8"
 								},
 								{
-									"cell": "headcell_field9"
+									"cell": "headcell_field12"
 								},
 								{
 									"cell": "headcell_field11"
@@ -1606,7 +1608,7 @@
 									"cell": "cell_field8"
 								},
 								{
-									"cell": "cell_field9"
+									"cell": "headcell_field13"
 								},
 								{
 									"cell": "cell_field11"
@@ -1650,7 +1652,7 @@
 									"cell": "footcell_field8"
 								},
 								{
-									"cell": "footcell_field9"
+									"cell": "headcell_field14"
 								},
 								{
 									"cell": "footcell_field11"
@@ -1870,28 +1872,6 @@
 							"field": "selesai upload",
 							"columnName": "field"
 						},
-						"headcell_field9": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label2"
-							],
-							"field": "selisih belum upload",
-							"columnName": "field"
-						},
-						"cell_field9": {
-							"model": "cell_field",
-							"items": [
-								"grid_field2"
-							],
-							"field": "selisih belum upload",
-							"columnName": "field"
-						},
-						"footcell_field9": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "selisih belum upload",
-							"columnName": "field"
-						},
 						"headcell_checkbox": {
 							"model": "headcell_checkbox",
 							"items": [
@@ -1957,6 +1937,22 @@
 							"items": [],
 							"field": "ceklis_berkas",
 							"columnName": "field"
+						},
+						"headcell_field12": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							]
+						},
+						"headcell_field13": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							]
+						},
+						"headcell_field14": {
+							"model": "footcell_field",
+							"items": []
 						}
 					},
 					"deferredItems": [],
@@ -2123,16 +2119,6 @@
 					"inlineAdd": false,
 					"inlineEdit": false
 				},
-				"grid_field_label2": {
-					"type": "grid_field_label",
-					"field": "selisih belum upload"
-				},
-				"grid_field2": {
-					"field": "selisih belum upload",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
 				"grid_checkbox_head": {
 					"type": "grid_checkbox_head"
 				},
@@ -2162,10 +2148,6 @@
 				},
 				"search_panel_field": {
 					"field": "selesai upload",
-					"type": "search_panel_field"
-				},
-				"search_panel_field1": {
-					"field": "selisih belum upload",
 					"type": "search_panel_field"
 				},
 				"userinfo_link": {
@@ -2203,8 +2185,7 @@
 					"items": [
 						"search_panel_field",
 						"search_panel_field2",
-						"search_panel_field3",
-						"search_panel_field1"
+						"search_panel_field3"
 					]
 				},
 				"breadcrumb": {
@@ -2251,7 +2232,9 @@
 				},
 				"grid_field3": {
 					"field": "ceklis_berkas",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label3": {
 					"type": "grid_field_label",
@@ -2260,6 +2243,14 @@
 				"search_panel_field2": {
 					"field": "ceklis_berkas",
 					"type": "search_panel_field"
+				},
+				"grid_field2": {
+					"field": "selisih belum upload",
+					"type": "grid_field"
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "selisih belum upload"
 				}
 			},
 			"dbProps": {},
