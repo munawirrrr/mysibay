@@ -553,7 +553,7 @@
 						"parent": "0",
 						"data": {
 							"name": {
-								"text": "Ceklis berkas",
+								"text": "Ceklis proses",
 								"type": 0
 							},
 							"href": "mypage.htm",
@@ -565,25 +565,6 @@
 							"showIconType": 2,
 							"pageType": "list",
 							"table": 3198785092
-						}
-					},
-					{
-						"id": "7",
-						"parent": "0",
-						"data": {
-							"name": {
-								"table": "ceklis_proses",
-								"type": 6
-							},
-							"href": "mypage.htm",
-							"pageId": "list",
-							"itemType": 2,
-							"linkType": 0,
-							"iconType": 2,
-							"iconName": "glyphicon-earphone",
-							"showIconType": 2,
-							"pageType": "list",
-							"table": 3746829836
 						}
 					},
 					{

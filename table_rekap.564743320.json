@@ -7,7 +7,7 @@
 			"asc": true
 		}
 	],
-	"sql": "SELECT\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) \n    - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        Lihat Data\n        </a>') AS link\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek list\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
+	"sql": "SELECT\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) \n    - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas\n\t\nORDER BY\n\tprofil.`tingkat madrasah`\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -571,7 +571,7 @@
 		},
 		{
 			"name": "link",
-			"sqlExpression": "CONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        Lihat Data\n        </a>')",
+			"sqlExpression": "CONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')",
 			"index": 14,
 			"strField": "link",
 			"type": 201,
@@ -1899,38 +1899,44 @@
 							"items": [
 								"grid_field_label4"
 							],
-							"field": "link"
+							"field": "link",
+							"columnName": "field"
 						},
 						"cell_field11": {
 							"model": "cell_field",
 							"items": [
 								"grid_field4"
 							],
-							"field": "link"
+							"field": "link",
+							"columnName": "field"
 						},
 						"footcell_field11": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "link"
+							"field": "link",
+							"columnName": "field"
 						},
 						"headcell_field10": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label3"
 							],
-							"field": "ceklis_berkas"
+							"field": "ceklis_berkas",
+							"columnName": "field"
 						},
 						"cell_field10": {
 							"model": "cell_field",
 							"items": [
 								"grid_field3"
 							],
-							"field": "ceklis_berkas"
+							"field": "ceklis_berkas",
+							"columnName": "field"
 						},
 						"footcell_field10": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "ceklis_berkas"
+							"field": "ceklis_berkas",
+							"columnName": "field"
 						}
 					},
 					"deferredItems": [],
