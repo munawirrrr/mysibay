@@ -2950,14 +2950,14 @@
 					"icon": {
 						"style": 0
 					},
-					"buttonStyle": ""
+					"buttonStyle": "link-button"
 				},
 				"delete": {
 					"type": "delete",
 					"icon": {
 						"style": 0
 					},
-					"buttonStyle": ""
+					"buttonStyle": "link-button"
 				},
 				"details_found": {
 					"type": "details_found"
@@ -3072,7 +3072,11 @@
 					},
 					"popupWidth": "",
 					"popupHeight": "800px",
-					"buttonStyle": "link-button"
+					"buttonStyle": "success",
+					"icon": {
+						"glyph": "pencil",
+						"style": 0
+					}
 				},
 				"simple_grid_field14": {
 					"type": "grid_field_label",

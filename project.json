@@ -379,6 +379,37 @@
 			}
 		}
 	},
+	"ftpLocations": [
+		{
+			"id": "ftploc",
+			"name": "penmadpidie",
+			"ftp": {
+				"username": "penmadpi",
+				"password": "",
+				"host": "ftp.penmadpidie.com",
+				"port": 21,
+				"pathname": "/public_html/kantor/sibay",
+				"passive": true,
+				"secureType": 0,
+				"useCCC": false,
+				"pathFromRoot": false
+			},
+			"proxy": {
+				"username": "",
+				"password": "",
+				"host": "localhost",
+				"port": 3128,
+				"pathname": "",
+				"type": 0,
+				"enabled": false
+			},
+			"threads": 4,
+			"serverDbConnections": {
+				"keme8950sibayat1566720940": "arent-host"
+			}
+		}
+	],
+	"lastFtpLocation": "ftploc",
 	"fullBuild": false,
 	"visualStudioVersion": 10,
 	"restAPIReturnEncodedBinary": "",
@@ -644,26 +675,6 @@
 							"iconStyle": 1,
 							"showIconType": 2,
 							"table": 3968242650,
-							"pageType": "list"
-						}
-					},
-					{
-						"id": "14",
-						"parent": "1",
-						"data": {
-							"name": {
-								"table": "retur",
-								"type": 6
-							},
-							"style": "padding: 12px 22px;\n  border-radius: 14px;\n  border: none;\n  font-size: 15px;\n  font-weight: 600;\n  cursor: pointer;\n\n  /* VECTOR COLOR (flat clean) */\n  background: #007aff;\n  color: #ffffff;\n\n  /* LAYERED SHADOW (soft iOS depth) */\n  box-shadow:\n    0 2px 4px rgba(0,0,0,0.08),\n    0 6px 12px rgba(0,0,0,0.06),\n    0 12px 24px rgba(0,0,0,0.04);",
-							"pageId": "list",
-							"itemType": 2,
-							"linkType": 0,
-							"openType": 1,
-							"iconType": 2,
-							"iconName": "glyphicon-fast-backward",
-							"showIconType": 2,
-							"table": 4134739628,
 							"pageType": "list"
 						}
 					}
@@ -2332,11 +2343,10 @@
 	"projectStyle": {
 		"theme": "united",
 		"sidebarWidth": "210px",
-		"sidebarColor": "light",
 		"sidebarTheme": "legacy",
 		"sidebarCompact": true,
-		"topbarTheme": "light",
-		"logoTheme": "white",
+		"topbarTheme": "navy",
+		"logoTheme": "navy",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#e67723",
