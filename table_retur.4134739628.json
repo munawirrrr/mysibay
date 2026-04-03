@@ -3108,43 +3108,53 @@
 				},
 				"simple_grid_field12": {
 					"type": "grid_field_label",
-					"field": "nama"
+					"field": "nama",
+					"showFilter": true
 				},
 				"simple_grid_field13": {
 					"type": "grid_field_label",
-					"field": "npsn"
+					"field": "npsn",
+					"showFilter": true
 				},
 				"simple_grid_field14": {
 					"type": "grid_field_label",
-					"field": "nisn"
+					"field": "nisn",
+					"showFilter": true
 				},
 				"simple_grid_field15": {
 					"type": "grid_field_label",
-					"field": "no_rekening_sebelumnya"
+					"field": "no_rekening_sebelumnya",
+					"showFilter": true
 				},
 				"simple_grid_field16": {
 					"type": "grid_field_label",
-					"field": "nama_rekening_sebelumnya"
+					"field": "nama_rekening_sebelumnya",
+					"showFilter": true
 				},
 				"simple_grid_field17": {
 					"type": "grid_field_label",
-					"field": "file_upload_lama"
+					"field": "file_upload_lama",
+					"showFilter": true
 				},
 				"simple_grid_field18": {
 					"type": "grid_field_label",
-					"field": "no_rekening_perbaikan"
+					"field": "no_rekening_perbaikan",
+					"showFilter": true
 				},
 				"simple_grid_field19": {
 					"type": "grid_field_label",
-					"field": "nama_rekening_perbaikan"
+					"field": "nama_rekening_perbaikan",
+					"showFilter": true
 				},
 				"simple_grid_field20": {
 					"type": "grid_field_label",
-					"field": "scan_buku_rekening"
+					"field": "scan_buku_rekening",
+					"showFilter": true
 				},
 				"simple_grid_field21": {
 					"type": "grid_field_label",
-					"field": "alasan_perbaikan"
+					"field": "alasan_perbaikan",
+					"showFilter": true
 				},
 				"filter_panel": {
 					"type": "filter_panel",
@@ -3170,7 +3180,8 @@
 				},
 				"grid_field_label": {
 					"type": "grid_field_label",
-					"field": "catatan_dari_dinas"
+					"field": "catatan_dari_dinas",
+					"showFilter": true
 				},
 				"grid_field2": {
 					"field": "satker",
@@ -3181,7 +3192,8 @@
 				},
 				"grid_field_label2": {
 					"type": "grid_field_label",
-					"field": "satker"
+					"field": "satker",
+					"showFilter": true
 				},
 				"text": {
 					"type": "text",
@@ -3205,7 +3217,8 @@
 				},
 				"grid_field_label1": {
 					"type": "grid_field_label",
-					"field": "status"
+					"field": "status",
+					"showFilter": true
 				},
 				"search_panel_field11": {
 					"field": "status",
@@ -3221,7 +3234,8 @@
 				},
 				"grid_field_label3": {
 					"type": "grid_field_label",
-					"field": "no_tlp_kepala_profil"
+					"field": "no_tlp_kepala_profil",
+					"showFilter": true
 				},
 				"search_panel_field13": {
 					"field": "no_tlp_kepala_profil",
@@ -3236,7 +3250,8 @@
 				},
 				"grid_field_label4": {
 					"type": "grid_field_label",
-					"field": "hp_kepala"
+					"field": "hp_kepala",
+					"showFilter": true
 				},
 				"search_panel_field14": {
 					"field": "hp_kepala",
@@ -3252,7 +3267,8 @@
 				},
 				"grid_field_label5": {
 					"type": "grid_field_label",
-					"field": "hp_wali"
+					"field": "hp_wali",
+					"showFilter": true
 				},
 				"search_panel_field15": {
 					"field": "hp_wali",
@@ -3268,7 +3284,8 @@
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
-					"field": "no"
+					"field": "no",
+					"showFilter": true
 				},
 				"grid_field7": {
 					"field": "jumlah",
@@ -3278,7 +3295,8 @@
 				},
 				"grid_field_label7": {
 					"type": "grid_field_label",
-					"field": "jumlah"
+					"field": "jumlah",
+					"showFilter": true
 				},
 				"grid_field_totals": {
 					"type": "grid_field_totals",

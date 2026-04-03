@@ -1664,7 +1664,8 @@
 				},
 				"simple_grid_field2": {
 					"type": "grid_field_label",
-					"field": "tahun"
+					"field": "tahun",
+					"showFilter": true
 				},
 				"simple_grid_field": {
 					"field": "tahun",
@@ -1674,7 +1675,8 @@
 				},
 				"simple_grid_field9": {
 					"type": "grid_field_label",
-					"field": "tingkat madrasah"
+					"field": "tingkat madrasah",
+					"showFilter": true
 				},
 				"simple_grid_field8": {
 					"field": "tingkat madrasah",
@@ -1684,7 +1686,8 @@
 				},
 				"simple_grid_field4": {
 					"type": "grid_field_label",
-					"field": "NAMA SATUAN PENDIDIKAN"
+					"field": "NAMA SATUAN PENDIDIKAN",
+					"showFilter": true
 				},
 				"simple_grid_field3": {
 					"field": "NAMA SATUAN PENDIDIKAN",
@@ -1703,7 +1706,8 @@
 				},
 				"simple_grid_field11": {
 					"type": "grid_field_label",
-					"field": "yatim"
+					"field": "yatim",
+					"showFilter": true
 				},
 				"simple_grid_field5": {
 					"field": "yatim",
@@ -1722,7 +1726,8 @@
 				},
 				"simple_grid_field13": {
 					"type": "grid_field_label",
-					"field": "piatu"
+					"field": "piatu",
+					"showFilter": true
 				},
 				"simple_grid_field6": {
 					"field": "piatu",
@@ -1741,7 +1746,8 @@
 				},
 				"simple_grid_field15": {
 					"type": "grid_field_label",
-					"field": "yatim_piatu"
+					"field": "yatim_piatu",
+					"showFilter": true
 				},
 				"simple_grid_field7": {
 					"field": "yatim_piatu",
@@ -1760,7 +1766,8 @@
 				},
 				"simple_grid_field17": {
 					"type": "grid_field_label",
-					"field": "jumlah"
+					"field": "jumlah",
+					"showFilter": true
 				},
 				"simple_grid_field1": {
 					"field": "jumlah",
@@ -1820,7 +1827,8 @@
 				},
 				"grid_field_label": {
 					"type": "grid_field_label",
-					"field": "penambahan"
+					"field": "penambahan",
+					"showFilter": true
 				}
 			},
 			"dbProps": {},

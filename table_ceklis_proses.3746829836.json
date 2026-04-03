@@ -2014,27 +2014,33 @@
 				},
 				"simple_grid_field9": {
 					"type": "grid_field_label",
-					"field": "nama_madrasah"
+					"field": "nama_madrasah",
+					"showFilter": true
 				},
 				"simple_grid_field10": {
 					"type": "grid_field_label",
-					"field": "npsn"
+					"field": "npsn",
+					"showFilter": true
 				},
 				"simple_grid_field11": {
 					"type": "grid_field_label",
-					"field": "tahun"
+					"field": "tahun",
+					"showFilter": true
 				},
 				"simple_grid_field12": {
 					"type": "grid_field_label",
-					"field": "jumlah_siswa"
+					"field": "jumlah_siswa",
+					"showFilter": true
 				},
 				"simple_grid_field13": {
 					"type": "grid_field_label",
-					"field": "jumlah_upload"
+					"field": "jumlah_upload",
+					"showFilter": true
 				},
 				"simple_grid_field14": {
 					"type": "grid_field_label",
-					"field": "selisih"
+					"field": "selisih",
+					"showFilter": true
 				},
 				"simple_grid_field15": {
 					"type": "grid_field_totals",
@@ -2047,7 +2053,8 @@
 				},
 				"simple_grid_field16": {
 					"type": "grid_field_label",
-					"field": "ceklis_proses"
+					"field": "ceklis_proses",
+					"showFilter": true
 				},
 				"simple_grid_field17": {
 					"type": "grid_field_totals",
@@ -2060,11 +2067,13 @@
 				},
 				"simple_grid_field18": {
 					"type": "grid_field_label",
-					"field": "ceklis_berkas"
+					"field": "ceklis_berkas",
+					"showFilter": true
 				},
 				"simple_grid_field19": {
 					"type": "grid_field_label",
-					"field": "catatan"
+					"field": "catatan",
+					"showFilter": true
 				},
 				"grid_field_totals": {
 					"type": "grid_field_totals",

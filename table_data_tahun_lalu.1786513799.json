@@ -1799,51 +1799,59 @@
 					"field": "nisn",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"simple_grid_field1": {
 					"field": "nama Madrasah",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"simple_grid_field3": {
 					"field": "nama siswa",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"simple_grid_field4": {
 					"field": "nomor rekening",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"simple_grid_field5": {
 					"field": "nama di rekening",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"simple_grid_field6": {
 					"field": "file_scan",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"simple_grid_field8": {
 					"field": "catatan",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"simple_grid_field9": {
 					"field": "tahun",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"simple_grid_field11": {
 					"field": "Nomor Telpon",
@@ -1854,7 +1862,8 @@
 						"field": "Nomor Telpon",
 						"table": "data tahun lalu",
 						"type": 3
-					}
+					},
+					"showFilter": true
 				}
 			},
 			"dbProps": {},

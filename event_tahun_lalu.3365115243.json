@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "tahun lalu",
+	"afterJsCode": "window.open(\"data_tahun_lalu_search.php?page=search1\", \"_blank\");\nreturn false;"
+}

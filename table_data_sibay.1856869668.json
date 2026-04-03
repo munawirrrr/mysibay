@@ -2240,10 +2240,9 @@
 								"add",
 								"delete",
 								"custom_button",
-								"custom_button1",
-								"custom_button2",
-								"custom_button3"
-							]
+								"menu1"
+							],
+							"align": "left"
 						},
 						"c2": {
 							"model": "c2",
@@ -2257,7 +2256,8 @@
 							"model": "c3",
 							"items": [
 								"snippet"
-							]
+							],
+							"align": "left"
 						},
 						"c4": {
 							"model": "c3",
@@ -2946,10 +2946,18 @@
 					"label": {
 						"type": 0,
 						"text": "tambah"
-					}
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": ""
 				},
 				"delete": {
-					"type": "delete"
+					"type": "delete",
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": ""
 				},
 				"details_found": {
 					"type": "details_found"
@@ -2980,7 +2988,8 @@
 				},
 				"simple_grid_field11": {
 					"type": "grid_field_label",
-					"field": "nama siswa"
+					"field": "nama siswa",
+					"showFilter": true
 				},
 				"simple_grid_field3": {
 					"field": "nama siswa",
@@ -2990,7 +2999,8 @@
 				},
 				"simple_grid_field2": {
 					"type": "grid_field_label",
-					"field": "nisn"
+					"field": "nisn",
+					"showFilter": true
 				},
 				"simple_grid_field": {
 					"field": "nisn",
@@ -3000,7 +3010,8 @@
 				},
 				"simple_grid_field12": {
 					"type": "grid_field_label",
-					"field": "nomor rekening"
+					"field": "nomor rekening",
+					"showFilter": true
 				},
 				"simple_grid_field4": {
 					"field": "nomor rekening",
@@ -3010,7 +3021,8 @@
 				},
 				"simple_grid_field13": {
 					"type": "grid_field_label",
-					"field": "nama di rekening"
+					"field": "nama di rekening",
+					"showFilter": true
 				},
 				"simple_grid_field5": {
 					"field": "nama di rekening",
@@ -3020,7 +3032,8 @@
 				},
 				"simple_grid_field17": {
 					"type": "grid_field_label",
-					"field": "Nomor Telpon"
+					"field": "Nomor Telpon",
+					"showFilter": true
 				},
 				"simple_grid_field9": {
 					"field": "Nomor Telpon",
@@ -3030,7 +3043,8 @@
 				},
 				"simple_grid_field18": {
 					"type": "grid_field_label",
-					"field": "catatan"
+					"field": "catatan",
+					"showFilter": true
 				},
 				"simple_grid_field10": {
 					"field": "catatan",
@@ -3040,7 +3054,8 @@
 				},
 				"simple_grid_field19": {
 					"type": "grid_field_label",
-					"field": "file_scan"
+					"field": "file_scan",
+					"showFilter": true
 				},
 				"grid_checkbox_head": {
 					"type": "grid_checkbox_head"
@@ -3061,7 +3076,8 @@
 				},
 				"simple_grid_field14": {
 					"type": "grid_field_label",
-					"field": "status"
+					"field": "status",
+					"showFilter": true
 				},
 				"simple_grid_field7": {
 					"field": "status",
@@ -3247,7 +3263,8 @@
 				},
 				"grid_field_label": {
 					"type": "grid_field_label",
-					"field": "tahun"
+					"field": "tahun",
+					"showFilter": true
 				},
 				"grid_field3": {
 					"field": "status_kunci_oprt",
@@ -3257,7 +3274,8 @@
 				},
 				"grid_field_label3": {
 					"type": "grid_field_label",
-					"field": "status_kunci_oprt"
+					"field": "status_kunci_oprt",
+					"showFilter": true
 				},
 				"search_panel_field13": {
 					"field": "status_kunci_oprt",
@@ -3273,7 +3291,8 @@
 				},
 				"grid_field_label4": {
 					"type": "grid_field_label",
-					"field": "status_kunci_kantor"
+					"field": "status_kunci_kantor",
+					"showFilter": true
 				},
 				"search_panel_field14": {
 					"field": "status_kunci_kantor",
@@ -3289,7 +3308,11 @@
 					},
 					"type": "custom_button",
 					"buttonStyle": "danger",
-					"eventGid": 2322436849
+					"eventGid": 2322436849,
+					"icon": {
+						"style": 0
+					},
+					"buttonSize": ""
 				},
 				"pdf": {
 					"field": "file_scan",
@@ -3305,16 +3328,6 @@
 					},
 					"type": "snippet",
 					"eventGid": 2702742403
-				},
-				"custom_button1": {
-					"eventId": "rekap",
-					"label": {
-						"text": "Rekap",
-						"type": 0
-					},
-					"type": "custom_button",
-					"buttonStyle": "success",
-					"eventGid": 564743320
 				},
 				"print_details": {
 					"type": "print_details",
@@ -3348,7 +3361,8 @@
 				},
 				"grid_field_label1": {
 					"type": "grid_field_label",
-					"field": "hp_kepala"
+					"field": "hp_kepala",
+					"showFilter": true
 				},
 				"grid_field2": {
 					"field": "hp_wali",
@@ -3358,17 +3372,8 @@
 				},
 				"grid_field_label2": {
 					"type": "grid_field_label",
-					"field": "hp_wali"
-				},
-				"custom_button2": {
-					"eventId": "sptjm",
-					"label": {
-						"text": "Sptjm",
-						"type": 0
-					},
-					"type": "custom_button",
-					"buttonStyle": "primary",
-					"eventGid": 3968242650
+					"field": "hp_wali",
+					"showFilter": true
 				},
 				"text": {
 					"type": "text",
@@ -3386,16 +3391,16 @@
 				},
 				"grid_field_label5": {
 					"type": "grid_field_label",
-					"field": "id"
+					"field": "id",
+					"showFilter": true
 				},
-				"custom_button3": {
-					"type": "custom_button",
-					"eventId": "data_tahun_lalu",
-					"label": {
-						"text": "data tahun lalu",
-						"type": 0
-					},
-					"eventGid": 2082789548
+				"menu1": {
+					"type": "menu",
+					"menuId": "tabel_upload",
+					"bold": true,
+					"font-family": "Roboto",
+					"mobileDisplay": "both",
+					"mobileControl": "always"
 				}
 			},
 			"dbProps": {},

@@ -599,6 +599,76 @@
 		{
 			"name": "secondary",
 			"id": "secondary"
+		},
+		{
+			"name": "tabel_upload",
+			"id": "tabel_upload",
+			"root": {
+				"id": "1",
+				"children": [
+					{
+						"id": "5",
+						"parent": "1",
+						"data": {
+							"name": {
+								"table": "data tahun lalu",
+								"type": 6
+							},
+							"style": "padding: 12px 22px;\n  border-radius: 14px;\n  border: none;\n  font-size: 15px;\n  font-weight: 600;\n  cursor: pointer;\n\n  /* VECTOR COLOR (flat clean) */\n  background: #FFFF;\n  color: #007aff;\n\n  /* LAYERED SHADOW (soft iOS depth) */\n  box-shadow:\n    0 2px 4px rgba(0,0,0,0.08),\n    0 6px 12px rgba(0,0,0,0.06),\n    0 12px 24px rgba(0,0,0,0.04);",
+							"pageId": "search1",
+							"itemType": 2,
+							"linkType": 0,
+							"openType": 1,
+							"iconType": 2,
+							"iconName": "glyphicon-th",
+							"showIconType": 2,
+							"table": 1786513799,
+							"pageType": "search"
+						}
+					},
+					{
+						"id": "13",
+						"parent": "1",
+						"data": {
+							"name": {
+								"table": "sptjm",
+								"type": 6
+							},
+							"style": "padding: 12px 22px;\n  border-radius: 14px;\n  border: none;\n  font-size: 15px;\n  font-weight: 600;\n  cursor: pointer;\n\n  /* VECTOR COLOR (flat clean) */\n  background: #FFFF;\n  color: #007aff;\n\n  /* LAYERED SHADOW (soft iOS depth) */\n  box-shadow:\n    0 2px 4px rgba(0,0,0,0.08),\n    0 6px 12px rgba(0,0,0,0.06),\n    0 12px 24px rgba(0,0,0,0.04);",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"openType": 1,
+							"iconType": 3,
+							"iconName": "fa-edit",
+							"iconStyle": 1,
+							"showIconType": 2,
+							"table": 3968242650,
+							"pageType": "list"
+						}
+					},
+					{
+						"id": "14",
+						"parent": "1",
+						"data": {
+							"name": {
+								"table": "retur",
+								"type": 6
+							},
+							"style": "padding: 12px 22px;\n  border-radius: 14px;\n  border: none;\n  font-size: 15px;\n  font-weight: 600;\n  cursor: pointer;\n\n  /* VECTOR COLOR (flat clean) */\n  background: #007aff;\n  color: #ffffff;\n\n  /* LAYERED SHADOW (soft iOS depth) */\n  box-shadow:\n    0 2px 4px rgba(0,0,0,0.08),\n    0 6px 12px rgba(0,0,0,0.06),\n    0 12px 24px rgba(0,0,0,0.04);",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"openType": 1,
+							"iconType": 2,
+							"iconName": "glyphicon-fast-backward",
+							"showIconType": 2,
+							"table": 4134739628,
+							"pageType": "list"
+						}
+					}
+				]
+			}
 		}
 	],
 	"globalPages": [
@@ -2260,12 +2330,12 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "cerulean",
+		"theme": "united",
 		"sidebarWidth": "210px",
 		"sidebarColor": "light",
 		"sidebarTheme": "legacy",
 		"sidebarCompact": true,
-		"topbarTheme": "white",
+		"topbarTheme": "light",
 		"logoTheme": "white",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",

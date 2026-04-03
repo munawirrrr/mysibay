@@ -1452,7 +1452,8 @@
 				},
 				"simple_grid_field1": {
 					"type": "grid_field_label",
-					"field": "nama_madrasah"
+					"field": "nama_madrasah",
+					"showFilter": true
 				},
 				"simple_grid_field2": {
 					"field": "ceklis_berkas",
@@ -1484,11 +1485,13 @@
 				},
 				"simple_grid_field5": {
 					"type": "grid_field_label",
-					"field": "ceklis_berkas"
+					"field": "ceklis_berkas",
+					"showFilter": true
 				},
 				"simple_grid_field7": {
 					"type": "grid_field_label",
-					"field": "jumlah_siswa"
+					"field": "jumlah_siswa",
+					"showFilter": true
 				},
 				"simple_grid_field8": {
 					"type": "grid_field_totals",
