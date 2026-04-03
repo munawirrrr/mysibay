@@ -1,10 +1,11 @@
 {
-	"sql": "SELECT\ndata_sibay.tahun,\nceklis.nama_madrasah,\nceklis.npsn,\nCOUNT(data_sibay.npsn<>\"\") AS jumlah_siswa,\nSUM(data_sibay.file_scan<>\"\") AS jumlah_upload,\n(COUNT(data_sibay.npsn<>\"\"))-(SUM(data_sibay.file_scan<>\"\")) AS selisih,\nceklis.ceklis_proses,\nceklis.ceklis_berkas,\nceklis.catatan\nFROM ceklis\nLEFT OUTER JOIN data_sibay ON ceklis.npsn = data_sibay.npsn \nwhere data_sibay.tahun = YEAR(CURDATE())\nGROUP BY ceklis.npsn",
+	"sql": "SELECT\n\tdata_sibay.tahun,\n\tceklis.nama_madrasah,\n\tceklis.npsn,\n\tCOUNT(data_sibay.npsn<>\"\") AS jumlah_siswa,\n\tSUM(data_sibay.file_scan<>\"\") AS jumlah_upload,\n\t(COUNT(data_sibay.npsn<>\"\"))-(SUM(data_sibay.file_scan<>\"\")) AS selisih,\n\tceklis.ceklis_proses,\n\tceklis.ceklis_berkas,\n\tceklis.catatan\nFROM\n\tceklis\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\nWHERE\ndata_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "ceklis",
 	"name": "ceklis_proses",
 	"shortTableName": "ceklis_proses",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
@@ -91,6 +92,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "data_sibay.tahun",
+			"index": 1,
 			"strField": "tahun",
 			"type": 200,
 			"viewFormats": [
@@ -132,6 +134,7 @@
 		{
 			"name": "nama_madrasah",
 			"sqlExpression": "ceklis.nama_madrasah",
+			"index": 2,
 			"strField": "nama_madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -175,6 +178,7 @@
 		{
 			"name": "npsn",
 			"sqlExpression": "ceklis.npsn",
+			"index": 3,
 			"strField": "npsn",
 			"type": 200,
 			"viewFormats": [
@@ -218,6 +222,7 @@
 		{
 			"name": "jumlah_siswa",
 			"sqlExpression": "COUNT(data_sibay.npsn<>\"\")",
+			"index": 4,
 			"strField": "jumlah_siswa",
 			"type": 3,
 			"viewFormats": [
@@ -261,6 +266,7 @@
 		{
 			"name": "jumlah_upload",
 			"sqlExpression": "SUM(data_sibay.file_scan<>\"\")",
+			"index": 5,
 			"strField": "jumlah_upload",
 			"type": 14,
 			"viewFormats": [
@@ -305,6 +311,7 @@
 		{
 			"name": "selisih",
 			"sqlExpression": "(COUNT(data_sibay.npsn<>\"\"))-(SUM(data_sibay.file_scan<>\"\"))",
+			"index": 6,
 			"strField": "selisih",
 			"type": 14,
 			"viewFormats": [
@@ -349,6 +356,7 @@
 		{
 			"name": "ceklis_proses",
 			"sqlExpression": "ceklis.ceklis_proses",
+			"index": 7,
 			"strField": "ceklis_proses",
 			"type": 3,
 			"viewFormats": [
@@ -386,6 +394,7 @@
 		{
 			"name": "ceklis_berkas",
 			"sqlExpression": "ceklis.ceklis_berkas",
+			"index": 8,
 			"strField": "ceklis_berkas",
 			"type": 200,
 			"viewFormats": [
@@ -422,6 +431,7 @@
 		{
 			"name": "catatan",
 			"sqlExpression": "ceklis.catatan",
+			"index": 9,
 			"strField": "catatan",
 			"type": 200,
 			"viewFormats": [
@@ -513,6 +523,72 @@
 	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "nama_madrasah",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "npsn",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "ceklis_berkas",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "ceklis_proses",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "catatan",
+				"type": 200,
+				"size": 2000,
+				"scale": 0,
+				"typeName": "varchar(2000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"npsn"
+		],
+		"uniqueFields": [],
+		"name": "ceklis"
 	},
 	"pages": [
 		{
