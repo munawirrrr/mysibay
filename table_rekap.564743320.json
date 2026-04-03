@@ -1,17 +1,19 @@
 {
 	"orderInfo": [
 		{
-			"index": 10,
-			"asc": true,
-			"field": "profil.`tingkat madrasah`"
+			"index": 12,
+			"field": "selisih belum upload",
+			"expr": "profil.`tingkat madrasah`",
+			"asc": true
 		}
 	],
-	"sql": "SELECT\nCOUNT(data_sibay.nisn) AS jumlah,\ndata_sibay.npsn,\nprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\nprofil.NSM,\ndata_sibay.tahun,\nSUM(data_sibay.status_siswa =\"Yatim\") AS yatim,\nSUM(data_sibay.status_siswa =\"Piatu\") AS piatu,\nSUM(data_sibay.status_siswa =\"Yatim Piatu\") AS yatim_piatu,\nSUM(data_sibay.status =\"penambahan\") AS penambahan,\nprofil.`tingkat madrasah`\nFROM data_sibay\nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nWHERE (data_sibay.tahun = YEAR(CURDATE()))\nGROUP BY data_sibay.npsn\nORDER BY profil.`tingkat madrasah`",
+	"sql": "SELECT\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tdata_sibay.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa =\"Yatim\") AS yatim,\n\tSUM(data_sibay.status_siswa =\"Piatu\") AS piatu,\n\tSUM(data_sibay.status_siswa =\"Yatim Piatu\") AS yatim_piatu,\n\tSUM(data_sibay.status =\"selesai\") AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status =\"penambahan\") AS penambahan,\n\tprofil.`tingkat madrasah`\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\nWHERE\ndata_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tdata_sibay.npsn\nORDER BY\n\tprofil.`tingkat madrasah`\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
 	"name": "rekap",
 	"shortTableName": "rekap",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "NSM",
 	"usersOwnerIdField": "username",
@@ -39,6 +41,7 @@
 		{
 			"name": "jumlah",
 			"sqlExpression": "COUNT(data_sibay.nisn)",
+			"index": 1,
 			"strField": "jumlah",
 			"type": 3,
 			"viewFormats": [
@@ -82,8 +85,9 @@
 		{
 			"name": "npsn",
 			"sqlExpression": "data_sibay.npsn",
+			"index": 2,
 			"strField": "npsn",
-			"type": 20,
+			"type": 3,
 			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
@@ -174,6 +178,7 @@
 		{
 			"name": "NAMA SATUAN PENDIDIKAN",
 			"sqlExpression": "profil.`nama Madrasah`",
+			"index": 3,
 			"strField": "nama Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -215,6 +220,7 @@
 		{
 			"name": "NSM",
 			"sqlExpression": "profil.NSM",
+			"index": 4,
 			"strField": "NSM",
 			"type": 200,
 			"viewFormats": [
@@ -256,6 +262,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "data_sibay.tahun",
+			"index": 5,
 			"strField": "tahun",
 			"type": 200,
 			"viewFormats": [
@@ -300,6 +307,7 @@
 		{
 			"name": "yatim",
 			"sqlExpression": "SUM(data_sibay.status_siswa =\"Yatim\")",
+			"index": 6,
 			"strField": "yatim",
 			"type": 14,
 			"viewFormats": [
@@ -344,6 +352,7 @@
 		{
 			"name": "piatu",
 			"sqlExpression": "SUM(data_sibay.status_siswa =\"Piatu\")",
+			"index": 7,
 			"strField": "piatu",
 			"type": 14,
 			"viewFormats": [
@@ -388,6 +397,7 @@
 		{
 			"name": "yatim_piatu",
 			"sqlExpression": "SUM(data_sibay.status_siswa =\"Yatim Piatu\")",
+			"index": 8,
 			"strField": "yatim_piatu",
 			"type": 14,
 			"viewFormats": [
@@ -432,6 +442,7 @@
 		{
 			"name": "penambahan",
 			"sqlExpression": "SUM(data_sibay.status =\"penambahan\")",
+			"index": 11,
 			"strField": "penambahan",
 			"type": 14,
 			"viewFormats": [
@@ -476,6 +487,7 @@
 		{
 			"name": "tingkat madrasah",
 			"sqlExpression": "profil.`tingkat madrasah`",
+			"index": 12,
 			"strField": "tingkat madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -513,6 +525,44 @@
 				"Indonesian": ""
 			},
 			"tableName": "profil"
+		},
+		{
+			"name": "selesai upload",
+			"sqlExpression": "SUM(data_sibay.status =\"selesai\")",
+			"index": 9,
+			"strField": "selesai upload",
+			"type": 14,
+			"viewFormats": [
+				{
+					"format": "Number"
+				}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Selesai Upload"
+			},
+			"tableName": ""
+		},
+		{
+			"name": "selisih belum upload",
+			"sqlExpression": "COUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END)",
+			"index": 10,
+			"strField": "selisih belum upload",
+			"type": 14,
+			"viewFormats": [
+				{
+					"format": "Number"
+				}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Selisih Belum Upload"
+			},
+			"tableName": ""
 		}
 	],
 	"warnLeavingEdit": true,
@@ -520,6 +570,28 @@
 	"afterAddDetail": 1,
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "tahun",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"tahun"
+		],
+		"uniqueFields": [],
+		"name": "tahun"
 	},
 	"pages": [
 		{
@@ -997,7 +1069,9 @@
 								"export_field6",
 								"export_field7",
 								"export_field1",
-								"export_field8"
+								"export_field8",
+								"export_field9",
+								"export_field10"
 							]
 						}
 					},
@@ -1085,6 +1159,14 @@
 				},
 				"export_field8": {
 					"field": "penambahan",
+					"type": "export_field"
+				},
+				"export_field9": {
+					"field": "selesai upload",
+					"type": "export_field"
+				},
+				"export_field10": {
+					"field": "selisih belum upload",
 					"type": "export_field"
 				}
 			},
@@ -1342,7 +1424,9 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": []
+							"items": [
+								"search_panel"
+							]
 						}
 					},
 					"deferredItems": [],
@@ -1398,6 +1482,12 @@
 								},
 								{
 									"cell": "headcell_field7"
+								},
+								{
+									"cell": "headcell_field8"
+								},
+								{
+									"cell": "headcell_field9"
 								}
 							]
 						},
@@ -1427,6 +1517,12 @@
 								},
 								{
 									"cell": "cell_field7"
+								},
+								{
+									"cell": "cell_field8"
+								},
+								{
+									"cell": "cell_field9"
 								}
 							]
 						},
@@ -1456,6 +1552,12 @@
 								},
 								{
 									"cell": "footcell_field7"
+								},
+								{
+									"cell": "footcell_field8"
+								},
+								{
+									"cell": "footcell_field9"
 								}
 							]
 						}
@@ -1646,6 +1748,44 @@
 							"items": [],
 							"field": "penambahan",
 							"columnName": "field"
+						},
+						"headcell_field8": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"field": "selesai upload"
+						},
+						"cell_field8": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"field": "selesai upload"
+						},
+						"footcell_field8": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "selesai upload"
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							],
+							"field": "selisih belum upload"
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							],
+							"field": "selisih belum upload"
+						},
+						"footcell_field9": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "selisih belum upload"
 						}
 					},
 					"deferredItems": [],
@@ -1808,6 +1948,8 @@
 						"export_selected",
 						"-3",
 						"advsearch_link",
+						"show_search_panel",
+						"hide_search_panel",
 						"-1",
 						"export"
 					],
@@ -1829,6 +1971,43 @@
 					"type": "grid_field_label",
 					"field": "penambahan",
 					"showFilter": true
+				},
+				"grid_field1": {
+					"field": "selesai upload",
+					"type": "grid_field"
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "selesai upload"
+				},
+				"search_panel": {
+					"type": "search_panel",
+					"items": [
+						"search_panel_field",
+						"search_panel_field1"
+					]
+				},
+				"show_search_panel": {
+					"type": "show_search_panel"
+				},
+				"hide_search_panel": {
+					"type": "hide_search_panel"
+				},
+				"search_panel_field": {
+					"field": "selesai upload",
+					"type": "search_panel_field"
+				},
+				"grid_field2": {
+					"field": "selisih belum upload",
+					"type": "grid_field"
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "selisih belum upload"
+				},
+				"search_panel_field1": {
+					"field": "selisih belum upload",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -2102,7 +2281,9 @@
 								"integrated_search_field7",
 								"integrated_search_field8",
 								"integrated_search_field3",
-								"integrated_search_field9"
+								"integrated_search_field9",
+								"integrated_search_field10",
+								"integrated_search_field11"
 							]
 						}
 					},
@@ -2185,6 +2366,16 @@
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": false
+				},
+				"integrated_search_field10": {
+					"field": "selesai upload",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field11": {
+					"field": "selisih belum upload",
+					"type": "integrated_search_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
