@@ -655,7 +655,7 @@
 		{
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
-			"code": "if ($data[\"ceklis_berkas\"] == \"0\" && $data[\"selisih belum upload\"] == \"0\") {\r\n    $record[\"ceklis_berkas_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}"
+			"code": "if ($data[\"ceklis_berkas\"] == \"0\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"ceklis_berkas_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}"
 		}
 	],
 	"sortByFields": {
