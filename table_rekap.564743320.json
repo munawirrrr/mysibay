@@ -40,6 +40,9 @@
 		"npsn"
 	],
 	"detailsBadgeColor": "DC143C",
+	"detailsTables": [
+		1856869668
+	],
 	"fields": [
 		{
 			"name": "jumlah",
@@ -1446,7 +1449,8 @@
 							"model": "c2",
 							"items": [
 								"details_found",
-								"page_size"
+								"page_size",
+								"print_panel"
 							]
 						}
 					},
@@ -1561,6 +1565,9 @@
 									"cell": "headcell_checkbox"
 								},
 								{
+									"cell": "headcell_details"
+								},
+								{
 									"cell": "headcell_field"
 								},
 								{
@@ -1568,6 +1575,9 @@
 								},
 								{
 									"cell": "headcell_field2"
+								},
+								{
+									"cell": "headcell_field16"
 								},
 								{
 									"cell": "headcell_field3"
@@ -1608,6 +1618,9 @@
 									"cell": "cell_checkbox"
 								},
 								{
+									"cell": "cell_details"
+								},
+								{
 									"cell": "cell_field"
 								},
 								{
@@ -1615,6 +1628,9 @@
 								},
 								{
 									"cell": "cell_field2"
+								},
+								{
+									"cell": "headcell_field17"
 								},
 								{
 									"cell": "cell_field3"
@@ -1649,10 +1665,22 @@
 							]
 						},
 						{
+							"cells": [
+								{
+									"cell": "cell_dpreview",
+									"colspan": 16
+								}
+							],
+							"section": "body"
+						},
+						{
 							"section": "foot",
 							"cells": [
 								{
 									"cell": "footcell_checkbox"
+								},
+								{
+									"cell": "footcell_details"
 								},
 								{
 									"cell": "footcell_field"
@@ -1662,6 +1690,9 @@
 								},
 								{
 									"cell": "footcell_field2"
+								},
+								{
+									"cell": "headcell_field18"
 								},
 								{
 									"cell": "footcell_field3"
@@ -1901,7 +1932,9 @@
 						},
 						"footcell_field8": {
 							"model": "footcell_field",
-							"items": [],
+							"items": [
+								"grid_field_totals"
+							],
 							"field": "selesai upload",
 							"columnName": "field"
 						},
@@ -1985,7 +2018,9 @@
 						},
 						"headcell_field14": {
 							"model": "footcell_field",
-							"items": []
+							"items": [
+								"grid_field_totals1"
+							]
 						},
 						"headcell_field9": {
 							"model": "headcell_field",
@@ -2005,6 +2040,43 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "catatan"
+						},
+						"headcell_details": {
+							"model": "headcell_details",
+							"items": []
+						},
+						"cell_details": {
+							"model": "cell_details",
+							"items": [
+								"grid_alldetails_link",
+								"grid_details_link"
+							]
+						},
+						"footcell_details": {
+							"model": "footcell_details",
+							"items": []
+						},
+						"headcell_field16": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label6"
+							]
+						},
+						"headcell_field17": {
+							"model": "cell_field",
+							"items": [
+								"grid_field6"
+							]
+						},
+						"headcell_field18": {
+							"model": "footcell_field",
+							"items": []
+						},
+						"cell_dpreview": {
+							"model": "cell_dpreview",
+							"items": [
+								"details_preview"
+							]
 						}
 					},
 					"deferredItems": [],
@@ -2321,6 +2393,66 @@
 				"search_panel_field1": {
 					"field": "catatan",
 					"type": "search_panel_field"
+				},
+				"grid_alldetails_link": {
+					"type": "grid_alldetails_link",
+					"icon": {
+						"glyph": "th-list",
+						"style": 0
+					}
+				},
+				"print_panel": {
+					"type": "print_panel",
+					"items": [
+						"print_details"
+					]
+				},
+				"print_details": {
+					"type": "print_details",
+					"tables": {
+						"1856869668": true
+					}
+				},
+				"grid_field6": {
+					"field": "npsn",
+					"type": "grid_field"
+				},
+				"grid_field_label6": {
+					"type": "grid_field_label",
+					"field": "npsn"
+				},
+				"grid_field_totals": {
+					"type": "grid_field_totals",
+					"field": "selesai upload",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_totals1": {
+					"type": "grid_field_totals",
+					"field": "selisih belum upload",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_details_link": {
+					"type": "grid_details_link",
+					"table": 1856869668,
+					"badge": true,
+					"showCount": true,
+					"hideIfNone": false
+				},
+				"details_preview": {
+					"type": "details_preview",
+					"table": 1856869668,
+					"items": [],
+					"proceedLink": true,
+					"popup": false,
+					"pageId": "list"
 				}
 			},
 			"dbProps": {},
@@ -2419,6 +2551,14 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -2432,6 +2572,12 @@
 								"simple_grid_field5",
 								"simple_grid_field6",
 								"simple_grid_field7"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"details_preview"
 							]
 						}
 					},
@@ -2476,6 +2622,12 @@
 				"simple_grid_field7": {
 					"field": "yatim_piatu",
 					"type": "simple_grid_field"
+				},
+				"details_preview": {
+					"type": "details_preview",
+					"table": 1856869668,
+					"items": [],
+					"popup": false
 				}
 			},
 			"dbProps": {},
@@ -2887,6 +3039,382 @@
 			},
 			"dbProps": {},
 			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "masterlist",
+			"type": "masterlist",
+			"layoutId": "masterlist",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "masterlist-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"back_master",
+								"masterlist_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"simple_grid_field",
+								"simple_grid_field1",
+								"simple_grid_field2",
+								"simple_grid_field3",
+								"simple_grid_field4",
+								"simple_grid_field5",
+								"simple_grid_field6",
+								"simple_grid_field7",
+								"simple_grid_field8",
+								"simple_grid_field9",
+								"simple_grid_field10",
+								"simple_grid_field11",
+								"simple_grid_field12",
+								"simple_grid_field13",
+								"simple_grid_field14"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"masterlist_header": {
+					"type": "masterlist_header"
+				},
+				"back_master": {
+					"type": "back_master"
+				},
+				"simple_grid_field": {
+					"field": "jumlah",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field1": {
+					"field": "npsn",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field2": {
+					"field": "NAMA SATUAN PENDIDIKAN",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field3": {
+					"field": "NSM",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field4": {
+					"field": "tahun",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field5": {
+					"field": "yatim",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field6": {
+					"field": "piatu",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field7": {
+					"field": "yatim_piatu",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field8": {
+					"field": "penambahan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field9": {
+					"field": "tingkat madrasah",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field10": {
+					"field": "selesai upload",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field11": {
+					"field": "selisih belum upload",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field12": {
+					"field": "link",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field13": {
+					"field": "ceklis_berkas",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field14": {
+					"field": "catatan",
+					"type": "simple_grid_field"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "masterprint",
+			"type": "masterprint",
+			"layoutId": "masterprint",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "masterlist-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"masterprint_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"simple_grid_field",
+								"simple_grid_field1",
+								"simple_grid_field2",
+								"simple_grid_field3",
+								"simple_grid_field4",
+								"simple_grid_field5",
+								"simple_grid_field6",
+								"simple_grid_field7",
+								"simple_grid_field8",
+								"simple_grid_field9",
+								"simple_grid_field10",
+								"simple_grid_field11",
+								"simple_grid_field12",
+								"simple_grid_field13",
+								"simple_grid_field14"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"masterprint_header": {
+					"type": "masterprint_header"
+				},
+				"simple_grid_field": {
+					"field": "jumlah",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field1": {
+					"field": "npsn",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field2": {
+					"field": "NAMA SATUAN PENDIDIKAN",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field3": {
+					"field": "NSM",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field4": {
+					"field": "tahun",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field5": {
+					"field": "yatim",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field6": {
+					"field": "piatu",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field7": {
+					"field": "yatim_piatu",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field8": {
+					"field": "penambahan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field9": {
+					"field": "tingkat madrasah",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field10": {
+					"field": "selesai upload",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field11": {
+					"field": "selisih belum upload",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field12": {
+					"field": "link",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field13": {
+					"field": "ceklis_berkas",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field14": {
+					"field": "catatan",
+					"type": "simple_grid_field"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
 			"imageItem": {
 				"type": "page_image"
 			},

@@ -31,7 +31,20 @@
 		"nisn",
 		"tahun"
 	],
-	"detailsBadgeColor": "6B8E23",
+	"masterTables": [
+		{
+			"table": 564743320,
+			"masterKeys": [
+				"npsn",
+				"tahun"
+			],
+			"detailsKeys": [
+				"npsn",
+				"tahun"
+			]
+		}
+	],
+	"detailsBadgeColor": "000",
 	"detailsTables": [
 		4134739628
 	],
@@ -3201,8 +3214,24 @@
 				},
 				"top": {
 					"modelId": "list-sidebar-top",
-					"grid": [],
-					"cells": {},
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": [
+								"master_info"
+							]
+						}
+					},
 					"deferredItems": [],
 					"recsPerRow": 1
 				}
@@ -3680,6 +3709,12 @@
 				"grid_field_label6": {
 					"type": "grid_field_label",
 					"field": "nama Madrasah"
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"564743320": "true"
+					}
 				}
 			},
 			"dbProps": {},
@@ -4183,6 +4218,14 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -4191,6 +4234,12 @@
 							"items": [
 								"print_header",
 								"print_subheader"
+							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": [
+								"master_info"
 							]
 						}
 					},
@@ -4332,6 +4381,12 @@
 					"items": [],
 					"popup": false,
 					"pageId": "list"
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"564743320": "true"
+					}
 				}
 			},
 			"dbProps": {},
