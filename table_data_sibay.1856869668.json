@@ -1181,16 +1181,6 @@
 			"id": "00000210111",
 			"showCount": true,
 			"hideEmpty": true
-		},
-		{
-			"title": {
-				"text": "semua data",
-				"type": 0
-			},
-			"where": "data_sibay.status is not null",
-			"id": "1",
-			"showCount": true,
-			"hideEmpty": true
 		}
 	],
 	"eventHandlers": [
