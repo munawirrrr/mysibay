@@ -1,13 +1,13 @@
 {
 	"orderInfo": [
 		{
-			"index": 12,
-			"field": "selisih belum upload",
+			"index": 14,
+			"field": "ceklis_berkas",
 			"expr": "profil.`tingkat madrasah`",
 			"asc": true
 		}
 	],
-	"sql": "SELECT\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tceklis.catatan,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
+	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tceklis.catatan,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link,\n\tsptjm.file_sptjm\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -25,7 +25,7 @@
 		"50",
 		"100",
 		"500",
-		"-1"
+		"1"
 	],
 	"pageSizeSelectorGroups": [
 		"1",
@@ -34,8 +34,9 @@
 		"10",
 		"50",
 		"100",
-		"-1"
+		"1"
 	],
+	"pageOrientation": 1,
 	"keyFields": [
 		"npsn"
 	],
@@ -47,7 +48,7 @@
 		{
 			"name": "jumlah",
 			"sqlExpression": "COUNT(data_sibay.nisn)",
-			"index": 1,
+			"index": 8,
 			"strField": "jumlah",
 			"type": 3,
 			"viewFormats": [
@@ -91,7 +92,7 @@
 		{
 			"name": "npsn",
 			"sqlExpression": "ceklis.npsn",
-			"index": 2,
+			"index": 1,
 			"strField": "npsn",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -184,7 +185,7 @@
 		{
 			"name": "NAMA SATUAN PENDIDIKAN",
 			"sqlExpression": "profil.`nama Madrasah`",
-			"index": 3,
+			"index": 2,
 			"strField": "nama Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -226,7 +227,7 @@
 		{
 			"name": "NSM",
 			"sqlExpression": "profil.NSM",
-			"index": 4,
+			"index": 3,
 			"strField": "NSM",
 			"type": 200,
 			"viewFormats": [
@@ -268,7 +269,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "data_sibay.tahun",
-			"index": 5,
+			"index": 4,
 			"strField": "tahun",
 			"type": 200,
 			"viewFormats": [
@@ -313,7 +314,7 @@
 		{
 			"name": "yatim",
 			"sqlExpression": "SUM(data_sibay.status_siswa = 'Yatim')",
-			"index": 6,
+			"index": 5,
 			"strField": "yatim",
 			"type": 14,
 			"viewFormats": [
@@ -358,7 +359,7 @@
 		{
 			"name": "piatu",
 			"sqlExpression": "SUM(data_sibay.status_siswa = 'Piatu')",
-			"index": 7,
+			"index": 6,
 			"strField": "piatu",
 			"type": 14,
 			"viewFormats": [
@@ -403,7 +404,7 @@
 		{
 			"name": "yatim_piatu",
 			"sqlExpression": "SUM(data_sibay.status_siswa = 'Yatim Piatu')",
-			"index": 8,
+			"index": 7,
 			"strField": "yatim_piatu",
 			"type": 14,
 			"viewFormats": [
@@ -448,7 +449,7 @@
 		{
 			"name": "penambahan",
 			"sqlExpression": "SUM(data_sibay.status = 'penambahan')",
-			"index": 11,
+			"index": 13,
 			"strField": "penambahan",
 			"type": 14,
 			"viewFormats": [
@@ -493,7 +494,7 @@
 		{
 			"name": "tingkat madrasah",
 			"sqlExpression": "profil.`tingkat madrasah`",
-			"index": 12,
+			"index": 14,
 			"strField": "tingkat madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -535,7 +536,7 @@
 		{
 			"name": "selesai upload",
 			"sqlExpression": "SUM(data_sibay.status = 'selesai')",
-			"index": 9,
+			"index": 11,
 			"strField": "selesai upload",
 			"type": 14,
 			"viewFormats": [
@@ -555,7 +556,7 @@
 		{
 			"name": "selisih belum upload",
 			"sqlExpression": "COUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END)",
-			"index": 10,
+			"index": 12,
 			"strField": "selisih belum upload",
 			"type": 14,
 			"viewFormats": [
@@ -575,7 +576,7 @@
 		{
 			"name": "link",
 			"sqlExpression": "CONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')",
-			"index": 15,
+			"index": 17,
 			"strField": "link",
 			"type": 201,
 			"viewFormats": [
@@ -595,7 +596,7 @@
 		{
 			"name": "ceklis_berkas",
 			"sqlExpression": "ceklis.ceklis_berkas",
-			"index": 13,
+			"index": 15,
 			"strField": "ceklis_berkas",
 			"type": 200,
 			"viewFormats": [
@@ -614,7 +615,7 @@
 		{
 			"name": "catatan",
 			"sqlExpression": "ceklis.catatan",
-			"index": 14,
+			"index": 16,
 			"strField": "catatan",
 			"type": 200,
 			"viewFormats": [
@@ -629,6 +630,78 @@
 				"Indonesian": "Catatan"
 			},
 			"tableName": "ceklis"
+		},
+		{
+			"name": "file_sptjm",
+			"sqlExpression": "sptjm.file_sptjm",
+			"index": 18,
+			"strField": "file_sptjm",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Document Download",
+					"fileCustomExpression": "$value = \"\";",
+					"fileShowCustom": true,
+					"fileShowPdf": true,
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Document upload",
+					"textboxMaxLenth": 1000,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileSizeLimit": 1000,
+					"fileTypes": [
+						"pdf"
+					],
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"codeUploadFolder": "$folder = \"files\";",
+			"label": {
+				"Indonesian": "File Sptjm"
+			},
+			"tableName": "sptjm"
+		},
+		{
+			"name": "dikunci_kantor",
+			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> \"\")",
+			"index": 10,
+			"strField": "dikunci_kantor",
+			"type": 14,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Dikunci Kantor"
+			},
+			"tableName": ""
+		},
+		{
+			"name": "dikunci_operator",
+			"sqlExpression": "SUM(data_sibay.kunci_operator <> \"\")",
+			"index": 9,
+			"strField": "dikunci_operator",
+			"type": 14,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Dikunci Operator"
+			},
+			"tableName": ""
 		}
 	],
 	"warnLeavingEdit": true,
@@ -658,7 +731,7 @@
 		{
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
-			"code": "if ($data[\"ceklis_berkas\"] == \"0\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"ceklis_berkas_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}"
+			"code": "if ($data[\"ceklis_berkas\"] == \"0\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"ceklis_berkas_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_kantor\"])>  0) {\r\n    $record[\"dikunci_kantor_css\"] = \"background:#360FB8;color:#FFFAF0\";\r\n}\r\n"
 		}
 	],
 	"sortByFields": {
@@ -1163,7 +1236,9 @@
 								"export_field9",
 								"export_field12",
 								"export_field11",
-								"export_field10"
+								"export_field10",
+								"export_field13",
+								"export_field14"
 							]
 						}
 					},
@@ -1267,6 +1342,14 @@
 				},
 				"export_field10": {
 					"field": "catatan",
+					"type": "export_field"
+				},
+				"export_field13": {
+					"field": "dikunci_kantor",
+					"type": "export_field"
+				},
+				"export_field14": {
+					"field": "dikunci_operator",
 					"type": "export_field"
 				}
 			},
@@ -1595,10 +1678,19 @@
 									"cell": "headcell_field7"
 								},
 								{
+									"cell": "headcell_field24"
+								},
+								{
+									"cell": "headcell_field23"
+								},
+								{
 									"cell": "headcell_field8"
 								},
 								{
 									"cell": "headcell_field12"
+								},
+								{
+									"cell": "headcell_field19"
 								},
 								{
 									"cell": "headcell_field11"
@@ -1648,10 +1740,19 @@
 									"cell": "cell_field7"
 								},
 								{
+									"cell": "cell_field14"
+								},
+								{
+									"cell": "cell_field15"
+								},
+								{
 									"cell": "cell_field8"
 								},
 								{
 									"cell": "headcell_field13"
+								},
+								{
+									"cell": "headcell_field20"
 								},
 								{
 									"cell": "cell_field11"
@@ -1668,7 +1769,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 16
+									"colspan": 19
 								}
 							],
 							"section": "body"
@@ -1710,10 +1811,19 @@
 									"cell": "footcell_field7"
 								},
 								{
+									"cell": "footcell_field14"
+								},
+								{
+									"cell": "footcell_field15"
+								},
+								{
 									"cell": "footcell_field8"
 								},
 								{
 									"cell": "headcell_field14"
+								},
+								{
+									"cell": "headcell_field15"
 								},
 								{
 									"cell": "footcell_field11"
@@ -1910,7 +2020,9 @@
 						},
 						"footcell_field7": {
 							"model": "footcell_field",
-							"items": [],
+							"items": [
+								"grid_field_totals2"
+							],
 							"field": "penambahan",
 							"columnName": "field"
 						},
@@ -2008,75 +2120,168 @@
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label2"
-							]
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
 						},
 						"headcell_field13": {
 							"model": "cell_field",
 							"items": [
 								"grid_field2"
-							]
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
 						},
 						"headcell_field14": {
 							"model": "footcell_field",
 							"items": [
 								"grid_field_totals1"
-							]
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
 						},
 						"headcell_field9": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label5"
 							],
-							"field": "catatan"
+							"field": "catatan",
+							"columnName": "field"
 						},
 						"cell_field9": {
 							"model": "cell_field",
 							"items": [
 								"grid_field5"
 							],
-							"field": "catatan"
+							"field": "catatan",
+							"columnName": "field"
 						},
 						"footcell_field9": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "catatan"
+							"field": "catatan",
+							"columnName": "field"
 						},
 						"headcell_details": {
 							"model": "headcell_details",
-							"items": []
+							"items": [],
+							"columnName": "details",
+							"field": ""
 						},
 						"cell_details": {
 							"model": "cell_details",
 							"items": [
 								"grid_alldetails_link",
 								"grid_details_link"
-							]
+							],
+							"columnName": "details",
+							"field": ""
 						},
 						"footcell_details": {
 							"model": "footcell_details",
-							"items": []
+							"items": [],
+							"columnName": "details",
+							"field": ""
 						},
 						"headcell_field16": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label6"
-							]
+							],
+							"columnName": "field",
+							"field": "npsn"
 						},
 						"headcell_field17": {
 							"model": "cell_field",
 							"items": [
 								"grid_field6"
-							]
+							],
+							"columnName": "field",
+							"field": "npsn"
 						},
 						"headcell_field18": {
 							"model": "footcell_field",
-							"items": []
+							"items": [],
+							"columnName": "field",
+							"field": "npsn"
 						},
 						"cell_dpreview": {
 							"model": "cell_dpreview",
 							"items": [
 								"details_preview"
-							]
+							],
+							"columnName": "field",
+							"field": "catatan"
+						},
+						"headcell_field19": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label7"
+							],
+							"columnName": "field",
+							"field": "file_sptjm"
+						},
+						"headcell_field20": {
+							"model": "cell_field",
+							"items": [
+								"grid_field7"
+							],
+							"columnName": "field",
+							"field": "file_sptjm"
+						},
+						"headcell_field15": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "file_sptjm"
+						},
+						"headcell_field23": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label8"
+							],
+							"field": "dikunci_kantor",
+							"columnName": "field"
+						},
+						"headcell_field24": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label9"
+							],
+							"field": "dikunci_operator",
+							"columnName": "field"
+						},
+						"cell_field14": {
+							"model": "cell_field",
+							"items": [
+								"grid_field9"
+							],
+							"field": "dikunci_operator",
+							"columnName": "field"
+						},
+						"cell_field15": {
+							"model": "cell_field",
+							"items": [
+								"grid_field8"
+							],
+							"field": "dikunci_kantor",
+							"columnName": "field"
+						},
+						"footcell_field14": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals3"
+							],
+							"field": "dikunci_operator",
+							"columnName": "field"
+						},
+						"footcell_field15": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals4"
+							],
+							"field": "dikunci_kantor",
+							"columnName": "field"
 						}
 					},
 					"deferredItems": [],
@@ -2308,6 +2513,8 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field5",
+						"search_panel_field4",
 						"search_panel_field1",
 						"search_panel_field2",
 						"search_panel_field3"
@@ -2404,7 +2611,10 @@
 				"print_panel": {
 					"type": "print_panel",
 					"items": [
-						"print_details"
+						"print_scope",
+						"print_details",
+						"print_records",
+						"print_button"
 					]
 				},
 				"print_details": {
@@ -2415,7 +2625,9 @@
 				},
 				"grid_field6": {
 					"field": "npsn",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
@@ -2453,6 +2665,76 @@
 					"proceedLink": true,
 					"popup": false,
 					"pageId": "list"
+				},
+				"grid_field7": {
+					"field": "file_sptjm",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label7": {
+					"type": "grid_field_label",
+					"field": "file_sptjm"
+				},
+				"grid_field8": {
+					"field": "dikunci_kantor",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label8": {
+					"type": "grid_field_label",
+					"field": "dikunci_kantor"
+				},
+				"grid_field9": {
+					"field": "dikunci_operator",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label9": {
+					"type": "grid_field_label",
+					"field": "dikunci_operator"
+				},
+				"search_panel_field4": {
+					"field": "dikunci_kantor",
+					"type": "search_panel_field"
+				},
+				"search_panel_field5": {
+					"field": "dikunci_operator",
+					"type": "search_panel_field"
+				},
+				"grid_field_totals2": {
+					"type": "grid_field_totals",
+					"field": "penambahan",
+					"totals": "TOTAL"
+				},
+				"grid_field_totals3": {
+					"type": "grid_field_totals",
+					"field": "dikunci_operator",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_totals4": {
+					"type": "grid_field_totals",
+					"field": "dikunci_kantor",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"print_scope": {
+					"type": "print_scope"
+				},
+				"print_button": {
+					"type": "print_button"
+				},
+				"print_records": {
+					"type": "print_records"
 				}
 			},
 			"dbProps": {},
@@ -2470,7 +2752,7 @@
 			"id": "print",
 			"type": "print",
 			"layoutId": "basic",
-			"disabled": 1,
+			"disabled": false,
 			"default": 0,
 			"forms": {
 				"above-grid": {
@@ -2749,7 +3031,10 @@
 								"integrated_search_field11",
 								"integrated_search_field13",
 								"integrated_search_field12",
-								"integrated_search_field14"
+								"integrated_search_field14",
+								"integrated_search_field15",
+								"integrated_search_field16",
+								"integrated_search_field17"
 							]
 						}
 					},
@@ -2855,6 +3140,21 @@
 				},
 				"integrated_search_field14": {
 					"field": "catatan",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field15": {
+					"field": "file_sptjm",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field16": {
+					"field": "dikunci_kantor",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field17": {
+					"field": "dikunci_operator",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -3151,7 +3451,9 @@
 								"simple_grid_field11",
 								"simple_grid_field12",
 								"simple_grid_field13",
-								"simple_grid_field14"
+								"simple_grid_field14",
+								"simple_grid_field15",
+								"simple_grid_field16"
 							]
 						}
 					},
@@ -3224,6 +3526,14 @@
 				},
 				"simple_grid_field14": {
 					"field": "catatan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field15": {
+					"field": "dikunci_kantor",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field16": {
+					"field": "dikunci_operator",
 					"type": "simple_grid_field"
 				}
 			},
@@ -3340,7 +3650,9 @@
 								"simple_grid_field11",
 								"simple_grid_field12",
 								"simple_grid_field13",
-								"simple_grid_field14"
+								"simple_grid_field14",
+								"simple_grid_field15",
+								"simple_grid_field16"
 							]
 						}
 					},
@@ -3410,6 +3722,14 @@
 				},
 				"simple_grid_field14": {
 					"field": "catatan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field15": {
+					"field": "dikunci_kantor",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field16": {
+					"field": "dikunci_operator",
 					"type": "simple_grid_field"
 				}
 			},

@@ -4,6 +4,7 @@
 	"originalTable": "profil",
 	"name": "profil",
 	"shortTableName": "profil",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"pageSizeSelectorRecords": [
 		"10",
@@ -28,6 +29,7 @@
 		{
 			"name": "nomor",
 			"sqlExpression": "nomor",
+			"index": 1,
 			"strField": "nomor",
 			"type": 3,
 			"viewFormats": [
@@ -71,6 +73,7 @@
 		{
 			"name": "nama Madrasah",
 			"sqlExpression": "`nama Madrasah`",
+			"index": 2,
 			"strField": "nama Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -114,6 +117,7 @@
 		{
 			"name": "tingkat madrasah",
 			"sqlExpression": "`tingkat madrasah`",
+			"index": 3,
 			"strField": "tingkat madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -157,6 +161,7 @@
 		{
 			"name": "NSM",
 			"sqlExpression": "NSM",
+			"index": 4,
 			"strField": "NSM",
 			"type": 200,
 			"viewFormats": [
@@ -200,6 +205,7 @@
 		{
 			"name": "Status Madrasah",
 			"sqlExpression": "`Status Madrasah`",
+			"index": 5,
 			"strField": "Status Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -243,6 +249,7 @@
 		{
 			"name": "Nomor Telpon",
 			"sqlExpression": "`Nomor Telpon`",
+			"index": 6,
 			"strField": "Nomor Telpon",
 			"type": 200,
 			"viewFormats": [
@@ -286,6 +293,7 @@
 		{
 			"name": "Type Madrasah",
 			"sqlExpression": "`Type Madrasah`",
+			"index": 7,
 			"strField": "Type Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -329,6 +337,7 @@
 		{
 			"name": "Alamat Madrasah",
 			"sqlExpression": "`Alamat Madrasah`",
+			"index": 8,
 			"strField": "Alamat Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -372,6 +381,7 @@
 		{
 			"name": "Nilai Akreditasi Madrasah",
 			"sqlExpression": "`Nilai Akreditasi Madrasah`",
+			"index": 9,
 			"strField": "Nilai Akreditasi Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -415,6 +425,7 @@
 		{
 			"name": "Jumlah Siswa aktif",
 			"sqlExpression": "`Jumlah Siswa aktif`",
+			"index": 10,
 			"strField": "Jumlah Siswa aktif",
 			"type": 200,
 			"viewFormats": [
@@ -458,6 +469,7 @@
 		{
 			"name": "Nama Kepala",
 			"sqlExpression": "`Nama Kepala`",
+			"index": 11,
 			"strField": "Nama Kepala",
 			"type": 200,
 			"viewFormats": [
@@ -501,6 +513,7 @@
 		{
 			"name": "nama singkat kepala",
 			"sqlExpression": "`nama singkat kepala`",
+			"index": 12,
 			"strField": "nama singkat kepala",
 			"type": 200,
 			"viewFormats": [
@@ -544,6 +557,7 @@
 		{
 			"name": "Nip Kepala",
 			"sqlExpression": "`Nip Kepala`",
+			"index": 13,
 			"strField": "Nip Kepala",
 			"type": 200,
 			"viewFormats": [
@@ -587,6 +601,7 @@
 		{
 			"name": "ppk",
 			"sqlExpression": "ppk",
+			"index": 14,
 			"strField": "ppk",
 			"type": 200,
 			"viewFormats": [
@@ -630,6 +645,7 @@
 		{
 			"name": "nip ppk",
 			"sqlExpression": "`nip ppk`",
+			"index": 15,
 			"strField": "nip ppk",
 			"type": 200,
 			"viewFormats": [
@@ -673,6 +689,7 @@
 		{
 			"name": "Kota",
 			"sqlExpression": "Kota",
+			"index": 16,
 			"strField": "Kota",
 			"type": 200,
 			"viewFormats": [
@@ -716,6 +733,7 @@
 		{
 			"name": "kecamatan",
 			"sqlExpression": "kecamatan",
+			"index": 17,
 			"strField": "kecamatan",
 			"type": 200,
 			"viewFormats": [
@@ -759,6 +777,7 @@
 		{
 			"name": "Jumlah Siswa",
 			"sqlExpression": "`Jumlah Siswa`",
+			"index": 18,
 			"strField": "Jumlah Siswa",
 			"type": 3,
 			"viewFormats": [
@@ -802,6 +821,7 @@
 		{
 			"name": "kegiatan sehari-hari siswa",
 			"sqlExpression": "`kegiatan sehari-hari siswa`",
+			"index": 19,
 			"strField": "kegiatan sehari-hari siswa",
 			"type": 200,
 			"viewFormats": [
@@ -845,6 +865,7 @@
 		{
 			"name": "Format Surat",
 			"sqlExpression": "`Format Surat`",
+			"index": 20,
 			"strField": "Format Surat",
 			"type": 200,
 			"viewFormats": [
@@ -888,6 +909,7 @@
 		{
 			"name": "Tanda tangan Kepala",
 			"sqlExpression": "`Tanda tangan Kepala`",
+			"index": 21,
 			"strField": "Tanda tangan Kepala",
 			"type": 201,
 			"viewFormats": [
@@ -932,6 +954,7 @@
 		{
 			"name": "sop",
 			"sqlExpression": "sop",
+			"index": 22,
 			"strField": "sop",
 			"type": 201,
 			"viewFormats": [
@@ -976,6 +999,7 @@
 		{
 			"name": "ttd",
 			"sqlExpression": "ttd",
+			"index": 23,
 			"strField": "ttd",
 			"type": 200,
 			"viewFormats": [
@@ -1019,6 +1043,7 @@
 		{
 			"name": "NPSN",
 			"sqlExpression": "NPSN",
+			"index": 24,
 			"strField": "NPSN",
 			"type": 200,
 			"viewFormats": [
@@ -1062,6 +1087,7 @@
 		{
 			"name": "deskripsi",
 			"sqlExpression": "deskripsi",
+			"index": 25,
 			"strField": "deskripsi",
 			"type": 201,
 			"viewFormats": [
@@ -1106,6 +1132,7 @@
 		{
 			"name": "pengumuman kelulusan siswa baru",
 			"sqlExpression": "`pengumuman kelulusan siswa baru`",
+			"index": 26,
 			"strField": "pengumuman kelulusan siswa baru",
 			"type": 200,
 			"viewFormats": [
@@ -1149,6 +1176,7 @@
 		{
 			"name": "promosi",
 			"sqlExpression": "promosi",
+			"index": 27,
 			"strField": "promosi",
 			"type": 200,
 			"viewFormats": [
@@ -1192,6 +1220,7 @@
 		{
 			"name": "brosur pendaftaran",
 			"sqlExpression": "`brosur pendaftaran`",
+			"index": 28,
 			"strField": "brosur pendaftaran",
 			"type": 200,
 			"viewFormats": [
@@ -1235,6 +1264,7 @@
 		{
 			"name": "sistem terima",
 			"sqlExpression": "`sistem terima`",
+			"index": 29,
 			"strField": "sistem terima",
 			"type": 200,
 			"viewFormats": [
@@ -1278,6 +1308,7 @@
 		{
 			"name": "status",
 			"sqlExpression": "status",
+			"index": 30,
 			"strField": "status",
 			"type": 200,
 			"viewFormats": [
@@ -1321,6 +1352,7 @@
 		{
 			"name": "nama satker",
 			"sqlExpression": "`nama satker`",
+			"index": 31,
 			"strField": "nama satker",
 			"type": 200,
 			"viewFormats": [
@@ -1364,6 +1396,7 @@
 		{
 			"name": "kode pos",
 			"sqlExpression": "`kode pos`",
+			"index": 32,
 			"strField": "kode pos",
 			"type": 200,
 			"viewFormats": [
@@ -1407,6 +1440,7 @@
 		{
 			"name": "struktur",
 			"sqlExpression": "struktur",
+			"index": 33,
 			"strField": "struktur",
 			"type": 200,
 			"viewFormats": [
@@ -1450,6 +1484,7 @@
 		{
 			"name": "status kepala",
 			"sqlExpression": "`status kepala`",
+			"index": 34,
 			"strField": "status kepala",
 			"type": 200,
 			"viewFormats": [
@@ -1493,6 +1528,7 @@
 		{
 			"name": "Lat",
 			"sqlExpression": "Lat",
+			"index": 35,
 			"strField": "Lat",
 			"type": 14,
 			"viewFormats": [
@@ -1537,6 +1573,7 @@
 		{
 			"name": "Lng",
 			"sqlExpression": "Lng",
+			"index": 36,
 			"strField": "Lng",
 			"type": 14,
 			"viewFormats": [
@@ -1581,6 +1618,7 @@
 		{
 			"name": "kunci",
 			"sqlExpression": "kunci",
+			"index": 37,
 			"strField": "kunci",
 			"type": 200,
 			"viewFormats": [
@@ -1624,6 +1662,7 @@
 		{
 			"name": "tgl_tutup_pendaftaran",
 			"sqlExpression": "tgl_tutup_pendaftaran",
+			"index": 38,
 			"strField": "tgl_tutup_pendaftaran",
 			"type": 7,
 			"viewFormats": [
@@ -1668,6 +1707,7 @@
 		{
 			"name": "nama yayasan",
 			"sqlExpression": "`nama yayasan`",
+			"index": 39,
 			"strField": "nama yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -1711,6 +1751,7 @@
 		{
 			"name": "alamat yayasan",
 			"sqlExpression": "`alamat yayasan`",
+			"index": 40,
 			"strField": "alamat yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -1754,6 +1795,7 @@
 		{
 			"name": "nama ketua yayasan",
 			"sqlExpression": "`nama ketua yayasan`",
+			"index": 41,
 			"strField": "nama ketua yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -1797,6 +1839,7 @@
 		{
 			"name": "tempat_tanggal lahir ketua",
 			"sqlExpression": "`tempat_tanggal lahir ketua`",
+			"index": 42,
 			"strField": "tempat_tanggal lahir ketua",
 			"type": 200,
 			"viewFormats": [
@@ -1840,6 +1883,7 @@
 		{
 			"name": "pekerjaan ketua yayasan",
 			"sqlExpression": "`pekerjaan ketua yayasan`",
+			"index": 43,
 			"strField": "pekerjaan ketua yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -1883,6 +1927,7 @@
 		{
 			"name": "nik ketua yayasan",
 			"sqlExpression": "`nik ketua yayasan`",
+			"index": 44,
 			"strField": "nik ketua yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -1926,6 +1971,7 @@
 		{
 			"name": "alamat ketua yayasan",
 			"sqlExpression": "`alamat ketua yayasan`",
+			"index": 45,
 			"strField": "alamat ketua yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -1969,6 +2015,7 @@
 		{
 			"name": "telepon ketua yayasan",
 			"sqlExpression": "`telepon ketua yayasan`",
+			"index": 46,
 			"strField": "telepon ketua yayasan",
 			"type": 200,
 			"viewFormats": [
@@ -2012,6 +2059,7 @@
 		{
 			"name": "peringkat akreditasi",
 			"sqlExpression": "`peringkat akreditasi`",
+			"index": 47,
 			"strField": "peringkat akreditasi",
 			"type": 200,
 			"viewFormats": [
@@ -2055,6 +2103,7 @@
 		{
 			"name": "izin operasional",
 			"sqlExpression": "`izin operasional`",
+			"index": 48,
 			"strField": "izin operasional",
 			"type": 200,
 			"viewFormats": [
@@ -2098,6 +2147,7 @@
 		{
 			"name": "tgl izin operasional",
 			"sqlExpression": "`tgl izin operasional`",
+			"index": 49,
 			"strField": "tgl izin operasional",
 			"type": 7,
 			"viewFormats": [
@@ -2143,6 +2193,7 @@
 		{
 			"name": "tanggal batas izin",
 			"sqlExpression": "`tanggal batas izin`",
+			"index": 50,
 			"strField": "tanggal batas izin",
 			"type": 200,
 			"viewFormats": [
@@ -2186,6 +2237,7 @@
 		{
 			"name": "tanggal edit",
 			"sqlExpression": "`tanggal edit`",
+			"index": 51,
 			"strField": "tanggal edit",
 			"type": 135,
 			"viewFormats": [
@@ -2230,8 +2282,9 @@
 		{
 			"name": "tahun edit",
 			"sqlExpression": "`tahun edit`",
+			"index": 52,
 			"strField": "tahun edit",
-			"type": 2,
+			"type": 3,
 			"viewFormats": [
 				{
 					"numberFractionalDigits": 0
@@ -2273,6 +2326,7 @@
 		{
 			"name": "akte_dan_sk_menkumham",
 			"sqlExpression": "akte_dan_sk_menkumham",
+			"index": 53,
 			"strField": "akte_dan_sk_menkumham",
 			"type": 200,
 			"viewFormats": [
@@ -2316,6 +2370,7 @@
 		{
 			"name": "nomor_dan_tanggal_akte",
 			"sqlExpression": "nomor_dan_tanggal_akte",
+			"index": 54,
 			"strField": "nomor_dan_tanggal_akte",
 			"type": 200,
 			"viewFormats": [
@@ -2359,6 +2414,7 @@
 		{
 			"name": "nomor_dan_tanggal_sk_menkumham",
 			"sqlExpression": "nomor_dan_tanggal_sk_menkumham",
+			"index": 55,
 			"strField": "nomor_dan_tanggal_sk_menkumham",
 			"type": 200,
 			"viewFormats": [
@@ -2405,6 +2461,620 @@
 	"afterAddDetail": 1,
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "nomor",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": "0",
+				"defaultValue": "0"
+			},
+			{
+				"name": "nama Madrasah",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tingkat madrasah",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "NSM",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Status Madrasah",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Nomor Telpon",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Type Madrasah",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Alamat Madrasah",
+				"type": 200,
+				"size": 500,
+				"scale": 0,
+				"typeName": "varchar(500)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Nilai Akreditasi Madrasah",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Jumlah Siswa aktif",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Nama Kepala",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama singkat kepala",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Nip Kepala",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "ppk",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nip ppk",
+				"type": 200,
+				"size": 30,
+				"scale": 0,
+				"typeName": "varchar(30)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Kota",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kecamatan",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Jumlah Siswa",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kegiatan sehari-hari siswa",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Format Surat",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Tanda tangan Kepala",
+				"type": 201,
+				"size": 0,
+				"scale": 0,
+				"typeName": "mediumtext",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "sop",
+				"type": 201,
+				"size": 0,
+				"scale": 0,
+				"typeName": "mediumtext",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "ttd",
+				"type": 200,
+				"size": 800,
+				"scale": 0,
+				"typeName": "varchar(800)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "NPSN",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "deskripsi",
+				"type": 201,
+				"size": 0,
+				"scale": 0,
+				"typeName": "mediumtext",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "pengumuman kelulusan siswa baru",
+				"type": 200,
+				"size": 800,
+				"scale": 0,
+				"typeName": "varchar(800)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "promosi",
+				"type": 200,
+				"size": 900,
+				"scale": 0,
+				"typeName": "varchar(900)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "brosur pendaftaran",
+				"type": 200,
+				"size": 900,
+				"scale": 0,
+				"typeName": "varchar(900)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "sistem terima",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama satker",
+				"type": 200,
+				"size": 300,
+				"scale": 0,
+				"typeName": "varchar(300)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kode pos",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "struktur",
+				"type": 200,
+				"size": 900,
+				"scale": 0,
+				"typeName": "varchar(900)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status kepala",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Lat",
+				"type": 14,
+				"size": 20,
+				"scale": 10,
+				"typeName": "decimal(20,10)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Lng",
+				"type": 14,
+				"size": 20,
+				"scale": 10,
+				"typeName": "decimal(20,10)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kunci",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tgl_tutup_pendaftaran",
+				"type": 7,
+				"size": 0,
+				"scale": 0,
+				"typeName": "date",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama yayasan",
+				"type": 200,
+				"size": 200,
+				"scale": 0,
+				"typeName": "varchar(200)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "alamat yayasan",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama ketua yayasan",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tempat_tanggal lahir ketua",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "pekerjaan ketua yayasan",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nik ketua yayasan",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "alamat ketua yayasan",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "telepon ketua yayasan",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "peringkat akreditasi",
+				"type": 200,
+				"size": 30,
+				"scale": 0,
+				"typeName": "varchar(30)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "izin operasional",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tgl izin operasional",
+				"type": 7,
+				"size": 0,
+				"scale": 0,
+				"typeName": "date",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tanggal batas izin",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tanggal edit",
+				"type": 135,
+				"size": 0,
+				"scale": 0,
+				"typeName": "timestamp",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": "current_timestamp()",
+				"defaultValue": "CURRENT_TIMESTAMP"
+			},
+			{
+				"name": "tahun edit",
+				"type": 2,
+				"size": 4,
+				"scale": 0,
+				"typeName": "year(4)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "akte_dan_sk_menkumham",
+				"type": 200,
+				"size": 1200,
+				"scale": 0,
+				"typeName": "varchar(1200)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nomor_dan_tanggal_akte",
+				"type": 200,
+				"size": 200,
+				"scale": 0,
+				"typeName": "varchar(200)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nomor_dan_tanggal_sk_menkumham",
+				"type": 200,
+				"size": 200,
+				"scale": 0,
+				"typeName": "varchar(200)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [],
+		"uniqueFields": [],
+		"name": "profil"
 	},
 	"pages": [
 		{
