@@ -561,6 +561,21 @@
 						}
 					},
 					{
+						"id": "10",
+						"parent": "0",
+						"data": {
+							"name": {
+								"table": "rekap",
+								"type": 6
+							},
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"table": 564743320,
+							"pageType": "list"
+						}
+					},
+					{
 						"id": "8",
 						"parent": "0",
 						"data": {

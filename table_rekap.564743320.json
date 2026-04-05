@@ -15,8 +15,8 @@
 	"shortTableName": "rekap",
 	"dbType": 0,
 	"caseSensitiveSearch": "",
-	"tableOwnerIdField": "NSM",
-	"usersOwnerIdField": "username",
+	"tableOwnerIdField": "npsn",
+	"usersOwnerIdField": "npsn",
 	"advancedSecurityType": 1,
 	"pageSizeSelectorRecords": [
 		"10",
