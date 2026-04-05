@@ -632,44 +632,6 @@
 			"tableName": "ceklis"
 		},
 		{
-			"name": "file_sptjm",
-			"sqlExpression": "sptjm.file_sptjm",
-			"index": 18,
-			"strField": "file_sptjm",
-			"type": 200,
-			"viewFormats": [
-				{
-					"format": "Document Download",
-					"fileCustomExpression": "$value = \"\";",
-					"fileShowCustom": true,
-					"fileShowPdf": true,
-					"numberFractionalDigits": 0
-				}
-			],
-			"editFormats": [
-				{
-					"format": "Document upload",
-					"textboxMaxLenth": 1000,
-					"textHTML5Input": "0",
-					"fileMaxNumber": 1,
-					"fileSizeLimit": 1000,
-					"fileTypes": [
-						"pdf"
-					],
-					"fileThumbnailField": "th",
-					"timeConvention": 1
-				}
-			],
-			"filterFormat": {
-				"format": "Values list"
-			},
-			"codeUploadFolder": "$folder = \"files\";",
-			"label": {
-				"Indonesian": "File Sptjm"
-			},
-			"tableName": "sptjm"
-		},
-		{
 			"name": "dikunci_kantor",
 			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> \"\")",
 			"index": 10,
@@ -702,6 +664,26 @@
 				"Indonesian": "Dikunci Operator"
 			},
 			"tableName": ""
+		},
+		{
+			"name": "file_sptjm",
+			"sqlExpression": "sptjm.file_sptjm",
+			"index": 18,
+			"strField": "file_sptjm",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Document Download",
+					"fileShowPdf": true
+				}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "File Sptjm"
+			},
+			"tableName": "sptjm"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -1238,7 +1220,8 @@
 								"export_field11",
 								"export_field10",
 								"export_field13",
-								"export_field14"
+								"export_field14",
+								"export_field15"
 							]
 						}
 					},
@@ -1350,6 +1333,10 @@
 				},
 				"export_field14": {
 					"field": "dikunci_operator",
+					"type": "export_field"
+				},
+				"export_field15": {
+					"field": "file_sptjm",
 					"type": "export_field"
 				}
 			},
@@ -1823,7 +1810,7 @@
 									"cell": "headcell_field14"
 								},
 								{
-									"cell": "headcell_field15"
+									"cell": "headcell_field21"
 								},
 								{
 									"cell": "footcell_field11"
@@ -2213,28 +2200,6 @@
 							"columnName": "field",
 							"field": "catatan"
 						},
-						"headcell_field19": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label7"
-							],
-							"columnName": "field",
-							"field": "file_sptjm"
-						},
-						"headcell_field20": {
-							"model": "cell_field",
-							"items": [
-								"grid_field7"
-							],
-							"columnName": "field",
-							"field": "file_sptjm"
-						},
-						"headcell_field15": {
-							"model": "footcell_field",
-							"items": [],
-							"columnName": "field",
-							"field": "file_sptjm"
-						},
 						"headcell_field23": {
 							"model": "headcell_field",
 							"items": [
@@ -2282,6 +2247,28 @@
 							],
 							"field": "dikunci_kantor",
 							"columnName": "field"
+						},
+						"headcell_field19": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label7"
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
+						},
+						"headcell_field20": {
+							"model": "cell_field",
+							"items": [
+								"grid_field7"
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
+						},
+						"headcell_field21": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "selisih belum upload"
 						}
 					},
 					"deferredItems": [],
@@ -2513,6 +2500,7 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field6",
 						"search_panel_field5",
 						"search_panel_field4",
 						"search_panel_field1",
@@ -2620,7 +2608,8 @@
 				"print_details": {
 					"type": "print_details",
 					"tables": {
-						"1856869668": true
+						"1856869668": true,
+						"3968242650": true
 					}
 				},
 				"grid_field6": {
@@ -2656,7 +2645,11 @@
 					"table": 1856869668,
 					"badge": true,
 					"showCount": true,
-					"hideIfNone": false
+					"hideIfNone": false,
+					"icon": {
+						"glyph": "th",
+						"style": 0
+					}
 				},
 				"details_preview": {
 					"type": "details_preview",
@@ -2664,17 +2657,8 @@
 					"items": [],
 					"proceedLink": true,
 					"popup": false,
-					"pageId": "list"
-				},
-				"grid_field7": {
-					"field": "file_sptjm",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label7": {
-					"type": "grid_field_label",
-					"field": "file_sptjm"
+					"pageId": "list",
+					"hideEmptyPreview": false
 				},
 				"grid_field8": {
 					"field": "dikunci_kantor",
@@ -2735,6 +2719,20 @@
 				},
 				"print_records": {
 					"type": "print_records"
+				},
+				"grid_field7": {
+					"field": "file_sptjm",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label7": {
+					"type": "grid_field_label",
+					"field": "file_sptjm"
+				},
+				"search_panel_field6": {
+					"field": "file_sptjm",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -2824,43 +2822,553 @@
 					"recsPerRow": 1
 				},
 				"grid": {
-					"modelId": "simple-grid",
+					"modelId": "horizontal-grid",
 					"grid": [
 						{
+							"section": "head",
 							"cells": [
 								{
-									"cell": "c1"
+									"cell": "headcell_checkbox"
+								},
+								{
+									"cell": "headcell_field"
+								},
+								{
+									"cell": "headcell_field1"
+								},
+								{
+									"cell": "headcell_field2"
+								},
+								{
+									"cell": "headcell_field16"
+								},
+								{
+									"cell": "headcell_field3"
+								},
+								{
+									"cell": "headcell_field4"
+								},
+								{
+									"cell": "headcell_field5"
+								},
+								{
+									"cell": "headcell_field6"
+								},
+								{
+									"cell": "headcell_field7"
+								},
+								{
+									"cell": "headcell_field24"
+								},
+								{
+									"cell": "headcell_field23"
+								},
+								{
+									"cell": "headcell_field8"
+								},
+								{
+									"cell": "headcell_field12"
+								},
+								{
+									"cell": "headcell_field10"
+								},
+								{
+									"cell": "headcell_field9"
 								}
-							],
-							"section": ""
+							]
+						},
+						{
+							"section": "body",
+							"cells": [
+								{
+									"cell": "cell_checkbox"
+								},
+								{
+									"cell": "cell_field"
+								},
+								{
+									"cell": "cell_field1"
+								},
+								{
+									"cell": "cell_field2"
+								},
+								{
+									"cell": "headcell_field17"
+								},
+								{
+									"cell": "cell_field3"
+								},
+								{
+									"cell": "cell_field4"
+								},
+								{
+									"cell": "cell_field5"
+								},
+								{
+									"cell": "cell_field6"
+								},
+								{
+									"cell": "cell_field7"
+								},
+								{
+									"cell": "cell_field14"
+								},
+								{
+									"cell": "cell_field15"
+								},
+								{
+									"cell": "cell_field8"
+								},
+								{
+									"cell": "headcell_field13"
+								},
+								{
+									"cell": "cell_field10"
+								},
+								{
+									"cell": "cell_field9"
+								}
+							]
 						},
 						{
 							"cells": [
 								{
-									"cell": "c2"
+									"cell": "cell_dpreview",
+									"colspan": 16
 								}
 							],
-							"section": ""
+							"section": "body"
+						},
+						{
+							"section": "foot",
+							"cells": [
+								{
+									"cell": "footcell_checkbox"
+								},
+								{
+									"cell": "footcell_field"
+								},
+								{
+									"cell": "footcell_field1"
+								},
+								{
+									"cell": "footcell_field2"
+								},
+								{
+									"cell": "headcell_field18"
+								},
+								{
+									"cell": "footcell_field3"
+								},
+								{
+									"cell": "footcell_field4"
+								},
+								{
+									"cell": "footcell_field5"
+								},
+								{
+									"cell": "footcell_field6"
+								},
+								{
+									"cell": "footcell_field7"
+								},
+								{
+									"cell": "footcell_field14"
+								},
+								{
+									"cell": "footcell_field15"
+								},
+								{
+									"cell": "footcell_field8"
+								},
+								{
+									"cell": "headcell_field14"
+								},
+								{
+									"cell": "footcell_field10"
+								},
+								{
+									"cell": "footcell_field9"
+								}
+							]
 						}
 					],
 					"cells": {
-						"c1": {
-							"model": "c1",
+						"headcell_field": {
+							"model": "headcell_field",
 							"items": [
-								"simple_grid_field",
-								"simple_grid_field1",
-								"simple_grid_field2",
-								"simple_grid_field4",
-								"simple_grid_field5",
-								"simple_grid_field6",
-								"simple_grid_field7"
-							]
+								"simple_grid_field2"
+							],
+							"field": "tahun",
+							"columnName": "field"
 						},
-						"c2": {
-							"model": "c2",
+						"cell_field": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field"
+							],
+							"field": "tahun",
+							"columnName": "field"
+						},
+						"footcell_field": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tahun",
+							"columnName": "field"
+						},
+						"headcell_field1": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field9"
+							],
+							"field": "tingkat madrasah",
+							"columnName": "field"
+						},
+						"cell_field1": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field8"
+							],
+							"field": "tingkat madrasah",
+							"columnName": "field"
+						},
+						"footcell_field1": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tingkat madrasah",
+							"columnName": "field"
+						},
+						"headcell_field2": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field4"
+							],
+							"field": "NAMA SATUAN PENDIDIKAN",
+							"columnName": "field"
+						},
+						"cell_field2": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field3"
+							],
+							"field": "NAMA SATUAN PENDIDIKAN",
+							"columnName": "field"
+						},
+						"footcell_field2": {
+							"model": "footcell_field",
+							"items": [
+								"simple_grid_field10"
+							],
+							"field": "NAMA SATUAN PENDIDIKAN",
+							"columnName": "field"
+						},
+						"headcell_field3": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field11"
+							],
+							"field": "yatim",
+							"columnName": "field"
+						},
+						"cell_field3": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field5"
+							],
+							"field": "yatim",
+							"columnName": "field"
+						},
+						"footcell_field3": {
+							"model": "footcell_field",
+							"items": [
+								"simple_grid_field12"
+							],
+							"field": "yatim",
+							"columnName": "field"
+						},
+						"headcell_field4": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field13"
+							],
+							"field": "piatu",
+							"columnName": "field"
+						},
+						"cell_field4": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field6"
+							],
+							"field": "piatu",
+							"columnName": "field"
+						},
+						"footcell_field4": {
+							"model": "footcell_field",
+							"items": [
+								"simple_grid_field14"
+							],
+							"field": "piatu",
+							"columnName": "field"
+						},
+						"headcell_field5": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field15"
+							],
+							"field": "yatim_piatu",
+							"columnName": "field"
+						},
+						"cell_field5": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field7"
+							],
+							"field": "yatim_piatu",
+							"columnName": "field"
+						},
+						"footcell_field5": {
+							"model": "footcell_field",
+							"items": [
+								"simple_grid_field16"
+							],
+							"field": "yatim_piatu",
+							"columnName": "field"
+						},
+						"headcell_field6": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field17"
+							],
+							"field": "jumlah",
+							"columnName": "field"
+						},
+						"cell_field6": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field1"
+							],
+							"field": "jumlah",
+							"columnName": "field"
+						},
+						"footcell_field6": {
+							"model": "footcell_field",
+							"items": [
+								"simple_grid_field18"
+							],
+							"field": "jumlah",
+							"columnName": "field"
+						},
+						"headcell_field7": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"field": "penambahan",
+							"columnName": "field"
+						},
+						"cell_field7": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							],
+							"field": "penambahan",
+							"columnName": "field"
+						},
+						"footcell_field7": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals2"
+							],
+							"field": "penambahan",
+							"columnName": "field"
+						},
+						"headcell_field8": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"field": "selesai upload",
+							"columnName": "field"
+						},
+						"cell_field8": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"field": "selesai upload",
+							"columnName": "field"
+						},
+						"footcell_field8": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals"
+							],
+							"field": "selesai upload",
+							"columnName": "field"
+						},
+						"headcell_checkbox": {
+							"model": "headcell_checkbox",
+							"items": [],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"cell_checkbox": {
+							"model": "cell_checkbox",
+							"items": [],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"footcell_checkbox": {
+							"model": "footcell_checkbox",
+							"items": [],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"headcell_field10": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label3"
+							],
+							"field": "ceklis_berkas",
+							"columnName": "field"
+						},
+						"cell_field10": {
+							"model": "cell_field",
+							"items": [
+								"grid_field3"
+							],
+							"field": "ceklis_berkas",
+							"columnName": "field"
+						},
+						"footcell_field10": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "ceklis_berkas",
+							"columnName": "field"
+						},
+						"headcell_field12": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
+						},
+						"headcell_field13": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
+						},
+						"headcell_field14": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals1"
+							],
+							"columnName": "field",
+							"field": "selisih belum upload"
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label5"
+							],
+							"field": "catatan",
+							"columnName": "field"
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"grid_field5"
+							],
+							"field": "catatan",
+							"columnName": "field"
+						},
+						"footcell_field9": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "catatan",
+							"columnName": "field"
+						},
+						"headcell_field16": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label6"
+							],
+							"columnName": "field",
+							"field": "npsn"
+						},
+						"headcell_field17": {
+							"model": "cell_field",
+							"items": [
+								"grid_field6"
+							],
+							"columnName": "field",
+							"field": "npsn"
+						},
+						"headcell_field18": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "npsn"
+						},
+						"cell_dpreview": {
+							"model": "cell_dpreview",
 							"items": [
 								"details_preview"
-							]
+							],
+							"columnName": "field",
+							"field": "catatan"
+						},
+						"headcell_field23": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label8"
+							],
+							"field": "dikunci_kantor",
+							"columnName": "field"
+						},
+						"headcell_field24": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label9"
+							],
+							"field": "dikunci_operator",
+							"columnName": "field"
+						},
+						"cell_field14": {
+							"model": "cell_field",
+							"items": [
+								"grid_field9"
+							],
+							"field": "dikunci_operator",
+							"columnName": "field"
+						},
+						"cell_field15": {
+							"model": "cell_field",
+							"items": [
+								"grid_field8"
+							],
+							"field": "dikunci_kantor",
+							"columnName": "field"
+						},
+						"footcell_field14": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals3"
+							],
+							"field": "dikunci_operator",
+							"columnName": "field"
+						},
+						"footcell_field15": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals4"
+							],
+							"field": "dikunci_kantor",
+							"columnName": "field"
 						}
 					},
 					"deferredItems": [],
@@ -2877,39 +3385,259 @@
 				"print_pages": {
 					"type": "print_pages"
 				},
+				"simple_grid_field2": {
+					"type": "grid_field_label",
+					"field": "tahun",
+					"showFilter": true
+				},
 				"simple_grid_field": {
 					"field": "tahun",
-					"type": "simple_grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
-				"simple_grid_field1": {
-					"field": "jumlah",
-					"type": "simple_grid_field"
+				"simple_grid_field9": {
+					"type": "grid_field_label",
+					"field": "tingkat madrasah",
+					"showFilter": true
 				},
-				"simple_grid_field2": {
-					"field": "npsn",
-					"type": "simple_grid_field"
+				"simple_grid_field8": {
+					"field": "tingkat madrasah",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field4": {
-					"field": "NSM",
-					"type": "simple_grid_field"
+					"type": "grid_field_label",
+					"field": "NAMA SATUAN PENDIDIKAN",
+					"showFilter": true
+				},
+				"simple_grid_field3": {
+					"field": "NAMA SATUAN PENDIDIKAN",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field10": {
+					"type": "grid_field_totals",
+					"field": "NAMA SATUAN PENDIDIKAN",
+					"totals": "COUNT",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"simple_grid_field11": {
+					"type": "grid_field_label",
+					"field": "yatim",
+					"showFilter": true
 				},
 				"simple_grid_field5": {
 					"field": "yatim",
-					"type": "simple_grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field12": {
+					"type": "grid_field_totals",
+					"field": "yatim",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"simple_grid_field13": {
+					"type": "grid_field_label",
+					"field": "piatu",
+					"showFilter": true
 				},
 				"simple_grid_field6": {
 					"field": "piatu",
-					"type": "simple_grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field14": {
+					"type": "grid_field_totals",
+					"field": "piatu",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"simple_grid_field15": {
+					"type": "grid_field_label",
+					"field": "yatim_piatu",
+					"showFilter": true
 				},
 				"simple_grid_field7": {
 					"field": "yatim_piatu",
-					"type": "simple_grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field16": {
+					"type": "grid_field_totals",
+					"field": "yatim_piatu",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"simple_grid_field17": {
+					"type": "grid_field_label",
+					"field": "jumlah",
+					"showFilter": true
+				},
+				"simple_grid_field1": {
+					"field": "jumlah",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field18": {
+					"type": "grid_field_totals",
+					"field": "jumlah",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "penambahan",
+					"showFilter": true
+				},
+				"grid_field": {
+					"field": "penambahan",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals2": {
+					"type": "grid_field_totals",
+					"field": "penambahan",
+					"totals": "TOTAL"
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "selesai upload"
+				},
+				"grid_field1": {
+					"field": "selesai upload",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals": {
+					"type": "grid_field_totals",
+					"field": "selesai upload",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_label3": {
+					"type": "grid_field_label",
+					"field": "ceklis_berkas"
+				},
+				"grid_field3": {
+					"field": "ceklis_berkas",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "selisih belum upload"
+				},
+				"grid_field2": {
+					"field": "selisih belum upload",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals1": {
+					"type": "grid_field_totals",
+					"field": "selisih belum upload",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_label5": {
+					"type": "grid_field_label",
+					"field": "catatan"
+				},
+				"grid_field5": {
+					"field": "catatan",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"hideEmpty": true
+				},
+				"grid_field_label6": {
+					"type": "grid_field_label",
+					"field": "npsn"
+				},
+				"grid_field6": {
+					"field": "npsn",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"details_preview": {
 					"type": "details_preview",
 					"table": 1856869668,
 					"items": [],
-					"popup": false
+					"proceedLink": true,
+					"popup": false,
+					"pageId": "list",
+					"hideEmptyPreview": false
+				},
+				"grid_field_label8": {
+					"type": "grid_field_label",
+					"field": "dikunci_kantor"
+				},
+				"grid_field_label9": {
+					"type": "grid_field_label",
+					"field": "dikunci_operator"
+				},
+				"grid_field9": {
+					"field": "dikunci_operator",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field8": {
+					"field": "dikunci_kantor",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals3": {
+					"type": "grid_field_totals",
+					"field": "dikunci_operator",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_totals4": {
+					"type": "grid_field_totals",
+					"field": "dikunci_kantor",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
 				}
 			},
 			"dbProps": {},
@@ -3032,9 +3760,9 @@
 								"integrated_search_field13",
 								"integrated_search_field12",
 								"integrated_search_field14",
-								"integrated_search_field15",
 								"integrated_search_field16",
-								"integrated_search_field17"
+								"integrated_search_field17",
+								"integrated_search_field15"
 							]
 						}
 					},
@@ -3143,11 +3871,6 @@
 					"type": "integrated_search_field",
 					"orientation": 0
 				},
-				"integrated_search_field15": {
-					"field": "file_sptjm",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
 				"integrated_search_field16": {
 					"field": "dikunci_kantor",
 					"type": "integrated_search_field",
@@ -3155,6 +3878,11 @@
 				},
 				"integrated_search_field17": {
 					"field": "dikunci_operator",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field15": {
+					"field": "file_sptjm",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -3453,7 +4181,8 @@
 								"simple_grid_field13",
 								"simple_grid_field14",
 								"simple_grid_field15",
-								"simple_grid_field16"
+								"simple_grid_field16",
+								"simple_grid_field17"
 							]
 						}
 					},
@@ -3534,6 +4263,10 @@
 				},
 				"simple_grid_field16": {
 					"field": "dikunci_operator",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field17": {
+					"field": "file_sptjm",
 					"type": "simple_grid_field"
 				}
 			},
@@ -3652,7 +4385,8 @@
 								"simple_grid_field13",
 								"simple_grid_field14",
 								"simple_grid_field15",
-								"simple_grid_field16"
+								"simple_grid_field16",
+								"simple_grid_field17"
 							]
 						}
 					},
@@ -3730,6 +4464,10 @@
 				},
 				"simple_grid_field16": {
 					"field": "dikunci_operator",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field17": {
+					"field": "file_sptjm",
 					"type": "simple_grid_field"
 				}
 			},

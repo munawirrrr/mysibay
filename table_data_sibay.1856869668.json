@@ -2483,6 +2483,17 @@
 							"section": "",
 							"cells": [
 								{
+									"cell": "c7"
+								},
+								{
+									"cell": "c8"
+								}
+							]
+						},
+						{
+							"section": "",
+							"cells": [
+								{
 									"cell": "c"
 								},
 								{
@@ -2529,6 +2540,16 @@
 							"items": []
 						},
 						"c6": {
+							"model": "c4",
+							"items": []
+						},
+						"c7": {
+							"model": "c3",
+							"items": [
+								"custom_button1"
+							]
+						},
+						"c8": {
 							"model": "c4",
 							"items": []
 						}
@@ -3715,6 +3736,18 @@
 					"tables": {
 						"564743320": "true"
 					}
+				},
+				"custom_button1": {
+					"type": "custom_button",
+					"eventGid": 3328966633,
+					"label": {
+						"text": "tutorial",
+						"type": 0
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "primary"
 				}
 			},
 			"dbProps": {},

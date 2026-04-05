@@ -30,7 +30,7 @@
 		"npsn",
 		"tahun"
 	],
-	"detailsBadgeColor": "2F4F4F",
+	"detailsBadgeColor": "000",
 	"fields": [
 		{
 			"name": "nama Madrasah",
@@ -1259,8 +1259,22 @@
 				},
 				"top": {
 					"modelId": "list-sidebar-top",
-					"grid": [],
-					"cells": {},
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": []
+						}
+					},
 					"deferredItems": [],
 					"recsPerRow": 1
 				}
@@ -1586,6 +1600,14 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -1595,6 +1617,10 @@
 								"print_header",
 								"print_subheader"
 							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": []
 						}
 					},
 					"deferredItems": [],

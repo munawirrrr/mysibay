@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "tutorial",
+	"afterJsCode": "window.popup = Runner.displayPopup({\r\n                                   url: Runner.pages.getUrl(\"https://home.penmadpidie.com/newsmain_view.php?editid1=28\"),\r\n                                   width: 1000,\r\n                                   height: 900,\r\n                                   header: 'rekap'\r\n                                });"
+}
