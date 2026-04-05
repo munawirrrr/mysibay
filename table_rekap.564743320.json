@@ -674,6 +674,8 @@
 			"viewFormats": [
 				{
 					"format": "Document Download",
+					"fileCustomExpression": "$value = \"\";",
+					"fileShowCustom": true,
 					"fileShowPdf": true
 				}
 			],
