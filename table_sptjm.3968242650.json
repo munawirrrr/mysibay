@@ -1,9 +1,10 @@
 {
-	"sql": "SELECT\nprofil.`nama Madrasah`,\nsptjm.npsn,\nprofil.`Nomor Telpon`,\nsptjm.tahun,\nsptjm.file_sptjm,\nsptjm.status,\nsptjm.catatan\nFROM sptjm\nINNER JOIN profil ON sptjm.npsn = profil.NPSN\nWHERE (sptjm.tahun = YEAR(CURDATE()))",
+	"sql": "SELECT\n\tprofil.`nama Madrasah`,\n\tsptjm.npsn,\n\tprofil.`Nomor Telpon`,\n\tsptjm.tahun,\n\tsptjm.file_sptjm,\n\tsptjm.status,\n\tsptjm.catatan,\n\tsptjm.pertinggal_kantor\nFROM\n\tsptjm\n\tINNER JOIN profil ON profil.NPSN = sptjm.npsn\nWHERE\nsptjm.tahun = YEAR(CURDATE())\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "sptjm",
 	"name": "sptjm",
 	"shortTableName": "sptjm",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
@@ -35,6 +36,7 @@
 		{
 			"name": "nama Madrasah",
 			"sqlExpression": "profil.`nama Madrasah`",
+			"index": 1,
 			"strField": "nama Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -76,6 +78,7 @@
 		{
 			"name": "npsn",
 			"sqlExpression": "sptjm.npsn",
+			"index": 2,
 			"strField": "npsn",
 			"type": 200,
 			"viewFormats": [
@@ -119,6 +122,7 @@
 		{
 			"name": "Nomor Telpon",
 			"sqlExpression": "profil.`Nomor Telpon`",
+			"index": 3,
 			"strField": "Nomor Telpon",
 			"type": 200,
 			"viewFormats": [
@@ -160,6 +164,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "sptjm.tahun",
+			"index": 4,
 			"strField": "tahun",
 			"type": 200,
 			"viewFormats": [
@@ -199,6 +204,7 @@
 		{
 			"name": "file_sptjm",
 			"sqlExpression": "sptjm.file_sptjm",
+			"index": 5,
 			"strField": "file_sptjm",
 			"type": 200,
 			"viewFormats": [
@@ -245,6 +251,7 @@
 		{
 			"name": "status",
 			"sqlExpression": "sptjm.status",
+			"index": 6,
 			"strField": "status",
 			"type": 200,
 			"viewFormats": [
@@ -287,6 +294,7 @@
 		{
 			"name": "catatan",
 			"sqlExpression": "sptjm.catatan",
+			"index": 7,
 			"strField": "catatan",
 			"type": 200,
 			"viewFormats": [
@@ -318,6 +326,23 @@
 			},
 			"placeholder": {
 				"Indonesian": ""
+			},
+			"tableName": "sptjm"
+		},
+		{
+			"name": "pertinggal_kantor",
+			"sqlExpression": "sptjm.pertinggal_kantor",
+			"index": 8,
+			"strField": "pertinggal_kantor",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Pertinggal Kantor"
 			},
 			"tableName": "sptjm"
 		}
@@ -365,6 +390,16 @@
 			},
 			"id": "C",
 			"showCount": true
+		},
+		{
+			"title": {
+				"text": "belum bawa kekantor",
+				"type": 0
+			},
+			"where": "sptjm.pertinggal_kantor not like \"1\"",
+			"id": "min 5 pidie",
+			"showCount": true,
+			"hideEmpty": true
 		}
 	],
 	"eventHandlers": [
@@ -390,6 +425,84 @@
 	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "npsn",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tahun",
+				"type": 200,
+				"size": 4,
+				"scale": 0,
+				"typeName": "varchar(4)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "file_sptjm",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "catatan",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "pertinggal_kantor",
+				"type": 200,
+				"size": 250,
+				"scale": 0,
+				"typeName": "varchar(250)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"npsn",
+			"tahun"
+		],
+		"uniqueFields": [],
+		"name": "sptjm"
 	},
 	"pages": [
 		{
@@ -557,7 +670,8 @@
 							"model": "c3",
 							"items": [
 								"integrated_edit_field2",
-								"integrated_edit_field"
+								"integrated_edit_field",
+								"integrated_edit_field1"
 							]
 						}
 					},
@@ -630,6 +744,11 @@
 						"table": null,
 						"type": 5
 					}
+				},
+				"integrated_edit_field1": {
+					"field": "pertinggal_kantor",
+					"type": "integrated_edit_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -748,6 +867,7 @@
 							"model": "c3",
 							"items": [
 								"integrated_edit_field5",
+								"integrated_edit_field1",
 								"integrated_edit_field"
 							]
 						}
@@ -787,7 +907,7 @@
 					"field": "catatan",
 					"type": "integrated_edit_field",
 					"orientation": 0,
-					"updateOnEdit": false
+					"updateOnEdit": true
 				},
 				"integrated_edit_field5": {
 					"field": "status",
@@ -797,6 +917,12 @@
 				},
 				"update_records": {
 					"type": "update_records"
+				},
+				"integrated_edit_field1": {
+					"field": "pertinggal_kantor",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": true
 				}
 			},
 			"dbProps": {},
@@ -883,7 +1009,8 @@
 								"export_field4",
 								"export_field5",
 								"export_field3",
-								"export_field6"
+								"export_field6",
+								"export_field7"
 							]
 						}
 					},
@@ -958,6 +1085,10 @@
 				},
 				"export_field6": {
 					"field": "catatan",
+					"type": "export_field"
+				},
+				"export_field7": {
+					"field": "pertinggal_kantor",
 					"type": "export_field"
 				}
 			},
@@ -1246,7 +1377,8 @@
 								"simple_grid_field1",
 								"simple_grid_field2",
 								"simple_grid_field3",
-								"simple_grid_field6"
+								"simple_grid_field6",
+								"simple_grid_field7"
 							]
 						}
 					},
@@ -1311,6 +1443,7 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field7",
 						"search_panel_field6",
 						"search_panel_field2",
 						"search_panel_field5",
@@ -1524,6 +1657,16 @@
 						"type": 0
 					},
 					"editedByRte": true
+				},
+				"simple_grid_field7": {
+					"field": "pertinggal_kantor",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field7": {
+					"field": "pertinggal_kantor",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -1648,7 +1791,8 @@
 								"simple_grid_field4",
 								"simple_grid_field5",
 								"simple_grid_field3",
-								"simple_grid_field6"
+								"simple_grid_field6",
+								"simple_grid_field7"
 							]
 						}
 					},
@@ -1698,6 +1842,10 @@
 					"field": "catatan",
 					"type": "simple_grid_field",
 					"totals": ""
+				},
+				"simple_grid_field7": {
+					"field": "pertinggal_kantor",
+					"type": "simple_grid_field"
 				}
 			},
 			"dbProps": {},
@@ -1805,7 +1953,8 @@
 							"items": [
 								"integrated_search_field4",
 								"integrated_search_field",
-								"integrated_search_field1"
+								"integrated_search_field1",
+								"integrated_search_field2"
 							]
 						}
 					},
@@ -1843,6 +1992,11 @@
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": false
+				},
+				"integrated_search_field2": {
+					"field": "pertinggal_kantor",
+					"type": "integrated_search_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
