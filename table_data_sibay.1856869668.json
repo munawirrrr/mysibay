@@ -3720,7 +3720,8 @@
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
-					"field": "nama Madrasah"
+					"field": "nama Madrasah",
+					"showFilter": true
 				},
 				"master_info": {
 					"type": "master_info",

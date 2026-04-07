@@ -336,10 +336,14 @@
 			"strField": "pertinggal_kantor",
 			"type": 200,
 			"viewFormats": [
-				{}
+				{
+					"format": "Checkbox"
+				}
 			],
 			"editFormats": [
-				{}
+				{
+					"format": "Checkbox"
+				}
 			],
 			"label": {
 				"Indonesian": "Pertinggal Kantor"
@@ -1585,34 +1589,39 @@
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"simple_grid_field1": {
 					"field": "tahun",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"simple_grid_field2": {
 					"field": "file_sptjm",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"simple_grid_field3": {
 					"field": "status",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"simple_grid_field4": {
 					"field": "nama Madrasah",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"search_panel_field4": {
 					"field": "nama Madrasah",
@@ -1623,7 +1632,8 @@
 					"field": "Nomor Telpon",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"search_panel_field5": {
 					"field": "Nomor Telpon",
@@ -1642,7 +1652,8 @@
 					"type": "simple_grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false,
-					"totals": ""
+					"totals": "",
+					"showFilter": true
 				},
 				"search_panel_field6": {
 					"field": "catatan",
@@ -1662,7 +1673,8 @@
 					"field": "pertinggal_kantor",
 					"type": "simple_grid_field",
 					"inlineAdd": false,
-					"inlineEdit": false
+					"inlineEdit": false,
+					"showFilter": true
 				},
 				"search_panel_field7": {
 					"field": "pertinggal_kantor",

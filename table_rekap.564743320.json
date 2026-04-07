@@ -7,7 +7,7 @@
 			"asc": true
 		}
 	],
-	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tceklis.catatan,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link,\n\tsptjm.file_sptjm\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
+	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tceklis.catatan,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link,\n\tsptjm.status as status_sptjm\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -666,24 +666,19 @@
 			"tableName": ""
 		},
 		{
-			"name": "file_sptjm",
-			"sqlExpression": "sptjm.file_sptjm",
+			"name": "status_sptjm",
+			"sqlExpression": "sptjm.status",
 			"index": 18,
-			"strField": "file_sptjm",
+			"strField": "status",
 			"type": 200,
 			"viewFormats": [
-				{
-					"format": "Document Download",
-					"fileCustomExpression": "$value = \"\";",
-					"fileShowCustom": true,
-					"fileShowPdf": true
-				}
+				{}
 			],
 			"editFormats": [
 				{}
 			],
 			"label": {
-				"Indonesian": "File Sptjm"
+				"Indonesian": "Status Sptjm"
 			},
 			"tableName": "sptjm"
 		}
@@ -715,7 +710,7 @@
 		{
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
-			"code": "if ($data[\"ceklis_berkas\"] == \"0\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"ceklis_berkas_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_kantor\"])>  0) {\r\n    $record[\"dikunci_kantor_css\"] = \"background:#360FB8;color:#FFFAF0\";\r\n}\r\n"
+			"code": "if ($data[\"status_sptjm\"] == \"disetujui\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_kantor\"])>  0) {\r\n    $record[\"dikunci_kantor_css\"] = \"background:#360FB8;color:#FFFAF0\";\r\n}\r\n"
 		}
 	],
 	"sortByFields": {
@@ -1338,7 +1333,7 @@
 					"type": "export_field"
 				},
 				"export_field15": {
-					"field": "file_sptjm",
+					"field": "status_sptjm",
 					"type": "export_field"
 				}
 			},
@@ -1679,9 +1674,6 @@
 									"cell": "headcell_field12"
 								},
 								{
-									"cell": "headcell_field19"
-								},
-								{
 									"cell": "headcell_field11"
 								},
 								{
@@ -1689,6 +1681,9 @@
 								},
 								{
 									"cell": "headcell_field9"
+								},
+								{
+									"cell": "headcell_field15"
 								}
 							]
 						},
@@ -1741,9 +1736,6 @@
 									"cell": "headcell_field13"
 								},
 								{
-									"cell": "headcell_field20"
-								},
-								{
 									"cell": "cell_field11"
 								},
 								{
@@ -1751,6 +1743,9 @@
 								},
 								{
 									"cell": "cell_field9"
+								},
+								{
+									"cell": "cell_field12"
 								}
 							]
 						},
@@ -1812,9 +1807,6 @@
 									"cell": "headcell_field14"
 								},
 								{
-									"cell": "headcell_field21"
-								},
-								{
 									"cell": "footcell_field11"
 								},
 								{
@@ -1822,6 +1814,9 @@
 								},
 								{
 									"cell": "footcell_field9"
+								},
+								{
+									"cell": "footcell_field12"
 								}
 							]
 						}
@@ -2200,7 +2195,7 @@
 								"details_preview"
 							],
 							"columnName": "field",
-							"field": "catatan"
+							"field": "status_sptjm"
 						},
 						"headcell_field23": {
 							"model": "headcell_field",
@@ -2250,27 +2245,27 @@
 							"field": "dikunci_kantor",
 							"columnName": "field"
 						},
-						"headcell_field19": {
+						"headcell_field15": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label7"
 							],
-							"columnName": "field",
-							"field": "selisih belum upload"
+							"field": "status_sptjm",
+							"columnName": "field"
 						},
-						"headcell_field20": {
+						"cell_field12": {
 							"model": "cell_field",
 							"items": [
 								"grid_field7"
 							],
-							"columnName": "field",
-							"field": "selisih belum upload"
+							"field": "status_sptjm",
+							"columnName": "field"
 						},
-						"headcell_field21": {
+						"footcell_field12": {
 							"model": "footcell_field",
 							"items": [],
-							"columnName": "field",
-							"field": "selisih belum upload"
+							"field": "status_sptjm",
+							"columnName": "field"
 						}
 					},
 					"deferredItems": [],
@@ -2429,7 +2424,8 @@
 				},
 				"grid_field_label1": {
 					"type": "grid_field_label",
-					"field": "selesai upload"
+					"field": "selesai upload",
+					"showFilter": true
 				},
 				"grid_field1": {
 					"field": "selesai upload",
@@ -2543,7 +2539,8 @@
 				},
 				"grid_field_label4": {
 					"type": "grid_field_label",
-					"field": "link"
+					"field": "link",
+					"showFilter": true
 				},
 				"search_panel_field3": {
 					"field": "link",
@@ -2560,7 +2557,8 @@
 				},
 				"grid_field_label3": {
 					"type": "grid_field_label",
-					"field": "ceklis_berkas"
+					"field": "ceklis_berkas",
+					"showFilter": true
 				},
 				"search_panel_field2": {
 					"field": "ceklis_berkas",
@@ -2574,7 +2572,8 @@
 				},
 				"grid_field_label2": {
 					"type": "grid_field_label",
-					"field": "selisih belum upload"
+					"field": "selisih belum upload",
+					"showFilter": true
 				},
 				"grid_field5": {
 					"field": "catatan",
@@ -2585,7 +2584,8 @@
 				},
 				"grid_field_label5": {
 					"type": "grid_field_label",
-					"field": "catatan"
+					"field": "catatan",
+					"showFilter": true
 				},
 				"search_panel_field1": {
 					"field": "catatan",
@@ -2622,7 +2622,8 @@
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
-					"field": "npsn"
+					"field": "npsn",
+					"showFilter": true
 				},
 				"grid_field_totals": {
 					"type": "grid_field_totals",
@@ -2670,7 +2671,8 @@
 				},
 				"grid_field_label8": {
 					"type": "grid_field_label",
-					"field": "dikunci_kantor"
+					"field": "dikunci_kantor",
+					"showFilter": true
 				},
 				"grid_field9": {
 					"field": "dikunci_operator",
@@ -2680,7 +2682,8 @@
 				},
 				"grid_field_label9": {
 					"type": "grid_field_label",
-					"field": "dikunci_operator"
+					"field": "dikunci_operator",
+					"showFilter": true
 				},
 				"search_panel_field4": {
 					"field": "dikunci_kantor",
@@ -2723,17 +2726,16 @@
 					"type": "print_records"
 				},
 				"grid_field7": {
-					"field": "file_sptjm",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
+					"field": "status_sptjm",
+					"type": "grid_field"
 				},
 				"grid_field_label7": {
 					"type": "grid_field_label",
-					"field": "file_sptjm"
+					"field": "status_sptjm",
+					"showFilter": true
 				},
 				"search_panel_field6": {
-					"field": "file_sptjm",
+					"field": "status_sptjm",
 					"type": "search_panel_field"
 				}
 			},
@@ -2876,6 +2878,9 @@
 								},
 								{
 									"cell": "headcell_field9"
+								},
+								{
+									"cell": "headcell_field11"
 								}
 							]
 						},
@@ -2929,6 +2934,9 @@
 								},
 								{
 									"cell": "cell_field9"
+								},
+								{
+									"cell": "cell_field11"
 								}
 							]
 						},
@@ -2936,7 +2944,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 16
+									"colspan": 17
 								}
 							],
 							"section": "body"
@@ -2991,6 +2999,9 @@
 								},
 								{
 									"cell": "footcell_field9"
+								},
+								{
+									"cell": "footcell_field11"
 								}
 							]
 						}
@@ -3371,6 +3382,25 @@
 							],
 							"field": "dikunci_kantor",
 							"columnName": "field"
+						},
+						"headcell_field11": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label4"
+							],
+							"field": "status_sptjm"
+						},
+						"cell_field11": {
+							"model": "cell_field",
+							"items": [
+								"grid_field4"
+							],
+							"field": "status_sptjm"
+						},
+						"footcell_field11": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status_sptjm"
 						}
 					},
 					"deferredItems": [],
@@ -3640,6 +3670,14 @@
 						"type": 0,
 						"text": ""
 					}
+				},
+				"grid_field4": {
+					"field": "status_sptjm",
+					"type": "grid_field"
+				},
+				"grid_field_label4": {
+					"type": "grid_field_label",
+					"field": "status_sptjm"
 				}
 			},
 			"dbProps": {},
@@ -3884,7 +3922,7 @@
 					"orientation": 0
 				},
 				"integrated_search_field15": {
-					"field": "file_sptjm",
+					"field": "status_sptjm",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -4268,7 +4306,7 @@
 					"type": "simple_grid_field"
 				},
 				"simple_grid_field17": {
-					"field": "file_sptjm",
+					"field": "status_sptjm",
 					"type": "simple_grid_field"
 				}
 			},
@@ -4469,7 +4507,7 @@
 					"type": "simple_grid_field"
 				},
 				"simple_grid_field17": {
-					"field": "file_sptjm",
+					"field": "status_sptjm",
 					"type": "simple_grid_field"
 				}
 			},
