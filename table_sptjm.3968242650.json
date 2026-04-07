@@ -394,16 +394,6 @@
 			},
 			"id": "C",
 			"showCount": true
-		},
-		{
-			"title": {
-				"text": "belum bawa kekantor",
-				"type": 0
-			},
-			"where": "sptjm.pertinggal_kantor not like \"1\"",
-			"id": "min 5 pidie",
-			"showCount": true,
-			"hideEmpty": true
 		}
 	],
 	"eventHandlers": [
