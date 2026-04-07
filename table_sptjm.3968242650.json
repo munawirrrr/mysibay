@@ -664,8 +664,7 @@
 							"model": "c3",
 							"items": [
 								"integrated_edit_field2",
-								"integrated_edit_field",
-								"integrated_edit_field1"
+								"integrated_edit_field"
 							]
 						}
 					},
@@ -738,11 +737,6 @@
 						"table": null,
 						"type": 5
 					}
-				},
-				"integrated_edit_field1": {
-					"field": "pertinggal_kantor",
-					"type": "integrated_edit_field",
-					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -1371,8 +1365,8 @@
 								"simple_grid_field1",
 								"simple_grid_field2",
 								"simple_grid_field3",
-								"simple_grid_field6",
-								"simple_grid_field7"
+								"simple_grid_field7",
+								"simple_grid_field6"
 							]
 						}
 					},
@@ -1635,7 +1629,9 @@
 					"label": {
 						"type": 0,
 						"text": "Update status"
-					}
+					},
+					"icon": {},
+					"popup": true
 				},
 				"simple_grid_field6": {
 					"field": "catatan",
