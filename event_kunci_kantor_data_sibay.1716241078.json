@@ -1,0 +1,6 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "kunci kantor data sibay",
+	"serverCode": "while($record = $button->getNextSelectedRecord())\n{\n    $sql = \"UPDATE data_sibay \n            SET kunci_kemenag_pidie = 'selesai' \n            WHERE npsn = '\".$record[\"npsn\"].\"' \n            AND tahun = '\".$record[\"tahun\"].\"'\";\n\n    DB::Exec($sql);\n}",
+	"afterJsCode": "location.reload();"
+}

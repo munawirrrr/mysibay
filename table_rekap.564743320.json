@@ -711,6 +711,11 @@
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
 			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_kantor\"])>  0) {\r\n    $record[\"dikunci_kantor_css\"] = \"background:#360FB8;color:#FFFAF0\";\r\n}\r\n"
+		},
+		{
+			"eventId": "EVENT_BEFORESHOW_LIST",
+			"pageType": "list",
+			"code": "if (Security::getUserName()!=\"admin\") {\n          $pageObject->hideItem(\"kunci\");\n           $pageObject->hideItem(\"batal\");\n}"
 		}
 	],
 	"sortByFields": {
@@ -1509,7 +1514,9 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"update_selected"
+								"update_selected",
+								"kunci",
+								"batal"
 							]
 						},
 						"c2": {
@@ -2565,7 +2572,8 @@
 					"type": "search_panel_field"
 				},
 				"update_selected": {
-					"type": "update_selected"
+					"type": "update_selected",
+					"icon": {}
 				},
 				"grid_field3": {
 					"field": "ceklis_berkas",
@@ -2755,6 +2763,30 @@
 				"search_panel_field6": {
 					"field": "status_sptjm",
 					"type": "search_panel_field"
+				},
+				"kunci": {
+					"type": "custom_button",
+					"eventGid": 1716241078,
+					"label": {
+						"type": 0,
+						"text": "kunci data sibay"
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "success"
+				},
+				"batal": {
+					"type": "custom_button",
+					"eventGid": 2248587911,
+					"label": {
+						"text": "batalkan kunci",
+						"type": 0
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "danger"
 				}
 			},
 			"dbProps": {},
