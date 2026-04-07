@@ -18,6 +18,7 @@
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
 	"advancedSecurityType": 1,
+	"pageSizeRecords": 50,
 	"pageSizeSelectorRecords": [
 		"10",
 		"20",
@@ -1514,7 +1515,6 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"update_selected",
 								"kunci",
 								"batal"
 							]
@@ -1585,7 +1585,8 @@
 							"model": "c1",
 							"items": [
 								"menu",
-								"search_panel"
+								"search_panel",
+								"filter_panel"
 							]
 						}
 					},
@@ -2487,7 +2488,9 @@
 				},
 				"search_panel_field": {
 					"field": "selesai upload",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"userinfo_link": {
 					"type": "userinfo_link"
@@ -2529,7 +2532,8 @@
 						"search_panel_field1",
 						"search_panel_field2",
 						"search_panel_field3"
-					]
+					],
+					"_flexiblePanel": true
 				},
 				"breadcrumb": {
 					"type": "breadcrumb"
@@ -2569,11 +2573,9 @@
 				},
 				"search_panel_field3": {
 					"field": "link",
-					"type": "search_panel_field"
-				},
-				"update_selected": {
-					"type": "update_selected",
-					"icon": {}
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"grid_field3": {
 					"field": "ceklis_berkas",
@@ -2588,7 +2590,9 @@
 				},
 				"search_panel_field2": {
 					"field": "ceklis_berkas",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"grid_field2": {
 					"field": "selisih belum upload",
@@ -2615,7 +2619,9 @@
 				},
 				"search_panel_field1": {
 					"field": "catatan",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"grid_alldetails_link": {
 					"type": "grid_alldetails_link",
@@ -2713,11 +2719,15 @@
 				},
 				"search_panel_field4": {
 					"field": "dikunci_kantor",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field5": {
 					"field": "dikunci_operator",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"grid_field_totals2": {
 					"type": "grid_field_totals",
@@ -2762,7 +2772,9 @@
 				},
 				"search_panel_field6": {
 					"field": "status_sptjm",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"kunci": {
 					"type": "custom_button",
@@ -2787,6 +2799,16 @@
 						"style": 0
 					},
 					"buttonStyle": "danger"
+				},
+				"filter_panel": {
+					"type": "filter_panel",
+					"items": [
+						"filter_panel_field"
+					]
+				},
+				"filter_panel_field": {
+					"field": "status_sptjm",
+					"type": "filter_panel_field"
 				}
 			},
 			"dbProps": {},
