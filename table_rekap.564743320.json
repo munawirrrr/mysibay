@@ -1674,6 +1674,9 @@
 									"cell": "headcell_field12"
 								},
 								{
+									"cell": "headcell_field19"
+								},
+								{
 									"cell": "headcell_field11"
 								},
 								{
@@ -1681,9 +1684,6 @@
 								},
 								{
 									"cell": "headcell_field9"
-								},
-								{
-									"cell": "headcell_field15"
 								}
 							]
 						},
@@ -1736,6 +1736,9 @@
 									"cell": "headcell_field13"
 								},
 								{
+									"cell": "headcell_field20"
+								},
+								{
 									"cell": "cell_field11"
 								},
 								{
@@ -1743,9 +1746,6 @@
 								},
 								{
 									"cell": "cell_field9"
-								},
-								{
-									"cell": "cell_field12"
 								}
 							]
 						},
@@ -1807,6 +1807,9 @@
 									"cell": "headcell_field14"
 								},
 								{
+									"cell": "headcell_field15"
+								},
+								{
 									"cell": "footcell_field11"
 								},
 								{
@@ -1814,9 +1817,6 @@
 								},
 								{
 									"cell": "footcell_field9"
-								},
-								{
-									"cell": "footcell_field12"
 								}
 							]
 						}
@@ -2245,27 +2245,27 @@
 							"field": "dikunci_kantor",
 							"columnName": "field"
 						},
-						"headcell_field15": {
+						"headcell_field19": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label7"
 							],
-							"field": "status_sptjm",
-							"columnName": "field"
+							"columnName": "field",
+							"field": "selisih belum upload"
 						},
-						"cell_field12": {
+						"headcell_field20": {
 							"model": "cell_field",
 							"items": [
 								"grid_field7"
 							],
-							"field": "status_sptjm",
-							"columnName": "field"
+							"columnName": "field",
+							"field": "selisih belum upload"
 						},
-						"footcell_field12": {
+						"headcell_field15": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "status_sptjm",
-							"columnName": "field"
+							"columnName": "field",
+							"field": "selisih belum upload"
 						}
 					},
 					"deferredItems": [],
@@ -2740,6 +2740,7 @@
 				}
 			},
 			"dbProps": {},
+			"responsiveGrid": false,
 			"version": 13,
 			"imageItem": {
 				"type": "page_image"
