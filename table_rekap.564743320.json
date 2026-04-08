@@ -1,13 +1,13 @@
 {
 	"orderInfo": [
 		{
-			"index": 14,
-			"field": "ceklis_berkas",
-			"expr": "profil.`tingkat madrasah`",
-			"asc": true
+			"index": 0,
+			"field": "",
+			"expr": "data_sibay.nisn",
+			"asc": false
 		}
 	],
-	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tceklis.catatan,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>') AS link,\n\tcase \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' then 'selesai'\n\t else 'belum upload & belum diterima dikantor'end AS status_sptjm\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`,\n\tceklis.ceklis_berkas,\n\tCONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')\nORDER BY\n\tprofil.`tingkat madrasah`\n",
+	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tcase \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' then 'selesai'\n\t else 'belum upload & belum diterima dikantor'end AS status_sptjm,\n\tCASE \n    WHEN COUNT(data_sibay.nisn) - \n         SUM(CASE \n                WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 \n                ELSE 0 \n             END) = 0 \n    THEN 'semua progres sudah selesai, terima kasih'\n    ELSE 'belum selesai' \nEND AS status_proses_kunci_kantor\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`\nORDER BY\n\tdata_sibay.nisn DESC\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -575,64 +575,6 @@
 			"tableName": ""
 		},
 		{
-			"name": "link",
-			"sqlExpression": "CONCAT('<a href=\"ceklis_list.php?q=%28npsn~equals~', ceklis.npsn, '%29\" \n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        style=\"\n        display:inline-block;\n        padding:8px 16px;\n        font-size:13px;\n        font-weight:500;\n        color:#fff;\n        text-decoration:none;\n        border-radius:12px;\n        background:linear-gradient(135deg,#0A84FF,#0066FF);\n        box-shadow:0 4px 12px rgba(0,0,0,0.15);\n        transition:all .2s ease;\n        \"\n        onmouseover=\"this.style.transform=\\'scale(1.05)\\';this.style.boxShadow=\\'0 6px 16px rgba(0,0,0,0.25)\\'\"\n        onmouseout=\"this.style.transform=\\'scale(1)\\';this.style.boxShadow=\\'0 4px 12px rgba(0,0,0,0.15)\\'\"\n        >\n        chek\n        </a>')",
-			"index": 17,
-			"strField": "link",
-			"type": 201,
-			"viewFormats": [
-				{
-					"format": "HTML",
-					"textShowFirst": false
-				}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Link"
-			},
-			"tableName": ""
-		},
-		{
-			"name": "ceklis_berkas",
-			"sqlExpression": "ceklis.ceklis_berkas",
-			"index": 15,
-			"strField": "ceklis_berkas",
-			"type": 200,
-			"viewFormats": [
-				{
-					"format": "Checkbox"
-				}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Ceklis Berkas"
-			},
-			"tableName": "ceklis"
-		},
-		{
-			"name": "catatan",
-			"sqlExpression": "ceklis.catatan",
-			"index": 16,
-			"strField": "catatan",
-			"type": 200,
-			"viewFormats": [
-				{
-					"textShowFirst": false
-				}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Catatan"
-			},
-			"tableName": "ceklis"
-		},
-		{
 			"name": "dikunci_kantor",
 			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> \"\")",
 			"index": 10,
@@ -669,7 +611,7 @@
 		{
 			"name": "status_sptjm",
 			"sqlExpression": "case \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' then 'selesai'\n\t else 'belum upload & belum diterima dikantor'end",
-			"index": 18,
+			"index": 15,
 			"strField": "status_sptjm",
 			"type": 200,
 			"viewFormats": [
@@ -682,36 +624,33 @@
 				"Indonesian": "Status Sptjm"
 			},
 			"tableName": ""
+		},
+		{
+			"name": "status_proses_kunci_kantor",
+			"sqlExpression": "CASE \n    WHEN COUNT(data_sibay.nisn) - \n         SUM(CASE \n                WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 \n                ELSE 0 \n             END) = 0 \n    THEN 'semua progres sudah selesai, terima kasih'\n    ELSE 'belum selesai' \nEND",
+			"index": 16,
+			"strField": "status_proses_kunci_kantor",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Status Proses Kunci Kantor"
+			},
+			"tableName": ""
 		}
 	],
 	"warnLeavingEdit": true,
 	"afterEditDetails": 1,
 	"afterAddDetail": 1,
-	"whereTabs": [
-		{
-			"title": {
-				"text": "belum kunci kantor",
-				"type": 0
-			},
-			"where": "ceklis.ceklis_berkas like \"0\"",
-			"id": "22222",
-			"showCount": true,
-			"hideEmpty": true
-		},
-		{
-			"title": {
-				"text": "data semua",
-				"type": 0
-			},
-			"id": "jumlah23",
-			"showCount": true
-		}
-	],
 	"eventHandlers": [
 		{
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
-			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"jumlah\"] > \"0\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_kantor\"])>  0) {\r\n    $record[\"dikunci_kantor_css\"] = \"background:#360FB8;color:#FFFAF0\";\r\n}\r\n"
+			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"status_proses_kunci_kantor\"] == \"belum selesai\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"selisih belum upload\"])>  0) {\r\n    $record[\"selisih_belum_upload_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] <> \"belum selesai\") {\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#1E90FF;color:#FFFAF0\";\r\n}\r\n\r\n"
 		},
 		{
 			"eventId": "EVENT_BEFORESHOW_LIST",
@@ -1219,12 +1158,10 @@
 								"export_field1",
 								"export_field8",
 								"export_field9",
-								"export_field12",
-								"export_field11",
-								"export_field10",
 								"export_field13",
 								"export_field14",
-								"export_field15"
+								"export_field15",
+								"export_field16"
 							]
 						}
 					},
@@ -1318,18 +1255,6 @@
 					"field": "selesai upload",
 					"type": "export_field"
 				},
-				"export_field12": {
-					"field": "link",
-					"type": "export_field"
-				},
-				"export_field11": {
-					"field": "ceklis_berkas",
-					"type": "export_field"
-				},
-				"export_field10": {
-					"field": "catatan",
-					"type": "export_field"
-				},
 				"export_field13": {
 					"field": "dikunci_kantor",
 					"type": "export_field"
@@ -1340,6 +1265,10 @@
 				},
 				"export_field15": {
 					"field": "status_sptjm",
+					"type": "export_field"
+				},
+				"export_field16": {
+					"field": "status_proses_kunci_kantor",
 					"type": "export_field"
 				}
 			},
@@ -1685,13 +1614,7 @@
 									"cell": "headcell_field19"
 								},
 								{
-									"cell": "headcell_field11"
-								},
-								{
-									"cell": "headcell_field10"
-								},
-								{
-									"cell": "headcell_field9"
+									"cell": "headcell_field21"
 								}
 							]
 						},
@@ -1747,13 +1670,7 @@
 									"cell": "headcell_field20"
 								},
 								{
-									"cell": "cell_field11"
-								},
-								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field9"
+									"cell": "cell_field12"
 								}
 							]
 						},
@@ -1761,7 +1678,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 19
+									"colspan": 17
 								}
 							],
 							"section": "body"
@@ -1818,13 +1735,7 @@
 									"cell": "headcell_field15"
 								},
 								{
-									"cell": "footcell_field11"
-								},
-								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field9"
+									"cell": "footcell_field12"
 								}
 							]
 						}
@@ -2076,50 +1987,6 @@
 							"columnName": "checkbox",
 							"field": ""
 						},
-						"headcell_field11": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "link",
-							"columnName": "field"
-						},
-						"cell_field11": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "link",
-							"columnName": "field"
-						},
-						"footcell_field11": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "link",
-							"columnName": "field"
-						},
-						"headcell_field10": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "ceklis_berkas",
-							"columnName": "field"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "ceklis_berkas",
-							"columnName": "field"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "ceklis_berkas",
-							"columnName": "field"
-						},
 						"headcell_field12": {
 							"model": "headcell_field",
 							"items": [
@@ -2145,28 +2012,6 @@
 							"columnName": "field",
 							"field": "selisih belum upload",
 							"align": "center"
-						},
-						"headcell_field9": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label5"
-							],
-							"field": "catatan",
-							"columnName": "field"
-						},
-						"cell_field9": {
-							"model": "cell_field",
-							"items": [
-								"grid_field5"
-							],
-							"field": "catatan",
-							"columnName": "field"
-						},
-						"footcell_field9": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "catatan",
-							"columnName": "field"
 						},
 						"headcell_details": {
 							"model": "headcell_details",
@@ -2292,6 +2137,25 @@
 							"items": [],
 							"columnName": "field",
 							"field": "selisih belum upload"
+						},
+						"headcell_field21": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label10"
+							],
+							"field": "status_proses_kunci_kantor"
+						},
+						"cell_field12": {
+							"model": "cell_field",
+							"items": [
+								"grid_field10"
+							],
+							"field": "status_proses_kunci_kantor"
+						},
+						"footcell_field12": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status_proses_kunci_kantor"
 						}
 					},
 					"deferredItems": [],
@@ -2526,12 +2390,10 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field7",
 						"search_panel_field6",
 						"search_panel_field5",
-						"search_panel_field4",
-						"search_panel_field1",
-						"search_panel_field2",
-						"search_panel_field3"
+						"search_panel_field4"
 					],
 					"_flexiblePanel": true
 				},
@@ -2560,40 +2422,6 @@
 				"collapse_button": {
 					"type": "collapse_button"
 				},
-				"grid_field4": {
-					"field": "link",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "link",
-					"showFilter": true
-				},
-				"search_panel_field3": {
-					"field": "link",
-					"type": "search_panel_field",
-					"alwaysOnPanel": false,
-					"required": false
-				},
-				"grid_field3": {
-					"field": "ceklis_berkas",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "ceklis_berkas",
-					"showFilter": true
-				},
-				"search_panel_field2": {
-					"field": "ceklis_berkas",
-					"type": "search_panel_field",
-					"alwaysOnPanel": false,
-					"required": false
-				},
 				"grid_field2": {
 					"field": "selisih belum upload",
 					"type": "grid_field",
@@ -2604,24 +2432,6 @@
 					"type": "grid_field_label",
 					"field": "selisih belum upload",
 					"showFilter": true
-				},
-				"grid_field5": {
-					"field": "catatan",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"hideEmpty": true
-				},
-				"grid_field_label5": {
-					"type": "grid_field_label",
-					"field": "catatan",
-					"showFilter": true
-				},
-				"search_panel_field1": {
-					"field": "catatan",
-					"type": "search_panel_field",
-					"alwaysOnPanel": false,
-					"required": false
 				},
 				"grid_alldetails_link": {
 					"type": "grid_alldetails_link",
@@ -2806,8 +2616,22 @@
 						"filter_panel_field"
 					]
 				},
+				"grid_field10": {
+					"field": "status_proses_kunci_kantor",
+					"type": "grid_field"
+				},
+				"grid_field_label10": {
+					"type": "grid_field_label",
+					"field": "status_proses_kunci_kantor"
+				},
+				"search_panel_field7": {
+					"field": "status_proses_kunci_kantor",
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
+				},
 				"filter_panel_field": {
-					"field": "status_sptjm",
+					"field": "status_proses_kunci_kantor",
 					"type": "filter_panel_field"
 				}
 			},
@@ -2947,13 +2771,10 @@
 									"cell": "headcell_field12"
 								},
 								{
-									"cell": "headcell_field10"
-								},
-								{
-									"cell": "headcell_field9"
-								},
-								{
 									"cell": "headcell_field11"
+								},
+								{
+									"cell": "headcell_field15"
 								}
 							]
 						},
@@ -3003,13 +2824,10 @@
 									"cell": "headcell_field13"
 								},
 								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field9"
-								},
-								{
 									"cell": "cell_field11"
+								},
+								{
+									"cell": "cell_field12"
 								}
 							]
 						},
@@ -3017,7 +2835,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 17
+									"colspan": 16
 								}
 							],
 							"section": "body"
@@ -3068,13 +2886,10 @@
 									"cell": "headcell_field14"
 								},
 								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field9"
-								},
-								{
 									"cell": "footcell_field11"
+								},
+								{
+									"cell": "footcell_field12"
 								}
 							]
 						}
@@ -3310,28 +3125,6 @@
 							"columnName": "checkbox",
 							"field": ""
 						},
-						"headcell_field10": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "ceklis_berkas",
-							"columnName": "field"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "ceklis_berkas",
-							"columnName": "field"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "ceklis_berkas",
-							"columnName": "field"
-						},
 						"headcell_field12": {
 							"model": "headcell_field",
 							"items": [
@@ -3355,28 +3148,6 @@
 							],
 							"columnName": "field",
 							"field": "selisih belum upload"
-						},
-						"headcell_field9": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label5"
-							],
-							"field": "catatan",
-							"columnName": "field"
-						},
-						"cell_field9": {
-							"model": "cell_field",
-							"items": [
-								"grid_field5"
-							],
-							"field": "catatan",
-							"columnName": "field"
-						},
-						"footcell_field9": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "catatan",
-							"columnName": "field"
 						},
 						"headcell_field16": {
 							"model": "headcell_field",
@@ -3474,6 +3245,25 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "status_sptjm"
+						},
+						"headcell_field15": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label7"
+							],
+							"field": "status_proses_kunci_kantor"
+						},
+						"cell_field12": {
+							"model": "cell_field",
+							"items": [
+								"grid_field7"
+							],
+							"field": "status_proses_kunci_kantor"
+						},
+						"footcell_field12": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status_proses_kunci_kantor"
 						}
 					},
 					"deferredItems": [],
@@ -3647,16 +3437,6 @@
 						"text": ""
 					}
 				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "ceklis_berkas"
-				},
-				"grid_field3": {
-					"field": "ceklis_berkas",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
 				"grid_field_label2": {
 					"type": "grid_field_label",
 					"field": "selisih belum upload"
@@ -3675,17 +3455,6 @@
 						"type": 0,
 						"text": ""
 					}
-				},
-				"grid_field_label5": {
-					"type": "grid_field_label",
-					"field": "catatan"
-				},
-				"grid_field5": {
-					"field": "catatan",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"hideEmpty": true
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
@@ -3751,6 +3520,14 @@
 				"grid_field_label4": {
 					"type": "grid_field_label",
 					"field": "status_sptjm"
+				},
+				"grid_field7": {
+					"field": "status_proses_kunci_kantor",
+					"type": "grid_field"
+				},
+				"grid_field_label7": {
+					"type": "grid_field_label",
+					"field": "status_proses_kunci_kantor"
 				}
 			},
 			"dbProps": {},
@@ -3870,12 +3647,10 @@
 								"integrated_search_field9",
 								"integrated_search_field10",
 								"integrated_search_field11",
-								"integrated_search_field13",
-								"integrated_search_field12",
-								"integrated_search_field14",
 								"integrated_search_field16",
 								"integrated_search_field17",
-								"integrated_search_field15"
+								"integrated_search_field15",
+								"integrated_search_field18"
 							]
 						}
 					},
@@ -3969,21 +3744,6 @@
 					"type": "integrated_search_field",
 					"orientation": 0
 				},
-				"integrated_search_field13": {
-					"field": "link",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
-				"integrated_search_field12": {
-					"field": "ceklis_berkas",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
-				"integrated_search_field14": {
-					"field": "catatan",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
 				"integrated_search_field16": {
 					"field": "dikunci_kantor",
 					"type": "integrated_search_field",
@@ -3996,6 +3756,11 @@
 				},
 				"integrated_search_field15": {
 					"field": "status_sptjm",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field18": {
+					"field": "status_proses_kunci_kantor",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -4290,12 +4055,10 @@
 								"simple_grid_field9",
 								"simple_grid_field10",
 								"simple_grid_field11",
-								"simple_grid_field12",
-								"simple_grid_field13",
-								"simple_grid_field14",
 								"simple_grid_field15",
 								"simple_grid_field16",
-								"simple_grid_field17"
+								"simple_grid_field17",
+								"simple_grid_field18"
 							]
 						}
 					},
@@ -4358,18 +4121,6 @@
 					"field": "selisih belum upload",
 					"type": "simple_grid_field"
 				},
-				"simple_grid_field12": {
-					"field": "link",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field13": {
-					"field": "ceklis_berkas",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field14": {
-					"field": "catatan",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field15": {
 					"field": "dikunci_kantor",
 					"type": "simple_grid_field"
@@ -4380,6 +4131,10 @@
 				},
 				"simple_grid_field17": {
 					"field": "status_sptjm",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field18": {
+					"field": "status_proses_kunci_kantor",
 					"type": "simple_grid_field"
 				}
 			},
@@ -4494,12 +4249,10 @@
 								"simple_grid_field9",
 								"simple_grid_field10",
 								"simple_grid_field11",
-								"simple_grid_field12",
-								"simple_grid_field13",
-								"simple_grid_field14",
 								"simple_grid_field15",
 								"simple_grid_field16",
-								"simple_grid_field17"
+								"simple_grid_field17",
+								"simple_grid_field18"
 							]
 						}
 					},
@@ -4559,18 +4312,6 @@
 					"field": "selisih belum upload",
 					"type": "simple_grid_field"
 				},
-				"simple_grid_field12": {
-					"field": "link",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field13": {
-					"field": "ceklis_berkas",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field14": {
-					"field": "catatan",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field15": {
 					"field": "dikunci_kantor",
 					"type": "simple_grid_field"
@@ -4581,6 +4322,10 @@
 				},
 				"simple_grid_field17": {
 					"field": "status_sptjm",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field18": {
+					"field": "status_proses_kunci_kantor",
 					"type": "simple_grid_field"
 				}
 			},
