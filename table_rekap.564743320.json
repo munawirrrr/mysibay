@@ -658,6 +658,7 @@
 			"code": "if (Security::getUserName()!=\"admin\") {\n          $pageObject->hideItem(\"kunci\");\n           $pageObject->hideItem(\"batal\");\n}"
 		}
 	],
+	"scrollGridBody": true,
 	"sortByFields": {
 		"sortOrder": []
 	},
@@ -2182,7 +2183,8 @@
 				"simple_grid_field2": {
 					"type": "grid_field_label",
 					"field": "tahun",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field": {
 					"field": "tahun",
@@ -2193,7 +2195,8 @@
 				"simple_grid_field9": {
 					"type": "grid_field_label",
 					"field": "tingkat madrasah",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field8": {
 					"field": "tingkat madrasah",
@@ -2204,7 +2207,8 @@
 				"simple_grid_field4": {
 					"type": "grid_field_label",
 					"field": "NAMA SATUAN PENDIDIKAN",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field3": {
 					"field": "NAMA SATUAN PENDIDIKAN",
@@ -2224,7 +2228,8 @@
 				"simple_grid_field11": {
 					"type": "grid_field_label",
 					"field": "yatim",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field5": {
 					"field": "yatim",
@@ -2244,7 +2249,8 @@
 				"simple_grid_field13": {
 					"type": "grid_field_label",
 					"field": "piatu",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field6": {
 					"field": "piatu",
@@ -2264,7 +2270,8 @@
 				"simple_grid_field15": {
 					"type": "grid_field_label",
 					"field": "yatim_piatu",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field7": {
 					"field": "yatim_piatu",
@@ -2284,7 +2291,8 @@
 				"simple_grid_field17": {
 					"type": "grid_field_label",
 					"field": "jumlah",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"simple_grid_field1": {
 					"field": "jumlah",
@@ -2304,7 +2312,8 @@
 				"grid_field_label": {
 					"type": "grid_field_label",
 					"field": "penambahan",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field": {
 					"field": "penambahan",
@@ -2315,7 +2324,8 @@
 				"grid_field_label1": {
 					"type": "grid_field_label",
 					"field": "selesai upload",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field1": {
 					"field": "selesai upload",
@@ -2431,7 +2441,8 @@
 				"grid_field_label2": {
 					"type": "grid_field_label",
 					"field": "selisih belum upload",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_alldetails_link": {
 					"type": "grid_alldetails_link",
@@ -2465,7 +2476,8 @@
 				"grid_field_label6": {
 					"type": "grid_field_label",
 					"field": "npsn",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field_totals": {
 					"type": "grid_field_totals",
@@ -2514,7 +2526,8 @@
 				"grid_field_label8": {
 					"type": "grid_field_label",
 					"field": "dikunci_kantor",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field9": {
 					"field": "dikunci_operator",
@@ -2525,7 +2538,8 @@
 				"grid_field_label9": {
 					"type": "grid_field_label",
 					"field": "dikunci_operator",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"search_panel_field4": {
 					"field": "dikunci_kantor",
@@ -2578,7 +2592,8 @@
 				"grid_field_label7": {
 					"type": "grid_field_label",
 					"field": "status_sptjm",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"search_panel_field6": {
 					"field": "status_sptjm",
@@ -2612,9 +2627,7 @@
 				},
 				"filter_panel": {
 					"type": "filter_panel",
-					"items": [
-						"filter_panel_field"
-					]
+					"items": []
 				},
 				"grid_field10": {
 					"field": "status_proses_kunci_kantor",
@@ -2622,22 +2635,23 @@
 				},
 				"grid_field_label10": {
 					"type": "grid_field_label",
-					"field": "status_proses_kunci_kantor"
+					"field": "status_proses_kunci_kantor",
+					"clickSort": true,
+					"showFilter": true
 				},
 				"search_panel_field7": {
 					"field": "status_proses_kunci_kantor",
 					"type": "search_panel_field",
 					"alwaysOnPanel": false,
 					"required": false
-				},
-				"filter_panel_field": {
-					"field": "status_proses_kunci_kantor",
-					"type": "filter_panel_field"
 				}
 			},
 			"dbProps": {},
 			"responsiveGrid": false,
 			"version": 13,
+			"reorderRows": false,
+			"reorderRowsField": "",
+			"addToBottom": false,
 			"imageItem": {
 				"type": "page_image"
 			},
