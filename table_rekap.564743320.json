@@ -584,7 +584,9 @@
 			"strField": "sptjm_kantor",
 			"type": 200,
 			"viewFormats": [
-				{}
+				{
+					"format": "Checkbox"
+				}
 			],
 			"editFormats": [
 				{}
@@ -602,7 +604,8 @@
 			"type": 14,
 			"viewFormats": [
 				{
-					"format": "Number"
+					"format": "Number",
+					"numberFractionalDigits": 0
 				}
 			],
 			"editFormats": [
@@ -621,7 +624,8 @@
 			"type": 14,
 			"viewFormats": [
 				{
-					"format": "Number"
+					"format": "Number",
+					"numberFractionalDigits": 0
 				}
 			],
 			"editFormats": [
@@ -674,7 +678,7 @@
 		{
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
-			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"status_proses_kunci_kantor\"] == \"belum selesai\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"selisih belum upload\"])>  0) {\r\n    $record[\"selisih_belum_upload_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] <> \"belum selesai\") {\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#1E90FF;color:#FFFAF0\";\r\n}\r\n\r\n"
+			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"status_proses_kunci_kantor\"] == \"belum selesai\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n}\r\n\r\n\r\nif (($data[\"selisih belum upload\"])>  0) {\r\n    $record[\"selisih_belum_upload_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] <> \"belum selesai\") {\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#1E90FF;color:#FFFAF0\";\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_sptjm\"] <> \"selesai\") {\r\n    $record[\"status_sptjm_css\"] = \"background:#F5CF27\";\r\n}\r\n\r\n\r\n\r\n\r\n"
 		},
 		{
 			"eventId": "EVENT_BEFORESHOW_LIST",
@@ -1183,8 +1187,6 @@
 								"export_field8",
 								"export_field13",
 								"export_field14",
-								"export_field11",
-								"export_field12",
 								"export_field9",
 								"export_field10",
 								"export_field15",
@@ -1284,14 +1286,6 @@
 				},
 				"export_field14": {
 					"field": "dikunci_operator",
-					"type": "export_field"
-				},
-				"export_field11": {
-					"field": "sptjm_status",
-					"type": "export_field"
-				},
-				"export_field12": {
-					"field": "sptjm_kantor",
 					"type": "export_field"
 				},
 				"export_field9": {
@@ -1642,12 +1636,6 @@
 									"cell": "headcell_field23"
 								},
 								{
-									"cell": "headcell_field10"
-								},
-								{
-									"cell": "headcell_field11"
-								},
-								{
 									"cell": "headcell_field8"
 								},
 								{
@@ -1707,12 +1695,6 @@
 									"cell": "cell_field15"
 								},
 								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field11"
-								},
-								{
 									"cell": "cell_field8"
 								},
 								{
@@ -1730,7 +1712,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 20
+									"colspan": 18
 								}
 							],
 							"section": "body"
@@ -1777,12 +1759,6 @@
 								},
 								{
 									"cell": "footcell_field15"
-								},
-								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field11"
 								},
 								{
 									"cell": "footcell_field8"
@@ -2123,44 +2099,6 @@
 							"columnName": "field",
 							"align": "center"
 						},
-						"headcell_field10": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "sptjm_status"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "sptjm_status"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "sptjm_status"
-						},
-						"headcell_field11": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "sptjm_kantor"
-						},
-						"cell_field11": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "sptjm_kantor"
-						},
-						"footcell_field11": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "sptjm_kantor"
-						},
 						"headcell_field8": {
 							"model": "headcell_field",
 							"items": [
@@ -2474,8 +2412,6 @@
 						"search_panel_field6",
 						"search_panel_field1",
 						"search_panel_field",
-						"search_panel_field3",
-						"search_panel_field2",
 						"search_panel_field4"
 					],
 					"_flexiblePanel": true
@@ -2658,35 +2594,11 @@
 					"type": "filter_panel",
 					"items": []
 				},
-				"grid_field3": {
-					"field": "sptjm_status",
-					"type": "grid_field"
-				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "sptjm_status",
-					"showFilter": true
-				},
-				"grid_field4": {
-					"field": "sptjm_kantor",
-					"type": "grid_field"
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "sptjm_kantor",
-					"showFilter": true
-				},
-				"search_panel_field2": {
-					"field": "sptjm_status",
-					"type": "search_panel_field"
-				},
-				"search_panel_field3": {
-					"field": "sptjm_kantor",
-					"type": "search_panel_field"
-				},
 				"grid_field1": {
 					"field": "selesai upload",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label1": {
 					"type": "grid_field_label",
@@ -2695,7 +2607,9 @@
 				},
 				"grid_field2": {
 					"field": "selisih belum upload",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label2": {
 					"type": "grid_field_label",
@@ -2704,7 +2618,9 @@
 				},
 				"grid_field5": {
 					"field": "status_sptjm",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label5": {
 					"type": "grid_field_label",
@@ -2713,7 +2629,9 @@
 				},
 				"grid_field7": {
 					"field": "status_proses_kunci_kantor",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label7": {
 					"type": "grid_field_label",
@@ -2870,12 +2788,6 @@
 									"cell": "headcell_field23"
 								},
 								{
-									"cell": "headcell_field10"
-								},
-								{
-									"cell": "headcell_field11"
-								},
-								{
 									"cell": "headcell_field8"
 								},
 								{
@@ -2929,12 +2841,6 @@
 									"cell": "cell_field15"
 								},
 								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field11"
-								},
-								{
 									"cell": "cell_field8"
 								},
 								{
@@ -2952,7 +2858,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 18
+									"colspan": 16
 								}
 							],
 							"section": "body"
@@ -2995,12 +2901,6 @@
 								},
 								{
 									"cell": "footcell_field15"
-								},
-								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field11"
 								},
 								{
 									"cell": "footcell_field8"
@@ -3302,44 +3202,6 @@
 							"field": "dikunci_kantor",
 							"columnName": "field"
 						},
-						"headcell_field10": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "sptjm_status"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "sptjm_status"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "sptjm_status"
-						},
-						"headcell_field11": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "sptjm_kantor"
-						},
-						"cell_field11": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "sptjm_kantor"
-						},
-						"footcell_field11": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "sptjm_kantor"
-						},
 						"headcell_field8": {
 							"model": "headcell_field",
 							"items": [
@@ -3625,22 +3487,6 @@
 						"type": 0,
 						"text": ""
 					}
-				},
-				"grid_field3": {
-					"field": "sptjm_status",
-					"type": "grid_field"
-				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "sptjm_status"
-				},
-				"grid_field4": {
-					"field": "sptjm_kantor",
-					"type": "grid_field"
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "sptjm_kantor"
 				},
 				"grid_field1": {
 					"field": "selesai upload",
@@ -4212,8 +4058,6 @@
 								"simple_grid_field9",
 								"simple_grid_field15",
 								"simple_grid_field16",
-								"simple_grid_field12",
-								"simple_grid_field13",
 								"simple_grid_field10",
 								"simple_grid_field11",
 								"simple_grid_field14",
@@ -4278,14 +4122,6 @@
 				},
 				"simple_grid_field16": {
 					"field": "dikunci_operator",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field12": {
-					"field": "sptjm_status",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field13": {
-					"field": "sptjm_kantor",
 					"type": "simple_grid_field"
 				},
 				"simple_grid_field10": {
@@ -4416,8 +4252,6 @@
 								"simple_grid_field9",
 								"simple_grid_field15",
 								"simple_grid_field16",
-								"simple_grid_field12",
-								"simple_grid_field13",
 								"simple_grid_field10",
 								"simple_grid_field11",
 								"simple_grid_field14",
@@ -4479,14 +4313,6 @@
 				},
 				"simple_grid_field16": {
 					"field": "dikunci_operator",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field12": {
-					"field": "sptjm_status",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field13": {
-					"field": "sptjm_kantor",
 					"type": "simple_grid_field"
 				},
 				"simple_grid_field10": {
