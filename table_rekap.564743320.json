@@ -1971,7 +1971,7 @@
 						"headcell_details": {
 							"model": "headcell_details",
 							"items": [],
-							"columnName": "details",
+							"columnName": "",
 							"field": ""
 						},
 						"cell_details": {
@@ -1980,13 +1980,13 @@
 								"grid_alldetails_link",
 								"grid_details_link"
 							],
-							"columnName": "details",
+							"columnName": "",
 							"field": ""
 						},
 						"footcell_details": {
 							"model": "footcell_details",
 							"items": [],
-							"columnName": "details",
+							"columnName": "",
 							"field": ""
 						},
 						"headcell_field16": {
@@ -2017,7 +2017,7 @@
 								"details_preview"
 							],
 							"columnName": "field",
-							"field": "status_sptjm"
+							"field": "status_proses_kunci_kantor"
 						},
 						"headcell_field23": {
 							"model": "headcell_field",
@@ -2076,76 +2076,88 @@
 							"items": [
 								"grid_field_label1"
 							],
-							"field": "selesai upload"
+							"field": "selesai upload",
+							"columnName": "field"
 						},
 						"cell_field8": {
 							"model": "cell_field",
 							"items": [
 								"grid_field1"
 							],
-							"field": "selesai upload"
+							"field": "selesai upload",
+							"columnName": "field"
 						},
 						"footcell_field8": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "selesai upload"
+							"field": "selesai upload",
+							"columnName": "field"
 						},
 						"headcell_field9": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label2"
 							],
-							"field": "selisih belum upload"
+							"field": "selisih belum upload",
+							"columnName": "field"
 						},
 						"cell_field9": {
 							"model": "cell_field",
 							"items": [
 								"grid_field2"
 							],
-							"field": "selisih belum upload"
+							"field": "selisih belum upload",
+							"columnName": "field"
 						},
 						"footcell_field9": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "selisih belum upload"
+							"field": "selisih belum upload",
+							"columnName": "field"
 						},
 						"headcell_field12": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label5"
 							],
-							"field": "status_sptjm"
+							"field": "status_sptjm",
+							"columnName": "field"
 						},
 						"cell_field12": {
 							"model": "cell_field",
 							"items": [
 								"grid_field5"
 							],
-							"field": "status_sptjm"
+							"field": "status_sptjm",
+							"columnName": "field"
 						},
 						"footcell_field12": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "status_sptjm"
+							"field": "status_sptjm",
+							"columnName": "field"
 						},
 						"headcell_field13": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label7"
 							],
-							"field": "status_proses_kunci_kantor"
+							"field": "status_proses_kunci_kantor",
+							"columnName": "field"
 						},
 						"cell_field13": {
 							"model": "cell_field",
 							"items": [
 								"grid_field7"
 							],
-							"field": "status_proses_kunci_kantor"
+							"field": "status_proses_kunci_kantor",
+							"columnName": "field"
 						},
 						"footcell_field13": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "status_proses_kunci_kantor"
+							"field": "status_proses_kunci_kantor",
+							"columnName": "field"
 						},
 						"cell_details1": {
 							"model": "cell_details",
@@ -2153,7 +2165,7 @@
 								"kunci",
 								"batal"
 							],
-							"columnName": "details",
+							"columnName": "",
 							"field": ""
 						}
 					},

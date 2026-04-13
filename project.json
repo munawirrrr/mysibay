@@ -2362,13 +2362,12 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "yeti",
+		"theme": "simplex",
 		"sidebarWidth": "210px",
-		"sidebarColor": "light",
 		"sidebarTheme": "legacy",
 		"sidebarCompact": true,
-		"topbarTheme": "custom",
-		"logoTheme": "light",
+		"topbarTheme": "legacy",
+		"logoTheme": "dark",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#008cba",
