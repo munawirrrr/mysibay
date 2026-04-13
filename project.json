@@ -63,8 +63,8 @@
 				"gid": 3872830103
 			},
 			{
-				"x": 581,
-				"y": 331,
+				"x": 724,
+				"y": 475,
 				"width": 129,
 				"height": 400,
 				"gid": 564743320
@@ -374,8 +374,8 @@
 	},
 	"ftpLocations": [
 		{
-			"id": "ftploc",
-			"name": "penmadpidie",
+			"id": "ftploc1",
+			"name": "sibay",
 			"ftp": {
 				"username": "penmadpi",
 				"password": "",
@@ -402,7 +402,7 @@
 			}
 		}
 	],
-	"lastFtpLocation": "ftploc",
+	"lastFtpLocation": "ftploc1",
 	"fullBuild": false,
 	"visualStudioVersion": 10,
 	"restAPIReturnEncodedBinary": "",

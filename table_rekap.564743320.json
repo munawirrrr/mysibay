@@ -1,5 +1,13 @@
 {
-	"sql": "SELECT \r\n    a.*,\r\n\r\n    -- ✅ STATUS SPTJM (SUDAH AMAN & BISA DIFILTER)\r\n    CASE \r\n        WHEN a.sptjm_status = 'belum disetujui' AND a.sptjm_kantor = '1'\r\n            THEN 'belum disetujui tapi sudah diterima dikantor'\r\n\r\n        WHEN a.sptjm_status = 'belum disetujui' AND a.sptjm_kantor <> '1'\r\n            THEN 'belum disetujui & belum diterima dikantor'\r\n\r\n        WHEN a.sptjm_status = 'disetujui' AND a.sptjm_kantor <> '1'\r\n            THEN 'sudah disetujui tapi belum diterima dikantor'\r\n\r\n        WHEN a.sptjm_status = 'disetujui' AND a.sptjm_kantor = '1'\r\n            THEN 'selesai'\r\n\r\n        ELSE 'belum upload & belum diterima dikantor'\r\n    END AS status_sptjm,\r\n\r\n    -- ✅ STATUS PROSES KUNCI (LEBIH SIMPLE & CEPAT)\r\n    CASE \r\n        WHEN a.jumlah - a.dikunci_kantor = 0\r\n            THEN 'semua progres sudah selesai, terima kasih'\r\n        ELSE 'belum selesai'\r\n    END AS status_proses_kunci_kantor\r\n\r\nFROM (\r\n    SELECT\r\n        ceklis.npsn,\r\n        profil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\r\n        profil.NSM,\r\n        data_sibay.tahun,\r\n\r\n        SUM(data_sibay.status_siswa = 'Yatim') AS yatim,\r\n        SUM(data_sibay.status_siswa = 'Piatu') AS piatu,\r\n        SUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\r\n\r\n        COUNT(data_sibay.nisn) AS jumlah,\r\n\r\n        SUM(data_sibay.kunci_operator <> '') AS dikunci_operator,\r\n        SUM(data_sibay.kunci_kemenag_pidie <> '') AS dikunci_kantor,\r\n\r\n        SUM(data_sibay.status = 'selesai') AS `selesai upload`,\r\n\r\n        COUNT(data_sibay.nisn) - \r\n        SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) \r\n        AS `selisih belum upload`,\r\n\r\n        SUM(data_sibay.status = 'penambahan') AS penambahan,\r\n\r\n        profil.`tingkat madrasah`,\r\n\r\n        -- 🔥 INI KUNCI PERBAIKAN\r\n        MAX(sptjm.status) AS sptjm_status,\r\n        MAX(sptjm.pertinggal_kantor) AS sptjm_kantor\r\n\r\n    FROM ceklis\r\n\r\n    LEFT JOIN profil \r\n        ON profil.NPSN = ceklis.npsn\r\n\r\n    LEFT JOIN data_sibay \r\n        ON data_sibay.npsn = ceklis.npsn\r\n        AND data_sibay.tahun = YEAR(CURDATE())\r\n\r\n    LEFT JOIN sptjm \r\n        ON sptjm.npsn = data_sibay.npsn \r\n        AND sptjm.tahun = YEAR(CURDATE())\r\n\r\n    GROUP BY\r\n        ceklis.npsn,\r\n        profil.`nama Madrasah`,\r\n        profil.NSM,\r\n        data_sibay.tahun,\r\n        profil.`tingkat madrasah`\r\n) a\r\n\r\nORDER BY a.jumlah DESC;",
+	"orderInfo": [
+		{
+			"index": 0,
+			"field": "",
+			"expr": "data_sibay.nisn",
+			"asc": false
+		}
+	],
+	"sql": "SELECT\r\n\tceklis.npsn,\r\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\r\n\tprofil.NSM,\r\n\tdata_sibay.tahun,\r\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\r\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\r\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\r\n\tCOUNT(data_sibay.nisn) AS jumlah,\r\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\r\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\r\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\r\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\r\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\r\n\tprofil.`tingkat madrasah`,\r\n\tcase \r\n\t\r\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' then 'belum disetujui tapi sudah diterima dikantor'\r\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' then 'belum disetujui & belum diterima dikantor'\r\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' then 'sudah disetujui tapi belum diterima dikantor'\r\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' then 'selesai'\r\n\t else 'belum upload & belum diterima dikantor'end AS status_sptjm,\r\n\tCASE \r\n    WHEN COUNT(data_sibay.nisn) - \r\n         SUM(CASE \r\n                WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 \r\n                ELSE 0 \r\n             END) = 0 \r\n    THEN 'semua progres sudah selesai, terima kasih'\r\n    ELSE 'belum selesai' \r\nEND AS status_proses_kunci_kantor\r\nFROM\r\n\tceklis\r\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\r\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\r\n    AND data_sibay.tahun = YEAR(CURDATE())\r\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\r\nGROUP BY\r\n\tceklis.npsn,\r\n\tprofil.`nama Madrasah`,\r\n\tprofil.NSM,\r\n\tdata_sibay.tahun,\r\n\tprofil.`tingkat madrasah`\r\nORDER BY\r\n\tdata_sibay.nisn DESC\r\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -528,7 +536,7 @@
 		},
 		{
 			"name": "dikunci_kantor",
-			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> '')",
+			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> \"\")",
 			"index": 10,
 			"strField": "dikunci_kantor",
 			"type": 14,
@@ -545,7 +553,7 @@
 		},
 		{
 			"name": "dikunci_operator",
-			"sqlExpression": "SUM(data_sibay.kunci_operator <> '')",
+			"sqlExpression": "SUM(data_sibay.kunci_operator <> \"\")",
 			"index": 9,
 			"strField": "dikunci_operator",
 			"type": 14,
@@ -561,44 +569,8 @@
 			"tableName": ""
 		},
 		{
-			"name": "sptjm_status",
-			"sqlExpression": "MAX(sptjm.status)",
-			"index": 15,
-			"strField": "sptjm_status",
-			"type": 200,
-			"viewFormats": [
-				{}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Sptjm Status"
-			},
-			"tableName": ""
-		},
-		{
-			"name": "sptjm_kantor",
-			"sqlExpression": "MAX(sptjm.pertinggal_kantor)",
-			"index": 16,
-			"strField": "sptjm_kantor",
-			"type": 200,
-			"viewFormats": [
-				{
-					"format": "Checkbox"
-				}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Sptjm Kantor"
-			},
-			"tableName": ""
-		},
-		{
 			"name": "selesai upload",
-			"sqlExpression": "`selesai upload`",
+			"sqlExpression": "SUM(data_sibay.status = 'selesai')",
 			"index": 11,
 			"strField": "selesai upload",
 			"type": 14,
@@ -614,11 +586,11 @@
 			"label": {
 				"Indonesian": "Selesai Upload"
 			},
-			"tableName": "tahun"
+			"tableName": ""
 		},
 		{
 			"name": "selisih belum upload",
-			"sqlExpression": "`selisih belum upload`",
+			"sqlExpression": "COUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END)",
 			"index": 12,
 			"strField": "selisih belum upload",
 			"type": 14,
@@ -634,12 +606,12 @@
 			"label": {
 				"Indonesian": "Selisih Belum Upload"
 			},
-			"tableName": "tahun"
+			"tableName": ""
 		},
 		{
 			"name": "status_sptjm",
-			"sqlExpression": "status_sptjm",
-			"index": 17,
+			"sqlExpression": "case \r\n\t\r\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' then 'belum disetujui tapi sudah diterima dikantor'\r\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' then 'belum disetujui & belum diterima dikantor'\r\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' then 'sudah disetujui tapi belum diterima dikantor'\r\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' then 'selesai'\r\n\t else 'belum upload & belum diterima dikantor'end",
+			"index": 15,
 			"strField": "status_sptjm",
 			"type": 200,
 			"viewFormats": [
@@ -651,12 +623,12 @@
 			"label": {
 				"Indonesian": "Status Sptjm"
 			},
-			"tableName": "tahun"
+			"tableName": ""
 		},
 		{
 			"name": "status_proses_kunci_kantor",
-			"sqlExpression": "status_proses_kunci_kantor",
-			"index": 18,
+			"sqlExpression": "CASE \r\n    WHEN COUNT(data_sibay.nisn) - \r\n         SUM(CASE \r\n                WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 \r\n                ELSE 0 \r\n             END) = 0 \r\n    THEN 'semua progres sudah selesai, terima kasih'\r\n    ELSE 'belum selesai' \r\nEND",
+			"index": 16,
 			"strField": "status_proses_kunci_kantor",
 			"type": 200,
 			"viewFormats": [
@@ -668,7 +640,7 @@
 			"label": {
 				"Indonesian": "Status Proses Kunci Kantor"
 			},
-			"tableName": "tahun"
+			"tableName": ""
 		}
 	],
 	"warnLeavingEdit": true,
@@ -3638,8 +3610,6 @@
 								"integrated_search_field9",
 								"integrated_search_field16",
 								"integrated_search_field17",
-								"integrated_search_field12",
-								"integrated_search_field13",
 								"integrated_search_field10",
 								"integrated_search_field11",
 								"integrated_search_field14",
@@ -3734,16 +3704,6 @@
 				},
 				"integrated_search_field17": {
 					"field": "dikunci_operator",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
-				"integrated_search_field12": {
-					"field": "sptjm_status",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
-				"integrated_search_field13": {
-					"field": "sptjm_kantor",
 					"type": "integrated_search_field",
 					"orientation": 0
 				},

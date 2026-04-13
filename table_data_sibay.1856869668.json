@@ -36,11 +36,11 @@
 		{
 			"table": 564743320,
 			"masterKeys": [
-				"npsn",
+				"NSM",
 				"tahun"
 			],
 			"detailsKeys": [
-				"npsn",
+				"NSM",
 				"tahun"
 			]
 		}
