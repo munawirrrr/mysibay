@@ -542,25 +542,6 @@
 						}
 					},
 					{
-						"id": "6",
-						"parent": "0",
-						"data": {
-							"name": {
-								"text": "Ceklis proses",
-								"type": 0
-							},
-							"href": "mypage.htm",
-							"pageId": "list",
-							"itemType": 2,
-							"linkType": 0,
-							"iconType": 2,
-							"iconName": "glyphicon-camera",
-							"showIconType": 2,
-							"pageType": "list",
-							"table": 3198785092
-						}
-					},
-					{
 						"id": "11",
 						"parent": "0",
 						"data": {
