@@ -2362,11 +2362,11 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "simplex",
+		"theme": "united",
 		"sidebarWidth": "210px",
-		"sidebarTheme": "legacy",
+		"sidebarTheme": "primary",
 		"sidebarCompact": true,
-		"topbarTheme": "legacy",
+		"topbarTheme": "light",
 		"logoTheme": "dark",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
