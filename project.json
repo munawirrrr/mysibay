@@ -2340,11 +2340,11 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "ios_final",
+		"theme": "united",
 		"sidebarWidth": "210px",
-		"sidebarTheme": "primary",
+		"sidebarTheme": "warning",
 		"sidebarCompact": true,
-		"topbarTheme": "light",
+		"topbarTheme": "white",
 		"logoTheme": "dark",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
