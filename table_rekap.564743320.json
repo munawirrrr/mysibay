@@ -1455,7 +1455,8 @@
 							"items": [
 								"details_found",
 								"page_size",
-								"print_panel"
+								"print_panel",
+								"columns_control"
 							]
 						}
 					},
@@ -2595,7 +2596,8 @@
 				"grid_field_label1": {
 					"type": "grid_field_label",
 					"field": "selesai upload",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field2": {
 					"field": "selisih belum upload",
@@ -2606,7 +2608,8 @@
 				"grid_field_label2": {
 					"type": "grid_field_label",
 					"field": "selisih belum upload",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field5": {
 					"field": "status_sptjm",
@@ -2617,7 +2620,8 @@
 				"grid_field_label5": {
 					"type": "grid_field_label",
 					"field": "status_sptjm",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"grid_field7": {
 					"field": "status_proses_kunci_kantor",
@@ -2628,7 +2632,8 @@
 				"grid_field_label7": {
 					"type": "grid_field_label",
 					"field": "status_proses_kunci_kantor",
-					"showFilter": true
+					"showFilter": true,
+					"clickSort": true
 				},
 				"search_panel_field": {
 					"field": "selesai upload",
@@ -2655,6 +2660,10 @@
 					"type": "grid_field_totals",
 					"field": "selisih belum upload",
 					"totals": "TOTAL"
+				},
+				"columns_control": {
+					"type": "columns_control",
+					"showHide": true
 				}
 			},
 			"dbProps": {},
