@@ -7,7 +7,7 @@
 			"asc": true
 		}
 	],
-	"sql": "SELECT\nretur.`no`,\nretur.no_rekening_sebelumnya,\nretur.no_rekening_perbaikan,\nretur.scan_buku_rekening,\nretur.tahun,\nretur.nama_rekening_perbaikan,\ndata_sibay.`nama siswa` AS nama,\ndata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\ndata_sibay.file_scan AS file_upload_lama,\ndata_sibay.jenjang,\nretur.alasan_perbaikan,\nretur.catatan_dari_dinas,\ndata_sibay.npsn,\nretur.satker,\nretur.status,\nprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\ndata_sibay.nisn,\ndata_sibay.hp_kepala,\ndata_sibay.hp_wali,\nretur.jumlah\nFROM retur\nINNER JOIN data_sibay ON retur.no_rekening_sebelumnya = data_sibay.`nomor rekening`\nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nORDER BY retur.`no`;",
+	"sql": "SELECT\nretur.`no`,\nretur.no_rekening_sebelumnya,\nretur.no_rekening_perbaikan,\nretur.scan_buku_rekening,\nretur.tahun,\nretur.nama_rekening_perbaikan,\ndata_sibay.`nama siswa` AS nama,\ndata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\ndata_sibay.file_scan AS file_upload_lama,\ndata_sibay.jenjang,\nretur.alasan_perbaikan,\nretur.catatan_dari_dinas,\ndata_sibay.npsn,\nretur.satker,\nretur.status,\nprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\ndata_sibay.nisn,\ndata_sibay.hp_kepala,\ndata_sibay.hp_wali,\nretur.jumlah\nFROM retur\nINNER JOIN data_sibay ON retur.no_rekening_sebelumnya = data_sibay.`nomor rekening`\nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nORDER BY retur.`no`;\nLIMIT 0, 50;",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "retur",
 	"name": "retur",

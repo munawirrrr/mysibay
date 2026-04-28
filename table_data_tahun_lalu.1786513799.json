@@ -1,10 +1,11 @@
 {
-	"sql": "SELECT\ndata_sibay.nisn,\ndata_sibay.npsn,\ndata_sibay.`nama siswa`,\ndata_sibay.`nomor rekening`,\ndata_sibay.`nama di rekening`,\ndata_sibay.file_scan,\ndata_sibay.status,\nprofil.`nama Madrasah`,\nprofil.NSM,\nprofil.`Nomor Telpon`,\ndata_sibay.catatan,\ndata_sibay.tahun\n\nFROM data_sibay \nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nwhere data_sibay.tahun < YEAR(CURDATE())",
+	"sql": "SELECT\ndata_sibay.nisn,\ndata_sibay.npsn,\ndata_sibay.`nama siswa`,\ndata_sibay.`nomor rekening`,\ndata_sibay.`nama di rekening`,\ndata_sibay.file_scan,\ndata_sibay.status,\nprofil.`nama Madrasah`,\nprofil.NSM,\nprofil.`Nomor Telpon`,\ndata_sibay.catatan,\ndata_sibay.tahun\n\nFROM data_sibay \nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nwhere data_sibay.tahun < YEAR(CURDATE())\nLIMIT 0, 50;",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "data_sibay",
 	"name": "data tahun lalu",
 	"shortTableName": "data_tahun_lalu",
+	"dbType": 0,
 	"hideDataUntilSearch": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "NSM",
@@ -36,6 +37,7 @@
 		{
 			"name": "nisn",
 			"sqlExpression": "data_sibay.nisn",
+			"index": 1,
 			"strField": "nisn",
 			"type": 200,
 			"viewFormats": [
@@ -79,8 +81,9 @@
 		{
 			"name": "npsn",
 			"sqlExpression": "data_sibay.npsn",
+			"index": 2,
 			"strField": "npsn",
-			"type": 20,
+			"type": 3,
 			"viewFormats": [
 				{
 					"numberFractionalDigits": 0
@@ -123,6 +126,7 @@
 		{
 			"name": "nama siswa",
 			"sqlExpression": "data_sibay.`nama siswa`",
+			"index": 3,
 			"strField": "nama siswa",
 			"type": 200,
 			"viewFormats": [
@@ -166,6 +170,7 @@
 		{
 			"name": "nomor rekening",
 			"sqlExpression": "data_sibay.`nomor rekening`",
+			"index": 4,
 			"strField": "nomor rekening",
 			"type": 200,
 			"viewFormats": [
@@ -209,6 +214,7 @@
 		{
 			"name": "nama di rekening",
 			"sqlExpression": "data_sibay.`nama di rekening`",
+			"index": 5,
 			"strField": "nama di rekening",
 			"type": 200,
 			"viewFormats": [
@@ -252,6 +258,7 @@
 		{
 			"name": "file_scan",
 			"sqlExpression": "data_sibay.file_scan",
+			"index": 6,
 			"strField": "file_scan",
 			"type": 200,
 			"viewFormats": [
@@ -290,6 +297,7 @@
 		{
 			"name": "status",
 			"sqlExpression": "data_sibay.status",
+			"index": 7,
 			"strField": "status",
 			"type": 200,
 			"viewFormats": [
@@ -333,6 +341,7 @@
 		{
 			"name": "nama Madrasah",
 			"sqlExpression": "profil.`nama Madrasah`",
+			"index": 8,
 			"strField": "nama Madrasah",
 			"type": 200,
 			"viewFormats": [
@@ -374,6 +383,7 @@
 		{
 			"name": "NSM",
 			"sqlExpression": "profil.NSM",
+			"index": 9,
 			"strField": "NSM",
 			"type": 200,
 			"viewFormats": [
@@ -415,6 +425,7 @@
 		{
 			"name": "Nomor Telpon",
 			"sqlExpression": "profil.`Nomor Telpon`",
+			"index": 10,
 			"strField": "Nomor Telpon",
 			"type": 200,
 			"viewFormats": [
@@ -456,6 +467,7 @@
 		{
 			"name": "catatan",
 			"sqlExpression": "data_sibay.catatan",
+			"index": 11,
 			"strField": "catatan",
 			"type": 200,
 			"viewFormats": [
@@ -499,6 +511,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "data_sibay.tahun",
+			"index": 12,
 			"strField": "tahun",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -576,6 +589,227 @@
 	"afterAddDetail": 1,
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "nisn",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "jenjang",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "npsn",
+				"type": 20,
+				"size": 20,
+				"scale": 0,
+				"typeName": "bigint(20)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama siswa",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nomor rekening",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama di rekening",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "file_scan",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "catatan",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tahun",
+				"type": 200,
+				"size": 4,
+				"scale": 0,
+				"typeName": "varchar(4)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kunci_operator",
+				"type": 200,
+				"size": 500,
+				"scale": 0,
+				"typeName": "varchar(500)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kunci_kemenag_pidie",
+				"type": 200,
+				"size": 500,
+				"scale": 0,
+				"typeName": "varchar(500)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kelas",
+				"type": 200,
+				"size": 5,
+				"scale": 0,
+				"typeName": "varchar(5)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "jenis_kelamin",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status_siswa",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "pip",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_kepala",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_wali",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "id",
+				"type": 20,
+				"size": 20,
+				"scale": 0,
+				"typeName": "bigint(20)",
+				"nullable": false,
+				"autoinc": true,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"nisn",
+			"tahun"
+		],
+		"uniqueFields": [],
+		"name": "data_sibay"
 	},
 	"pages": [
 		{

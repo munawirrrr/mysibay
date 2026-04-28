@@ -5,6 +5,7 @@
 	"originalTable": "data_sibay",
 	"name": "laporan",
 	"shortTableName": "laporan",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"pageSizeSelectorRecords": [
 		"10",
@@ -29,6 +30,7 @@
 		{
 			"name": "jumlah_siswa",
 			"sqlExpression": "count(nisn)",
+			"index": 1,
 			"strField": "jumlah_siswa",
 			"type": 3,
 			"viewFormats": [
@@ -72,6 +74,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "tahun",
+			"index": 2,
 			"strField": "tahun",
 			"type": 200,
 			"viewFormats": [
@@ -118,6 +121,227 @@
 	"afterAddDetail": 1,
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "nisn",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "jenjang",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "npsn",
+				"type": 20,
+				"size": 20,
+				"scale": 0,
+				"typeName": "bigint(20)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama siswa",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nomor rekening",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama di rekening",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "file_scan",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "catatan",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tahun",
+				"type": 200,
+				"size": 4,
+				"scale": 0,
+				"typeName": "varchar(4)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kunci_operator",
+				"type": 200,
+				"size": 500,
+				"scale": 0,
+				"typeName": "varchar(500)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kunci_kemenag_pidie",
+				"type": 200,
+				"size": 500,
+				"scale": 0,
+				"typeName": "varchar(500)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "kelas",
+				"type": 200,
+				"size": 5,
+				"scale": 0,
+				"typeName": "varchar(5)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "jenis_kelamin",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status_siswa",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "pip",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_kepala",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_wali",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "id",
+				"type": 20,
+				"size": 20,
+				"scale": 0,
+				"typeName": "bigint(20)",
+				"nullable": false,
+				"autoinc": true,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"nisn",
+			"tahun"
+		],
+		"uniqueFields": [],
+		"name": "data_sibay"
 	},
 	"pages": [
 		{
