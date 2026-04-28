@@ -3,7 +3,7 @@
 	"programVersion": 2,
 	"versionName": "11.1",
 	"build": 39558,
-	"name": "sibay",
+	"name": "sibay1",
 	"mainDiagram": {
 		"tables": [
 			{
@@ -381,7 +381,7 @@
 				"password": "",
 				"host": "ftp.penmadpidie.com",
 				"port": 21,
-				"pathname": "/public_html/kantor/sibay",
+				"pathname": "/public_html/kantor/sibaybaru",
 				"passive": true,
 				"secureType": 0,
 				"useCCC": false,
@@ -397,9 +397,7 @@
 				"enabled": false
 			},
 			"threads": 4,
-			"serverDbConnections": {
-				"keme8950sibayat1566720940": "arent-host"
-			}
+			"serverDbConnections": {}
 		}
 	],
 	"lastFtpLocation": "ftploc1",
@@ -599,13 +597,13 @@
 								"type": 6
 							},
 							"href": "mypage.htm",
-							"pageId": "list",
+							"pageId": "search",
 							"itemType": 2,
 							"linkType": 0,
 							"iconType": 2,
 							"iconName": "glyphicon-headphones",
 							"showIconType": 2,
-							"pageType": "list",
+							"pageType": "search",
 							"table": 4134739628
 						}
 					}
@@ -2340,17 +2338,18 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "united",
+		"theme": "lumen",
 		"sidebarWidth": "210px",
+		"sidebarColor": "light",
 		"sidebarTheme": "warning",
 		"sidebarCompact": true,
 		"topbarTheme": "white",
-		"logoTheme": "dark",
+		"logoTheme": "white",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#008cba",
 		"logoCustomThemeColor": "#dddddd",
-		"customCss": "/* Contoh CSS tambahan untuk shadow ala macOS */\r\n.panel, .modal-content, .dropdown-menu, .btn {\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n/* Untuk elemen yang lebih menonjol */\r\n.modal-content {\r\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n}",
+		"customCss": "/* Contoh CSS tambahan untuk shadow ala macOS */\r\n.panel, .modal-content, .dropdown-menu, .btn {\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n/* Untuk elemen yang lebih menonjol */\r\n.modal-content {\r\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* ===== iOS WHITE BLUR STYLE — ppdb_add ===== */\r\n\r\n/* Panel / Section */\r\n\r\nbody {\r\n  background: linear-gradient(135deg, #e0f2fe 0%, #fce7f3 50%, #dcfce7 100%) fixed !important;\r\n  min-height: 100vh;\r\n}\r\n\r\n.panel {\r\n  background: rgba(255, 255, 255, 0.65) !important;\r\n  backdrop-filter: blur(20px) saturate(180%) !important;\r\n  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;\r\n  border: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 16px !important;\r\n  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;\r\n  overflow: hidden !important;\r\n}\r\n\r\n.panel-heading {\r\n  background: rgba(255, 255, 255, 0.4) !important;\r\n  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  padding: 14px 20px !important;\r\n}\r\n\r\n.panel-title a {\r\n  color: #1c1c1e !important;\r\n  font-weight: 600 !important;\r\n  font-size: 15px !important;\r\n  text-decoration: none !important;\r\n}\r\n\r\n.panel-body {\r\n  padding: 16px 20px !important;\r\n  background: transparent !important;\r\n}\r\n\r\n\r\n/* Form field input / select / textarea */\r\n.r-edit-field input,\r\n.r-edit-field select,\r\n.r-edit-field textarea {\r\n  background: rgba(255, 255, 255, 0.7) !important;\r\n  backdrop-filter: blur(8px) !important;\r\n  -webkit-backdrop-filter: blur(8px) !important;\r\n  border: 1px solid rgba(0, 0, 0, 0.1) !important;\r\n  border-radius: 10px !important;\r\n  \r\n  font-size: 15px !important;\r\n  color: #1c1c1e !important;\r\n \r\n  transition: border-color 0.2s, box-shadow 0.2s !important;\r\n  outline: none !important;\r\n}\r\n\r\n.r-edit-field input:focus,\r\n.r-edit-field select:focus,\r\n.r-edit-field textarea:focus {\r\n  border-color: rgba(0, 122, 255, 0.6) !important;\r\n  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15) !important;\r\n  background: rgba(255, 255, 255, 0.9) !important;\r\n}\r\n/* Label */\r\n.r-edit-label.control-label {\r\n  font-size: 13px !important;\r\n  font-weight: 500 !important;\r\n  color: #3c3c43 !important;\r\n  margin-bottom: 6px !important;\r\n}\r\n\r\n/* Alert */\r\n.alert {\r\n  background: rgba(255, 255, 255, 0.6) !important;\r\n  backdrop-filter: blur(12px) !important;\r\n  -webkit-backdrop-filter: blur(12px) !important;\r\n  border: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 14px !important;\r\n}\r\n\r\n/* Tombol Simpan */\r\n.btn-primary {\r\n  background: rgba(0, 122, 255, 0.85) !important;\r\n  backdrop-filter: blur(8px) !important;\r\n  -webkit-backdrop-filter: blur(8px) !important;\r\n  border: none !important;\r\n  border-radius: 12px !important;\r\n  color: #fff !important;\r\n  font-size: 15px !important;\r\n  font-weight: 600 !important;\r\n  padding: 11px 24px !important;\r\n  transition: background 0.2s, transform 0.1s !important;\r\n}\r\n\r\n.btn-primary:hover {\r\n  background: rgba(0, 100, 220, 0.9) !important;\r\n  transform: scale(0.99) !important;\r\n}\r\n\r\n/* Tombol Reset / Cancel / Kembali */\r\n.btn-default {\r\n  background: rgba(255, 255, 255, 0.55) !important;\r\n  backdrop-filter: blur(8px) !important;\r\n  -webkit-backdrop-filter: blur(8px) !important;\r\n  border: 1px solid rgba(0, 0, 0, 0.12) !important;\r\n  border-radius: 12px !important;\r\n  color: #007aff !important;\r\n  font-size: 15px !important;\r\n  font-weight: 500 !important;\r\n  padding: 11px 24px !important;\r\n  transition: background 0.2s !important;\r\n}\r\n\r\n.btn-default:hover {\r\n  background: rgba(255, 255, 255, 0.8) !important;\r\n}\r\n\r\n/* Bar tombol bawah */\r\n.r-form[data-location=\"below-grid\"] {\r\n  background: rgba(255, 255, 255, 0.5) !important;\r\n  backdrop-filter: blur(20px) !important;\r\n  -webkit-backdrop-filter: blur(20px) !important;\r\n  border-top: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  padding: 14px 20px !important;\r\n}\r\n/* ===== END iOS BLUR ===== */",
 		"verticalBorders": false,
 		"condensedGrid": true,
 		"rolloverHighlight": true,
@@ -2409,48 +2408,6 @@
 				"gcEvenColor": "legacy",
 				"gcRolloverHighlightBg": "legacy",
 				"gcRolloverHighlightColor": "legacy"
-			}
-		},
-		{
-			"table": 4134739628,
-			"page": "list",
-			"style": {
-				"condensedGrid": true,
-				"direction": "ltr",
-				"fixedSidebar": true,
-				"fixedTopbar": true,
-				"gcEvenBg": "",
-				"gcEvenColor": "",
-				"gcOddBg": "",
-				"gcOddColor": "",
-				"gcRolloverHighlightBg": "",
-				"gcRolloverHighlightColor": "",
-				"gpBorderColor": "",
-				"gpFooterBg": "",
-				"gpHeaderBg": "",
-				"gpHeaderColor": "",
-				"gpInnerBorder": "",
-				"gpInnerBorderColor": "",
-				"gpPanelBorder": "1px",
-				"logoCustomThemeColor": "#dddddd",
-				"logoTheme": "white",
-				"menuStyle": "rounded",
-				"panelLikeGrid": false,
-				"rolloverHighlight": true,
-				"sidebarColor": "light",
-				"sidebarCompact": true,
-				"sidebarCustomThemeColor": "#bfc7ca",
-				"sidebarTheme": "legacy",
-				"sidebarWidth": "210px",
-				"size": "small",
-				"stripedGrid": true,
-				"theme": "spacelab",
-				"topbarCustomThemeColor": "#e67723",
-				"topbarGradient": false,
-				"topbarLegacy": false,
-				"topbarTheme": "white",
-				"verticalBorders": false,
-				"customCss": "/* Contoh CSS tambahan untuk shadow ala macOS */\n.panel, .modal-content, .dropdown-menu, .btn {\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n/* Untuk elemen yang lebih menonjol */\n.modal-content {\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n}"
 			}
 		},
 		{

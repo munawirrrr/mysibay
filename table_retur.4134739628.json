@@ -2,15 +2,18 @@
 	"orderInfo": [
 		{
 			"index": 1,
-			"asc": true,
-			"field": "retur.`no`"
+			"field": "no",
+			"expr": "retur.`no`",
+			"asc": true
 		}
 	],
-	"sql": "SELECT\nretur.`no`,\nretur.no_rekening_sebelumnya,\nretur.no_rekening_perbaikan,\nretur.scan_buku_rekening,\nretur.tahun,\nretur.nama_rekening_perbaikan,\ndata_sibay.`nama siswa` AS nama,\ndata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\ndata_sibay.file_scan AS file_upload_lama,\ndata_sibay.jenjang,\nretur.alasan_perbaikan,\nretur.catatan_dari_dinas,\ndata_sibay.npsn,\nretur.satker,\nretur.status,\nprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\ndata_sibay.nisn,\ndata_sibay.hp_kepala,\ndata_sibay.hp_wali,\nretur.jumlah\nFROM retur\nINNER JOIN data_sibay ON retur.no_rekening_sebelumnya = data_sibay.`nomor rekening`\nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nORDER BY retur.`no`",
+	"sql": "SELECT\nretur.`no`,\nretur.no_rekening_sebelumnya,\nretur.no_rekening_perbaikan,\nretur.scan_buku_rekening,\nretur.tahun,\nretur.nama_rekening_perbaikan,\ndata_sibay.`nama siswa` AS nama,\ndata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\ndata_sibay.file_scan AS file_upload_lama,\ndata_sibay.jenjang,\nretur.alasan_perbaikan,\nretur.catatan_dari_dinas,\ndata_sibay.npsn,\nretur.satker,\nretur.status,\nprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\ndata_sibay.nisn,\ndata_sibay.hp_kepala,\ndata_sibay.hp_wali,\nretur.jumlah\nFROM retur\nINNER JOIN data_sibay ON retur.no_rekening_sebelumnya = data_sibay.`nomor rekening`\nINNER JOIN profil ON data_sibay.npsn = profil.NPSN\nORDER BY retur.`no`;",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "retur",
 	"name": "retur",
 	"shortTableName": "retur",
+	"dbType": 0,
+	"hideDataUntilSearch": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
@@ -22,7 +25,7 @@
 		"50",
 		"100",
 		"500",
-		"-1"
+		"1"
 	],
 	"pageSizeSelectorGroups": [
 		"1",
@@ -31,7 +34,7 @@
 		"10",
 		"50",
 		"100",
-		"-1"
+		"1"
 	],
 	"keyFields": [
 		"no_rekening_sebelumnya"
@@ -54,6 +57,7 @@
 		{
 			"name": "no",
 			"sqlExpression": "retur.`no`",
+			"index": 1,
 			"strField": "no",
 			"type": 200,
 			"viewFormats": [
@@ -95,6 +99,7 @@
 		{
 			"name": "no_rekening_sebelumnya",
 			"sqlExpression": "retur.no_rekening_sebelumnya",
+			"index": 2,
 			"strField": "no_rekening_sebelumnya",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -183,6 +188,7 @@
 		{
 			"name": "no_rekening_perbaikan",
 			"sqlExpression": "retur.no_rekening_perbaikan",
+			"index": 3,
 			"strField": "no_rekening_perbaikan",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -252,6 +258,7 @@
 		{
 			"name": "scan_buku_rekening",
 			"sqlExpression": "retur.scan_buku_rekening",
+			"index": 4,
 			"strField": "scan_buku_rekening",
 			"type": 200,
 			"viewFormats": [
@@ -294,10 +301,21 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "retur.tahun",
+			"index": 5,
 			"strField": "tahun",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
+					"pageType": "list",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "export",
 					"numberFractionalDigits": 0
 				}
 			],
@@ -309,6 +327,38 @@
 					"textHTML5Input": "0",
 					"lookupType": 2,
 					"lookupTable": "data_sibay",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahun",
+					"lookupDisplayField": "tahun",
+					"lookupUnique": true,
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"format": "Lookup wizard",
+					"pageType": "add",
+					"required": true,
+					"textboxMaxLenth": 4,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "data_sibay",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahun",
+					"lookupDisplayField": "tahun",
+					"lookupUnique": true,
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"format": "Lookup wizard",
+					"pageType": "search",
+					"required": true,
+					"textboxMaxLenth": 4,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "retur",
 					"lookupTableConnection": "keme8950sibayat1566720940",
 					"lookupLinkField": "tahun",
 					"lookupDisplayField": "tahun",
@@ -336,6 +386,7 @@
 		{
 			"name": "nama_rekening_perbaikan",
 			"sqlExpression": "retur.nama_rekening_perbaikan",
+			"index": 6,
 			"strField": "nama_rekening_perbaikan",
 			"type": 200,
 			"viewFormats": [
@@ -372,6 +423,7 @@
 		{
 			"name": "nama",
 			"sqlExpression": "data_sibay.`nama siswa`",
+			"index": 7,
 			"strField": "nama siswa",
 			"type": 200,
 			"viewFormats": [
@@ -413,6 +465,7 @@
 		{
 			"name": "nama_rekening_sebelumnya",
 			"sqlExpression": "data_sibay.`nama di rekening`",
+			"index": 8,
 			"strField": "nama di rekening",
 			"type": 200,
 			"viewFormats": [
@@ -454,6 +507,7 @@
 		{
 			"name": "file_upload_lama",
 			"sqlExpression": "data_sibay.file_scan",
+			"index": 9,
 			"strField": "file_scan",
 			"type": 200,
 			"viewFormats": [
@@ -500,6 +554,7 @@
 		{
 			"name": "jenjang",
 			"sqlExpression": "data_sibay.jenjang",
+			"index": 10,
 			"strField": "jenjang",
 			"type": 200,
 			"viewFormats": [
@@ -541,6 +596,7 @@
 		{
 			"name": "alasan_perbaikan",
 			"sqlExpression": "retur.alasan_perbaikan",
+			"index": 11,
 			"strField": "alasan_perbaikan",
 			"type": 200,
 			"viewFormats": [
@@ -578,6 +634,7 @@
 		{
 			"name": "catatan_dari_dinas",
 			"sqlExpression": "retur.catatan_dari_dinas",
+			"index": 12,
 			"strField": "catatan_dari_dinas",
 			"type": 200,
 			"viewFormats": [
@@ -621,8 +678,9 @@
 		{
 			"name": "npsn",
 			"sqlExpression": "data_sibay.npsn",
+			"index": 13,
 			"strField": "npsn",
-			"type": 20,
+			"type": 3,
 			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
@@ -693,6 +751,7 @@
 		{
 			"name": "satker",
 			"sqlExpression": "retur.satker",
+			"index": 14,
 			"strField": "satker",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -763,6 +822,7 @@
 		{
 			"name": "status",
 			"sqlExpression": "retur.status",
+			"index": 15,
 			"strField": "status",
 			"type": 200,
 			"viewFormats": [
@@ -803,6 +863,7 @@
 		{
 			"name": "no_tlp_kepala_profil",
 			"sqlExpression": "profil.`Nomor Telpon`",
+			"index": 16,
 			"strField": "Nomor Telpon",
 			"type": 200,
 			"viewFormats": [
@@ -844,6 +905,7 @@
 		{
 			"name": "nisn",
 			"sqlExpression": "data_sibay.nisn",
+			"index": 17,
 			"strField": "nisn",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -954,6 +1016,7 @@
 		{
 			"name": "hp_kepala",
 			"sqlExpression": "data_sibay.hp_kepala",
+			"index": 18,
 			"strField": "hp_kepala",
 			"type": 200,
 			"viewFormats": [
@@ -996,6 +1059,7 @@
 		{
 			"name": "hp_wali",
 			"sqlExpression": "data_sibay.hp_wali",
+			"index": 19,
 			"strField": "hp_wali",
 			"type": 200,
 			"viewFormats": [
@@ -1030,6 +1094,7 @@
 		{
 			"name": "jumlah",
 			"sqlExpression": "retur.jumlah",
+			"index": 20,
 			"strField": "jumlah",
 			"type": 14,
 			"viewFormats": [
@@ -1129,6 +1194,160 @@
 	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "no_rekening_sebelumnya",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "npsn",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nisn",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "no_rekening_perbaikan",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "scan_buku_rekening",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tahun",
+				"type": 200,
+				"size": 4,
+				"scale": 0,
+				"typeName": "varchar(4)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama_rekening_perbaikan",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "alasan_perbaikan",
+				"type": 200,
+				"size": 2000,
+				"scale": 0,
+				"typeName": "varchar(2000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "catatan_dari_dinas",
+				"type": 200,
+				"size": 500,
+				"scale": 0,
+				"typeName": "varchar(500)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "satker",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": "belum diproses kabupaten",
+				"defaultValue": ""
+			},
+			{
+				"name": "no",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "jumlah",
+				"type": 14,
+				"size": 32,
+				"scale": 0,
+				"typeName": "decimal(32,0)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"no_rekening_sebelumnya"
+		],
+		"uniqueFields": [],
+		"name": "retur"
 	},
 	"pages": [
 		{
@@ -3610,6 +3829,7 @@
 						"c3": {
 							"model": "c3",
 							"items": [
+								"integrated_search_field2",
 								"integrated_search_field14",
 								"integrated_search_field",
 								"integrated_search_field1"
@@ -3658,6 +3878,12 @@
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": false
+				},
+				"integrated_search_field2": {
+					"field": "tahun",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": true
 				}
 			},
 			"dbProps": {},
