@@ -1305,7 +1305,7 @@
 					"field": "tahun",
 					"type": "simple_grid_field",
 					"inlineAdd": true,
-					"inlineEdit": true
+					"inlineEdit": false
 				}
 			},
 			"dbProps": {},

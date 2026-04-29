@@ -9,6 +9,7 @@
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
 	"advancedSecurityType": 1,
+	"hideEmptyFieldsOnView": true,
 	"pageSizeRecords": 10,
 	"pageSizeSelectorRecords": [
 		"10",
@@ -1836,7 +1837,8 @@
 				"hamburger": {
 					"type": "hamburger",
 					"items": [
-						"edit_reset"
+						"edit_reset",
+						"edit_view"
 					]
 				},
 				"edit_reset": {
@@ -1887,7 +1889,11 @@
 				"integrated_edit_field5": {
 					"field": "tahun",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"edit_view": {
+					"type": "edit_view"
 				}
 			},
 			"dbProps": {},
@@ -2026,7 +2032,8 @@
 				"hamburger": {
 					"type": "hamburger",
 					"items": [
-						"edit_reset"
+						"edit_reset",
+						"edit_view"
 					]
 				},
 				"edit_reset": {
@@ -2074,6 +2081,9 @@
 					"field": "NSM",
 					"type": "integrated_edit_field",
 					"orientation": 0
+				},
+				"edit_view": {
+					"type": "edit_view"
 				}
 			},
 			"dbProps": {},
@@ -2665,6 +2675,9 @@
 									"cell": "headcell_field"
 								},
 								{
+									"cell": "headcell_field5"
+								},
+								{
 									"cell": "headcell_field17"
 								},
 								{
@@ -2680,31 +2693,13 @@
 									"cell": "headcell_field3"
 								},
 								{
-									"cell": "headcell_field7"
-								},
-								{
 									"cell": "headcell_field8"
-								},
-								{
-									"cell": "headcell_field9"
 								},
 								{
 									"cell": "headcell_field10"
 								},
 								{
 									"cell": "headcell_field4"
-								},
-								{
-									"cell": "headcell_field13"
-								},
-								{
-									"cell": "headcell_field14"
-								},
-								{
-									"cell": "headcell_field5"
-								},
-								{
-									"cell": "headcell_field6"
 								}
 							]
 						},
@@ -2724,6 +2719,9 @@
 									"cell": "cell_field"
 								},
 								{
+									"cell": "cell_field5"
+								},
+								{
 									"cell": "cell_field14"
 								},
 								{
@@ -2739,31 +2737,13 @@
 									"cell": "cell_field3"
 								},
 								{
-									"cell": "cell_field7"
-								},
-								{
 									"cell": "cell_field8"
-								},
-								{
-									"cell": "cell_field9"
 								},
 								{
 									"cell": "headcell_field11"
 								},
 								{
 									"cell": "cell_field4"
-								},
-								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field11"
-								},
-								{
-									"cell": "cell_field5"
-								},
-								{
-									"cell": "cell_field6"
 								}
 							]
 						},
@@ -2771,7 +2751,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 18
+									"colspan": 13
 								}
 							],
 							"section": "body"
@@ -2790,7 +2770,7 @@
 								},
 								{
 									"cell": "footcell_field",
-									"colspan": 3
+									"colspan": 4
 								},
 								{
 									"cell": "footcell_field1"
@@ -2802,31 +2782,13 @@
 									"cell": "footcell_field3"
 								},
 								{
-									"cell": "footcell_field7"
-								},
-								{
 									"cell": "footcell_field8"
-								},
-								{
-									"cell": "footcell_field9"
 								},
 								{
 									"cell": "headcell_field12"
 								},
 								{
 									"cell": "footcell_field4"
-								},
-								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field11"
-								},
-								{
-									"cell": "footcell_field5"
-								},
-								{
-									"cell": "footcell_field6"
 								}
 							]
 						}
@@ -2920,28 +2882,6 @@
 							"field": "nama di rekening",
 							"columnName": "field"
 						},
-						"headcell_field7": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field17"
-							],
-							"field": "Nomor Telpon",
-							"columnName": "field"
-						},
-						"cell_field7": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field9"
-							],
-							"field": "Nomor Telpon",
-							"columnName": "field"
-						},
-						"footcell_field7": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "Nomor Telpon",
-							"columnName": "field"
-						},
 						"headcell_field8": {
 							"model": "headcell_field",
 							"items": [
@@ -2962,28 +2902,6 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "catatan",
-							"columnName": "field"
-						},
-						"headcell_field9": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field19"
-							],
-							"field": "file_scan",
-							"columnName": "field"
-						},
-						"cell_field9": {
-							"model": "cell_field",
-							"items": [
-								"pdf"
-							],
-							"field": "file_scan",
-							"columnName": "field"
-						},
-						"footcell_field9": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "file_scan",
 							"columnName": "field"
 						},
 						"headcell_checkbox": {
@@ -3011,21 +2929,22 @@
 						"headcell_icons": {
 							"model": "headcell_icons",
 							"items": [],
-							"columnName": "edit",
+							"columnName": "list-icons",
 							"field": ""
 						},
 						"cell_icons": {
 							"model": "cell_icons",
 							"items": [
-								"grid_edit"
+								"grid_edit",
+								"grid_view"
 							],
-							"columnName": "edit",
+							"columnName": "list-icons",
 							"field": ""
 						},
 						"footcell_icons": {
 							"model": "footcell_icons",
 							"items": [],
-							"columnName": "edit",
+							"columnName": "list-icons",
 							"field": ""
 						},
 						"headcell_field10": {
@@ -3050,79 +2969,13 @@
 							"columnName": "field",
 							"field": "status"
 						},
-						"headcell_field4": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label"
-							],
-							"field": "tahun",
-							"columnName": "field"
-						},
-						"cell_field4": {
-							"model": "cell_field",
-							"items": [
-								"grid_field"
-							],
-							"field": "tahun",
-							"columnName": "field"
-						},
-						"footcell_field4": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "tahun",
-							"columnName": "field"
-						},
-						"headcell_field13": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "status_kunci_oprt",
-							"columnName": "field"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "status_kunci_oprt",
-							"columnName": "field"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "status_kunci_oprt",
-							"columnName": "field"
-						},
-						"headcell_field14": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "status_kunci_kantor",
-							"columnName": "field"
-						},
-						"cell_field11": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "status_kunci_kantor",
-							"columnName": "field"
-						},
-						"footcell_field11": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "status_kunci_kantor",
-							"columnName": "field"
-						},
 						"cell_dpreview": {
 							"model": "cell_dpreview",
 							"items": [
 								"details_preview"
 							],
-							"columnName": "field",
-							"field": "hp_wali"
+							"columnName": "",
+							"field": ""
 						},
 						"headcell_details": {
 							"model": "headcell_details",
@@ -3143,50 +2996,6 @@
 							"items": [],
 							"columnName": "details",
 							"field": ""
-						},
-						"headcell_field5": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label1"
-							],
-							"field": "hp_kepala",
-							"columnName": "field"
-						},
-						"cell_field5": {
-							"model": "cell_field",
-							"items": [
-								"grid_field1"
-							],
-							"field": "hp_kepala",
-							"columnName": "field"
-						},
-						"footcell_field5": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "hp_kepala",
-							"columnName": "field"
-						},
-						"headcell_field6": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label2"
-							],
-							"field": "hp_wali",
-							"columnName": "field"
-						},
-						"cell_field6": {
-							"model": "cell_field",
-							"items": [
-								"grid_field2"
-							],
-							"field": "hp_wali",
-							"columnName": "field"
-						},
-						"footcell_field6": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "hp_wali",
-							"columnName": "field"
 						},
 						"cell_field13": {
 							"model": "cell_field",
@@ -3216,6 +3025,40 @@
 							"model": "cell_field",
 							"items": [
 								"grid_field6"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field4": {
+							"model": "headcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field4": {
+							"model": "cell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"footcell_field4": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field5": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field5": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
 							],
 							"field": "",
 							"columnName": ""
@@ -3338,17 +3181,6 @@
 					"inlineAdd": false,
 					"inlineEdit": false
 				},
-				"simple_grid_field17": {
-					"type": "grid_field_label",
-					"field": "Nomor Telpon",
-					"showFilter": true
-				},
-				"simple_grid_field9": {
-					"field": "Nomor Telpon",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
 				"simple_grid_field18": {
 					"type": "grid_field_label",
 					"field": "catatan",
@@ -3359,11 +3191,6 @@
 					"type": "grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false
-				},
-				"simple_grid_field19": {
-					"type": "grid_field_label",
-					"field": "file_scan",
-					"showFilter": true
 				},
 				"grid_checkbox_head": {
 					"type": "grid_checkbox_head"
@@ -3567,44 +3394,11 @@
 				"collapse_button": {
 					"type": "collapse_button"
 				},
-				"grid_field": {
-					"field": "tahun",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label": {
-					"type": "grid_field_label",
-					"field": "tahun",
-					"showFilter": true
-				},
-				"grid_field3": {
-					"field": "status_kunci_oprt",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "status_kunci_oprt",
-					"showFilter": true
-				},
 				"search_panel_field13": {
 					"field": "status_kunci_oprt",
 					"type": "search_panel_field",
 					"required": false,
 					"alwaysOnPanel": false
-				},
-				"grid_field4": {
-					"field": "status_kunci_kantor",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "status_kunci_kantor",
-					"showFilter": true
 				},
 				"search_panel_field14": {
 					"field": "status_kunci_kantor",
@@ -3625,12 +3419,6 @@
 						"style": 0
 					},
 					"buttonSize": ""
-				},
-				"pdf": {
-					"field": "file_scan",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
 				},
 				"snippet": {
 					"eventId": "data_sibay_snippet",
@@ -3665,28 +3453,6 @@
 					"badgeColor": "#c7d420",
 					"bold": true
 				},
-				"grid_field1": {
-					"field": "hp_kepala",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label1": {
-					"type": "grid_field_label",
-					"field": "hp_kepala",
-					"showFilter": true
-				},
-				"grid_field2": {
-					"field": "hp_wali",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label2": {
-					"type": "grid_field_label",
-					"field": "hp_wali",
-					"showFilter": true
-				},
 				"text": {
 					"type": "text",
 					"label": {
@@ -3716,7 +3482,9 @@
 				},
 				"grid_field6": {
 					"field": "nama Madrasah",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
@@ -3739,7 +3507,26 @@
 					"icon": {
 						"style": 0
 					},
-					"buttonStyle": "primary"
+					"buttonStyle": "link-button",
+					"buttonSize": "small"
+				},
+				"grid_view": {
+					"type": "grid_view",
+					"icon": {
+						"glyph": "search",
+						"style": 0
+					},
+					"popup": true,
+					"page": "view"
+				},
+				"grid_field": {
+					"field": "npsn",
+					"type": "grid_field"
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "npsn",
+					"showFilter": true
 				}
 			},
 			"dbProps": {},
@@ -4308,7 +4095,15 @@
 								"simple_grid_field10",
 								"simple_grid_field11",
 								"simple_grid_field14",
-								"simple_grid_field15"
+								"simple_grid_field15",
+								"simple_grid_field12",
+								"simple_grid_field13",
+								"simple_grid_field16",
+								"simple_grid_field17",
+								"simple_grid_field18",
+								"simple_grid_field19",
+								"simple_grid_field20",
+								"simple_grid_field21"
 							]
 						},
 						"c2": {
@@ -4412,6 +4207,38 @@
 					"tables": {
 						"564743320": "true"
 					}
+				},
+				"simple_grid_field12": {
+					"field": "kelas",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field13": {
+					"field": "jenis_kelamin",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field16": {
+					"field": "status_siswa",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field17": {
+					"field": "pip",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field18": {
+					"field": "kunci_operator",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field19": {
+					"field": "kunci_kemenag_pidie",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field20": {
+					"field": "hp_kepala",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field21": {
+					"field": "hp_wali",
+					"type": "simple_grid_field"
 				}
 			},
 			"dbProps": {},
@@ -4719,7 +4546,7 @@
 			"id": "view",
 			"type": "view",
 			"layoutId": "nomenu",
-			"disabled": 1,
+			"disabled": false,
 			"default": 0,
 			"forms": {
 				"above-grid": {
@@ -4794,7 +4621,9 @@
 							"model": "c1",
 							"items": [
 								"view_header"
-							]
+							],
+							"align": "center",
+							"bold": true
 						}
 					},
 					"deferredItems": [],
@@ -4806,39 +4635,462 @@
 						{
 							"cells": [
 								{
+									"cell": "c4"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c"
+								},
+								{
 									"cell": "c3"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c5"
+								},
+								{
+									"cell": "c6"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c7"
+								},
+								{
+									"cell": "c8"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c9"
+								},
+								{
+									"cell": "c10"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c11"
+								},
+								{
+									"cell": "c12"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c13"
+								},
+								{
+									"cell": "c14"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c15"
+								},
+								{
+									"cell": "c16"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c17"
+								},
+								{
+									"cell": "c18"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c19"
+								},
+								{
+									"cell": "c20"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c21"
+								},
+								{
+									"cell": "c22"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c23"
+								},
+								{
+									"cell": "c24"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c25"
+								},
+								{
+									"cell": "c26"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c31"
+								},
+								{
+									"cell": "c32"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c33"
+								},
+								{
+									"cell": "c34"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c35"
+								},
+								{
+									"cell": "c36"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c37"
+								},
+								{
+									"cell": "c38"
 								}
 							],
 							"section": ""
 						}
 					],
 					"cells": {
-						"c3": {
-							"model": "c3",
+						"c4": {
+							"model": "c4",
 							"items": [
-								"integrated_edit_field",
-								"integrated_edit_field2",
-								"integrated_edit_field3",
-								"integrated_edit_field4",
-								"integrated_edit_field5",
-								"integrated_edit_field6",
-								"integrated_edit_field7",
-								"integrated_edit_field1",
-								"integrated_edit_field8",
-								"integrated_edit_field9",
+								"integrated_edit_field19"
+							],
+							"field": "nisn",
+							"align": "left"
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field"
+							],
+							"field": "nisn"
+						},
+						"c": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field20"
+							],
+							"field": "npsn",
+							"align": "left"
+						},
+						"c3": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field2"
+							],
+							"field": "npsn"
+						},
+						"c5": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field21"
+							],
+							"field": "nama siswa",
+							"align": "left"
+						},
+						"c6": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field3"
+							],
+							"field": "nama siswa"
+						},
+						"c7": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field22"
+							],
+							"field": "nomor rekening",
+							"align": "left"
+						},
+						"c8": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field4"
+							],
+							"field": "nomor rekening"
+						},
+						"c9": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field23"
+							],
+							"field": "nama di rekening",
+							"align": "left"
+						},
+						"c10": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field5"
+							],
+							"field": "nama di rekening"
+						},
+						"c11": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field24"
+							],
+							"field": "file_scan",
+							"align": "left"
+						},
+						"c12": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field6"
+							],
+							"field": "file_scan"
+						},
+						"c13": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field25"
+							],
+							"field": "status",
+							"align": "left"
+						},
+						"c14": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field7"
+							],
+							"field": "status"
+						},
+						"c15": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field26"
+							],
+							"field": "nama Madrasah",
+							"align": "left"
+						},
+						"c16": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field1"
+							],
+							"field": "nama Madrasah"
+						},
+						"c17": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field27"
+							],
+							"field": "NSM",
+							"align": "left"
+						},
+						"c18": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field8"
+							],
+							"field": "NSM"
+						},
+						"c19": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field28"
+							],
+							"field": "Nomor Telpon",
+							"align": "left"
+						},
+						"c20": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field9"
+							],
+							"field": "Nomor Telpon"
+						},
+						"c21": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field29"
+							],
+							"field": "kelas",
+							"align": "left"
+						},
+						"c22": {
+							"model": "c2",
+							"items": [
 								"integrated_edit_field10"
-							]
+							],
+							"field": "kelas"
+						},
+						"c23": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field30"
+							],
+							"field": "pip",
+							"align": "left"
+						},
+						"c24": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field11"
+							],
+							"field": "pip"
+						},
+						"c25": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field31"
+							],
+							"field": "tahun",
+							"align": "left"
+						},
+						"c26": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field12"
+							],
+							"field": "tahun"
+						},
+						"c31": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field34"
+							],
+							"field": "status_kunci_oprt",
+							"align": "left"
+						},
+						"c32": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field15"
+							],
+							"field": "status_kunci_oprt"
+						},
+						"c33": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field35"
+							],
+							"field": "status_kunci_kantor",
+							"align": "left"
+						},
+						"c34": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field16"
+							],
+							"field": "status_kunci_kantor"
+						},
+						"c35": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field36"
+							],
+							"field": "hp_kepala",
+							"align": "left"
+						},
+						"c36": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field17"
+							],
+							"field": "hp_kepala"
+						},
+						"c37": {
+							"model": "c4",
+							"items": [
+								"integrated_edit_field37"
+							],
+							"field": "hp_wali",
+							"align": "left"
+						},
+						"c38": {
+							"model": "c2",
+							"items": [
+								"integrated_edit_field18"
+							],
+							"field": "hp_wali"
 						}
 					},
 					"deferredItems": [],
 					"columnCount": 1,
-					"inlineLabels": false,
-					"separateLabels": false
+					"inlineLabels": true,
+					"separateLabels": true
 				}
 			},
 			"items": {
 				"view_header": {
-					"type": "view_header"
+					"type": "view_header",
+					"title": {
+						"page": "view",
+						"table": "data_sibay",
+						"type": 7
+					}
 				},
 				"view_back_list": {
 					"type": "view_back_list"
@@ -4857,58 +5109,139 @@
 				},
 				"integrated_edit_field": {
 					"field": "nisn",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
 				},
-				"integrated_edit_field1": {
-					"field": "nama Madrasah",
-					"type": "integrated_edit_field",
-					"orientation": 0
+				"integrated_edit_field19": {
+					"type": "edit_field_label",
+					"field": "nisn"
 				},
 				"integrated_edit_field2": {
 					"field": "npsn",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field20": {
+					"type": "edit_field_label",
+					"field": "npsn"
 				},
 				"integrated_edit_field3": {
 					"field": "nama siswa",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field21": {
+					"type": "edit_field_label",
+					"field": "nama siswa"
 				},
 				"integrated_edit_field4": {
 					"field": "nomor rekening",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field22": {
+					"type": "edit_field_label",
+					"field": "nomor rekening"
 				},
 				"integrated_edit_field5": {
 					"field": "nama di rekening",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field23": {
+					"type": "edit_field_label",
+					"field": "nama di rekening"
 				},
 				"integrated_edit_field6": {
 					"field": "file_scan",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field24": {
+					"type": "edit_field_label",
+					"field": "file_scan"
 				},
 				"integrated_edit_field7": {
 					"field": "status",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field25": {
+					"type": "edit_field_label",
+					"field": "status"
+				},
+				"integrated_edit_field1": {
+					"field": "nama Madrasah",
+					"type": "edit_field"
+				},
+				"integrated_edit_field26": {
+					"type": "edit_field_label",
+					"field": "nama Madrasah"
 				},
 				"integrated_edit_field8": {
 					"field": "NSM",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field27": {
+					"type": "edit_field_label",
+					"field": "NSM"
 				},
 				"integrated_edit_field9": {
 					"field": "Nomor Telpon",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"type": "edit_field"
+				},
+				"integrated_edit_field28": {
+					"type": "edit_field_label",
+					"field": "Nomor Telpon"
 				},
 				"integrated_edit_field10": {
-					"field": "catatan",
-					"type": "integrated_edit_field",
-					"orientation": 0
+					"field": "kelas",
+					"type": "edit_field"
+				},
+				"integrated_edit_field29": {
+					"type": "edit_field_label",
+					"field": "kelas"
+				},
+				"integrated_edit_field11": {
+					"field": "pip",
+					"type": "edit_field"
+				},
+				"integrated_edit_field30": {
+					"type": "edit_field_label",
+					"field": "pip"
+				},
+				"integrated_edit_field12": {
+					"field": "tahun",
+					"type": "edit_field"
+				},
+				"integrated_edit_field31": {
+					"type": "edit_field_label",
+					"field": "tahun"
+				},
+				"integrated_edit_field15": {
+					"field": "status_kunci_oprt",
+					"type": "edit_field"
+				},
+				"integrated_edit_field34": {
+					"type": "edit_field_label",
+					"field": "status_kunci_oprt"
+				},
+				"integrated_edit_field16": {
+					"field": "status_kunci_kantor",
+					"type": "edit_field"
+				},
+				"integrated_edit_field35": {
+					"type": "edit_field_label",
+					"field": "status_kunci_kantor"
+				},
+				"integrated_edit_field17": {
+					"field": "hp_kepala",
+					"type": "edit_field"
+				},
+				"integrated_edit_field36": {
+					"type": "edit_field_label",
+					"field": "hp_kepala"
+				},
+				"integrated_edit_field18": {
+					"field": "hp_wali",
+					"type": "edit_field"
+				},
+				"integrated_edit_field37": {
+					"type": "edit_field_label",
+					"field": "hp_wali"
 				}
 			},
 			"dbProps": {},
@@ -4920,7 +5253,9 @@
 			"controlsBgColor": "white",
 			"imagePosition": "right",
 			"listTotals": 1,
-			"title": {}
+			"title": {
+				"Indonesian": "data siswa {%nisn}/ {%tahun}"
+			}
 		}
 	],
 	"geoCoding": {
