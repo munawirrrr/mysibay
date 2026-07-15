@@ -63,8 +63,8 @@
 				"gid": 3872830103
 			},
 			{
-				"x": 724,
-				"y": 475,
+				"x": 775,
+				"y": 472,
 				"width": 129,
 				"height": 400,
 				"gid": 564743320
@@ -91,8 +91,8 @@
 				"gid": 4151081472
 			},
 			{
-				"x": 165,
-				"y": 195,
+				"x": 257,
+				"y": 358,
 				"width": 120,
 				"height": 200,
 				"gid": 2375276105
@@ -381,7 +381,7 @@
 				"password": "",
 				"host": "ftp.penmadpidie.com",
 				"port": 21,
-				"pathname": "/public_html/kantor/sibaybaru",
+				"pathname": "/public_html/kantor/sibay",
 				"passive": true,
 				"secureType": 0,
 				"useCCC": false,
