@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tretur.id AS `no`,\n\tretur.no_rekening_sebelumnya,\n\tretur.no_rekening_perbaikan,\n\tretur.scan_buku_rekening,\n\tretur.tahun,\n\tretur.nama_rekening_perbaikan,\n\tdata_sibay.`nama siswa` AS nama,\n\tdata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\n\tdata_sibay.file_scan AS file_upload_lama,\n\tdata_sibay.jenjang,\n\tretur.alasan_perbaikan,\n\tretur.catatan_dari_dinas,\n\tdata_sibay.npsn,\n\tretur.satker,\n\tretur.status,\n\tprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\n\tdata_sibay.nisn,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tretur.jumlah\nFROM\n\tretur\n\tINNER JOIN data_sibay ON data_sibay.`nomor rekening` = retur.no_rekening_sebelumnya AND data_sibay.tahun = retur.tahun\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n",
+	"sql": "SELECT\n\tretur.id AS `no`,\n\tretur.no_rekening_sebelumnya,\n\tretur.no_rekening_perbaikan,\n\tretur.scan_buku_rekening,\n\tretur.tahun,\n\tretur.nama_rekening_perbaikan,\n\tdata_sibay.`nama siswa` AS nama,\n\tdata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\n\tdata_sibay.file_scan AS file_upload_lama,\n\tdata_sibay.jenjang,\n\tretur.alasan_perbaikan,\n\tretur.catatan_dari_dinas,\n\tdata_sibay.npsn,\n\tretur.satker,\n\tretur.status,\n\tprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\n\tdata_sibay.nisn,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tretur.jumlah,\n\tprofil.`nama Madrasah`\nFROM\n\tretur\n\tINNER JOIN data_sibay ON data_sibay.`nomor rekening` = retur.no_rekening_sebelumnya AND data_sibay.tahun = retur.tahun\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "retur",
 	"name": "retur",
@@ -1113,6 +1113,23 @@
 				"Indonesian": ""
 			},
 			"tableName": "retur"
+		},
+		{
+			"name": "nama Madrasah",
+			"sqlExpression": "profil.`nama Madrasah`",
+			"index": 21,
+			"strField": "nama Madrasah",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Nama Madrasah"
+			},
+			"tableName": "profil"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -1897,7 +1914,8 @@
 								"export_field9",
 								"export_field5",
 								"export_field8",
-								"export_field10"
+								"export_field10",
+								"export_field4"
 							]
 						}
 					},
@@ -1984,6 +2002,10 @@
 				},
 				"export_field9": {
 					"field": "nama_rekening_sebelumnya",
+					"type": "export_field"
+				},
+				"export_field4": {
+					"field": "nama Madrasah",
 					"type": "export_field"
 				}
 			},
@@ -2313,7 +2335,7 @@
 									"cell": "headcell_field21"
 								},
 								{
-									"cell": "headcell_field"
+									"cell": "headcell_field25"
 								},
 								{
 									"cell": "headcell_field1"
@@ -2362,6 +2384,9 @@
 								},
 								{
 									"cell": "headcell_field20"
+								},
+								{
+									"cell": "headcell_field24"
 								}
 							]
 						},
@@ -2378,7 +2403,7 @@
 									"cell": "headcell_field22"
 								},
 								{
-									"cell": "headcell_field13"
+									"cell": "headcell_field26"
 								},
 								{
 									"cell": "cell_field1"
@@ -2427,6 +2452,9 @@
 								},
 								{
 									"cell": "cell_field14"
+								},
+								{
+									"cell": "cell_field15"
 								}
 							]
 						},
@@ -2443,7 +2471,7 @@
 									"cell": "headcell_field23"
 								},
 								{
-									"cell": "headcell_field14"
+									"cell": "headcell_field27"
 								},
 								{
 									"cell": "footcell_field1"
@@ -2492,19 +2520,14 @@
 								},
 								{
 									"cell": "footcell_field14"
+								},
+								{
+									"cell": "footcell_field15"
 								}
 							]
 						}
 					],
 					"cells": {
-						"headcell_field": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label2"
-							],
-							"columnName": "field",
-							"field": "satker"
-						},
 						"headcell_field1": {
 							"model": "headcell_field",
 							"items": [
@@ -2796,20 +2819,6 @@
 							"columnName": "edit",
 							"field": ""
 						},
-						"headcell_field13": {
-							"model": "cell_field",
-							"items": [
-								"grid_field2"
-							],
-							"columnName": "field",
-							"field": "satker"
-						},
-						"headcell_field14": {
-							"model": "footcell_field",
-							"items": [],
-							"columnName": "field",
-							"field": "satker"
-						},
 						"headcell_field12": {
 							"model": "headcell_field",
 							"items": [
@@ -2967,6 +2976,37 @@
 							"field": "jumlah",
 							"columnName": "field",
 							"align": "right"
+						},
+						"headcell_field24": {
+							"model": "headcell_field",
+							"items": [],
+							"field": "nama Madrasah"
+						},
+						"cell_field15": {
+							"model": "cell_field",
+							"items": [],
+							"field": "nama Madrasah"
+						},
+						"footcell_field15": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nama Madrasah"
+						},
+						"headcell_field25": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label8"
+							]
+						},
+						"headcell_field26": {
+							"model": "cell_field",
+							"items": [
+								"grid_field8"
+							]
+						},
+						"headcell_field27": {
+							"model": "footcell_field",
+							"items": []
 						}
 					},
 					"deferredItems": [],
@@ -3230,6 +3270,7 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field16",
 						"search_panel_field15",
 						"search_panel_field14",
 						"search_panel_field13",
@@ -3382,18 +3423,6 @@
 					"field": "catatan_dari_dinas",
 					"showFilter": true
 				},
-				"grid_field2": {
-					"field": "satker",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"nowrap": true
-				},
-				"grid_field_label2": {
-					"type": "grid_field_label",
-					"field": "satker",
-					"showFilter": true
-				},
 				"text": {
 					"type": "text",
 					"label": {
@@ -3506,6 +3535,18 @@
 						"text": ""
 					},
 					"bold": true
+				},
+				"grid_field8": {
+					"field": "nama Madrasah",
+					"type": "grid_field"
+				},
+				"grid_field_label8": {
+					"type": "grid_field_label",
+					"field": "nama Madrasah"
+				},
+				"search_panel_field16": {
+					"field": "nama Madrasah",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -3633,7 +3674,8 @@
 								"simple_grid_field8",
 								"simple_grid_field2",
 								"simple_grid_field3",
-								"simple_grid_field4"
+								"simple_grid_field4",
+								"simple_grid_field5"
 							]
 						}
 					},
@@ -3702,6 +3744,10 @@
 					"field": "jumlah",
 					"type": "simple_grid_field",
 					"totals": ""
+				},
+				"simple_grid_field5": {
+					"field": "nama Madrasah",
+					"type": "simple_grid_field"
 				}
 			},
 			"dbProps": {},
@@ -3812,7 +3858,8 @@
 								"integrated_search_field2",
 								"integrated_search_field14",
 								"integrated_search_field",
-								"integrated_search_field1"
+								"integrated_search_field1",
+								"integrated_search_field3"
 							]
 						}
 					},
@@ -3864,6 +3911,11 @@
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": true
+				},
+				"integrated_search_field3": {
+					"field": "nama Madrasah",
+					"type": "integrated_search_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
