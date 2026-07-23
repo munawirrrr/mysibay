@@ -358,6 +358,9 @@
 				"format": "Values list"
 			},
 			"sourceSingle": "tahun",
+			"searchOptions": [
+				"Equals"
+			],
 			"label": {
 				"Indonesian": "Tahun"
 			},
@@ -592,10 +595,15 @@
 			],
 			"editFormats": [
 				{
-					"format": "Text area",
+					"format": "Lookup wizard",
 					"required": true,
 					"textboxMaxLenth": 2000,
 					"textHTML5Input": "0",
+					"lookupType": 0,
+					"lookupValues": [
+						"salah input nomor rekening",
+						"nama direkening tidak sesuai"
+					],
 					"fileMaxNumber": 1,
 					"fileThumbnailField": "th",
 					"timeConvention": 1
@@ -1794,27 +1802,32 @@
 				"integrated_edit_field4": {
 					"field": "tahun",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field7": {
 					"field": "no_rekening_sebelumnya",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field3": {
 					"field": "scan_buku_rekening",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field2": {
 					"field": "no_rekening_perbaikan",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field5": {
 					"field": "nama_rekening_perbaikan",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field6": {
 					"field": "alasan_perbaikan",
@@ -1824,7 +1837,8 @@
 						"field": "alasan_perbaikan",
 						"table": "retur",
 						"type": 5
-					}
+					},
+					"updateOnEdit": false
 				}
 			},
 			"dbProps": {},
@@ -2190,7 +2204,8 @@
 								"delete",
 								"update_selected",
 								"export",
-								"advsearch_link"
+								"advsearch_link",
+								"advsearch_link1"
 							]
 						},
 						"c2": {
@@ -3222,7 +3237,8 @@
 						"type": 0,
 						"text": "cari madrasah"
 					},
-					"popup": true
+					"popup": true,
+					"icon": {}
 				},
 				"show_search_panel": {
 					"type": "show_search_panel"
@@ -3463,7 +3479,8 @@
 				"search_panel_field13": {
 					"field": "no_tlp_kepala_profil",
 					"type": "search_panel_field",
-					"required": false
+					"required": false,
+					"alwaysOnPanel": false
 				},
 				"grid_field4": {
 					"field": "hp_kepala",
@@ -3533,7 +3550,9 @@
 				},
 				"grid_field8": {
 					"field": "nama Madrasah",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label8": {
 					"type": "grid_field_label",
@@ -3541,7 +3560,21 @@
 				},
 				"search_panel_field16": {
 					"field": "nama Madrasah",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
+				},
+				"advsearch_link1": {
+					"type": "advsearch_link",
+					"icon": {
+						"style": 0
+					},
+					"label": {
+						"type": 0,
+						"text": "filter"
+					},
+					"popup": true,
+					"page": "filter"
 				}
 			},
 			"dbProps": {},
@@ -3757,176 +3790,6 @@
 			"title": {}
 		},
 		{
-			"id": "search",
-			"type": "search",
-			"layoutId": "nomenu",
-			"disabled": 0,
-			"default": 0,
-			"forms": {
-				"above-grid": {
-					"modelId": "search-above-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1",
-									"colspan": 2
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": []
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"below-grid": {
-					"modelId": "search-below-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"search_search",
-								"search_reset",
-								"search_back_list",
-								"search_cancel"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"top": {
-					"modelId": "search-header",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"search_header"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"grid": {
-					"modelId": "simple-search",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c3"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c3": {
-							"model": "c3",
-							"items": [
-								"integrated_search_field2",
-								"integrated_search_field14",
-								"integrated_search_field",
-								"integrated_search_field1",
-								"integrated_search_field3"
-							]
-						}
-					},
-					"deferredItems": [],
-					"separateLabels": false
-				}
-			},
-			"items": {
-				"search_header": {
-					"type": "search_header",
-					"title": {
-						"page": "search",
-						"table": "retur",
-						"type": 7
-					}
-				},
-				"search_reset": {
-					"type": "search_reset"
-				},
-				"search_back_list": {
-					"type": "search_back_list"
-				},
-				"search_search": {
-					"type": "search_search"
-				},
-				"search_cancel": {
-					"type": "search_cancel"
-				},
-				"integrated_search_field14": {
-					"field": "satker",
-					"type": "integrated_search_field",
-					"orientation": 0,
-					"required": false
-				},
-				"integrated_search_field": {
-					"field": "no",
-					"type": "integrated_search_field",
-					"orientation": 0,
-					"required": false
-				},
-				"integrated_search_field1": {
-					"field": "jumlah",
-					"type": "integrated_search_field",
-					"orientation": 0,
-					"required": false
-				},
-				"integrated_search_field2": {
-					"field": "tahun",
-					"type": "integrated_search_field",
-					"orientation": 0,
-					"required": true
-				},
-				"integrated_search_field3": {
-					"field": "nama Madrasah",
-					"type": "integrated_search_field",
-					"orientation": 0
-				}
-			},
-			"dbProps": {},
-			"version": 11,
-			"imageItem": {
-				"type": "page_image"
-			},
-			"imageBgColor": "#f2f2f2",
-			"controlsBgColor": "white",
-			"imagePosition": "right",
-			"listTotals": 1,
-			"title": {
-				"Indonesian": "cari"
-			}
-		},
-		{
 			"id": "view",
 			"type": "view",
 			"layoutId": "nomenu",
@@ -4102,6 +3965,314 @@
 			"imagePosition": "right",
 			"listTotals": 1,
 			"title": {}
+		},
+		{
+			"id": "filter",
+			"type": "search",
+			"layoutId": "nomenu",
+			"disabled": 0,
+			"default": -1,
+			"forms": {
+				"above-grid": {
+					"modelId": "search-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "search-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_search",
+								"search_reset",
+								"search_back_list",
+								"search_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "search-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-search",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_search_field2",
+								"integrated_search_field14",
+								"integrated_search_field",
+								"integrated_search_field1",
+								"integrated_search_field3"
+							]
+						}
+					},
+					"deferredItems": [],
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"search_header": {
+					"type": "search_header",
+					"title": {
+						"page": "search",
+						"table": "retur",
+						"type": 7
+					}
+				},
+				"search_reset": {
+					"type": "search_reset"
+				},
+				"search_back_list": {
+					"type": "search_back_list"
+				},
+				"search_search": {
+					"type": "search_search"
+				},
+				"search_cancel": {
+					"type": "search_cancel"
+				},
+				"integrated_search_field14": {
+					"field": "satker",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field": {
+					"field": "no",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field1": {
+					"field": "jumlah",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field2": {
+					"field": "tahun",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": true
+				},
+				"integrated_search_field3": {
+					"field": "nama Madrasah",
+					"type": "integrated_search_field",
+					"orientation": 0
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"Indonesian": "cari"
+			}
+		},
+		{
+			"id": "search",
+			"type": "search",
+			"layoutId": "nomenu",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "search-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "search-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_search"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "search-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-search",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_search_field2"
+							]
+						}
+					},
+					"deferredItems": [],
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"search_header": {
+					"type": "search_header",
+					"title": {
+						"page": "search",
+						"table": "retur",
+						"type": 7
+					}
+				},
+				"search_search": {
+					"type": "search_search",
+					"icon": {
+						"style": 0
+					},
+					"label": {
+						"type": 0,
+						"text": "proses"
+					}
+				},
+				"integrated_search_field2": {
+					"field": "tahun",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": true
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"Indonesian": "filter tahun"
+			}
 		}
 	],
 	"geoCoding": {
