@@ -2585,7 +2585,7 @@
 	},
 	"messages": {},
 	"projectLogo": {
-		"Indonesian": "<div style=\"text-align: center;\">\n              <img id=\"navbarlogo\" alt=\"Project logo\" src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"25\" height=\"25\">\n              <div style=\"font-weight: bold; font-size: 14px;\">Sibay@PenmadPidie.com</div>\n            </div>"
+		"Indonesian": "<div style=\"text-align: center;\">\n              <img id=\"navbarlogo\" alt=\"Project logo\" src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"25\" height=\"25\">\n              <div style=\"font-weight: bold; font-size: 8px;\">Sibay@PenmadPidie.com</div>\n            </div>"
 	},
 	"cookieBannerText": {
 		"Indonesian": ""

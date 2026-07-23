@@ -1218,7 +1218,7 @@
 		{
 			"eventId": "EVENT_BEFORESHOW_EDIT",
 			"pageType": "edit",
-			"code": "if (Security::getUserName()!=\"admin\")\n$pageObject->hideItem(\"status\");\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+			"code": "if (Security::getUserName()!=\"admin\")\n$pageObject->hideItem(\"status\");\n\n\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
 		},
 		{
 			"eventId": "EVENT_RECORD_EDITABLE",
@@ -1683,7 +1683,7 @@
 		{
 			"id": "edit",
 			"type": "edit",
-			"layoutId": "nomenu",
+			"layoutId": "leftbar",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -1745,6 +1745,77 @@
 					"deferredItems": [],
 					"recsPerRow": 1
 				},
+				"supertop": {
+					"modelId": "leftbar-top-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
 				"top": {
 					"modelId": "edit-header",
 					"grid": [
@@ -1784,12 +1855,12 @@
 						"c3": {
 							"model": "c3",
 							"items": [
-								"integrated_edit_field4",
 								"integrated_edit_field7",
 								"integrated_edit_field3",
 								"integrated_edit_field2",
 								"integrated_edit_field5",
-								"integrated_edit_field6"
+								"integrated_edit_field6",
+								"status"
 							]
 						}
 					},
@@ -1803,6 +1874,21 @@
 				"edit_header": {
 					"type": "edit_header"
 				},
+				"edit_message": {
+					"type": "edit_message"
+				},
+				"edit_save": {
+					"type": "edit_save"
+				},
+				"update_records": {
+					"type": "update_records"
+				},
+				"edit_back_list": {
+					"type": "edit_back_list"
+				},
+				"edit_close": {
+					"type": "edit_close"
+				},
 				"hamburger": {
 					"type": "hamburger",
 					"items": [
@@ -1811,27 +1897,6 @@
 				},
 				"edit_reset": {
 					"type": "edit_reset"
-				},
-				"edit_message": {
-					"type": "edit_message"
-				},
-				"edit_save": {
-					"type": "edit_save"
-				},
-				"edit_back_list": {
-					"type": "edit_back_list"
-				},
-				"edit_close": {
-					"type": "edit_close"
-				},
-				"update_records": {
-					"type": "update_records"
-				},
-				"integrated_edit_field4": {
-					"field": "tahun",
-					"type": "integrated_edit_field",
-					"orientation": 0,
-					"updateOnEdit": false
 				},
 				"integrated_edit_field7": {
 					"field": "no_rekening_sebelumnya",
@@ -1867,10 +1932,44 @@
 						"type": 5
 					},
 					"updateOnEdit": false
+				},
+				"status": {
+					"field": "status",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": true
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login"
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
 				}
 			},
 			"dbProps": {},
-			"version": 11,
+			"version": 13,
 			"imageItem": {
 				"type": "page_image"
 			},
