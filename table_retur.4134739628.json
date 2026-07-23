@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tretur.id AS `no`,\n\tretur.no_rekening_sebelumnya,\n\tretur.no_rekening_perbaikan,\n\tretur.scan_buku_rekening,\n\tretur.tahun,\n\tretur.nama_rekening_perbaikan,\n\tdata_sibay.`nama siswa` AS nama,\n\tdata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\n\tdata_sibay.file_scan AS file_upload_lama,\n\tdata_sibay.jenjang,\n\tretur.alasan_perbaikan,\n\tretur.catatan_dari_dinas,\n\tdata_sibay.npsn,\n\tretur.satker,\n\tretur.status,\n\tprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\n\tdata_sibay.nisn,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tretur.jumlah,\n\tprofil.`nama Madrasah`\nFROM\n\tretur\n\tINNER JOIN data_sibay ON data_sibay.`nomor rekening` = retur.no_rekening_sebelumnya AND data_sibay.tahun = retur.tahun\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n",
+	"sql": "SELECT\n\tretur.id AS `no`,\n\tretur.npsn,\n\tretur.no_rekening_sebelumnya,\n\tretur.no_rekening_perbaikan,\n\tretur.scan_buku_rekening,\n\tretur.tahun,\n\tretur.nama_rekening_perbaikan,\n\tdata_sibay.`nama siswa` AS nama,\n\tdata_sibay.`nama di rekening` AS nama_rekening_sebelumnya,\n\tdata_sibay.file_scan AS file_upload_lama,\n\tdata_sibay.jenjang,\n\tretur.alasan_perbaikan,\n\tretur.catatan_dari_dinas,\n\tretur.satker,\n\tretur.status,\n\tprofil.`Nomor Telpon` AS no_tlp_kepala_profil,\n\tdata_sibay.nisn,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tretur.jumlah,\n\tprofil.`nama Madrasah`\nFROM\n\tretur\n\tINNER JOIN data_sibay ON data_sibay.`nomor rekening` = retur.no_rekening_sebelumnya AND data_sibay.tahun = retur.tahun\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "retur",
 	"name": "retur",
@@ -91,7 +91,7 @@
 		{
 			"name": "no_rekening_sebelumnya",
 			"sqlExpression": "retur.no_rekening_sebelumnya",
-			"index": 2,
+			"index": 3,
 			"strField": "no_rekening_sebelumnya",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -103,7 +103,8 @@
 				},
 				{
 					"pageType": "list",
-					"numberFractionalDigits": 0
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
 				},
 				{
 					"pageType": "print",
@@ -132,7 +133,9 @@
 					"timeConvention": 1
 				},
 				{
+					"format": "Lookup wizard",
 					"pageType": "add",
+					"required": true,
 					"validateRegexMessage": {
 						"text": "",
 						"type": 0
@@ -142,6 +145,19 @@
 						"type": 0
 					},
 					"textHTML5Input": "Number",
+					"lookupType": 2,
+					"lookupTable": "data_sibay",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "nomor rekening",
+					"lookupDisplayField": "nomor rekening",
+					"lookupControlType": 1,
+					"lookupFreeInput": true,
+					"lookupDependentFields": [
+						{
+							"masterField": "npsn",
+							"lookupField": "npsn"
+						}
+					],
 					"fileMaxNumber": 1,
 					"fileThumbnailField": "th",
 					"timeConvention": 1
@@ -180,7 +196,7 @@
 		{
 			"name": "no_rekening_perbaikan",
 			"sqlExpression": "retur.no_rekening_perbaikan",
-			"index": 3,
+			"index": 4,
 			"strField": "no_rekening_perbaikan",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -250,7 +266,7 @@
 		{
 			"name": "scan_buku_rekening",
 			"sqlExpression": "retur.scan_buku_rekening",
-			"index": 4,
+			"index": 5,
 			"strField": "scan_buku_rekening",
 			"type": 200,
 			"viewFormats": [
@@ -293,7 +309,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "retur.tahun",
-			"index": 5,
+			"index": 6,
 			"strField": "tahun",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -375,7 +391,7 @@
 		{
 			"name": "nama_rekening_perbaikan",
 			"sqlExpression": "retur.nama_rekening_perbaikan",
-			"index": 6,
+			"index": 7,
 			"strField": "nama_rekening_perbaikan",
 			"type": 200,
 			"viewFormats": [
@@ -412,7 +428,7 @@
 		{
 			"name": "nama",
 			"sqlExpression": "data_sibay.`nama siswa`",
-			"index": 7,
+			"index": 8,
 			"strField": "nama siswa",
 			"type": 200,
 			"viewFormats": [
@@ -454,7 +470,7 @@
 		{
 			"name": "nama_rekening_sebelumnya",
 			"sqlExpression": "data_sibay.`nama di rekening`",
-			"index": 8,
+			"index": 9,
 			"strField": "nama di rekening",
 			"type": 200,
 			"viewFormats": [
@@ -496,7 +512,7 @@
 		{
 			"name": "file_upload_lama",
 			"sqlExpression": "data_sibay.file_scan",
-			"index": 9,
+			"index": 10,
 			"strField": "file_scan",
 			"type": 200,
 			"viewFormats": [
@@ -543,7 +559,7 @@
 		{
 			"name": "jenjang",
 			"sqlExpression": "data_sibay.jenjang",
-			"index": 10,
+			"index": 11,
 			"strField": "jenjang",
 			"type": 200,
 			"viewFormats": [
@@ -585,7 +601,7 @@
 		{
 			"name": "alasan_perbaikan",
 			"sqlExpression": "retur.alasan_perbaikan",
-			"index": 11,
+			"index": 12,
 			"strField": "alasan_perbaikan",
 			"type": 200,
 			"viewFormats": [
@@ -628,7 +644,7 @@
 		{
 			"name": "catatan_dari_dinas",
 			"sqlExpression": "retur.catatan_dari_dinas",
-			"index": 12,
+			"index": 13,
 			"strField": "catatan_dari_dinas",
 			"type": 200,
 			"viewFormats": [
@@ -671,10 +687,10 @@
 		},
 		{
 			"name": "npsn",
-			"sqlExpression": "data_sibay.npsn",
-			"index": 13,
+			"sqlExpression": "retur.npsn",
+			"index": 2,
 			"strField": "npsn",
-			"type": 3,
+			"type": 200,
 			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
@@ -706,11 +722,16 @@
 					"timeConvention": 1
 				},
 				{
-					"format": "Readonly",
+					"format": "Lookup wizard",
 					"pageType": "add",
 					"required": true,
 					"textboxMaxLenth": 50,
 					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "data_sibay",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "npsn",
+					"lookupDisplayField": "nama Madrasah",
 					"fileMaxNumber": 1,
 					"fileThumbnailField": "th",
 					"timeConvention": 1
@@ -740,7 +761,7 @@
 			"placeholder": {
 				"Indonesian": ""
 			},
-			"tableName": "data_sibay"
+			"tableName": "retur"
 		},
 		{
 			"name": "satker",
@@ -1538,6 +1559,7 @@
 						"c3": {
 							"model": "c3",
 							"items": [
+								"integrated_edit_field",
 								"integrated_edit_field4",
 								"integrated_edit_field7",
 								"integrated_edit_field3",
@@ -1637,6 +1659,11 @@
 				},
 				"integrated_edit_field7": {
 					"field": "no_rekening_sebelumnya",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field": {
+					"field": "npsn",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
@@ -2349,9 +2376,6 @@
 									"cell": "headcell_field1"
 								},
 								{
-									"cell": "headcell_field2"
-								},
-								{
 									"cell": "headcell_field3"
 								},
 								{
@@ -2417,9 +2441,6 @@
 									"cell": "cell_field1"
 								},
 								{
-									"cell": "cell_field2"
-								},
-								{
 									"cell": "cell_field3"
 								},
 								{
@@ -2483,9 +2504,6 @@
 								},
 								{
 									"cell": "footcell_field1"
-								},
-								{
-									"cell": "footcell_field2"
 								},
 								{
 									"cell": "footcell_field3"
@@ -2557,29 +2575,6 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "nama",
-							"columnName": "field"
-						},
-						"headcell_field2": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field13"
-							],
-							"field": "npsn",
-							"columnName": "field",
-							"bold": true
-						},
-						"cell_field2": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field"
-							],
-							"field": "npsn",
-							"columnName": "field"
-						},
-						"footcell_field2": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "npsn",
 							"columnName": "field"
 						},
 						"headcell_field3": {
@@ -3087,12 +3082,6 @@
 					"inlineAdd": false,
 					"inlineEdit": false
 				},
-				"simple_grid_field": {
-					"field": "npsn",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
 				"simple_grid_field1": {
 					"field": "nisn",
 					"type": "grid_field",
@@ -3358,11 +3347,6 @@
 				"simple_grid_field12": {
 					"type": "grid_field_label",
 					"field": "nama",
-					"showFilter": true
-				},
-				"simple_grid_field13": {
-					"type": "grid_field_label",
-					"field": "npsn",
 					"showFilter": true
 				},
 				"simple_grid_field14": {
