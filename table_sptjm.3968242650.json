@@ -5,6 +5,7 @@
 	"name": "sptjm",
 	"shortTableName": "sptjm",
 	"dbType": 0,
+	"displayLoading": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
@@ -16,7 +17,7 @@
 		"50",
 		"100",
 		"500",
-		"-1"
+		"1"
 	],
 	"pageSizeSelectorGroups": [
 		"1",
@@ -25,7 +26,7 @@
 		"10",
 		"50",
 		"100",
-		"-1"
+		"1"
 	],
 	"keyFields": [
 		"npsn",

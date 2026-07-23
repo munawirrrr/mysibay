@@ -14,6 +14,7 @@
 	"name": "rekap",
 	"shortTableName": "rekap",
 	"dbType": 0,
+	"displayLoading": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",

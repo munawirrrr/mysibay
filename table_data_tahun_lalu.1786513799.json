@@ -6,6 +6,7 @@
 	"name": "data tahun lalu",
 	"shortTableName": "data_tahun_lalu",
 	"dbType": 0,
+	"displayLoading": true,
 	"hideDataUntilSearch": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "NSM",
@@ -18,7 +19,7 @@
 		"50",
 		"100",
 		"500",
-		"-1"
+		"1"
 	],
 	"pageSizeSelectorGroups": [
 		"1",
@@ -27,7 +28,7 @@
 		"10",
 		"50",
 		"100",
-		"-1"
+		"1"
 	],
 	"keyFields": [
 		"nisn"

@@ -5,6 +5,7 @@
 	"name": "data_sibay",
 	"shortTableName": "data_sibay",
 	"dbType": 0,
+	"displayLoading": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
