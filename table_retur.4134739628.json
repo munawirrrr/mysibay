@@ -2218,9 +2218,7 @@
 						},
 						"c3": {
 							"model": "c3",
-							"items": [
-								"text"
-							]
+							"items": []
 						},
 						"c4": {
 							"model": "c4",
@@ -3433,16 +3431,6 @@
 					"type": "grid_field_label",
 					"field": "catatan_dari_dinas",
 					"showFilter": true
-				},
-				"text": {
-					"type": "text",
-					"label": {
-						"text": "<p>proses edit saja,</p><p>catatan:</p><ul><li><span style=\"color: rgb(26, 26, 26); background-color: rgb(255, 255, 255);\">REK TIDAK DI TEMUKAN = salah ketik nomor rekening / cek ulang rekeningya</span></li><li>REK TUTUP = aktif ulang rekening atau ganti lain (atas nama siswa tersebut)</li></ul>",
-						"type": 0
-					},
-					"editedByRte": true,
-					"bold": true,
-					"color": "#ce2020"
 				},
 				"update_selected": {
 					"type": "update_selected",
