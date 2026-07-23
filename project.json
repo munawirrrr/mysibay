@@ -2337,7 +2337,8 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "yeti",
+		"theme": "readable",
+		"size": "small",
 		"sidebarWidth": "210px",
 		"sidebarColor": "light",
 		"sidebarTheme": "warning",

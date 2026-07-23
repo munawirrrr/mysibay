@@ -9,7 +9,7 @@
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",
-	"advancedSecurityType": 2,
+	"advancedSecurityType": 1,
 	"pageSizeSelectorRecords": [
 		"10",
 		"20",
@@ -2984,33 +2984,42 @@
 						"headcell_field24": {
 							"model": "headcell_field",
 							"items": [],
-							"field": "nama Madrasah"
+							"field": "",
+							"columnName": ""
 						},
 						"cell_field15": {
 							"model": "cell_field",
 							"items": [],
-							"field": "nama Madrasah"
+							"field": "",
+							"columnName": ""
 						},
 						"footcell_field15": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "nama Madrasah"
+							"field": "",
+							"columnName": ""
 						},
 						"headcell_field25": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label8"
-							]
+							],
+							"columnName": "field",
+							"field": "nama Madrasah"
 						},
 						"headcell_field26": {
 							"model": "cell_field",
 							"items": [
 								"grid_field8"
-							]
+							],
+							"columnName": "field",
+							"field": "nama Madrasah"
 						},
 						"headcell_field27": {
 							"model": "footcell_field",
-							"items": []
+							"items": [],
+							"columnName": "field",
+							"field": "nama Madrasah"
 						}
 					},
 					"deferredItems": [],
