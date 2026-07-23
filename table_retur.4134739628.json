@@ -152,6 +152,7 @@
 					"lookupDisplayField": "nomor rekening",
 					"lookupControlType": 1,
 					"lookupFreeInput": true,
+					"lookupDependent": true,
 					"lookupDependentFields": [
 						{
 							"masterField": "npsn",
@@ -1559,8 +1560,8 @@
 						"c3": {
 							"model": "c3",
 							"items": [
-								"integrated_edit_field",
 								"integrated_edit_field4",
+								"integrated_edit_field",
 								"integrated_edit_field7",
 								"integrated_edit_field3",
 								"integrated_edit_field2",
