@@ -74,6 +74,9 @@
 			"editFormats": [
 				{}
 			],
+			"searchOptions": [
+				"Equals"
+			],
 			"label": {
 				"Indonesian": "Tahun"
 			},
@@ -514,10 +517,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"import_field",
 								"import_field1",
-								"import_field2",
-								"import_field3"
+								"import_field2"
 							]
 						}
 					},
@@ -529,20 +530,12 @@
 				"import_header": {
 					"type": "import_header"
 				},
-				"import_field": {
-					"field": "id",
-					"type": "import_field"
-				},
 				"import_field1": {
 					"field": "rekening",
 					"type": "import_field"
 				},
 				"import_field2": {
 					"field": "jumlah",
-					"type": "import_field"
-				},
-				"import_field3": {
-					"field": "tahun",
 					"type": "import_field"
 				}
 			},
@@ -700,17 +693,20 @@
 				"integrated_edit_field": {
 					"field": "rekening",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field1": {
 					"field": "jumlah",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				},
 				"integrated_edit_field2": {
 					"field": "tahun",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				}
 			},
 			"dbProps": {},
@@ -1042,7 +1038,6 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"simple_grid_field",
 								"simple_grid_field1",
 								"simple_grid_field2",
 								"simple_grid_field3"
@@ -1092,21 +1087,23 @@
 				"details_found": {
 					"type": "details_found"
 				},
-				"simple_grid_field": {
-					"field": "id",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field1": {
 					"field": "rekening",
-					"type": "simple_grid_field"
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field2": {
 					"field": "jumlah",
-					"type": "simple_grid_field"
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field3": {
 					"field": "tahun",
-					"type": "simple_grid_field"
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"search_panel": {
 					"type": "search_panel",
@@ -1122,6 +1119,8 @@
 					"type": "list_options",
 					"items": [
 						"export_selected",
+						"-3",
+						"advsearch_link",
 						"-1",
 						"show_search_panel",
 						"hide_search_panel",
@@ -1139,19 +1138,27 @@
 				},
 				"search_panel_field": {
 					"field": "id",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field1": {
 					"field": "rekening",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field2": {
 					"field": "jumlah",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field3": {
 					"field": "tahun",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"username_button": {
 					"type": "username_button",
@@ -1217,6 +1224,12 @@
 				},
 				"grid_edit": {
 					"type": "grid_edit"
+				},
+				"advsearch_link": {
+					"type": "advsearch_link"
+				},
+				"-3": {
+					"type": "-"
 				}
 			},
 			"dbProps": {},
@@ -1358,6 +1371,129 @@
 				"simple_grid_field3": {
 					"field": "tahun",
 					"type": "simple_grid_field"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "search",
+			"type": "search",
+			"layoutId": "nomenu",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "search-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "search-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_search"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "search-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-search",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_search_field3"
+							]
+						}
+					},
+					"deferredItems": [],
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"search_search": {
+					"type": "search_search",
+					"icon": {},
+					"label": {
+						"type": 0,
+						"text": "filter"
+					}
+				},
+				"integrated_search_field3": {
+					"field": "tahun",
+					"type": "integrated_search_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
