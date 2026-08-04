@@ -3033,8 +3033,8 @@
 							"items": [
 								"details_preview"
 							],
-							"columnName": "",
-							"field": ""
+							"columnName": "field",
+							"field": "jumlah_masuk_direkenig"
 						},
 						"headcell_details": {
 							"model": "headcell_details",
@@ -3127,40 +3127,46 @@
 							"items": [
 								"grid_field_label1"
 							],
-							"field": "status_masuk_direkening"
+							"field": "status_masuk_direkening",
+							"columnName": "field"
 						},
 						"cell_field6": {
 							"model": "cell_field",
 							"items": [
 								"grid_field1"
 							],
-							"field": "status_masuk_direkening"
+							"field": "status_masuk_direkening",
+							"columnName": "field"
 						},
 						"footcell_field5": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "status_masuk_direkening"
+							"field": "status_masuk_direkening",
+							"columnName": "field"
 						},
 						"headcell_field7": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label2"
 							],
-							"field": "jumlah_masuk_direkenig"
+							"field": "jumlah_masuk_direkenig",
+							"columnName": "field"
 						},
 						"cell_field7": {
 							"model": "cell_field",
 							"items": [
 								"grid_field2"
 							],
-							"field": "jumlah_masuk_direkenig"
+							"field": "jumlah_masuk_direkenig",
+							"columnName": "field"
 						},
 						"footcell_field6": {
 							"model": "footcell_field",
 							"items": [
 								"grid_field_totals"
 							],
-							"field": "jumlah_masuk_direkenig"
+							"field": "jumlah_masuk_direkenig",
+							"columnName": "field"
 						}
 					},
 					"deferredItems": [],
