@@ -7,7 +7,7 @@
 			"asc": false
 		}
 	],
-	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tcase \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'selesai'\n\t\n\t else 'belum upload & belum diterima dikantor'end AS status_sptjm,\n\tCASE \n    WHEN COUNT(data_sibay.nisn) \n         - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) = 0 \n    THEN 'semua progres sudah selesai, terima kasih'\n\n    WHEN sptjm.status = 'disetujui' \n         AND sptjm.pertinggal_kantor = '1' \n         AND COUNT(data_sibay.nisn) \n             - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) > 0 \n    THEN 'dalam proses validasi petugas kabupaten'              \n\n    ELSE 'belum selesai'     \nEND AS status_proses_kunci_kantor,\ncase \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end as status_masuk_direkening,\n\ttersalur.jumlah as jumlah_masuk_direkenig\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN tersalur on tersalur.rekening=data_sibay.`nomor rekening` and tersalur.tahun=data_sibay.tahun\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`\nORDER BY\n\tdata_sibay.nisn DESC\nLIMIT 0, 20\n",
+	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tcase \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'selesai'\n\t\n\t else 'belum upload & belum diterima dikantor'end AS status_sptjm,\n\tCASE \n    WHEN COUNT(data_sibay.nisn) \n         - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) = 0 \n    THEN 'semua progres sudah selesai, terima kasih'\n\n    WHEN sptjm.status = 'disetujui' \n         AND sptjm.pertinggal_kantor = '1' \n         AND COUNT(data_sibay.nisn) \n             - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) > 0 \n    THEN 'dalam proses validasi petugas kabupaten'              \n\n    ELSE 'belum selesai'     \nEND AS status_proses_kunci_kantor\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`\nORDER BY\n\tdata_sibay.nisn DESC\nLIMIT 0, 20\n",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -642,45 +642,6 @@
 				"Indonesian": "Status Proses Kunci Kantor"
 			},
 			"tableName": ""
-		},
-		{
-			"name": "status_masuk_direkening",
-			"sqlExpression": "case \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end",
-			"index": 17,
-			"strField": "status_masuk_direkening",
-			"type": 200,
-			"viewFormats": [
-				{
-					"format": "Checkbox"
-				}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Status Masuk Direkening"
-			},
-			"tableName": ""
-		},
-		{
-			"name": "jumlah_masuk_direkenig",
-			"sqlExpression": "tersalur.jumlah",
-			"index": 18,
-			"strField": "jumlah",
-			"type": 200,
-			"viewFormats": [
-				{
-					"format": "Number",
-					"numberFractionalDigits": 0
-				}
-			],
-			"editFormats": [
-				{}
-			],
-			"label": {
-				"Indonesian": "Jumlah Masuk Direkenig"
-			},
-			"tableName": "tersalur"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -1202,9 +1163,7 @@
 								"export_field9",
 								"export_field10",
 								"export_field15",
-								"export_field16",
-								"export_field11",
-								"export_field12"
+								"export_field16"
 							]
 						}
 					},
@@ -1316,14 +1275,6 @@
 				},
 				"export_field16": {
 					"field": "status_proses_kunci_kantor",
-					"type": "export_field"
-				},
-				"export_field11": {
-					"field": "status_masuk_direkening",
-					"type": "export_field"
-				},
-				"export_field12": {
-					"field": "jumlah_masuk_direkenig",
 					"type": "export_field"
 				}
 			},
@@ -1669,12 +1620,6 @@
 								},
 								{
 									"cell": "headcell_field13"
-								},
-								{
-									"cell": "headcell_field10"
-								},
-								{
-									"cell": "headcell_field11"
 								}
 							]
 						},
@@ -1734,12 +1679,6 @@
 								},
 								{
 									"cell": "cell_field13"
-								},
-								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field11"
 								}
 							]
 						},
@@ -1747,7 +1686,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 20
+									"colspan": 18
 								}
 							],
 							"section": "body"
@@ -1806,12 +1745,6 @@
 								},
 								{
 									"cell": "footcell_field13"
-								},
-								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field11"
 								}
 							]
 						}
@@ -2244,46 +2177,6 @@
 							],
 							"columnName": "",
 							"field": ""
-						},
-						"headcell_field10": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "status_masuk_direkening"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "status_masuk_direkening"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "status_masuk_direkening"
-						},
-						"headcell_field11": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "jumlah_masuk_direkenig"
-						},
-						"cell_field11": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "jumlah_masuk_direkenig"
-						},
-						"footcell_field11": {
-							"model": "footcell_field",
-							"items": [
-								"grid_field_totals5"
-							],
-							"field": "jumlah_masuk_direkenig"
 						}
 					},
 					"deferredItems": [],
@@ -2772,31 +2665,6 @@
 				"columns_control": {
 					"type": "columns_control",
 					"showHide": true
-				},
-				"grid_field3": {
-					"field": "status_masuk_direkening",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "status_masuk_direkening"
-				},
-				"grid_field4": {
-					"field": "jumlah_masuk_direkenig",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "jumlah_masuk_direkenig"
-				},
-				"grid_field_totals5": {
-					"type": "grid_field_totals",
-					"field": "jumlah_masuk_direkenig",
-					"totals": "TOTAL"
 				}
 			},
 			"dbProps": {},
@@ -2942,12 +2810,6 @@
 								},
 								{
 									"cell": "headcell_field13"
-								},
-								{
-									"cell": "headcell_field10"
-								},
-								{
-									"cell": "headcell_field11"
 								}
 							]
 						},
@@ -3001,12 +2863,6 @@
 								},
 								{
 									"cell": "cell_field13"
-								},
-								{
-									"cell": "cell_field10"
-								},
-								{
-									"cell": "cell_field11"
 								}
 							]
 						},
@@ -3014,7 +2870,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 18
+									"colspan": 16
 								}
 							],
 							"section": "body"
@@ -3069,12 +2925,6 @@
 								},
 								{
 									"cell": "footcell_field13"
-								},
-								{
-									"cell": "footcell_field10"
-								},
-								{
-									"cell": "footcell_field11"
 								}
 							]
 						}
@@ -3439,44 +3289,6 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "status_proses_kunci_kantor"
-						},
-						"headcell_field10": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label3"
-							],
-							"field": "status_masuk_direkening"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field3"
-							],
-							"field": "status_masuk_direkening"
-						},
-						"footcell_field10": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "status_masuk_direkening"
-						},
-						"headcell_field11": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "jumlah_masuk_direkenig"
-						},
-						"cell_field11": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "jumlah_masuk_direkenig"
-						},
-						"footcell_field11": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "jumlah_masuk_direkenig"
 						}
 					},
 					"deferredItems": [],
@@ -3719,22 +3531,6 @@
 				"grid_field_label7": {
 					"type": "grid_field_label",
 					"field": "status_proses_kunci_kantor"
-				},
-				"grid_field3": {
-					"field": "status_masuk_direkening",
-					"type": "grid_field"
-				},
-				"grid_field_label3": {
-					"type": "grid_field_label",
-					"field": "status_masuk_direkening"
-				},
-				"grid_field4": {
-					"field": "jumlah_masuk_direkenig",
-					"type": "grid_field"
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "jumlah_masuk_direkenig"
 				}
 			},
 			"dbProps": {},
@@ -3857,9 +3653,7 @@
 								"integrated_search_field10",
 								"integrated_search_field11",
 								"integrated_search_field14",
-								"integrated_search_field15",
-								"integrated_search_field12",
-								"integrated_search_field13"
+								"integrated_search_field15"
 							]
 						}
 					},
@@ -3970,16 +3764,6 @@
 				},
 				"integrated_search_field15": {
 					"field": "status_proses_kunci_kantor",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
-				"integrated_search_field12": {
-					"field": "status_masuk_direkening",
-					"type": "integrated_search_field",
-					"orientation": 0
-				},
-				"integrated_search_field13": {
-					"field": "jumlah_masuk_direkenig",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}

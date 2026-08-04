@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tdata_sibay.nisn,\n\tdata_sibay.npsn,\n\tdata_sibay.`nama siswa`,\n\tdata_sibay.`nomor rekening`,\n\tdata_sibay.`nama di rekening`,\n\tdata_sibay.file_scan,\n\tdata_sibay.status,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tprofil.`Nomor Telpon`,\n\tdata_sibay.kelas,\n\tdata_sibay.jenis_kelamin,\n\tdata_sibay.status_siswa,\n\tdata_sibay.pip,\n\tdata_sibay.catatan,\n\tdata_sibay.tahun,\n\tdata_sibay.kunci_operator,\n\tdata_sibay.kunci_kemenag_pidie,\n\tCASE\nWHEN data_sibay.kunci_operator <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_oprt,\n\tcase\nWHEN data_sibay.kunci_kemenag_pidie <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_kantor,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tdata_sibay.id\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n\tINNER JOIN sptjm ON sptjm.npsn = data_sibay.npsn AND sptjm.tahun = data_sibay.tahun\nWHERE\ndata_sibay.tahun = YEAR(CURDATE())\nLIMIT 0, 50",
+	"sql": "SELECT\n\tdata_sibay.nisn,\n\tdata_sibay.npsn,\n\tdata_sibay.`nama siswa`,\n\tdata_sibay.`nomor rekening`,\n\tdata_sibay.`nama di rekening`,\n\tdata_sibay.file_scan,\n\tdata_sibay.status,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tprofil.`Nomor Telpon`,\n\tdata_sibay.kelas,\n\tdata_sibay.jenis_kelamin,\n\tdata_sibay.status_siswa,\n\tdata_sibay.pip,\n\tdata_sibay.catatan,\n\tdata_sibay.tahun,\n\tdata_sibay.kunci_operator,\n\tdata_sibay.kunci_kemenag_pidie,\n\tCASE\nWHEN data_sibay.kunci_operator <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_oprt,\n\tcase\nWHEN data_sibay.kunci_kemenag_pidie <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_kantor,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tdata_sibay.id,\n\t\n\tcase \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end as status_masuk_direkening,\n\ttersalur.jumlah as jumlah_masuk_direkenig\n\t\n\t\n\t\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n\tINNER JOIN sptjm ON sptjm.npsn = data_sibay.npsn AND sptjm.tahun = data_sibay.tahun\n\tLEFT OUTER JOIN tersalur on tersalur.rekening=data_sibay.`nomor rekening` and tersalur.tahun=data_sibay.tahun\nWHERE\ndata_sibay.tahun = YEAR(CURDATE())\nLIMIT 0, 50\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "data_sibay",
 	"name": "data_sibay",
@@ -1148,6 +1148,46 @@
 				"Indonesian": ""
 			},
 			"tableName": "data_sibay"
+		},
+		{
+			"name": "status_masuk_direkening",
+			"sqlExpression": "case \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end",
+			"index": 24,
+			"strField": "status_masuk_direkening",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Checkbox"
+				}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Status Masuk Direkening"
+			},
+			"tableName": ""
+		},
+		{
+			"name": "jumlah_masuk_direkenig",
+			"sqlExpression": "tersalur.jumlah",
+			"index": 25,
+			"strField": "jumlah",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Number",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Jumlah Masuk Direkenig"
+			},
+			"tableName": "tersalur"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -2701,6 +2741,12 @@
 								},
 								{
 									"cell": "headcell_field4"
+								},
+								{
+									"cell": "headcell_field6"
+								},
+								{
+									"cell": "headcell_field7"
 								}
 							]
 						},
@@ -2745,6 +2791,12 @@
 								},
 								{
 									"cell": "cell_field4"
+								},
+								{
+									"cell": "cell_field6"
+								},
+								{
+									"cell": "cell_field7"
 								}
 							]
 						},
@@ -2752,7 +2804,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 13
+									"colspan": 15
 								}
 							],
 							"section": "body"
@@ -2790,6 +2842,12 @@
 								},
 								{
 									"cell": "footcell_field4"
+								},
+								{
+									"cell": "footcell_field5"
+								},
+								{
+									"cell": "footcell_field6"
 								}
 							]
 						}
@@ -3063,6 +3121,46 @@
 							],
 							"field": "",
 							"columnName": ""
+						},
+						"headcell_field6": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"field": "status_masuk_direkening"
+						},
+						"cell_field6": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"field": "status_masuk_direkening"
+						},
+						"footcell_field5": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status_masuk_direkening"
+						},
+						"headcell_field7": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							],
+							"field": "jumlah_masuk_direkenig"
+						},
+						"cell_field7": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							],
+							"field": "jumlah_masuk_direkenig"
+						},
+						"footcell_field6": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals"
+							],
+							"field": "jumlah_masuk_direkenig"
 						}
 					},
 					"deferredItems": [],
@@ -3522,12 +3620,43 @@
 				},
 				"grid_field": {
 					"field": "npsn",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label": {
 					"type": "grid_field_label",
 					"field": "npsn",
 					"showFilter": true
+				},
+				"grid_field1": {
+					"field": "status_masuk_direkening",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "status_masuk_direkening"
+				},
+				"grid_field2": {
+					"field": "jumlah_masuk_direkenig",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "jumlah_masuk_direkenig"
+				},
+				"grid_field_totals": {
+					"type": "grid_field_totals",
+					"field": "jumlah_masuk_direkenig",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
 				}
 			},
 			"dbProps": {},
@@ -3652,7 +3781,9 @@
 								"simple_grid_field16",
 								"simple_grid_field17",
 								"simple_grid_field18",
-								"simple_grid_field19"
+								"simple_grid_field19",
+								"simple_grid_field20",
+								"simple_grid_field21"
 							]
 						}
 					},
@@ -3745,6 +3876,14 @@
 				},
 				"simple_grid_field19": {
 					"field": "status_kunci_kantor",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field20": {
+					"field": "status_masuk_direkening",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field21": {
+					"field": "jumlah_masuk_direkenig",
 					"type": "simple_grid_field"
 				}
 			},
@@ -3866,7 +4005,9 @@
 								"simple_grid_field16",
 								"simple_grid_field17",
 								"simple_grid_field18",
-								"simple_grid_field19"
+								"simple_grid_field19",
+								"simple_grid_field20",
+								"simple_grid_field21"
 							]
 						}
 					},
@@ -3956,6 +4097,14 @@
 				},
 				"simple_grid_field19": {
 					"field": "status_kunci_kantor",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field20": {
+					"field": "status_masuk_direkening",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field21": {
+					"field": "jumlah_masuk_direkenig",
 					"type": "simple_grid_field"
 				}
 			},
@@ -4369,7 +4518,9 @@
 								"integrated_search_field19",
 								"integrated_search_field20",
 								"integrated_search_field21",
-								"integrated_search_field22"
+								"integrated_search_field22",
+								"integrated_search_field23",
+								"integrated_search_field24"
 							]
 						}
 					},
@@ -4530,6 +4681,16 @@
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": false
+				},
+				"integrated_search_field23": {
+					"field": "status_masuk_direkening",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field24": {
+					"field": "jumlah_masuk_direkenig",
+					"type": "integrated_search_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -4819,6 +4980,28 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c27"
+								},
+								{
+									"cell": "c28"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c29"
+								},
+								{
+									"cell": "c30"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -5076,6 +5259,34 @@
 								"integrated_edit_field18"
 							],
 							"field": "hp_wali"
+						},
+						"c27": {
+							"model": "c4",
+							"items": [
+								"edit_field_label"
+							],
+							"field": "status_masuk_direkening"
+						},
+						"c28": {
+							"model": "c2",
+							"items": [
+								"edit_field"
+							],
+							"field": "status_masuk_direkening"
+						},
+						"c29": {
+							"model": "c4",
+							"items": [
+								"edit_field_label1"
+							],
+							"field": "jumlah_masuk_direkenig"
+						},
+						"c30": {
+							"model": "c2",
+							"items": [
+								"edit_field1"
+							],
+							"field": "jumlah_masuk_direkenig"
 						}
 					},
 					"deferredItems": [],
@@ -5243,6 +5454,22 @@
 				"integrated_edit_field37": {
 					"type": "edit_field_label",
 					"field": "hp_wali"
+				},
+				"edit_field": {
+					"field": "status_masuk_direkening",
+					"type": "edit_field"
+				},
+				"edit_field_label": {
+					"type": "edit_field_label",
+					"field": "status_masuk_direkening"
+				},
+				"edit_field1": {
+					"field": "jumlah_masuk_direkenig",
+					"type": "edit_field"
+				},
+				"edit_field_label1": {
+					"type": "edit_field_label",
+					"field": "jumlah_masuk_direkenig"
 				}
 			},
 			"dbProps": {},
