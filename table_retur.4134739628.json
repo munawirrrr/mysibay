@@ -6,7 +6,6 @@
 	"shortTableName": "retur",
 	"dbType": 0,
 	"displayLoading": true,
-	"hideDataUntilSearch": true,
 	"caseSensitiveSearch": "",
 	"tableOwnerIdField": "npsn",
 	"usersOwnerIdField": "npsn",

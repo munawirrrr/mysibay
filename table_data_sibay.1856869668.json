@@ -3643,7 +3643,8 @@
 				},
 				"grid_field_label1": {
 					"type": "grid_field_label",
-					"field": "status_masuk_direkening"
+					"field": "status_masuk_direkening",
+					"showFilter": true
 				},
 				"grid_field2": {
 					"field": "jumlah_masuk_direkenig",
@@ -3653,7 +3654,8 @@
 				},
 				"grid_field_label2": {
 					"type": "grid_field_label",
-					"field": "jumlah_masuk_direkenig"
+					"field": "jumlah_masuk_direkenig",
+					"showFilter": true
 				},
 				"grid_field_totals": {
 					"type": "grid_field_totals",
