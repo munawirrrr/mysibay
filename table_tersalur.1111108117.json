@@ -80,6 +80,13 @@
 			"tableName": "tersalur"
 		}
 	],
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_BEFORE_INSERT",
+			"pageType": "import",
+			"code": "$values[\"tahun\"] = date(\"Y\");\n\n    return true;"
+		}
+	],
 	"dbTableInfo": {
 		"type": 0,
 		"foreignKeys": [],
