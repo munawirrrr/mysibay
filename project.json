@@ -42,7 +42,7 @@
 				"gid": 1786513799
 			},
 			{
-				"x": 864,
+				"x": 865,
 				"y": 10,
 				"width": 127,
 				"height": 200,
@@ -63,36 +63,43 @@
 				"gid": 3872830103
 			},
 			{
-				"x": 775,
-				"y": 472,
+				"x": 1310,
+				"y": 10,
 				"width": 129,
 				"height": 400,
 				"gid": 564743320
 			},
 			{
-				"x": 1058,
-				"y": 412,
+				"x": 20,
+				"y": 125,
 				"width": 120,
 				"height": 200,
 				"gid": 4134739628
 			},
 			{
-				"x": 20,
-				"y": 125,
+				"x": 165,
+				"y": 145,
 				"width": 120,
 				"height": 173,
 				"gid": 3968242650
 			},
 			{
-				"x": 165,
-				"y": 145,
+				"x": 310,
+				"y": 225,
 				"width": 120,
 				"height": 68,
 				"gid": 4151081472
 			},
 			{
-				"x": 257,
-				"y": 358,
+				"gid": 1111108117,
+				"y": 407,
+				"x": 460,
+				"width": 115.6875,
+				"height": 152
+			},
+			{
+				"x": 600,
+				"y": 225,
 				"width": 120,
 				"height": 200,
 				"gid": 2375276105
@@ -605,6 +612,20 @@
 							"showIconType": 2,
 							"pageType": "search",
 							"table": 4134739628
+						}
+					},
+					{
+						"id": "12",
+						"data": {
+							"name": {
+								"table": "tersalur",
+								"type": 6
+							},
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"table": 1111108117,
+							"pageType": "list"
 						}
 					}
 				]
@@ -1998,7 +2019,9 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": [],
+							"items": [
+								"welcome_item"
+							],
 							"align": "center"
 						}
 					},
@@ -2047,6 +2070,25 @@
 						"type": 0
 					},
 					"editedByRte": false
+				},
+				"welcome_item": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "tersalur",
+					"linkPage": "list",
+					"linkText": {
+						"table": "tersalur",
+						"type": 6
+					},
+					"linkIcon": {
+						"glyph": "shopping-cart"
+					},
+					"linkComments": {
+						"text": "Tersalur description",
+						"type": 0
+					},
+					"background": "#e8926f",
+					"linkType": 0
 				}
 			},
 			"dbProps": {},
