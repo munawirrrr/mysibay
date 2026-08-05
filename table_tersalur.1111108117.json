@@ -68,11 +68,32 @@
 			"index": 4,
 			"strField": "tahun",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
-				{}
+				{
+					"pageType": "list"
+				},
+				{
+					"pageType": "print"
+				},
+				{
+					"pageType": "export"
+				}
 			],
 			"editFormats": [
-				{}
+				{},
+				{
+					"pageType": "add"
+				},
+				{
+					"format": "Lookup wizard",
+					"pageType": "search",
+					"lookupTable": "tersalur",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahun",
+					"lookupDisplayField": "tahun",
+					"lookupUnique": true
+				}
 			],
 			"searchOptions": [
 				"Equals"
@@ -1407,7 +1428,13 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": []
+							"items": [
+								"text"
+							],
+							"align": "center",
+							"padding": {
+								"top": "200px"
+							}
 						}
 					},
 					"deferredItems": [],
@@ -1428,9 +1455,8 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": [
-								"search_search"
-							]
+							"items": [],
+							"align": "center"
 						}
 					},
 					"deferredItems": [],
@@ -1473,8 +1499,13 @@
 						"c3": {
 							"model": "c3",
 							"items": [
-								"integrated_search_field3"
-							]
+								"integrated_search_field3",
+								"search_search"
+							],
+							"align": "center",
+							"bold": true,
+							"orientation": "horizontal",
+							"useFullWidth": true
 						}
 					},
 					"deferredItems": [],
@@ -1484,16 +1515,30 @@
 			"items": {
 				"search_search": {
 					"type": "search_search",
-					"icon": {},
+					"icon": {
+						"glyph": "ok",
+						"style": 0
+					},
+					"buttonStyle": "link-button",
 					"label": {
 						"type": 0,
-						"text": "filter"
-					}
+						"text": ""
+					},
+					"font-size": "40px"
 				},
 				"integrated_search_field3": {
 					"field": "tahun",
 					"type": "integrated_search_field",
 					"orientation": 0
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "FILTER",
+						"type": 0
+					},
+					"editedByRte": false,
+					"bold": true
 				}
 			},
 			"dbProps": {},

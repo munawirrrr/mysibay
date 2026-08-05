@@ -4262,9 +4262,7 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": [
-								"search_search"
-							],
+							"items": [],
 							"align": "center"
 						}
 					},
@@ -4314,10 +4312,12 @@
 						"c3": {
 							"model": "c3",
 							"items": [
-								"integrated_search_field2"
+								"integrated_search_field2",
+								"search_search"
 							],
 							"align": "center",
-							"bold": true
+							"bold": true,
+							"orientation": "horizontal"
 						}
 					},
 					"deferredItems": [],
@@ -4336,12 +4336,16 @@
 				"search_search": {
 					"type": "search_search",
 					"icon": {
+						"glyph": "play",
 						"style": 0
 					},
 					"label": {
 						"type": 0,
-						"text": "proses"
-					}
+						"text": ""
+					},
+					"buttonStyle": "link-button",
+					"font-size": "30px",
+					"bold": true
 				},
 				"integrated_search_field2": {
 					"field": "tahun",
