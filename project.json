@@ -1710,6 +1710,15 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c3",
+									"colspan": 2
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -1722,6 +1731,12 @@
 						"c2": {
 							"model": "c2",
 							"items": []
+						},
+						"c3": {
+							"model": "c3",
+							"items": [
+								"login_welcome"
+							]
 						}
 					},
 					"deferredItems": [],
@@ -1758,47 +1773,30 @@
 								}
 							],
 							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c5",
-									"colspan": 2
-								}
-							],
-							"section": ""
 						}
 					],
 					"cells": {
 						"c1": {
 							"model": "c1",
 							"items": [
-								"username_label",
 								"username"
 							]
 						},
 						"c2": {
 							"model": "c2",
 							"items": [
-								"password_label",
 								"password"
 							]
 						},
 						"c4": {
 							"model": "c4",
-							"items": [
-								"remember_password"
-							]
+							"items": []
 						},
 						"c6": {
 							"model": "c6",
 							"items": [
 								"guest_login"
 							]
-						},
-						"c5": {
-							"model": "c5",
-							"items": []
 						}
 					},
 					"deferredItems": [],
@@ -1843,34 +1841,6 @@
 				}
 			},
 			"items": {
-				"username_label": {
-					"type": "username_label"
-				},
-				"username": {
-					"type": "username"
-				},
-				"password_label": {
-					"type": "password_label"
-				},
-				"password": {
-					"type": "password"
-				},
-				"login_message": {
-					"type": "login_message"
-				},
-				"login_button": {
-					"type": "login_button"
-				},
-				"guest_login": {
-					"type": "guest_login"
-				},
-				"remember_password": {
-					"type": "remember_password"
-				},
-				"login-logo": {
-					"type": "login-logo",
-					"font-size": "24px"
-				},
 				"snippet": {
 					"eventId": "login",
 					"label": {
@@ -1879,21 +1849,40 @@
 					},
 					"type": "snippet",
 					"eventGid": 2852702992
+				},
+				"login_message": {
+					"type": "login_message"
+				},
+				"username": {
+					"type": "username"
+				},
+				"password": {
+					"type": "password"
+				},
+				"login_button": {
+					"type": "login_button"
+				},
+				"guest_login": {
+					"type": "guest_login"
+				},
+				"login-logo": {
+					"type": "login-logo",
+					"font-size": "24px"
+				},
+				"login_welcome": {
+					"type": "login_welcome"
 				}
 			},
 			"dbProps": {},
-			"version": 11,
+			"version": 13,
 			"imageItem": {
 				"type": "page_image",
 				"shadow": false,
+				"fullSize": true,
 				"image": {
 					"source": 1,
-					"image": "mahdis-mousavi-I0QTg9ctFDY-unsplash.jpg"
-				},
-				"width": "300px",
-				"height": "300px",
-				"background": "transparent",
-				"fullSize": true
+					"image": "pexels-element-digital-1051075.jpg"
+				}
 			},
 			"imageBgColor": "transparent",
 			"controlsBgColor": "transparent",
@@ -2362,17 +2351,18 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "mac_dark",
+		"theme": "macosx",
 		"sidebarWidth": "210px",
-		"sidebarTheme": "primary",
+		"sidebarColor": "light",
+		"sidebarTheme": "legacy",
 		"sidebarCompact": true,
 		"topbarTheme": "legacy",
-		"logoTheme": "dark",
+		"logoTheme": "light",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#008cba",
 		"logoCustomThemeColor": "#dddddd",
-		"customCss": "th.r-ori-vert {\n    background: #007bff !important;   /* Biru gelap */\n    color: #FFFFFF !important;        /* Teks putih */\n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n/* Select */\nselect,\n.form-select {\n    background: rgba(52, 58, 64, 0.55) !important;\n    color: #FFFFFF !important;\n    border: 1px solid rgba(255,255,255,.18) !important;\n    border-radius: 10px;\n\n    backdrop-filter: blur(16px) saturate(180%);\n    -webkit-backdrop-filter: blur(16px) saturate(180%);\n\n    box-shadow:\n        0 4px 20px rgba(0,0,0,.25),\n        inset 0 1px 0 rgba(255,255,255,.12);\n\n    transition: all .25s ease;\n}\n\n/* Saat focus */\nselect:focus,\n.form-select:focus {\n    background: rgba(52,58,64,.70) !important;\n    color: #FFFFFF !important;\n    border-color: rgba(255,255,255,.30) !important;\n    outline: none;\n    box-shadow:\n        0 0 0 3px rgba(14,165,233,.20),\n        0 8px 24px rgba(0,0,0,.30);\n}\n\n/* Option */\nselect option {\n    background: #343A40;\n    color: #FFFFFF;\n}",
+		"customCss": "th.r-ori-vert {\n    background: #007bff !important;   /* Biru gelap */\n    color: #FFFFFF !important;        /* Teks putih */\n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n",
 		"panelLikeGrid": true,
 		"verticalBorders": false,
 		"stripedGrid": false,
@@ -2381,11 +2371,11 @@
 		"gpHeaderBg": "legacy",
 		"gpHeaderColor": "legacy",
 		"gpFooterBg": "legacy",
-		"gpPanelBorder": "1px",
+		"gpPanelBorder": "0",
 		"gpBorderColor": "legacy",
 		"gpInnerBorder": "legacy",
 		"gpInnerBorderColor": "legacy",
-		"gcOddBg": "#343a40",
+		"gcOddBg": "#ffffff",
 		"gcOddColor": "legacy",
 		"gcEvenBg": "legacy",
 		"gcEvenColor": "legacy",
