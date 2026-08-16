@@ -1905,7 +1905,7 @@
 		{
 			"id": "menu",
 			"type": "menu",
-			"layoutId": "leftbar",
+			"layoutId": "topbar",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -1960,7 +1960,7 @@
 					"recsPerRow": 1
 				},
 				"supertop": {
-					"modelId": "menu-topbar",
+					"modelId": "menu-topbar-menu",
 					"grid": [
 						{
 							"cells": [
@@ -1978,8 +1978,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"expand_menu_button",
-								"collapse_button"
+								"logo",
+								"menu"
 							]
 						},
 						"c2": {
@@ -1987,44 +1987,6 @@
 							"items": [
 								"loginform_login",
 								"username_button"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"left": {
-					"modelId": "leftbar-menu",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c0"
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c0": {
-							"model": "c0",
-							"items": [
-								"logo",
-								"expand_button"
-							]
-						},
-						"c1": {
-							"model": "c1",
-							"items": [
-								"menu"
 							]
 						}
 					},
@@ -2055,6 +2017,10 @@
 				}
 			},
 			"items": {
+				"snippet": {
+					"type": "snippet",
+					"eventGid": 1874767101
+				},
 				"userinfo_link": {
 					"type": "userinfo_link"
 				},
@@ -2081,33 +2047,13 @@
 				"loginform_login": {
 					"type": "loginform_login",
 					"popup": false
-				},
-				"expand_menu_button": {
-					"type": "expand_menu_button"
-				},
-				"collapse_button": {
-					"type": "collapse_button"
-				},
-				"expand_button": {
-					"type": "expand_button",
-					"icon": {
-						"glyph": "triangle-right",
-						"style": 0
-					}
-				},
-				"snippet": {
-					"type": "snippet",
-					"eventGid": 1874767101
 				}
 			},
 			"dbProps": {},
-			"version": 11,
-			"pageWidth": "standard",
+			"version": 13,
+			"pageAlign": "center",
 			"imageItem": {
-				"type": "page_image",
-				"image": null,
-				"shadow": false,
-				"fullSize": true
+				"type": "page_image"
 			},
 			"imageBgColor": "#f2f2f2",
 			"controlsBgColor": "white",
