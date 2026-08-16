@@ -1222,7 +1222,7 @@
 		{
 			"eventId": "EVENT_BEFOREQUERY_LIST",
 			"pageType": "list",
-			"code": "$strWhereClause .= \"tahun = \".$_SESSION[\"tahun\"];"
+			"code": "if (!empty($_SESSION[\"tahun\"])) {\r\n\r\n    if (trim($strWhereClause) != \"\") {\r\n        $strWhereClause .= \" AND \";\r\n    }\r\n\r\n    $strWhereClause .= \"(retur.tahun = \" . intval($_SESSION[\"tahun\"]) . \")\";\r\n\r\n}"
 		}
 	],
 	"sortByFields": {

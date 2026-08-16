@@ -40,14 +40,6 @@
 			},
 			{
 				"collapsed": true,
-				"x": 685,
-				"y": 10,
-				"width": 151,
-				"height": 200,
-				"gid": 1786513799
-			},
-			{
-				"collapsed": true,
 				"x": 865,
 				"y": 10,
 				"width": 127,
@@ -633,11 +625,11 @@
 								"table": "tersalur",
 								"type": 6
 							},
-							"pageId": "search",
+							"pageId": "list",
 							"itemType": 2,
 							"linkType": 0,
 							"table": 1111108117,
-							"pageType": "search"
+							"pageType": "list"
 						}
 					}
 				]
@@ -653,26 +645,6 @@
 			"root": {
 				"id": "1",
 				"children": [
-					{
-						"id": "5",
-						"parent": "1",
-						"data": {
-							"name": {
-								"table": "data tahun lalu",
-								"type": 6
-							},
-							"style": "padding: 12px 22px;\n  border-radius: 14px;\n  border: none;\n  font-size: 15px;\n  font-weight: 600;\n  cursor: pointer;\n\n  /* VECTOR COLOR (flat clean) */\n  background: #FFFF;\n  color: #007aff;\n\n  /* LAYERED SHADOW (soft iOS depth) */\n  box-shadow:\n    0 2px 4px rgba(0,0,0,0.08),\n    0 6px 12px rgba(0,0,0,0.06),\n    0 12px 24px rgba(0,0,0,0.04);",
-							"pageId": "search1",
-							"itemType": 2,
-							"linkType": 0,
-							"openType": 1,
-							"iconType": 2,
-							"iconName": "glyphicon-th",
-							"showIconType": 2,
-							"table": 1786513799,
-							"pageType": "search"
-						}
-					},
 					{
 						"id": "14",
 						"parent": "1",
@@ -2356,10 +2328,10 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "macosx",
+		"theme": "lumen",
 		"sidebarWidth": "210px",
 		"sidebarColor": "light",
-		"sidebarTheme": "legacy",
+		"sidebarTheme": "custom",
 		"sidebarCompact": true,
 		"topbarTheme": "legacy",
 		"logoTheme": "light",
@@ -2367,7 +2339,7 @@
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#008cba",
 		"logoCustomThemeColor": "#dddddd",
-		"customCss": "th.r-ori-vert {\n    background: #007bff !important;   /* Biru gelap */\n    color: #FFFFFF !important;        /* Teks putih */\n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n",
+		"customCss": "th.r-ori-vert {\n    background: rgb(211,211,211) !important;   /* Biru gelap */\n    \n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n",
 		"panelLikeGrid": true,
 		"verticalBorders": false,
 		"stripedGrid": false,

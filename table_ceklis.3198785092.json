@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tdata_sibay.tahun,\n\tceklis.nama_madrasah,\n\tceklis.npsn,\n\tCOUNT(data_sibay.npsn<>\"\") AS jumlah_siswa,\n\tceklis.ceklis_berkas,\n\tceklis.catatan\nFROM\n\tceklis\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\nWHERE\ndata_sibay.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn\n",
+	"sql": "SELECT\n\tdata_sibay.tahun,\n\tceklis.nama_madrasah,\n\tceklis.npsn,\n\tCOUNT(data_sibay.npsn<>\"\") AS jumlah_siswa,\n\tceklis.ceklis_berkas,\n\tceklis.catatan\nFROM\n\tceklis\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n\nGROUP BY\n\tceklis.npsn\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "ceklis",
 	"name": "ceklis",
@@ -358,6 +358,11 @@
 			"eventId": "EVENT_JS_ONLOAD",
 			"pageType": "list",
 			"code": "this.on('afterInlineadd', function( fieldsData ) {\n                       location.reload();\n                } )\n                \n                this.on('afterInlineEdit', function( fieldsData ) {\n                       location.reload();\n                } )\n                \n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_BEFOREQUERY_LIST",
+			"pageType": "list",
+			"code": "if (!empty($_SESSION[\"tahun\"])) {\n\n    if (trim($strWhereClause) != \"\") {\n        $strWhereClause .= \" AND \";\n    }\n\n    $strWhereClause .= \"(data_sibay.tahun = \" . intval($_SESSION[\"tahun\"]) . \")\";\n\n}// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n"
 		}
 	],
 	"sortByFields": {

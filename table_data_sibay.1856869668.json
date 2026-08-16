@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tdata_sibay.nisn,\n\tdata_sibay.npsn,\n\tdata_sibay.`nama siswa`,\n\tdata_sibay.`nomor rekening`,\n\tdata_sibay.`nama di rekening`,\n\tdata_sibay.file_scan,\n\tdata_sibay.status,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tprofil.`Nomor Telpon`,\n\tdata_sibay.kelas,\n\tdata_sibay.jenis_kelamin,\n\tdata_sibay.status_siswa,\n\tdata_sibay.pip,\n\tdata_sibay.catatan,\n\tdata_sibay.tahun,\n\tdata_sibay.kunci_operator,\n\tdata_sibay.kunci_kemenag_pidie,\n\tCASE\nWHEN data_sibay.kunci_operator <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_oprt,\n\tcase\nWHEN data_sibay.kunci_kemenag_pidie <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_kantor,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tdata_sibay.id,\n\t\n\tcase \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end as status_masuk_direkening,\n\ttersalur.jumlah as jumlah_masuk_direkenig\n\t\n\t\n\t\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n\tINNER JOIN sptjm ON sptjm.npsn = data_sibay.npsn AND sptjm.tahun = data_sibay.tahun\n\tLEFT OUTER JOIN tersalur on tersalur.rekening=data_sibay.`nomor rekening` and tersalur.tahun=data_sibay.tahun\nWHERE\ndata_sibay.tahun = YEAR(CURDATE())\nLIMIT 0, 50\n",
+	"sql": "SELECT\n\tdata_sibay.nisn,\n\tdata_sibay.npsn,\n\tdata_sibay.`nama siswa`,\n\tdata_sibay.`nomor rekening`,\n\tdata_sibay.`nama di rekening`,\n\tdata_sibay.file_scan,\n\tdata_sibay.status,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tprofil.`Nomor Telpon`,\n\tdata_sibay.kelas,\n\tdata_sibay.jenis_kelamin,\n\tdata_sibay.status_siswa,\n\tdata_sibay.pip,\n\tdata_sibay.catatan,\n\tdata_sibay.tahun,\n\tdata_sibay.kunci_operator,\n\tdata_sibay.kunci_kemenag_pidie,\n\tCASE\nWHEN data_sibay.kunci_operator <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_oprt,\n\tcase\nWHEN data_sibay.kunci_kemenag_pidie <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_kantor,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tdata_sibay.id,\n\t\n\tcase \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end as status_masuk_direkening,\n\ttersalur.jumlah as jumlah_masuk_direkenig\n\t\n\t\n\t\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n\tINNER JOIN sptjm ON sptjm.npsn = data_sibay.npsn AND sptjm.tahun = data_sibay.tahun \n\tLEFT OUTER JOIN tersalur on tersalur.rekening=data_sibay.`nomor rekening` and tersalur.tahun=data_sibay.tahun\n\n\nLIMIT 0, 50\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "data_sibay",
 	"name": "data_sibay",
@@ -1269,6 +1269,11 @@
 			"eventId": "EVENT_BEFOREADD",
 			"pageType": "add",
 			"code": " $values[\"tahun\"] = $_SESSION[\"tahun\"];\n$values[\"status\"] = \"belum_upload\";\n\n\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\nreturn true;"
+		},
+		{
+			"eventId": "EVENT_BEFOREQUERY_LIST",
+			"pageType": "list",
+			"code": "if (!empty($_SESSION[\"tahun\"])) {\n\n    if (trim($strWhereClause) != \"\") {\n        $strWhereClause .= \" AND \";\n    }\n\n    $strWhereClause .= \"(data_sibay.tahun = \" . intval($_SESSION[\"tahun\"]) . \")\";\n\n}// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n"
 		}
 	],
 	"sortByFields": {
@@ -5492,6 +5497,1141 @@
 			"title": {
 				"Indonesian": "data siswa {%nisn}/ {%tahun}"
 			}
+		},
+		{
+			"id": "list1",
+			"type": "list",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "list-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4"
+								},
+								{
+									"cell": "c5"
+								}
+							],
+							"section": ""
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c7"
+								},
+								{
+									"cell": "c8"
+								}
+							]
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								},
+								{
+									"cell": "c6"
+								}
+							]
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"delete",
+								"custom_button"
+							],
+							"align": "left"
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"details_found",
+								"page_size",
+								"print_panel"
+							]
+						},
+						"c": {
+							"model": "c3",
+							"items": [],
+							"align": "left"
+						},
+						"c4": {
+							"model": "c3",
+							"items": [],
+							"align": "left"
+						},
+						"c5": {
+							"model": "c4",
+							"items": []
+						},
+						"c6": {
+							"model": "c4",
+							"items": []
+						},
+						"c7": {
+							"model": "c3",
+							"items": []
+						},
+						"c8": {
+							"model": "c4",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "list-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"pagination"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu",
+								"search_panel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button",
+								"breadcrumb"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"simple_search",
+								"list_options",
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "horizontal-grid",
+					"grid": [
+						{
+							"section": "head",
+							"cells": [
+								{
+									"cell": "headcell_icons"
+								},
+								{
+									"cell": "headcell_checkbox"
+								},
+								{
+									"cell": "headcell_details"
+								},
+								{
+									"cell": "headcell_field"
+								},
+								{
+									"cell": "headcell_field5"
+								},
+								{
+									"cell": "headcell_field17"
+								},
+								{
+									"cell": "headcell_field16"
+								},
+								{
+									"cell": "headcell_field1"
+								},
+								{
+									"cell": "headcell_field2"
+								},
+								{
+									"cell": "headcell_field3"
+								},
+								{
+									"cell": "headcell_field8"
+								},
+								{
+									"cell": "headcell_field10"
+								},
+								{
+									"cell": "headcell_field4"
+								},
+								{
+									"cell": "headcell_field6"
+								},
+								{
+									"cell": "headcell_field7"
+								}
+							]
+						},
+						{
+							"section": "body",
+							"cells": [
+								{
+									"cell": "cell_icons"
+								},
+								{
+									"cell": "cell_checkbox"
+								},
+								{
+									"cell": "cell_details"
+								},
+								{
+									"cell": "cell_field"
+								},
+								{
+									"cell": "cell_field5"
+								},
+								{
+									"cell": "cell_field14"
+								},
+								{
+									"cell": "cell_field13"
+								},
+								{
+									"cell": "cell_field1"
+								},
+								{
+									"cell": "cell_field2"
+								},
+								{
+									"cell": "cell_field3"
+								},
+								{
+									"cell": "cell_field8"
+								},
+								{
+									"cell": "headcell_field11"
+								},
+								{
+									"cell": "cell_field4"
+								},
+								{
+									"cell": "cell_field6"
+								},
+								{
+									"cell": "cell_field7"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_dpreview",
+									"colspan": 15
+								}
+							],
+							"section": "body"
+						},
+						{
+							"section": "foot",
+							"cells": [
+								{
+									"cell": "footcell_icons"
+								},
+								{
+									"cell": "footcell_checkbox"
+								},
+								{
+									"cell": "footcell_details"
+								},
+								{
+									"cell": "footcell_field",
+									"colspan": 4
+								},
+								{
+									"cell": "footcell_field1"
+								},
+								{
+									"cell": "footcell_field2"
+								},
+								{
+									"cell": "footcell_field3"
+								},
+								{
+									"cell": "footcell_field8"
+								},
+								{
+									"cell": "headcell_field12"
+								},
+								{
+									"cell": "footcell_field4"
+								},
+								{
+									"cell": "footcell_field5"
+								},
+								{
+									"cell": "footcell_field6"
+								}
+							]
+						}
+					],
+					"cells": {
+						"headcell_field": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label5"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field": {
+							"model": "cell_field",
+							"items": [
+								"grid_field5"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"footcell_field": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field1": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field2"
+							],
+							"field": "nisn",
+							"columnName": "field"
+						},
+						"cell_field1": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field"
+							],
+							"field": "nisn",
+							"columnName": "field"
+						},
+						"footcell_field1": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nisn",
+							"columnName": "field"
+						},
+						"headcell_field2": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field12"
+							],
+							"field": "nomor rekening",
+							"columnName": "field"
+						},
+						"cell_field2": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field4"
+							],
+							"field": "nomor rekening",
+							"columnName": "field"
+						},
+						"footcell_field2": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nomor rekening",
+							"columnName": "field"
+						},
+						"headcell_field3": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field13"
+							],
+							"field": "nama di rekening",
+							"columnName": "field"
+						},
+						"cell_field3": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field5"
+							],
+							"field": "nama di rekening",
+							"columnName": "field"
+						},
+						"footcell_field3": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nama di rekening",
+							"columnName": "field"
+						},
+						"headcell_field8": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field18"
+							],
+							"field": "catatan",
+							"columnName": "field"
+						},
+						"cell_field8": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field10"
+							],
+							"field": "catatan",
+							"columnName": "field"
+						},
+						"footcell_field8": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "catatan",
+							"columnName": "field"
+						},
+						"headcell_checkbox": {
+							"model": "headcell_checkbox",
+							"items": [
+								"grid_checkbox_head"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"cell_checkbox": {
+							"model": "cell_checkbox",
+							"items": [
+								"grid_checkbox"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"footcell_checkbox": {
+							"model": "footcell_checkbox",
+							"items": [],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"headcell_icons": {
+							"model": "headcell_icons",
+							"items": [],
+							"columnName": "list-icons",
+							"field": ""
+						},
+						"cell_icons": {
+							"model": "cell_icons",
+							"items": [
+								"grid_edit",
+								"grid_view"
+							],
+							"columnName": "list-icons",
+							"field": ""
+						},
+						"footcell_icons": {
+							"model": "footcell_icons",
+							"items": [],
+							"columnName": "list-icons",
+							"field": ""
+						},
+						"headcell_field10": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field14"
+							],
+							"columnName": "field",
+							"field": "status"
+						},
+						"headcell_field11": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field7"
+							],
+							"columnName": "field",
+							"field": "status"
+						},
+						"headcell_field12": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "status"
+						},
+						"cell_dpreview": {
+							"model": "cell_dpreview",
+							"items": [
+								"details_preview"
+							],
+							"columnName": "field",
+							"field": "jumlah_masuk_direkenig"
+						},
+						"headcell_details": {
+							"model": "headcell_details",
+							"items": [],
+							"columnName": "details",
+							"field": ""
+						},
+						"cell_details": {
+							"model": "cell_details",
+							"items": [
+								"grid_details_link"
+							],
+							"columnName": "details",
+							"field": ""
+						},
+						"footcell_details": {
+							"model": "footcell_details",
+							"items": [],
+							"columnName": "details",
+							"field": ""
+						},
+						"cell_field13": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field3"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field16": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field11"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field17": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label6"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field14": {
+							"model": "cell_field",
+							"items": [
+								"grid_field6"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field4": {
+							"model": "headcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field4": {
+							"model": "cell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"footcell_field4": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field5": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field5": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field6": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"field": "status_masuk_direkening",
+							"columnName": "field"
+						},
+						"cell_field6": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"field": "status_masuk_direkening",
+							"columnName": "field"
+						},
+						"footcell_field5": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status_masuk_direkening",
+							"columnName": "field"
+						},
+						"headcell_field7": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							],
+							"field": "jumlah_masuk_direkenig",
+							"columnName": "field"
+						},
+						"cell_field7": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							],
+							"field": "jumlah_masuk_direkenig",
+							"columnName": "field"
+						},
+						"footcell_field6": {
+							"model": "footcell_field",
+							"items": [
+								"grid_field_totals"
+							],
+							"field": "jumlah_masuk_direkenig",
+							"columnName": "field"
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "list-sidebar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": [
+								"master_info"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"delete": {
+					"type": "delete",
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "link-button"
+				},
+				"details_found": {
+					"type": "details_found"
+				},
+				"page_size": {
+					"type": "page_size"
+				},
+				"print_panel": {
+					"type": "print_panel",
+					"items": [
+						"print_scope",
+						"print_details",
+						"print_records",
+						"print_button"
+					]
+				},
+				"print_scope": {
+					"type": "print_scope"
+				},
+				"print_records": {
+					"type": "print_records"
+				},
+				"print_button": {
+					"type": "print_button"
+				},
+				"pagination": {
+					"type": "pagination"
+				},
+				"simple_grid_field11": {
+					"type": "grid_field_label",
+					"field": "nama siswa",
+					"showFilter": true
+				},
+				"simple_grid_field3": {
+					"field": "nama siswa",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field2": {
+					"type": "grid_field_label",
+					"field": "nisn",
+					"showFilter": true
+				},
+				"simple_grid_field": {
+					"field": "nisn",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field12": {
+					"type": "grid_field_label",
+					"field": "nomor rekening",
+					"showFilter": true
+				},
+				"simple_grid_field4": {
+					"field": "nomor rekening",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field13": {
+					"type": "grid_field_label",
+					"field": "nama di rekening",
+					"showFilter": true
+				},
+				"simple_grid_field5": {
+					"field": "nama di rekening",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field18": {
+					"type": "grid_field_label",
+					"field": "catatan",
+					"showFilter": true
+				},
+				"simple_grid_field10": {
+					"field": "catatan",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_checkbox_head": {
+					"type": "grid_checkbox_head"
+				},
+				"grid_checkbox": {
+					"type": "grid_checkbox"
+				},
+				"grid_edit": {
+					"type": "grid_edit",
+					"popup": true,
+					"label": {
+						"type": 0,
+						"text": "Upload"
+					},
+					"popupWidth": "",
+					"popupHeight": "800px",
+					"buttonStyle": "success",
+					"icon": {
+						"glyph": "pencil",
+						"style": 0
+					}
+				},
+				"simple_grid_field14": {
+					"type": "grid_field_label",
+					"field": "status",
+					"showFilter": true
+				},
+				"simple_grid_field7": {
+					"field": "status",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field": {
+					"field": "file_scan",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field10": {
+					"field": "catatan",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field9": {
+					"field": "Nomor Telpon",
+					"type": "search_panel_field",
+					"required": false
+				},
+				"search_panel_field8": {
+					"field": "NSM",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field1": {
+					"field": "nama Madrasah",
+					"type": "search_panel_field",
+					"required": false
+				},
+				"search_panel_field7": {
+					"field": "status",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field6": {
+					"field": "npsn",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field5": {
+					"field": "nomor rekening",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field4": {
+					"field": "nisn",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field3": {
+					"field": "nama siswa",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field2": {
+					"field": "nama di rekening",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"export_selected": {
+					"type": "export_selected"
+				},
+				"delete_selected": {
+					"type": "delete_selected"
+				},
+				"-3": {
+					"type": "-"
+				},
+				"advsearch_link": {
+					"type": "advsearch_link"
+				},
+				"show_search_panel": {
+					"type": "show_search_panel"
+				},
+				"hide_search_panel": {
+					"type": "hide_search_panel"
+				},
+				"-1": {
+					"type": "-"
+				},
+				"export": {
+					"type": "export"
+				},
+				"-2": {
+					"type": "-"
+				},
+				"import": {
+					"type": "import"
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"breadcrumb": {
+					"type": "breadcrumb"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"simple_search": {
+					"type": "simple_search"
+				},
+				"search_panel": {
+					"type": "search_panel",
+					"items": [
+						"search_panel_field",
+						"search_panel_field14",
+						"search_panel_field13",
+						"search_panel_field10",
+						"search_panel_field9",
+						"search_panel_field8",
+						"search_panel_field1",
+						"search_panel_field7",
+						"search_panel_field6",
+						"search_panel_field5",
+						"search_panel_field4",
+						"search_panel_field3",
+						"search_panel_field2"
+					]
+				},
+				"list_options": {
+					"type": "list_options",
+					"items": [
+						"export_selected",
+						"delete_selected",
+						"-3",
+						"-",
+						"advsearch_link",
+						"show_search_panel",
+						"hide_search_panel",
+						"-1",
+						"export",
+						"-2",
+						"import"
+					]
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"-": {
+					"type": "-"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"search_panel_field13": {
+					"field": "status_kunci_oprt",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field14": {
+					"field": "status_kunci_kantor",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"custom_button": {
+					"eventId": "New_Button",
+					"label": {
+						"text": "reset",
+						"type": 0
+					},
+					"type": "custom_button",
+					"buttonStyle": "danger",
+					"eventGid": 2322436849,
+					"icon": {
+						"style": 0
+					},
+					"buttonSize": ""
+				},
+				"print_details": {
+					"type": "print_details",
+					"tables": {
+						"4134739628": true
+					}
+				},
+				"details_preview": {
+					"type": "details_preview",
+					"table": 4134739628,
+					"items": [],
+					"popup": true,
+					"hideEmptyPreview": false,
+					"proceedLink": false,
+					"pageId": "list"
+				},
+				"grid_details_link": {
+					"type": "grid_details_link",
+					"table": 4134739628,
+					"badge": false,
+					"hideIfNone": true,
+					"showCount": false,
+					"badgeColor": "#c7d420",
+					"bold": true
+				},
+				"grid_field5": {
+					"field": "id",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label5": {
+					"type": "grid_field_label",
+					"field": "id",
+					"showFilter": true
+				},
+				"grid_field6": {
+					"field": "nama Madrasah",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label6": {
+					"type": "grid_field_label",
+					"field": "nama Madrasah",
+					"showFilter": true
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"564743320": "true"
+					}
+				},
+				"grid_view": {
+					"type": "grid_view",
+					"icon": {
+						"glyph": "search",
+						"style": 0
+					},
+					"popup": true,
+					"page": "view"
+				},
+				"grid_field": {
+					"field": "npsn",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "npsn",
+					"showFilter": true
+				},
+				"grid_field1": {
+					"field": "status_masuk_direkening",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "status_masuk_direkening",
+					"showFilter": true
+				},
+				"grid_field2": {
+					"field": "jumlah_masuk_direkenig",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "jumlah_masuk_direkenig",
+					"showFilter": true
+				},
+				"grid_field_totals": {
+					"type": "grid_field_totals",
+					"field": "jumlah_masuk_direkenig",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				}
+			},
+			"dbProps": {},
+			"responsiveGrid": false,
+			"spreadsheetGrid": false,
+			"version": 11,
+			"addToBottom": false,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
 		}
 	],
 	"geoCoding": {

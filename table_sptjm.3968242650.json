@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tprofil.`nama Madrasah`,\n\tsptjm.npsn,\n\tprofil.`Nomor Telpon`,\n\tsptjm.tahun,\n\tsptjm.file_sptjm,\n\tsptjm.status,\n\tsptjm.catatan,\n\tsptjm.pertinggal_kantor\nFROM\n\tsptjm\n\tINNER JOIN profil ON profil.NPSN = sptjm.npsn\nWHERE\nsptjm.tahun = YEAR(CURDATE())\n",
+	"sql": "SELECT\n\tprofil.`nama Madrasah`,\n\tsptjm.npsn,\n\tprofil.`Nomor Telpon`,\n\tsptjm.tahun,\n\tsptjm.file_sptjm,\n\tsptjm.status,\n\tsptjm.catatan,\n\tsptjm.pertinggal_kantor\nFROM\n\n\tsptjm\n\t\n\tINNER JOIN profil ON profil.NPSN = sptjm.npsn\n\n\n\n\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "sptjm",
 	"name": "sptjm",
@@ -416,6 +416,11 @@
 			"eventId": "EVENT_JS_ONLOAD",
 			"pageType": "add",
 			"code": "this.on('beforeSave', function(formObj, fieldControlsArr, pageObj){\n\n    var url = \"https://drive.google.com/file/d/1nfWLtGyFJYrJm-3g1JLQA5ue9Nbm4dHl/view\";\n\n    if (confirm('Pastikan SPTJM yang diupload sudah sesuai format.\\n\\nKlik OK jika sudah sesuai.\\nKlik Cancel untuk melihat format contoh.')){\n\n        return true;\n\n    } else {\n\n        window.open(url, '_blank'); // buka link di tab baru\n        Runner.delDisabledClass(pageObj.saveButton);\n        return false;\n\n    }\n\n});"
+		},
+		{
+			"eventId": "EVENT_BEFOREQUERY_LIST",
+			"pageType": "list",
+			"code": "if (!empty($_SESSION[\"tahun\"])) {\r\n\r\n    if (trim($strWhereClause) != \"\") {\r\n        $strWhereClause .= \" AND \";\r\n    }\r\n\r\n    $strWhereClause .= \"(sptjm.tahun = \" . intval($_SESSION[\"tahun\"]) . \")\";\r\n\r\n}"
 		}
 	],
 	"sortByFields": {
