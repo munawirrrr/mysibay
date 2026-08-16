@@ -1923,6 +1923,14 @@
 							]
 						},
 						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							]
+						},
+						{
 							"cells": [
 								{
 									"cell": "c1"
@@ -1934,13 +1942,18 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": [
-								"text"
-							],
+							"items": [],
 							"align": "center",
 							"customCSS": "/* Put  your custom CSS code here */\n\n:host {\n  MARGIN: 0;\n}\n"
 						},
 						"c": {
+							"model": "c1",
+							"items": [
+								"snippet"
+							],
+							"align": "center"
+						},
+						"c2": {
 							"model": "c1",
 							"items": []
 						}
@@ -2077,16 +2090,16 @@
 				"collapse_button": {
 					"type": "collapse_button"
 				},
-				"text": {
-					"type": "text",
-					"label": {
-						"text": "\n<div style=\"padding: 16px;\">\n  <div style=\"background: #1A73E8; border-radius: 18px; padding: 22px 20px 18px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; position: relative; overflow: hidden; text-align: center;\">\n    <div style=\"position: absolute; top: -24px; right: -24px; width: 110px; height: 110px; background: rgba(255,255,255,0.08); border-radius: 50%;\"></div>\n    <div style=\"position: absolute; bottom: -30px; right: 30px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;\"></div>\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;\">\n      <img src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"24\" height=\"24\" style=\"object-fit:  );\" />\n      <div style=\"font-size: 11px; font-weight: 700; color: #ffffff; letter-spacing: 0.8px; text-transform: uppercase;\">Kementerian Agama</div>\n    </div>\n    <div style=\"font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.2;\">Penmad Pidie</div>\n    <div style=\"font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 14px;\">Program bantuan sosial untuk siswa yatim dan piatu di lingkungan madrasah wilayah Pidie.</div>\n    <div style=\"display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 6px 11px;\">\n      <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"rgba(255,255,255,0.9)\" stroke-width=\"2\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>\n      <span style=\"font-size: 12px; color: rgba(255,255,255,0.92); font-weight: 500;\">Sibay@PenmadPidie.com</span>\n<p style='color:#a78bfa; font-weight:600; margin:0 0 10px 0;'>TAHUN \" . $_SESSION[\"tahun\"] . \"</p>\n    </div>\n  </div>\n</div>\n",
-						"type": 0
-					},
-					"editedByRte": false
-				},
 				"expand_button": {
-					"type": "expand_button"
+					"type": "expand_button",
+					"icon": {
+						"glyph": "triangle-right",
+						"style": 0
+					}
+				},
+				"snippet": {
+					"type": "snippet",
+					"eventGid": 1874767101
 				}
 			},
 			"dbProps": {},
@@ -2373,7 +2386,7 @@
 		{
 			"eventId": "EVENT_AFTERSUCCESSFULLLOGIN",
 			"pageType": "login",
-			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n$_SESSION[\"tahun\"] = $data[\"tahun\"];\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nheader(\"Location: tahun_search.php\");\nexit();"
+			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n // Cek apakah session tahun belum ada, bisa diisi default misal tahun aktif (2026) atau dikosongkan dulu\nif (!isset($_SESSION[\"session_tahun\"])) {\n    $_SESSION[\"session_tahun\"] = date(\"Y\"); // atau biarkan kosong: \"\"\n}\n\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nheader(\"Location: tahun_search.php\");\nexit();"
 		}
 	],
 	"projectStyle": {

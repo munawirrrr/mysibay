@@ -13,7 +13,7 @@
 		"50",
 		"100",
 		"500",
-		"-1"
+		"1"
 	],
 	"pageSizeSelectorGroups": [
 		"1",
@@ -22,7 +22,7 @@
 		"10",
 		"50",
 		"100",
-		"-1"
+		"1"
 	],
 	"keyFields": [
 		"tahun"
@@ -42,6 +42,7 @@
 			],
 			"editFormats": [
 				{
+					"format": "Lookup wizard",
 					"required": true,
 					"validateAs": "Number",
 					"validateRegexMessage": {
@@ -53,6 +54,11 @@
 						"type": 0
 					},
 					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "tahun",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahun",
+					"lookupDisplayField": "tahun",
 					"fileMaxNumber": 1,
 					"fileThumbnailField": "th",
 					"timeConvention": 1
@@ -62,7 +68,9 @@
 				"format": "Values list"
 			},
 			"sourceSingle": "tahun",
-			"defaultSearchOption": "Contains",
+			"searchOptions": [
+				"Equals"
+			],
 			"label": {
 				"Indonesian": "Tahun"
 			},
@@ -88,6 +96,11 @@
 			"eventId": "EVENT_BEFOREPROCESS_SEARCH",
 			"pageType": "search",
 			"code": "// Cek apakah ada input tahun yang dikirim dari form pencarian\r\nif (isset($_POST[\"value_tahun_1\"])) {\r\n    // Sesuaikan \"value_tahun_1\" dengan nama field/input tahun di form search Anda\r\n    $_SESSION[\"tahun\"] = $_POST[\"value_tahun_1\"];\r\n} \r\n// Atau jika menggunakan parameter URL (misalnya dari link klik tahun)\r\nelseif (isset($_GET[\"tahun\"])) {\r\n    $_SESSION[\"tahun\"] = $_GET[\"tahun\"];\r\n}"
+		},
+		{
+			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
+			"pageType": "list",
+			"code": "$_SESSION[\"tahun\"] = $data[\"tahun\"];"
 		}
 	],
 	"sortByFields": {
@@ -842,7 +855,8 @@
 							"model": "c1",
 							"items": [
 								"menu",
-								"search_panel"
+								"search_panel",
+								"filter_panel"
 							]
 						}
 					},
@@ -953,7 +967,8 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field"
-					]
+					],
+					"_flexiblePanel": true
 				},
 				"list_options": {
 					"type": "list_options",
@@ -974,7 +989,8 @@
 				"search_panel_field": {
 					"field": "tahun",
 					"type": "search_panel_field",
-					"required": false
+					"required": false,
+					"alwaysOnPanel": false
 				},
 				"username_button": {
 					"type": "username_button",
@@ -1035,6 +1051,16 @@
 				},
 				"delete_selected": {
 					"type": "delete_selected"
+				},
+				"filter_panel": {
+					"type": "filter_panel",
+					"items": [
+						"filter_panel_field"
+					]
+				},
+				"filter_panel_field": {
+					"field": "tahun",
+					"type": "filter_panel_field"
 				}
 			},
 			"dbProps": {},
