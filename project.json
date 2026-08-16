@@ -616,13 +616,13 @@
 								"type": 6
 							},
 							"href": "mypage.htm",
-							"pageId": "search",
+							"pageId": "list",
 							"itemType": 2,
 							"linkType": 0,
 							"iconType": 2,
 							"iconName": "glyphicon-headphones",
 							"showIconType": 2,
-							"pageType": "search",
+							"pageType": "list",
 							"table": 4134739628
 						}
 					},
@@ -715,6 +715,9 @@
 			}
 		}
 	],
+	"customTemplates": {
+		"footer": "<?php\r\n// Ambil tahun dari session atau gunakan tahun sekarang sebagai fallback\r\n$tahun = isset($_SESSION['tahun']) ? $_SESSION['tahun'] : date('Y');  \r\n?>\r\n\r\n<footer style=\"padding: 16px;\">\r\n  <div style=\"background: #1A73E8; border-radius: 18px; padding: 22px 20px 18px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; position: relative; overflow: hidden; text-align: center;\">\r\n\r\n    <div style=\"position: absolute; top: -24px; right: -24px; width: 110px; height: 110px; background: rgba(255,255,255,0.08); border-radius: 50%;\"></div>\r\n    <div style=\"position: absolute; bottom: -30px; right: 30px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;\"></div>\r\n\r\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;\">\r\n      <img src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"24\" height=\"24\" style=\"object-fit: contain;\" />\r\n      <div style=\"font-size: 11px; font-weight: 700; color: #ffffff; letter-spacing: 0.8px; text-transform: uppercase;\">Kementerian Agama</div>\r\n    </div>\r\n\r\n    <div style=\"font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.2;\">Penmad Pidie</div>\r\n\r\n    <div style=\"font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 14px;\">\r\n      Program bantuan sosial untuk siswa yatim dan piatu di lingkungan madrasah wilayah Pidie.\r\n    </div>\r\n\r\n    <div style=\"display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 6px 11px; margin-bottom: 4px;\">\r\n      <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"rgba(255,255,255,0.9)\" stroke-width=\"2\">\r\n        <rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/>\r\n        <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/>\r\n      </svg>\r\n      <span style=\"font-size: 12px; color: rgba(255,255,255,0.92); font-weight: 500;\">Sibay@PenmadPidie.com</span>\r\n    </div>\r\n\r\n    <div style=\"margin-top: 14px;\">\r\n      <span style=\"display: inline-block; background: rgba(0,0,0,0.15); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;\">\r\n        Tahun <?php echo htmlspecialchars($tahun); ?>\r\n      </span>\r\n    </div>\r\n\r\n  </div>\r\n</footer>"
+	},
 	"globalPages": [
 		{
 			"id": "admin_members_list",
@@ -1670,7 +1673,7 @@
 			"type": "login",
 			"layoutId": "pretty1",
 			"disabled": 0,
-			"default": 0,
+			"default": 1,
 			"forms": {
 				"above-grid": {
 					"modelId": "login-above-grid",
@@ -1791,12 +1794,14 @@
 						"c1": {
 							"model": "c1",
 							"items": [
+								"text",
 								"username"
 							]
 						},
 						"c2": {
 							"model": "c2",
 							"items": [
+								"text1",
 								"password"
 							]
 						},
@@ -1883,23 +1888,40 @@
 				},
 				"login_welcome": {
 					"type": "login_welcome"
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "username",
+						"type": 0
+					},
+					"editedByRte": false
+				},
+				"text1": {
+					"type": "text",
+					"label": {
+						"text": "password",
+						"type": 0
+					},
+					"editedByRte": false
 				}
 			},
 			"dbProps": {},
 			"version": 13,
 			"imageItem": {
 				"type": "page_image",
-				"shadow": false,
-				"fullSize": true,
+				"shadow": true,
+				"fullSize": false,
 				"image": {
-					"source": 1,
-					"image": "pexels-element-digital-1051075.jpg"
+					"source": 0,
+					"image": "train-railway--publicdomainvectors.org.png"
 				}
 			},
-			"imageBgColor": "transparent",
-			"controlsBgColor": "transparent",
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
 			"imagePosition": "right",
 			"listTotals": 1,
+			"customHtml": "",
 			"title": {}
 		},
 		{
@@ -2569,6 +2591,132 @@
 				"gpInnerBorder": "legacy",
 				"gpInnerBorderColor": "legacy",
 				"gcOddBg": "legacy",
+				"gcOddColor": "legacy",
+				"gcEvenBg": "legacy",
+				"gcEvenColor": "legacy",
+				"gcRolloverHighlightBg": "legacy",
+				"gcRolloverHighlightColor": "legacy"
+			}
+		},
+		{
+			"table": null,
+			"page": "login",
+			"style": {
+				"theme": "yeti",
+				"size": "normal",
+				"sidebarWidth": "210px",
+				"sidebarColor": "dark",
+				"sidebarTheme": "legacy",
+				"menuStyle": "rounded",
+				"sidebarCompact": true,
+				"topbarTheme": "legacy",
+				"logoTheme": "light",
+				"fixedSidebar": true,
+				"fixedTopbar": true,
+				"topbarGradient": false,
+				"topbarLegacy": false,
+				"sidebarCustomThemeColor": "#bfc7ca",
+				"topbarCustomThemeColor": "#008cba",
+				"logoCustomThemeColor": "#dddddd",
+				"direction": "ltr",
+				"customCss": "th.r-ori-vert {\n    background: #007bff !important;   /* Biru gelap */\n    color: #FFFFFF !important;        /* Teks putih */\n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n\n\nfooter{\n    display:none;\n}",
+				"panelLikeGrid": true,
+				"verticalBorders": false,
+				"stripedGrid": false,
+				"condensedGrid": true,
+				"rolloverHighlight": true,
+				"gpHeaderBg": "legacy",
+				"gpHeaderColor": "legacy",
+				"gpFooterBg": "legacy",
+				"gpPanelBorder": "0",
+				"gpBorderColor": "legacy",
+				"gpInnerBorder": "legacy",
+				"gpInnerBorderColor": "legacy",
+				"gcOddBg": "#ffffff",
+				"gcOddColor": "legacy",
+				"gcEvenBg": "legacy",
+				"gcEvenColor": "legacy",
+				"gcRolloverHighlightBg": "legacy",
+				"gcRolloverHighlightColor": "legacy"
+			}
+		},
+		{
+			"table": null,
+			"page": "menu",
+			"style": {
+				"theme": "yeti",
+				"size": "normal",
+				"sidebarWidth": "210px",
+				"sidebarColor": "dark",
+				"sidebarTheme": "legacy",
+				"menuStyle": "rounded",
+				"sidebarCompact": true,
+				"topbarTheme": "light",
+				"logoTheme": "light",
+				"fixedSidebar": true,
+				"fixedTopbar": true,
+				"topbarGradient": false,
+				"topbarLegacy": false,
+				"sidebarCustomThemeColor": "#bfc7ca",
+				"topbarCustomThemeColor": "#008cba",
+				"logoCustomThemeColor": "#dddddd",
+				"direction": "ltr",
+				"customCss": "th.r-ori-vert {\n    background: #007bff !important;   /* Biru gelap */\n    color: #FFFFFF !important;        /* Teks putih */\n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n\n\nfooter{\n    display:none;\n}",
+				"panelLikeGrid": true,
+				"verticalBorders": false,
+				"stripedGrid": false,
+				"condensedGrid": true,
+				"rolloverHighlight": true,
+				"gpHeaderBg": "legacy",
+				"gpHeaderColor": "legacy",
+				"gpFooterBg": "legacy",
+				"gpPanelBorder": "0",
+				"gpBorderColor": "legacy",
+				"gpInnerBorder": "legacy",
+				"gpInnerBorderColor": "legacy",
+				"gcOddBg": "#ffffff",
+				"gcOddColor": "legacy",
+				"gcEvenBg": "legacy",
+				"gcEvenColor": "legacy",
+				"gcRolloverHighlightBg": "legacy",
+				"gcRolloverHighlightColor": "legacy"
+			}
+		},
+		{
+			"table": 4151081472,
+			"page": "search",
+			"style": {
+				"theme": "yeti",
+				"size": "normal",
+				"sidebarWidth": "210px",
+				"sidebarColor": "dark",
+				"sidebarTheme": "legacy",
+				"menuStyle": "rounded",
+				"sidebarCompact": true,
+				"topbarTheme": "legacy",
+				"logoTheme": "light",
+				"fixedSidebar": true,
+				"fixedTopbar": true,
+				"topbarGradient": false,
+				"topbarLegacy": false,
+				"sidebarCustomThemeColor": "#bfc7ca",
+				"topbarCustomThemeColor": "#008cba",
+				"logoCustomThemeColor": "#dddddd",
+				"direction": "ltr",
+				"customCss": "th.r-ori-vert {\n    background: #007bff !important;   /* Biru gelap */\n    color: #FFFFFF !important;        /* Teks putih */\n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\nfooter{\n    display:none;\n}\n\nselect#srchOpt_1_tahun {\n    display:none;\n    \n}",
+				"panelLikeGrid": true,
+				"verticalBorders": false,
+				"stripedGrid": false,
+				"condensedGrid": true,
+				"rolloverHighlight": true,
+				"gpHeaderBg": "legacy",
+				"gpHeaderColor": "legacy",
+				"gpFooterBg": "legacy",
+				"gpPanelBorder": "0",
+				"gpBorderColor": "legacy",
+				"gpInnerBorder": "legacy",
+				"gpInnerBorderColor": "legacy",
+				"gcOddBg": "#ffffff",
 				"gcOddColor": "legacy",
 				"gcEvenBg": "legacy",
 				"gcEvenColor": "legacy",

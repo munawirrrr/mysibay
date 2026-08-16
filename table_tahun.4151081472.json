@@ -72,7 +72,7 @@
 				"Equals"
 			],
 			"label": {
-				"Indonesian": "Tahun"
+				"Indonesian": ""
 			},
 			"tooltip": {
 				"Indonesian": ""
@@ -1342,7 +1342,12 @@
 					"field": "tahun",
 					"type": "integrated_search_field",
 					"orientation": 0,
-					"required": false
+					"required": false,
+					"label": {
+						"field": "tahun",
+						"table": "tahun",
+						"type": 3
+					}
 				},
 				"custom_button": {
 					"type": "custom_button",

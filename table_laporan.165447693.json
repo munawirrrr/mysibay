@@ -1313,10 +1313,7 @@
 			"version": 11,
 			"imageItem": {
 				"type": "page_image",
-				"image": {
-					"source": 3,
-					"image": "anjali-mehta-TPej8i22DXw-unsplash.jpg"
-				},
+				"image": null,
 				"shadow": false,
 				"fullSize": true
 			},

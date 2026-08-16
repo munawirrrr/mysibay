@@ -1206,11 +1206,6 @@
 	],
 	"eventHandlers": [
 		{
-			"eventId": "EVENT_BEFOREQUERY_LIST",
-			"pageType": "list",
-			"code": "if (\n                    $data['npsn'] == $_SESSION[\"npsn\"]\n                    \n                    \n                ) {\n                    return true;\n                }\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
-		},
-		{
 			"eventId": "EVENT_BEFORESHOW_LIST",
 			"pageType": "list",
 			"code": "if (Security::getUserName()!=\"admin\")\n          $pageObject->hideItem(\"update_selected\");\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
@@ -1223,6 +1218,11 @@
 		{
 			"eventId": "EVENT_RECORD_EDITABLE",
 			"code": "if (Security::getUserName()!=\"admin\" and $values[\"status\"] ==\"SELESAI\") {\n                $isEditable = false;\n            } else {\n                $isEditable = true;\n        }\n        \n        \n        return $isEditable;"
+		},
+		{
+			"eventId": "EVENT_BEFOREQUERY_LIST",
+			"pageType": "list",
+			"code": "$strWhereClause .= \"tahun = \".$_SESSION[\"tahun\"];"
 		}
 	],
 	"sortByFields": {
