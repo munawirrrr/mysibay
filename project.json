@@ -455,10 +455,8 @@
 	],
 	"defaultConnID": "keme8950sibayat1566720940",
 	"landingSettings": {
-		"type": 0,
-		"table": "",
-		"pageId": "",
-		"page": ""
+		"type": 2,
+		"url": "menu.php?page=menu"
 	},
 	"copyFieldSettings": {
 		"copyViewFormat": ""
