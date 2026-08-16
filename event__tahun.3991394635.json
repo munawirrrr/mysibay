@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "+tahun",
+	"beforeJsCode": "window.popup = Runner.displayPopup({\r\n\r\n                                   url: Runner.pages.getUrl(\"tahun\",\"add\"),\r\n\r\n                                   width: 700,\r\n\r\n                                   height: 700,\r\n\r\n                                   header: '+tahun'\r\n\r\n                                });"
+}

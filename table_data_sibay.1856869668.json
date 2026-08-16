@@ -1239,7 +1239,7 @@
 		{
 			"eventId": "EVENT_BEFORE_INSERT",
 			"pageType": "import",
-			"code": "$values[\"status\"] = \"belum_upload\";\n$values[\"tahun\"] = date(\"Y\");\n\n    return true;"
+			"code": "$values[\"status\"] = \"belum_upload\";\n $values[\"tahun\"] = $_SESSION[\"tahun\"];\n\n    return true;"
 		},
 		{
 			"eventId": "EVENT_JS_ONLOAD",
@@ -1268,7 +1268,7 @@
 		{
 			"eventId": "EVENT_BEFOREADD",
 			"pageType": "add",
-			"code": "$values[\"tahun\"] = date(\"Y\");\n$values[\"status\"] = \"belum_upload\";\n\n\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\nreturn true;"
+			"code": " $values[\"tahun\"] = $_SESSION[\"tahun\"];\n$values[\"status\"] = \"belum_upload\";\n\n\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\nreturn true;"
 		}
 	],
 	"sortByFields": {

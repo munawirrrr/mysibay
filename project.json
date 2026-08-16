@@ -7,6 +7,7 @@
 	"mainDiagram": {
 		"tables": [
 			{
+				"collapsed": true,
 				"x": 20,
 				"y": 10,
 				"width": 164,
@@ -14,6 +15,7 @@
 				"gid": 2174505078
 			},
 			{
+				"collapsed": true,
 				"x": 210,
 				"y": 10,
 				"width": 140,
@@ -21,6 +23,7 @@
 				"gid": 1554571514
 			},
 			{
+				"collapsed": true,
 				"x": 375,
 				"y": 10,
 				"width": 140,
@@ -28,6 +31,7 @@
 				"gid": 3030998547
 			},
 			{
+				"collapsed": true,
 				"x": 540,
 				"y": 10,
 				"width": 120,
@@ -35,6 +39,7 @@
 				"gid": 3198785092
 			},
 			{
+				"collapsed": true,
 				"x": 685,
 				"y": 10,
 				"width": 151,
@@ -42,13 +47,15 @@
 				"gid": 1786513799
 			},
 			{
-				"x": 874,
-				"y": 242,
+				"collapsed": true,
+				"x": 865,
+				"y": 10,
 				"width": 127,
 				"height": 200,
 				"gid": 1856869668
 			},
 			{
+				"collapsed": true,
 				"x": 1020,
 				"y": 10,
 				"width": 120,
@@ -56,6 +63,7 @@
 				"gid": 165447693
 			},
 			{
+				"collapsed": true,
 				"x": 1165,
 				"y": 10,
 				"width": 120,
@@ -63,6 +71,7 @@
 				"gid": 3872830103
 			},
 			{
+				"collapsed": true,
 				"x": 1310,
 				"y": 10,
 				"width": 129,
@@ -70,6 +79,7 @@
 				"gid": 564743320
 			},
 			{
+				"collapsed": true,
 				"x": 20,
 				"y": 125,
 				"width": 120,
@@ -77,6 +87,7 @@
 				"gid": 4134739628
 			},
 			{
+				"collapsed": true,
 				"x": 165,
 				"y": 145,
 				"width": 120,
@@ -84,6 +95,7 @@
 				"gid": 3968242650
 			},
 			{
+				"collapsed": true,
 				"x": 310,
 				"y": 225,
 				"width": 120,
@@ -91,13 +103,15 @@
 				"gid": 4151081472
 			},
 			{
+				"collapsed": true,
 				"gid": 1111108117,
-				"y": 407,
-				"x": 460,
+				"y": 225,
+				"x": 455,
 				"width": 115.6875,
 				"height": 152
 			},
 			{
+				"collapsed": true,
 				"x": 600,
 				"y": 225,
 				"width": 120,
@@ -1901,6 +1915,14 @@
 					"modelId": "empty-above-grid",
 					"grid": [
 						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								}
+							]
+						},
+						{
 							"cells": [
 								{
 									"cell": "c1"
@@ -1917,6 +1939,10 @@
 							],
 							"align": "center",
 							"customCSS": "/* Put  your custom CSS code here */\n\n:host {\n  MARGIN: 0;\n}\n"
+						},
+						"c": {
+							"model": "c1",
+							"items": []
 						}
 					},
 					"deferredItems": [],
@@ -2054,7 +2080,7 @@
 				"text": {
 					"type": "text",
 					"label": {
-						"text": "\n<div style=\"padding: 16px;\">\n  <div style=\"background: #1A73E8; border-radius: 18px; padding: 22px 20px 18px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; position: relative; overflow: hidden; text-align: center;\">\n    <div style=\"position: absolute; top: -24px; right: -24px; width: 110px; height: 110px; background: rgba(255,255,255,0.08); border-radius: 50%;\"></div>\n    <div style=\"position: absolute; bottom: -30px; right: 30px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;\"></div>\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;\">\n      <img src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"24\" height=\"24\" style=\"object-fit:  );\" />\n      <div style=\"font-size: 11px; font-weight: 700; color: #ffffff; letter-spacing: 0.8px; text-transform: uppercase;\">Kementerian Agama</div>\n    </div>\n    <div style=\"font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.2;\">Penmad Pidie</div>\n    <div style=\"font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 14px;\">Program bantuan sosial untuk siswa yatim dan piatu di lingkungan madrasah wilayah Pidie.</div>\n    <div style=\"display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 6px 11px;\">\n      <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"rgba(255,255,255,0.9)\" stroke-width=\"2\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>\n      <span style=\"font-size: 12px; color: rgba(255,255,255,0.92); font-weight: 500;\">Sibay@PenmadPidie.com</span>\n    </div>\n  </div>\n</div>\n",
+						"text": "\n<div style=\"padding: 16px;\">\n  <div style=\"background: #1A73E8; border-radius: 18px; padding: 22px 20px 18px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; position: relative; overflow: hidden; text-align: center;\">\n    <div style=\"position: absolute; top: -24px; right: -24px; width: 110px; height: 110px; background: rgba(255,255,255,0.08); border-radius: 50%;\"></div>\n    <div style=\"position: absolute; bottom: -30px; right: 30px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;\"></div>\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;\">\n      <img src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"24\" height=\"24\" style=\"object-fit:  );\" />\n      <div style=\"font-size: 11px; font-weight: 700; color: #ffffff; letter-spacing: 0.8px; text-transform: uppercase;\">Kementerian Agama</div>\n    </div>\n    <div style=\"font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.2;\">Penmad Pidie</div>\n    <div style=\"font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 14px;\">Program bantuan sosial untuk siswa yatim dan piatu di lingkungan madrasah wilayah Pidie.</div>\n    <div style=\"display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 6px 11px;\">\n      <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"rgba(255,255,255,0.9)\" stroke-width=\"2\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>\n      <span style=\"font-size: 12px; color: rgba(255,255,255,0.92); font-weight: 500;\">Sibay@PenmadPidie.com</span>\n<p style='color:#a78bfa; font-weight:600; margin:0 0 10px 0;'>TAHUN \" . $_SESSION[\"tahun\"] . \"</p>\n    </div>\n  </div>\n</div>\n",
 						"type": 0
 					},
 					"editedByRte": false
@@ -2347,7 +2373,7 @@
 		{
 			"eventId": "EVENT_AFTERSUCCESSFULLLOGIN",
 			"pageType": "login",
-			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n$_SESSION[\"tahun\"] = $data[\"tahun\"];\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n$_SESSION[\"tahun\"] = $data[\"tahun\"];\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nheader(\"Location: tahun_search.php\");\nexit();"
 		}
 	],
 	"projectStyle": {

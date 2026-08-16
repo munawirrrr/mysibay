@@ -4,6 +4,7 @@
 	"originalTable": "tahun",
 	"name": "tahun",
 	"shortTableName": "tahun",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"pageSizeSelectorRecords": [
 		"10",
@@ -31,6 +32,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "tahun",
+			"index": 1,
 			"strField": "tahun",
 			"type": 3,
 			"viewFormats": [
@@ -76,8 +78,42 @@
 	"warnLeavingEdit": true,
 	"afterEditDetails": 1,
 	"afterAddDetail": 1,
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_BEFORESHOW_LIST",
+			"pageType": "list",
+			"code": "// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nheader(\"Location: menu.php\");\nexit();"
+		},
+		{
+			"eventId": "EVENT_BEFOREPROCESS_SEARCH",
+			"pageType": "search",
+			"code": "// Cek apakah ada input tahun yang dikirim dari form pencarian\r\nif (isset($_POST[\"value_tahun_1\"])) {\r\n    // Sesuaikan \"value_tahun_1\" dengan nama field/input tahun di form search Anda\r\n    $_SESSION[\"tahun\"] = $_POST[\"value_tahun_1\"];\r\n} \r\n// Atau jika menggunakan parameter URL (misalnya dari link klik tahun)\r\nelseif (isset($_GET[\"tahun\"])) {\r\n    $_SESSION[\"tahun\"] = $_GET[\"tahun\"];\r\n}"
+		}
+	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "tahun",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"tahun"
+		],
+		"uniqueFields": [],
+		"name": "tahun"
 	},
 	"pages": [
 		{
@@ -445,8 +481,7 @@
 				"hamburger": {
 					"type": "hamburger",
 					"items": [
-						"edit_reset",
-						"edit_view"
+						"edit_reset"
 					]
 				},
 				"edit_reset": {
@@ -463,9 +498,6 @@
 				},
 				"edit_close": {
 					"type": "edit_close"
-				},
-				"edit_view": {
-					"type": "edit_view"
 				},
 				"integrated_edit_field": {
 					"field": "tahun",
@@ -488,7 +520,7 @@
 			"id": "export",
 			"type": "export",
 			"layoutId": "first",
-			"disabled": 0,
+			"disabled": true,
 			"default": 0,
 			"forms": {
 				"supertop": {
@@ -624,7 +656,7 @@
 			"id": "import",
 			"type": "import",
 			"layoutId": "first",
-			"disabled": 0,
+			"disabled": true,
 			"default": 0,
 			"forms": {
 				"supertop": {
@@ -749,8 +781,7 @@
 							"model": "c2",
 							"items": [
 								"details_found",
-								"page_size",
-								"print_panel"
+								"page_size"
 							]
 						}
 					},
@@ -878,8 +909,7 @@
 					"deferredItems": [
 						"grid_checkbox",
 						"grid_checkbox_head",
-						"grid_edit",
-						"grid_view"
+						"grid_edit"
 					],
 					"recsPerRow": 1
 				},
@@ -928,16 +958,11 @@
 				"list_options": {
 					"type": "list_options",
 					"items": [
-						"export_selected",
 						"delete_selected",
 						"-3",
 						"advsearch_link",
 						"show_search_panel",
-						"hide_search_panel",
-						"-1",
-						"export",
-						"-2",
-						"import"
+						"hide_search_panel"
 					]
 				},
 				"show_search_panel": {
@@ -984,49 +1009,14 @@
 				"grid_edit": {
 					"type": "grid_edit"
 				},
-				"grid_view": {
-					"type": "grid_view"
-				},
-				"print_panel": {
-					"type": "print_panel",
-					"items": [
-						"print_scope",
-						"print_records",
-						"print_button"
-					]
-				},
-				"print_scope": {
-					"type": "print_scope"
-				},
-				"print_button": {
-					"type": "print_button"
-				},
-				"print_records": {
-					"type": "print_records"
-				},
-				"export": {
-					"type": "export"
-				},
 				"-": {
 					"type": "-"
-				},
-				"export_selected": {
-					"type": "export_selected"
 				},
 				"-1": {
 					"type": "-"
 				},
-				"import": {
-					"type": "import"
-				},
 				"-2": {
 					"type": "-"
-				},
-				"delete": {
-					"type": "delete"
-				},
-				"delete_selected": {
-					"type": "delete_selected"
 				},
 				"advsearch_link": {
 					"type": "advsearch_link"
@@ -1039,6 +1029,12 @@
 					"type": "simple_grid_field",
 					"inlineAdd": true,
 					"inlineEdit": true
+				},
+				"delete": {
+					"type": "delete"
+				},
+				"delete_selected": {
+					"type": "delete_selected"
 				}
 			},
 			"dbProps": {},
@@ -1056,7 +1052,7 @@
 			"id": "print",
 			"type": "print",
 			"layoutId": "basic",
-			"disabled": 0,
+			"disabled": true,
 			"default": 0,
 			"forms": {
 				"above-grid": {
@@ -1216,17 +1212,28 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								}
+							]
 						}
 					],
 					"cells": {
 						"c1": {
 							"model": "c1",
 							"items": [
-								"search_search",
-								"search_reset",
-								"search_back_list",
-								"search_cancel"
-							]
+								"search_search"
+							],
+							"align": "center"
+						},
+						"c": {
+							"model": "c1",
+							"items": [],
+							"align": "center"
 						}
 					},
 					"deferredItems": [],
@@ -1248,8 +1255,14 @@
 						"c1": {
 							"model": "c1",
 							"items": [
+								"custom_button",
 								"search_header"
-							]
+							],
+							"align": "center",
+							"padding": {
+								"top": "200px"
+							},
+							"orientation": "vertical"
 						}
 					},
 					"deferredItems": [],
@@ -1272,7 +1285,8 @@
 							"model": "c3",
 							"items": [
 								"integrated_search_field"
-							]
+							],
+							"align": "center"
 						}
 					},
 					"deferredItems": [],
@@ -1281,25 +1295,40 @@
 			},
 			"items": {
 				"search_header": {
-					"type": "search_header"
-				},
-				"search_reset": {
-					"type": "search_reset"
-				},
-				"search_back_list": {
-					"type": "search_back_list"
+					"type": "search_header",
+					"title": {
+						"page": "search",
+						"table": "tahun",
+						"type": 7
+					}
 				},
 				"search_search": {
-					"type": "search_search"
-				},
-				"search_cancel": {
-					"type": "search_cancel"
+					"type": "search_search",
+					"icon": {
+						"style": 0
+					},
+					"label": {
+						"type": 0,
+						"text": "filter"
+					}
 				},
 				"integrated_search_field": {
 					"field": "tahun",
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": false
+				},
+				"custom_button": {
+					"type": "custom_button",
+					"eventGid": 3991394635,
+					"label": {
+						"text": "+tahun",
+						"type": 0
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "success"
 				}
 			},
 			"dbProps": {},
@@ -1311,13 +1340,15 @@
 			"controlsBgColor": "white",
 			"imagePosition": "right",
 			"listTotals": 1,
-			"title": {}
+			"title": {
+				"Indonesian": "Filter Tahun"
+			}
 		},
 		{
 			"id": "view",
 			"type": "view",
 			"layoutId": "nomenu",
-			"disabled": 0,
+			"disabled": true,
 			"default": 0,
 			"forms": {
 				"above-grid": {
