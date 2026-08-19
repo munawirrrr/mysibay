@@ -1389,7 +1389,7 @@
 					"field": "tahun",
 					"type": "integrated_search_field",
 					"orientation": 0,
-					"required": false,
+					"required": true,
 					"label": {
 						"field": "tahun",
 						"table": "tahun",
