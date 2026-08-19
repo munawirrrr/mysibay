@@ -2325,6 +2325,11 @@
 			"eventId": "EVENT_AFTERSUCCESSFULLLOGIN",
 			"pageType": "login",
 			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n // Cek apakah session tahun belum ada, bisa diisi default misal tahun aktif (2026) atau dikosongkan dulu\nif (!isset($_SESSION[\"session_tahun\"])) {\n    $_SESSION[\"session_tahun\"] = date(\"Y\"); // atau biarkan kosong: \"\"\n}\n\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nheader(\"Location: tahun_search.php\");\nexit();"
+		},
+		{
+			"eventId": "EVENT_AFTERLOGOUT",
+			"pageType": "login",
+			"code": "\n//**********  Redirect to another page  ************ \nheader(\"Location: https://home.penmadpidie.com/newsmain_list.php?a=logout\"); \nexit();\n"
 		}
 	],
 	"projectStyle": {

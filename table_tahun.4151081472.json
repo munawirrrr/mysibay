@@ -35,14 +35,61 @@
 			"index": 1,
 			"strField": "tahun",
 			"type": 3,
+			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
+					"pageType": "list",
 					"numberFractionalDigits": 0
 				}
 			],
 			"editFormats": [
 				{
+					"required": true,
+					"validateAs": "Number",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "Number",
+					"lookupType": 2,
+					"lookupTable": "tahun",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahun",
+					"lookupDisplayField": "tahun",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"required": true,
+					"validateAs": "Number",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textboxMaxLenth": 4,
+					"textHTML5Input": "Number",
+					"lookupType": 2,
+					"lookupTable": "tahun",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahun",
+					"lookupDisplayField": "tahun",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
 					"format": "Lookup wizard",
+					"pageType": "search",
 					"required": true,
 					"validateAs": "Number",
 					"validateRegexMessage": {
