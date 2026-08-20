@@ -688,7 +688,7 @@
 		}
 	],
 	"customTemplates": {
-		"footer": "<?php\r\n// Ambil tahun dari session atau gunakan tahun sekarang sebagai fallback\r\n$tahun = isset($_SESSION['tahun']) ? $_SESSION['tahun'] : date('Y');  \r\n?>\r\n\r\n<footer style=\"padding: 16px;\">\r\n  <div style=\"background: #1A73E8; border-radius: 18px; padding: 22px 20px 18px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; position: relative; overflow: hidden; text-align: center;\">\r\n\r\n    <div style=\"position: absolute; top: -24px; right: -24px; width: 110px; height: 110px; background: rgba(255,255,255,0.08); border-radius: 50%;\"></div>\r\n    <div style=\"position: absolute; bottom: -30px; right: 30px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;\"></div>\r\n\r\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;\">\r\n      <img src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"24\" height=\"24\" style=\"object-fit: contain;\" />\r\n      <div style=\"font-size: 11px; font-weight: 700; color: #ffffff; letter-spacing: 0.8px; text-transform: uppercase;\">Kementerian Agama</div>\r\n    </div>\r\n\r\n    <div style=\"font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.2;\">Penmad Pidie</div>\r\n\r\n    <div style=\"font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 14px;\">\r\n      Program bantuan sosial untuk siswa yatim dan piatu di lingkungan madrasah wilayah Pidie.\r\n    </div>\r\n\r\n    <div style=\"display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 6px 11px; margin-bottom: 4px;\">\r\n      <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"rgba(255,255,255,0.9)\" stroke-width=\"2\">\r\n        <rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/>\r\n        <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/>\r\n      </svg>\r\n      <span style=\"font-size: 12px; color: rgba(255,255,255,0.92); font-weight: 500;\">Sibay@PenmadPidie.com</span>\r\n    </div>\r\n\r\n    <div style=\"margin-top: 14px;\">\r\n      <span style=\"display: inline-block; background: rgba(0,0,0,0.15); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;\">\r\n        Tahun <?php echo htmlspecialchars($tahun); ?>\r\n      </span>\r\n    </div>\r\n\r\n  </div>\r\n</footer>"
+		"footer": "<?php\r\n// Ambil tahun dari session atau gunakan tahun sekarang sebagai fallback\r\n$tahun = isset($_SESSION['tahun']) ? $_SESSION['tahun'] : date('Y');  \r\n?>\r\n\r\n<footer style=\"padding: 16px;\">\r\n  <div style=\"background: #1A73E8; border-radius: 18px; padding: 22px 20px 18px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; position: relative; overflow: hidden; text-align: center;\">\r\n\r\n    <div style=\"position: absolute; top: -24px; right: -24px; width: 110px; height: 110px; background: rgba(255,255,255,0.08); border-radius: 50%;\"></div>\r\n    <div style=\"position: absolute; bottom: -30px; right: 30px; width: 80px; height: 80px; background: rgba(255,255,255,0.05); border-radius: 50%;\"></div>\r\n\r\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;\">\r\n      <img src=\"https://appmadrasah.kemenag.go.id/__statics/img/logo.png\" width=\"24\" height=\"24\" style=\"object-fit: contain;\" />\r\n      <div style=\"font-size: 11px; font-weight: 700; color: #ffffff; letter-spacing: 0.8px; text-transform: uppercase;\">Kementerian Agama</div>\r\n    </div>\r\n\r\n    <div style=\"font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.2;\">Penmad Pidie</div>\r\n\r\n    <div style=\"font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 14px;\">\r\n      Program bantuan sosial untuk siswa yatim dan piatu di lingkungan madrasah wilayah Pidie.\r\n    </div>\r\n\r\n    <div style=\"display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 6px 11px; margin-bottom: 4px;\">\r\n      <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"rgba(255,255,255,0.9)\" stroke-width=\"2\">\r\n        <rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/>\r\n        <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/>\r\n      </svg>\r\n      <span style=\"font-size: 12px; color: rgba(255,255,255,0.92); font-weight: 500;\">Sibay@PenmadPidie.com</span>\r\n    </div>\r\n\r\n    <div style=\"margin-top: 14px;\">\r\n      <span style=\"display: inline-block; background: rgba(0,0,0,0.15); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;\">\r\n        Tahun <?php echo htmlspecialchars($tahun); ?>\r\n      </span>\r\n    </div>\r\n\r\n  </div>\r\n  \r\n <style>\r\n/* =====================================================\r\n   DESKTOP ONLY\r\n   Navbar hidden → muncul saat mouse ke atas\r\n   ===================================================== */\r\n\r\n@media screen and (min-width: 768px) {\r\n\r\n    #form_supertop_1 {\r\n        position: fixed !important;\r\n        top: 0 !important;\r\n        left: 0 !important;\r\n        width: 100% !important;\r\n\r\n        z-index: 99999 !important;\r\n\r\n        /* DEFAULT HIDDEN */\r\n        transform: translateY(-110%) !important;\r\n        opacity: 0 !important;\r\n\r\n        transition:\r\n            transform 0.35s ease-in-out,\r\n            opacity 0.35s ease-in-out !important;\r\n\r\n        pointer-events: none;\r\n\r\n        /* Glass / Blur */\r\n        backdrop-filter: blur(18px) saturate(160%) !important;\r\n        -webkit-backdrop-filter: blur(18px) saturate(160%) !important;\r\n    }\r\n\r\n\r\n    /* ===============================\r\n       NAVBAR MUNCUL\r\n       =============================== */\r\n\r\n    #form_supertop_1.navbar-show {\r\n        transform: translateY(0) !important;\r\n        opacity: 1 !important;\r\n        pointer-events: auto !important;\r\n    }\r\n\r\n\r\n    /* ===============================\r\n       DROPDOWN\r\n       =============================== */\r\n\r\n    #form_supertop_1 .dropdown-menu {\r\n        z-index: 100000 !important;\r\n    }\r\n\r\n\r\n    /* ===============================\r\n       AREA TRIGGER ATAS\r\n       =============================== */\r\n\r\n    #navbar-top-trigger {\r\n        position: fixed;\r\n\r\n        top: 0;\r\n        left: 0;\r\n\r\n        width: 100%;\r\n        height: 20px;\r\n\r\n        z-index: 99998;\r\n\r\n        background: transparent;\r\n        pointer-events: auto;\r\n    }\r\n\r\n}\r\n\r\n\r\n/* =====================================================\r\n   MOBILE\r\n   Tidak disentuh oleh script/CSS hide navbar\r\n   ===================================================== */\r\n\r\n@media screen and (max-width: 767px) {\r\n\r\n    #form_supertop_1 {\r\n        transform: none !important;\r\n        opacity: 1 !important;\r\n        pointer-events: auto !important;\r\n    }\r\n\r\n}\r\n</style>\r\n\r\n\r\n<script>\r\ndocument.addEventListener(\"DOMContentLoaded\", function () {\r\n\r\n    /*\r\n     * HANYA DESKTOP\r\n     */\r\n    if (window.innerWidth < 768) {\r\n        return;\r\n    }\r\n\r\n\r\n    const navbar = document.getElementById(\"form_supertop_1\");\r\n\r\n    if (!navbar) {\r\n        return;\r\n    }\r\n\r\n\r\n    /*\r\n     * Buat area trigger di paling atas layar\r\n     */\r\n    let trigger = document.getElementById(\"navbar-top-trigger\");\r\n\r\n    if (!trigger) {\r\n\r\n        trigger = document.createElement(\"div\");\r\n\r\n        trigger.id = \"navbar-top-trigger\";\r\n\r\n        document.body.appendChild(trigger);\r\n    }\r\n\r\n\r\n    /*\r\n     * DEFAULT HIDDEN\r\n     */\r\n    navbar.classList.remove(\"navbar-show\");\r\n\r\n\r\n    /*\r\n     * MOUSE KE BAGIAN PALING ATAS\r\n     * → TAMPIL\r\n     */\r\n    document.addEventListener(\"mousemove\", function (e) {\r\n\r\n        if (e.clientY <= 20) {\r\n\r\n            navbar.classList.add(\"navbar-show\");\r\n\r\n        }\r\n\r\n    });\r\n\r\n\r\n    /*\r\n     * MOUSE KELUAR DARI NAVBAR\r\n     * → HIDDEN\r\n     */\r\n    navbar.addEventListener(\"mouseleave\", function () {\r\n\r\n        setTimeout(function () {\r\n\r\n            if (!navbar.matches(\":hover\")) {\r\n\r\n                navbar.classList.remove(\"navbar-show\");\r\n\r\n            }\r\n\r\n        }, 300);\r\n\r\n    });\r\n\r\n\r\n    /*\r\n     * MOUSE TURUN MENJAUH DARI NAVBAR\r\n     * → HIDDEN\r\n     */\r\n    document.addEventListener(\"mousemove\", function (e) {\r\n\r\n        if (\r\n            e.clientY > 100 &&\r\n            !navbar.matches(\":hover\")\r\n        ) {\r\n\r\n            navbar.classList.remove(\"navbar-show\");\r\n\r\n        }\r\n\r\n    });\r\n\r\n});\r\n</script>\r\n</footer>"
 	},
 	"globalPages": [
 		{
@@ -2333,13 +2333,12 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "macosx",
+		"theme": "lumen",
 		"sidebarWidth": "210px",
-		"sidebarColor": "light",
 		"sidebarTheme": "primary",
 		"sidebarCompact": true,
-		"topbarTheme": "legacy",
-		"logoTheme": "white",
+		"topbarTheme": "primary",
+		"logoTheme": "dark",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#008cba",
@@ -2347,7 +2346,6 @@
 		"customCss": "th.r-ori-vert {\n    background: rgb(211,211,211) !important;   /* Biru gelap */\n    \n    text-transform: uppercase;        /* Huruf besar */\n    text-decoration: none !important; /* Hilangkan garis bawah */\n    font-weight: 700;\n    text-align: center;\n    border: none !important;\n}\n\n\n",
 		"panelLikeGrid": true,
 		"verticalBorders": false,
-		"stripedGrid": false,
 		"condensedGrid": true,
 		"rolloverHighlight": true,
 		"gpHeaderBg": "legacy",
@@ -2357,7 +2355,7 @@
 		"gpBorderColor": "legacy",
 		"gpInnerBorder": "legacy",
 		"gpInnerBorderColor": "legacy",
-		"gcOddBg": "#ffffff",
+		"gcOddBg": "legacy",
 		"gcOddColor": "legacy",
 		"gcEvenBg": "legacy",
 		"gcEvenColor": "legacy",
@@ -2705,10 +2703,10 @@
 			"table": null,
 			"page": "menu",
 			"style": {
-				"theme": "macosx",
+				"theme": "paper",
 				"size": "normal",
 				"sidebarWidth": "210px",
-				"sidebarColor": "dark",
+				"sidebarColor": "light",
 				"sidebarTheme": "custom",
 				"menuStyle": "rounded",
 				"sidebarCompact": true,
