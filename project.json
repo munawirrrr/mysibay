@@ -1899,7 +1899,7 @@
 		{
 			"id": "menu",
 			"type": "menu",
-			"layoutId": "topbar",
+			"layoutId": "leftbar",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -1943,7 +1943,10 @@
 							"items": [
 								"snippet"
 							],
-							"align": "center"
+							"align": "center",
+							"padding": {
+								"top": "200px"
+							}
 						},
 						"c2": {
 							"model": "c1",
@@ -1954,7 +1957,7 @@
 					"recsPerRow": 1
 				},
 				"supertop": {
-					"modelId": "menu-topbar-menu",
+					"modelId": "menu-topbar",
 					"grid": [
 						{
 							"cells": [
@@ -1972,8 +1975,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"logo",
-								"menu"
+								"expand_menu_button",
+								"collapse_button"
 							]
 						},
 						"c2": {
@@ -1981,6 +1984,43 @@
 							"items": [
 								"loginform_login",
 								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
 							]
 						}
 					},
@@ -2041,11 +2081,16 @@
 				"loginform_login": {
 					"type": "loginform_login",
 					"popup": false
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
 				}
 			},
 			"dbProps": {},
 			"version": 13,
-			"pageAlign": "center",
 			"imageItem": {
 				"type": "page_image"
 			},
@@ -2711,7 +2756,7 @@
 				"menuStyle": "rounded",
 				"sidebarCompact": true,
 				"topbarTheme": "legacy",
-				"logoTheme": "legacy",
+				"logoTheme": "white",
 				"fixedSidebar": true,
 				"fixedTopbar": true,
 				"topbarGradient": false,
