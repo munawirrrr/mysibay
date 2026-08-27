@@ -1432,7 +1432,7 @@
 		{
 			"id": "list",
 			"type": "list",
-			"layoutId": "leftbar",
+			"layoutId": "topbar",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -1492,47 +1492,8 @@
 					"deferredItems": [],
 					"recsPerRow": 1
 				},
-				"left": {
-					"modelId": "leftbar-menu",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c0"
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c0": {
-							"model": "c0",
-							"items": [
-								"logo"
-							]
-						},
-						"c1": {
-							"model": "c1",
-							"items": [
-								"menu",
-								"search_panel",
-								"filter_panel"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
 				"supertop": {
-					"modelId": "leftbar-top",
+					"modelId": "topbar-menu",
 					"grid": [
 						{
 							"cells": [
@@ -1550,9 +1511,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"expand_menu_button",
-								"collapse_button",
-								"breadcrumb"
+								"logo",
+								"menu"
 							]
 						},
 						"c2": {
@@ -1562,6 +1522,66 @@
 								"list_options",
 								"loginform_login",
 								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "list-vbar",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_panel"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"filter_panel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "list-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"breadcrumb"
 							]
 						}
 					},
@@ -2186,13 +2206,6 @@
 					},
 					"deferredItems": [],
 					"recsPerRow": 1
-				},
-				"top": {
-					"modelId": "list-sidebar-top",
-					"grid": [],
-					"cells": {},
-					"deferredItems": [],
-					"recsPerRow": 1
 				}
 			},
 			"items": {
@@ -2201,6 +2214,35 @@
 				},
 				"page_size": {
 					"type": "page_size"
+				},
+				"print_panel": {
+					"type": "print_panel",
+					"items": [
+						"print_scope",
+						"print_details",
+						"print_records",
+						"print_button"
+					]
+				},
+				"print_scope": {
+					"type": "print_scope"
+				},
+				"print_details": {
+					"type": "print_details",
+					"tables": {
+						"1856869668": true,
+						"3968242650": true
+					}
+				},
+				"print_records": {
+					"type": "print_records"
+				},
+				"print_button": {
+					"type": "print_button"
+				},
+				"columns_control": {
+					"type": "columns_control",
+					"showHide": true
 				},
 				"pagination": {
 					"type": "pagination"
@@ -2346,16 +2388,192 @@
 					"inlineAdd": false,
 					"inlineEdit": false
 				},
+				"grid_field_totals2": {
+					"type": "grid_field_totals",
+					"field": "penambahan",
+					"totals": "TOTAL"
+				},
 				"grid_checkbox_head": {
 					"type": "grid_checkbox_head"
 				},
 				"grid_checkbox": {
 					"type": "grid_checkbox"
 				},
+				"grid_alldetails_link": {
+					"type": "grid_alldetails_link",
+					"icon": {
+						"glyph": "th-list",
+						"style": 0
+					}
+				},
+				"grid_details_link": {
+					"type": "grid_details_link",
+					"table": 1856869668,
+					"badge": true,
+					"showCount": true,
+					"hideIfNone": false,
+					"icon": {
+						"glyph": "th",
+						"style": 0
+					}
+				},
+				"grid_field_label6": {
+					"type": "grid_field_label",
+					"field": "npsn",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field6": {
+					"field": "npsn",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"details_preview": {
+					"type": "details_preview",
+					"table": 1856869668,
+					"items": [],
+					"proceedLink": true,
+					"popup": false,
+					"pageId": "list1",
+					"hideEmptyPreview": false
+				},
+				"grid_field_label8": {
+					"type": "grid_field_label",
+					"field": "dikunci_kantor",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field_label9": {
+					"type": "grid_field_label",
+					"field": "dikunci_operator",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field9": {
+					"field": "dikunci_operator",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field8": {
+					"field": "dikunci_kantor",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals3": {
+					"type": "grid_field_totals",
+					"field": "dikunci_operator",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_totals4": {
+					"type": "grid_field_totals",
+					"field": "dikunci_kantor",
+					"totals": "TOTAL",
+					"label": {
+						"type": 0,
+						"text": ""
+					}
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "selesai upload",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field1": {
+					"field": "selesai upload",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals": {
+					"type": "grid_field_totals",
+					"field": "selesai upload",
+					"totals": "TOTAL"
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "selisih belum upload",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field2": {
+					"field": "selisih belum upload",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_totals1": {
+					"type": "grid_field_totals",
+					"field": "selisih belum upload",
+					"totals": "TOTAL"
+				},
+				"grid_field_label5": {
+					"type": "grid_field_label",
+					"field": "status_sptjm",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field5": {
+					"field": "status_sptjm",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label7": {
+					"type": "grid_field_label",
+					"field": "status_proses_kunci_kantor",
+					"showFilter": true,
+					"clickSort": true
+				},
+				"grid_field7": {
+					"field": "status_proses_kunci_kantor",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"kunci": {
+					"type": "custom_button",
+					"eventGid": 1716241078,
+					"label": {
+						"type": 0,
+						"text": "kunci data sibay"
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "success",
+					"buttonSize": "small"
+				},
+				"batal": {
+					"type": "custom_button",
+					"eventGid": 2248587911,
+					"label": {
+						"text": "batalkan kunci",
+						"type": 0
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "danger",
+					"buttonSize": "small"
+				},
 				"export_selected": {
 					"type": "export_selected"
 				},
 				"-3": {
+					"type": "-"
+				},
+				"-2": {
+					"type": "-"
+				},
+				"-": {
 					"type": "-"
 				},
 				"advsearch_link": {
@@ -2372,6 +2590,34 @@
 				},
 				"export": {
 					"type": "export"
+				},
+				"search_panel_field5": {
+					"field": "dikunci_operator",
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
+				},
+				"search_panel_field7": {
+					"field": "status_proses_kunci_kantor",
+					"type": "search_panel_field"
+				},
+				"search_panel_field6": {
+					"field": "status_sptjm",
+					"type": "search_panel_field"
+				},
+				"search_panel_field1": {
+					"field": "selisih belum upload",
+					"type": "search_panel_field"
+				},
+				"search_panel_field": {
+					"field": "selesai upload",
+					"type": "search_panel_field"
+				},
+				"search_panel_field4": {
+					"field": "dikunci_kantor",
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"userinfo_link": {
 					"type": "userinfo_link"
@@ -2396,12 +2642,6 @@
 						"export"
 					],
 					"buttonStyle": "success"
-				},
-				"-": {
-					"type": "-"
-				},
-				"-2": {
-					"type": "-"
 				},
 				"search_panel": {
 					"type": "search_panel",
@@ -2434,250 +2674,14 @@
 				"loginform_login": {
 					"type": "loginform_login"
 				},
-				"expand_menu_button": {
-					"type": "expand_menu_button"
-				},
-				"collapse_button": {
-					"type": "collapse_button"
-				},
-				"grid_alldetails_link": {
-					"type": "grid_alldetails_link",
-					"icon": {
-						"glyph": "th-list",
-						"style": 0
-					}
-				},
-				"print_panel": {
-					"type": "print_panel",
-					"items": [
-						"print_scope",
-						"print_details",
-						"print_records",
-						"print_button"
-					]
-				},
-				"print_details": {
-					"type": "print_details",
-					"tables": {
-						"1856869668": true,
-						"3968242650": true
-					}
-				},
-				"grid_field6": {
-					"field": "npsn",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label6": {
-					"type": "grid_field_label",
-					"field": "npsn",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"grid_details_link": {
-					"type": "grid_details_link",
-					"table": 1856869668,
-					"badge": true,
-					"showCount": true,
-					"hideIfNone": false,
-					"icon": {
-						"glyph": "th",
-						"style": 0
-					}
-				},
-				"details_preview": {
-					"type": "details_preview",
-					"table": 1856869668,
-					"items": [],
-					"proceedLink": true,
-					"popup": false,
-					"pageId": "list1",
-					"hideEmptyPreview": false
-				},
-				"grid_field8": {
-					"field": "dikunci_kantor",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label8": {
-					"type": "grid_field_label",
-					"field": "dikunci_kantor",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"grid_field9": {
-					"field": "dikunci_operator",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label9": {
-					"type": "grid_field_label",
-					"field": "dikunci_operator",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"search_panel_field4": {
-					"field": "dikunci_kantor",
-					"type": "search_panel_field",
-					"alwaysOnPanel": false,
-					"required": false
-				},
-				"search_panel_field5": {
-					"field": "dikunci_operator",
-					"type": "search_panel_field",
-					"alwaysOnPanel": false,
-					"required": false
-				},
-				"grid_field_totals2": {
-					"type": "grid_field_totals",
-					"field": "penambahan",
-					"totals": "TOTAL"
-				},
-				"grid_field_totals3": {
-					"type": "grid_field_totals",
-					"field": "dikunci_operator",
-					"totals": "TOTAL",
-					"label": {
-						"type": 0,
-						"text": ""
-					}
-				},
-				"grid_field_totals4": {
-					"type": "grid_field_totals",
-					"field": "dikunci_kantor",
-					"totals": "TOTAL",
-					"label": {
-						"type": 0,
-						"text": ""
-					}
-				},
-				"print_scope": {
-					"type": "print_scope"
-				},
-				"print_button": {
-					"type": "print_button"
-				},
-				"print_records": {
-					"type": "print_records"
-				},
-				"kunci": {
-					"type": "custom_button",
-					"eventGid": 1716241078,
-					"label": {
-						"type": 0,
-						"text": "kunci data sibay"
-					},
-					"icon": {
-						"style": 0
-					},
-					"buttonStyle": "success",
-					"buttonSize": "small"
-				},
-				"batal": {
-					"type": "custom_button",
-					"eventGid": 2248587911,
-					"label": {
-						"text": "batalkan kunci",
-						"type": 0
-					},
-					"icon": {
-						"style": 0
-					},
-					"buttonStyle": "danger",
-					"buttonSize": "small"
-				},
 				"filter_panel": {
 					"type": "filter_panel",
 					"items": []
-				},
-				"grid_field1": {
-					"field": "selesai upload",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label1": {
-					"type": "grid_field_label",
-					"field": "selesai upload",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"grid_field2": {
-					"field": "selisih belum upload",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label2": {
-					"type": "grid_field_label",
-					"field": "selisih belum upload",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"grid_field5": {
-					"field": "status_sptjm",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label5": {
-					"type": "grid_field_label",
-					"field": "status_sptjm",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"grid_field7": {
-					"field": "status_proses_kunci_kantor",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_field_label7": {
-					"type": "grid_field_label",
-					"field": "status_proses_kunci_kantor",
-					"showFilter": true,
-					"clickSort": true
-				},
-				"search_panel_field": {
-					"field": "selesai upload",
-					"type": "search_panel_field"
-				},
-				"search_panel_field1": {
-					"field": "selisih belum upload",
-					"type": "search_panel_field"
-				},
-				"search_panel_field6": {
-					"field": "status_sptjm",
-					"type": "search_panel_field"
-				},
-				"search_panel_field7": {
-					"field": "status_proses_kunci_kantor",
-					"type": "search_panel_field"
-				},
-				"grid_field_totals": {
-					"type": "grid_field_totals",
-					"field": "selesai upload",
-					"totals": "TOTAL"
-				},
-				"grid_field_totals1": {
-					"type": "grid_field_totals",
-					"field": "selisih belum upload",
-					"totals": "TOTAL"
-				},
-				"columns_control": {
-					"type": "columns_control",
-					"showHide": true
 				}
 			},
 			"dbProps": {},
-			"responsiveGrid": false,
 			"version": 13,
-			"reorderRows": false,
-			"reorderRowsField": "",
-			"addToBottom": false,
+			"pageAlign": "center",
 			"imageItem": {
 				"type": "page_image"
 			},
