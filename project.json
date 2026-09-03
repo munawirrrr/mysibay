@@ -631,6 +631,20 @@
 							"table": 1111108117,
 							"pageType": "list"
 						}
+					},
+					{
+						"id": "13",
+						"data": {
+							"name": {
+								"text": "flter tahun",
+								"type": 0
+							},
+							"pageId": "search",
+							"itemType": 2,
+							"linkType": 0,
+							"table": 4151081472,
+							"pageType": "search"
+						}
 					}
 				]
 			}
@@ -1941,12 +1955,14 @@
 						"c": {
 							"model": "c1",
 							"items": [
+								"custom_button",
 								"snippet"
 							],
 							"align": "center",
 							"padding": {
 								"top": "200px"
-							}
+							},
+							"orientation": "vertical"
 						},
 						"c2": {
 							"model": "c1",
@@ -2087,6 +2103,18 @@
 				},
 				"collapse_button": {
 					"type": "collapse_button"
+				},
+				"custom_button": {
+					"type": "custom_button",
+					"eventGid": 615069419,
+					"label": {
+						"text": "filter tahun",
+						"type": 0
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "warning"
 				}
 			},
 			"dbProps": {},

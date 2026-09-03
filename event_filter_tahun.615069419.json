@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "filter tahun",
+	"afterJsCode": "location.href=\"tahun_search.php\";\r\n\r\nreturn false;"
+}
