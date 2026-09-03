@@ -91,6 +91,7 @@
 					"format": "Lookup wizard",
 					"pageType": "search",
 					"required": true,
+					"defaultValue": "date(\"Y\")",
 					"validateAs": "Number",
 					"validateRegexMessage": {
 						"text": "",
