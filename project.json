@@ -2406,13 +2406,13 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "paper",
+		"theme": "box",
 		"sidebarWidth": "210px",
 		"sidebarColor": "light",
 		"sidebarTheme": "primary",
 		"sidebarCompact": true,
-		"topbarTheme": "primary",
-		"logoTheme": "legacy",
+		"topbarTheme": "white",
+		"logoTheme": "white",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#bfc7ca",
 		"topbarCustomThemeColor": "#008cba",
