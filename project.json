@@ -1955,8 +1955,7 @@
 						"c": {
 							"model": "c1",
 							"items": [
-								"custom_button",
-								"snippet"
+								"custom_button"
 							],
 							"align": "center",
 							"padding": {
@@ -2067,10 +2066,6 @@
 				}
 			},
 			"items": {
-				"snippet": {
-					"type": "snippet",
-					"eventGid": 1874767101
-				},
 				"userinfo_link": {
 					"type": "userinfo_link"
 				},
