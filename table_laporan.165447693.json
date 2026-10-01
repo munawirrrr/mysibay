@@ -1311,9 +1311,16 @@
 				}
 			},
 			"dbProps": {},
+			"responsiveGrid": false,
 			"version": 13,
 			"imageItem": {
-				"type": "page_image"
+				"type": "page_image",
+				"image": {
+					"source": 3,
+					"image": "anjali-mehta-TPej8i22DXw-unsplash.jpg"
+				},
+				"shadow": false,
+				"fullSize": true
 			},
 			"imageBgColor": "#f2f2f2",
 			"controlsBgColor": "white",
