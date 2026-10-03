@@ -2548,7 +2548,7 @@
 					"icon": {
 						"style": 0
 					},
-					"buttonStyle": "danger",
+					"buttonStyle": "warning",
 					"buttonSize": "small"
 				},
 				"export_selected": {
