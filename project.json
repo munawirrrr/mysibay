@@ -2423,9 +2423,14 @@
 		"gpFooterBg": "legacy",
 		"gpPanelBorder": "0",
 		"gpBorderColor": "legacy",
-		"gpInnerBorder": null,
-		"gcEvenBg": null,
-		"gcEvenColor": null
+		"gpInnerBorder": "legacy",
+		"gpInnerBorderColor": "legacy",
+		"gcOddBg": "legacy",
+		"gcOddColor": "legacy",
+		"gcEvenBg": "legacy",
+		"gcEvenColor": "legacy",
+		"gcRolloverHighlightBg": "legacy",
+		"gcRolloverHighlightColor": "legacy"
 	},
 	"styleOverrides": [
 		{
