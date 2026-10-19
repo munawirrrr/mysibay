@@ -1258,7 +1258,7 @@
 		{
 			"eventId": "EVENT_BEFORESHOW_LIST",
 			"pageType": "list",
-			"code": "if (Security::getUserName()!=\"admin\")\n          $pageObject->hideItem(\"custom_button\");\n\n\n// Event: BeforeProcessAdd on table data_sibay"
+			"code": "if (Security::getUserName()!=\"admin\")\n          $pageObject->hideItem(\"custom_button\");\n\n\n// Event: BeforeProcessAdd on table data_sibay\n"
 		},
 		{
 			"eventId": "EVENT_BEFORESHOW_IMPORT",

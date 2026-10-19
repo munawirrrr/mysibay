@@ -2410,7 +2410,7 @@
 		{
 			"eventId": "EVENT_AFTERSUCCESSFULLLOGIN",
 			"pageType": "login",
-			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n // Cek apakah session tahun belum ada, bisa diisi default misal tahun aktif (2026) atau dikosongkan dulu\nif (!isset($_SESSION[\"session_tahun\"])) {\n    $_SESSION[\"session_tahun\"] = date(\"Y\"); // atau biarkan kosong: \"\"\n}\n\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nheader(\"Location: tahun_search.php\");\nexit();"
+			"code": "$_SESSION[\"npsn\"] = $data[\"npsn\"];\n // Cek apakah session tahun belum ada, bisa diisi default misal tahun aktif (2026) atau dikosongkan dulu\nif (!isset($_SESSION[\"session_tahun\"])) {\n    $_SESSION[\"session_tahun\"] = date(\"Y\"); // atau biarkan kosong: \"\"\n}\n\n\n// Redirect setelah login berhasil ke halaman tahun_search.php\nif (empty($_SESSION[\"tahun\"])) {\n    $_SESSION[\"tahun\"] = date(\"Y\");\n}"
 		}
 	],
 	"projectStyle": {
