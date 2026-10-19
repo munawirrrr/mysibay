@@ -335,6 +335,17 @@
 				"autoinc": true,
 				"defaultValueSQL": null,
 				"defaultValue": ""
+			},
+			{
+				"name": "tahap",
+				"type": 200,
+				"size": 250,
+				"scale": 0,
+				"typeName": "varchar(250)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
 			}
 		],
 		"primaryKeys": [

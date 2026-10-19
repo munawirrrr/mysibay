@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\tdata_sibay.nisn,\n\tdata_sibay.npsn,\n\tdata_sibay.`nama siswa`,\n\tdata_sibay.`nomor rekening`,\n\tdata_sibay.`nama di rekening`,\n\tdata_sibay.file_scan,\n\tdata_sibay.status,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tprofil.`Nomor Telpon`,\n\tdata_sibay.kelas,\n\tdata_sibay.jenis_kelamin,\n\tdata_sibay.status_siswa,\n\tdata_sibay.pip,\n\tdata_sibay.catatan,\n\tdata_sibay.tahun,\n\tdata_sibay.kunci_operator,\n\tdata_sibay.kunci_kemenag_pidie,\n\tCASE\nWHEN data_sibay.kunci_operator <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_oprt,\n\tcase\nWHEN data_sibay.kunci_kemenag_pidie <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_kantor,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tdata_sibay.id,\n\t\n\tcase \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end as status_masuk_direkening,\n\ttersalur.jumlah as jumlah_masuk_direkenig\n\t\n\t\n\t\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n\tINNER JOIN sptjm ON sptjm.npsn = data_sibay.npsn AND sptjm.tahun = data_sibay.tahun \n\tLEFT OUTER JOIN tersalur on tersalur.rekening=data_sibay.`nomor rekening` and tersalur.tahun=data_sibay.tahun\n\n\nLIMIT 0, 50\n",
+	"sql": "SELECT\n\tdata_sibay.nisn,\n\tdata_sibay.npsn,\n\tdata_sibay.`nama siswa`,\n\tdata_sibay.`nomor rekening`,\n\tdata_sibay.`nama di rekening`,\n\tdata_sibay.file_scan,\n\tdata_sibay.status,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tprofil.`Nomor Telpon`,\n\tdata_sibay.kelas,\n\tdata_sibay.jenis_kelamin,\n\tdata_sibay.status_siswa,\n\tdata_sibay.pip,\n\tdata_sibay.catatan,\n\tdata_sibay.tahun,\n\tdata_sibay.kunci_operator,\n\tdata_sibay.kunci_kemenag_pidie,\n\tCASE\nWHEN data_sibay.kunci_operator <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_oprt,\n\tcase\nWHEN data_sibay.kunci_kemenag_pidie <> \"\" THEN \"1\"\nelse \"0\"           \nEND AS status_kunci_kantor,\n\tdata_sibay.hp_kepala,\n\tdata_sibay.hp_wali,\n\tdata_sibay.id,\n\tcase \nwhen tersalur.jumlah >0 then \"1\"\nelse \"0\" end AS status_masuk_direkening,\n\ttersalur.jumlah AS jumlah_masuk_direkenig,\n\tdata_sibay.tahap as tahap_usulan\nFROM\n\tdata_sibay\n\tINNER JOIN profil ON profil.NPSN = data_sibay.npsn\n\tINNER JOIN sptjm ON sptjm.npsn = data_sibay.npsn AND sptjm.tahun = data_sibay.tahun\n\tLEFT OUTER JOIN tersalur ON tersalur.rekening = data_sibay.`nomor rekening` AND tersalur.tahun = data_sibay.tahun\nLIMIT 0, 50\n",
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "data_sibay",
 	"name": "data_sibay",
@@ -1188,6 +1188,29 @@
 				"Indonesian": "Jumlah Masuk Direkenig"
 			},
 			"tableName": "tersalur"
+		},
+		{
+			"name": "tahap_usulan",
+			"sqlExpression": "data_sibay.tahap",
+			"index": 26,
+			"strField": "tahap",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{
+					"textHTML5Input": "Number"
+				}
+			],
+			"filterFormat": {
+				"format": "Values list",
+				"filterTotals": 1
+			},
+			"label": {
+				"Indonesian": "Tahap Usulan"
+			},
+			"tableName": "data_sibay"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -1489,6 +1512,17 @@
 				"typeName": "bigint(20)",
 				"nullable": false,
 				"autoinc": true,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tahap",
+				"type": 200,
+				"size": 250,
+				"scale": 0,
+				"typeName": "varchar(250)",
+				"nullable": true,
+				"autoinc": false,
 				"defaultValueSQL": null,
 				"defaultValue": ""
 			}
@@ -2061,7 +2095,8 @@
 								"integrated_edit_field1",
 								"integrated_edit_field2",
 								"integrated_edit_field3",
-								"integrated_edit_field4"
+								"integrated_edit_field4",
+								"integrated_edit_field6"
 							]
 						}
 					},
@@ -2130,6 +2165,11 @@
 				},
 				"edit_view": {
 					"type": "edit_view"
+				},
+				"integrated_edit_field6": {
+					"field": "tahap_usulan",
+					"type": "integrated_edit_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -2414,7 +2454,8 @@
 								"import_field10",
 								"import_field11",
 								"import_field12",
-								"import_field13"
+								"import_field13",
+								"import_field14"
 							]
 						}
 					},
@@ -2480,6 +2521,10 @@
 				},
 				"import_field13": {
 					"field": "hp_wali",
+					"type": "import_field"
+				},
+				"import_field14": {
+					"field": "tahap_usulan",
 					"type": "import_field"
 				}
 			},
@@ -2658,7 +2703,8 @@
 							"model": "c1",
 							"items": [
 								"menu",
-								"search_panel"
+								"search_panel",
+								"filter_panel"
 							]
 						}
 					},
@@ -3670,6 +3716,16 @@
 				},
 				"collapse_button": {
 					"type": "collapse_button"
+				},
+				"filter_panel": {
+					"type": "filter_panel",
+					"items": [
+						"filter_panel_field"
+					]
+				},
+				"filter_panel_field": {
+					"field": "tahap_usulan",
+					"type": "filter_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -4530,7 +4586,8 @@
 								"integrated_search_field21",
 								"integrated_search_field22",
 								"integrated_search_field23",
-								"integrated_search_field24"
+								"integrated_search_field24",
+								"integrated_search_field25"
 							]
 						}
 					},
@@ -4699,6 +4756,11 @@
 				},
 				"integrated_search_field24": {
 					"field": "jumlah_masuk_direkenig",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field25": {
+					"field": "tahap_usulan",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -5725,6 +5787,9 @@
 								},
 								{
 									"cell": "headcell_field7"
+								},
+								{
+									"cell": "headcell_field9"
 								}
 							]
 						},
@@ -5775,6 +5840,9 @@
 								},
 								{
 									"cell": "cell_field7"
+								},
+								{
+									"cell": "cell_field9"
 								}
 							]
 						},
@@ -5782,7 +5850,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 15
+									"colspan": 16
 								}
 							],
 							"section": "body"
@@ -5826,6 +5894,9 @@
 								},
 								{
 									"cell": "footcell_field6"
+								},
+								{
+									"cell": "footcell_field7"
 								}
 							]
 						}
@@ -6145,6 +6216,25 @@
 							],
 							"field": "jumlah_masuk_direkenig",
 							"columnName": "field"
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label3"
+							],
+							"field": "tahap_usulan"
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"grid_field3"
+							],
+							"field": "tahap_usulan"
+						},
+						"footcell_field7": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tahap_usulan"
 						}
 					},
 					"deferredItems": [],
@@ -6541,6 +6631,7 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field11",
 						"search_panel_field14",
 						"search_panel_field13",
 						"search_panel_field10",
@@ -6594,6 +6685,18 @@
 				},
 				"collapse_button": {
 					"type": "collapse_button"
+				},
+				"grid_field3": {
+					"field": "tahap_usulan",
+					"type": "grid_field"
+				},
+				"grid_field_label3": {
+					"type": "grid_field_label",
+					"field": "tahap_usulan"
+				},
+				"search_panel_field11": {
+					"field": "tahap_usulan",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
