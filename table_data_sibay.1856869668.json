@@ -2581,17 +2581,6 @@
 									"cell": "c8"
 								}
 							]
-						},
-						{
-							"section": "",
-							"cells": [
-								{
-									"cell": "c"
-								},
-								{
-									"cell": "c6"
-								}
-							]
 						}
 					],
 					"cells": {
@@ -2600,8 +2589,7 @@
 							"items": [
 								"add",
 								"delete",
-								"custom_button",
-								"menu1"
+								"custom_button"
 							],
 							"align": "left"
 						},
@@ -2613,13 +2601,6 @@
 								"print_panel"
 							]
 						},
-						"c": {
-							"model": "c3",
-							"items": [
-								"snippet"
-							],
-							"align": "left"
-						},
 						"c4": {
 							"model": "c3",
 							"items": [
@@ -2628,10 +2609,6 @@
 							"align": "left"
 						},
 						"c5": {
-							"model": "c4",
-							"items": []
-						},
-						"c6": {
 							"model": "c4",
 							"items": []
 						},
@@ -2732,7 +2709,7 @@
 							"items": [
 								"expand_menu_button",
 								"collapse_button",
-								"breadcrumb"
+								"snippet"
 							]
 						},
 						"c2": {
@@ -3280,14 +3257,6 @@
 					},
 					"buttonSize": ""
 				},
-				"menu1": {
-					"type": "menu",
-					"menuId": "tabel_upload",
-					"bold": true,
-					"font-family": "Roboto",
-					"mobileDisplay": "both",
-					"mobileControl": "always"
-				},
 				"details_found": {
 					"type": "details_found"
 				},
@@ -3346,7 +3315,8 @@
 						"style": 0
 					},
 					"buttonStyle": "link-button",
-					"buttonSize": "small"
+					"buttonSize": "small",
+					"bold": true
 				},
 				"pagination": {
 					"type": "pagination"
@@ -3647,9 +3617,6 @@
 				"adminarea_link": {
 					"type": "adminarea_link"
 				},
-				"breadcrumb": {
-					"type": "breadcrumb"
-				},
 				"logo": {
 					"type": "logo"
 				},
@@ -3715,7 +3682,11 @@
 					"type": "expand_menu_button"
 				},
 				"collapse_button": {
-					"type": "collapse_button"
+					"type": "collapse_button",
+					"icon": {
+						"glyph": "triangle-left",
+						"style": 0
+					}
 				},
 				"filter_panel": {
 					"type": "filter_panel",
