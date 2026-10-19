@@ -149,6 +149,11 @@
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
 			"code": "$_SESSION[\"tahun\"] = $data[\"tahun\"];"
+		},
+		{
+			"eventId": "EVENT_BEFORESHOW_SEARCH",
+			"pageType": "search",
+			"code": " if (Security::getUserName()!=\"admin\")\n\n      $pageObject->hideItem(\"tahun\");\n\n"
 		}
 	],
 	"sortByFields": {
@@ -1332,7 +1337,7 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"custom_button",
+								"tahun",
 								"search_header"
 							],
 							"align": "center",
@@ -1386,7 +1391,7 @@
 					},
 					"label": {
 						"type": 0,
-						"text": "filter"
+						"text": "OK"
 					}
 				},
 				"integrated_search_field": {
@@ -1400,7 +1405,7 @@
 						"type": 3
 					}
 				},
-				"custom_button": {
+				"tahun": {
 					"type": "custom_button",
 					"eventGid": 3991394635,
 					"label": {
