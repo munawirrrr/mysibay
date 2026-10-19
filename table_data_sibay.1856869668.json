@@ -1207,6 +1207,8 @@
 				"format": "Values list",
 				"filterTotals": 1
 			},
+			"filtered": true,
+			"parentFilter": "tahun",
 			"label": {
 				"Indonesian": "Tahap Usulan"
 			},
@@ -3691,15 +3693,21 @@
 				"filter_panel": {
 					"type": "filter_panel",
 					"items": [
+						"filter_panel_field1",
 						"filter_panel_field"
 					]
 				},
 				"filter_panel_field": {
 					"field": "tahap_usulan",
 					"type": "filter_panel_field"
+				},
+				"filter_panel_field1": {
+					"field": "tahun",
+					"type": "filter_panel_field"
 				}
 			},
 			"dbProps": {},
+			"responsiveGrid": false,
 			"version": 13,
 			"imageItem": {
 				"type": "page_image"
