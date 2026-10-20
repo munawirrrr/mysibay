@@ -346,6 +346,17 @@
 				"autoinc": false,
 				"defaultValueSQL": null,
 				"defaultValue": ""
+			},
+			{
+				"name": "gambar",
+				"type": 200,
+				"size": 1000,
+				"scale": 0,
+				"typeName": "varchar(1000)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
 			}
 		],
 		"primaryKeys": [
