@@ -1585,7 +1585,7 @@
 				}
 			],
 			"label": {
-				"Indonesian": "Gambar No Rekening"
+				"Indonesian": "Gambar"
 			},
 			"tableName": "data_sibay"
 		}
@@ -7297,16 +7297,11 @@
 					"cells": {
 						"c2": {
 							"model": "c2",
-							"items": [
-								"print_header",
-								"print_subheader"
-							]
+							"items": []
 						},
 						"c4": {
 							"model": "c4",
-							"items": [
-								"master_info"
-							]
+							"items": []
 						},
 						"c1": {
 							"model": "c1",
@@ -7421,20 +7416,8 @@
 				}
 			},
 			"items": {
-				"print_header": {
-					"type": "print_header"
-				},
-				"print_subheader": {
-					"type": "print_subheader"
-				},
 				"print_pages": {
 					"type": "print_pages"
-				},
-				"master_info": {
-					"type": "master_info",
-					"tables": {
-						"564743320": "true"
-					}
 				},
 				"simple_grid_field3": {
 					"field": "nomor rekening",
@@ -7446,7 +7429,12 @@
 				},
 				"simple_grid_field27": {
 					"type": "grid_field_label",
-					"field": "gambar"
+					"field": "gambar",
+					"label": {
+						"field": "gambar",
+						"table": "data_sibay",
+						"type": 3
+					}
 				},
 				"text": {
 					"type": "text",
