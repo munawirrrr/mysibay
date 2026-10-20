@@ -1561,18 +1561,93 @@
 			"index": 27,
 			"strField": "gambar",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
 					"format": "File-based Image",
 					"imageWidth": 500,
-					"imageHeight": 100,
+					"imageHeight": 500,
 					"imageThumbWidth": 500,
-					"imageThumbHeight": 100,
-					"imageMultipleMode": 3,
+					"imageThumbHeight": 500,
+					"imageMultipleMode": 2,
 					"imageGallery": false,
 					"imageCaptions": 1,
 					"imageBorder": false,
-					"imageMobileFullWidth": false,
+					"imageShowThumbnail": true,
+					"fileShowCustom": true,
+					"fileShowIcon": false
+				},
+				{
+					"format": "Document Download",
+					"pageType": "list",
+					"imageWidth": 500,
+					"imageHeight": 500,
+					"imageThumbWidth": 500,
+					"imageThumbHeight": 500,
+					"imageMultipleMode": 2,
+					"imageGallery": false,
+					"imageCaptions": 1,
+					"imageBorder": false,
+					"imageShowThumbnail": true,
+					"fileCustomExpression": "$value =\"\"",
+					"fileShowCustom": true
+				},
+				{
+					"format": "File-based Image",
+					"pageType": "print",
+					"imageWidth": 500,
+					"imageHeight": 500,
+					"imageThumbWidth": 500,
+					"imageThumbHeight": 500,
+					"imageMultipleMode": 2,
+					"imageGallery": false,
+					"imageCaptions": 1,
+					"imageBorder": false,
+					"imageShowThumbnail": true,
+					"fileShowCustom": true,
+					"fileShowIcon": false
+				},
+				{
+					"format": "File-based Image",
+					"pageType": "export",
+					"imageWidth": 500,
+					"imageHeight": 500,
+					"imageThumbWidth": 500,
+					"imageThumbHeight": 500,
+					"imageMultipleMode": 2,
+					"imageGallery": false,
+					"imageCaptions": 1,
+					"imageBorder": false,
+					"imageShowThumbnail": true,
+					"fileShowCustom": true,
+					"fileShowIcon": false
+				},
+				{
+					"format": "File-based Image",
+					"pageType": "masterlist",
+					"imageWidth": 500,
+					"imageHeight": 500,
+					"imageThumbWidth": 500,
+					"imageThumbHeight": 500,
+					"imageMultipleMode": 2,
+					"imageGallery": false,
+					"imageCaptions": 1,
+					"imageBorder": false,
+					"imageShowThumbnail": true,
+					"fileShowCustom": true,
+					"fileShowIcon": false
+				},
+				{
+					"format": "File-based Image",
+					"pageType": "masterprint",
+					"imageWidth": 500,
+					"imageHeight": 500,
+					"imageThumbWidth": 500,
+					"imageThumbHeight": 500,
+					"imageMultipleMode": 2,
+					"imageGallery": false,
+					"imageCaptions": 1,
+					"imageBorder": false,
 					"imageShowThumbnail": true,
 					"fileShowCustom": true,
 					"fileShowIcon": false
@@ -1581,11 +1656,38 @@
 			"editFormats": [
 				{
 					"format": "Document upload",
-					"fileMaxNumber": 1
+					"fileMaxNumber": 1,
+					"fileTypes": [
+						"jpg",
+						"png",
+						"jpeg"
+					]
+				},
+				{
+					"format": "Document upload",
+					"pageType": "add",
+					"fileMaxNumber": 1,
+					"fileTypes": [
+						"jpg",
+						"png",
+						"jpeg"
+					]
+				},
+				{
+					"format": "Document upload",
+					"pageType": "search",
+					"fileMaxNumber": 1,
+					"fileTypes": [
+						"jpg",
+						"png",
+						"jpeg"
+					]
 				}
 			],
+			"uploadFolder": "files/rek",
+			"deleteFile": true,
 			"label": {
-				"Indonesian": "Gambar"
+				"Indonesian": "foto Rekening"
 			},
 			"tableName": "data_sibay"
 		}
@@ -2491,7 +2593,8 @@
 								"integrated_edit_field2",
 								"integrated_edit_field3",
 								"integrated_edit_field4",
-								"integrated_edit_field6"
+								"integrated_edit_field6",
+								"integrated_edit_field7"
 							]
 						}
 					},
@@ -2563,6 +2666,11 @@
 				},
 				"integrated_edit_field6": {
 					"field": "tahap_usulan",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field7": {
+					"field": "gambar",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
@@ -5538,6 +5646,17 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c39"
+								},
+								{
+									"cell": "c40"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -5801,7 +5920,8 @@
 							"items": [
 								"edit_field_label"
 							],
-							"field": "status_masuk_direkening"
+							"field": "status_masuk_direkening",
+							"align": "left"
 						},
 						"c28": {
 							"model": "c2",
@@ -5815,7 +5935,8 @@
 							"items": [
 								"edit_field_label1"
 							],
-							"field": "jumlah_masuk_direkenig"
+							"field": "jumlah_masuk_direkenig",
+							"align": "left"
 						},
 						"c30": {
 							"model": "c2",
@@ -5823,6 +5944,21 @@
 								"edit_field1"
 							],
 							"field": "jumlah_masuk_direkenig"
+						},
+						"c39": {
+							"model": "c4",
+							"items": [
+								"edit_field_label2"
+							],
+							"field": "gambar",
+							"align": "left"
+						},
+						"c40": {
+							"model": "c2",
+							"items": [
+								"edit_field2"
+							],
+							"field": "gambar"
 						}
 					},
 					"deferredItems": [],
@@ -6006,6 +6142,14 @@
 				"edit_field_label1": {
 					"type": "edit_field_label",
 					"field": "jumlah_masuk_direkenig"
+				},
+				"edit_field2": {
+					"field": "gambar",
+					"type": "edit_field"
+				},
+				"edit_field_label2": {
+					"type": "edit_field_label",
+					"field": "gambar"
 				}
 			},
 			"dbProps": {},
@@ -6254,9 +6398,6 @@
 								},
 								{
 									"cell": "headcell_field9"
-								},
-								{
-									"cell": "headcell_field13"
 								}
 							]
 						},
@@ -6310,9 +6451,6 @@
 								},
 								{
 									"cell": "cell_field9"
-								},
-								{
-									"cell": "cell_field10"
 								}
 							]
 						},
@@ -6320,7 +6458,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 17
+									"colspan": 16
 								}
 							],
 							"section": "body"
@@ -6367,9 +6505,6 @@
 								},
 								{
 									"cell": "footcell_field7"
-								},
-								{
-									"cell": "footcell_field9"
 								}
 							]
 						}
@@ -6708,25 +6843,6 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "tahap_usulan"
-						},
-						"headcell_field13": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label4"
-							],
-							"field": "gambar"
-						},
-						"cell_field10": {
-							"model": "cell_field",
-							"items": [
-								"grid_field4"
-							],
-							"field": "gambar"
-						},
-						"footcell_field9": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "gambar"
 						}
 					},
 					"deferredItems": [],
@@ -7191,14 +7307,6 @@
 					"field": "tahap_usulan",
 					"type": "search_panel_field"
 				},
-				"grid_field4": {
-					"field": "gambar",
-					"type": "grid_field"
-				},
-				"grid_field_label4": {
-					"type": "grid_field_label",
-					"field": "gambar"
-				},
 				"search_panel_field12": {
 					"field": "gambar",
 					"type": "search_panel_field"
@@ -7320,6 +7428,9 @@
 							"section": "head",
 							"cells": [
 								{
+									"cell": "headcell_field3"
+								},
+								{
 									"cell": "headcell_field"
 								},
 								{
@@ -7331,6 +7442,9 @@
 							"section": "body",
 							"cells": [
 								{
+									"cell": "headcell_field4"
+								},
+								{
 									"cell": "cell_field"
 								},
 								{
@@ -7341,6 +7455,9 @@
 						{
 							"cells": [
 								{
+									"cell": "headcell_field5"
+								},
+								{
 									"cell": "cell_dpreview",
 									"colspan": 2
 								}
@@ -7350,6 +7467,9 @@
 						{
 							"section": "foot",
 							"cells": [
+								{
+									"cell": "headcell_field6"
+								},
 								{
 									"cell": "footcell_field"
 								},
@@ -7409,6 +7529,26 @@
 							"items": [],
 							"columnName": "field",
 							"field": "gambar"
+						},
+						"headcell_field3": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							]
+						},
+						"headcell_field4": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							]
+						},
+						"headcell_field5": {
+							"model": "cell_dpreview",
+							"items": []
+						},
+						"headcell_field6": {
+							"model": "footcell_field",
+							"items": []
 						}
 					},
 					"deferredItems": [],
@@ -7449,12 +7589,22 @@
 					"targetPages": [],
 					"splitModes": [],
 					"scopes": [],
-					"icon": {},
+					"icon": {
+						"style": 0
+					},
 					"pageSize": "A4",
 					"label": {
 						"type": 0,
 						"text": "download"
 					}
+				},
+				"grid_field": {
+					"field": "nama di rekening",
+					"type": "grid_field"
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "nama di rekening"
 				}
 			},
 			"dbProps": {},
