@@ -623,6 +623,7 @@
 			],
 			"editFormats": [
 				{
+					"format": "Readonly",
 					"textboxMaxLenth": 50,
 					"textHTML5Input": "0",
 					"fileMaxNumber": 1,
@@ -1731,7 +1732,7 @@
 		{
 			"eventId": "EVENT_BEFOREEDIT",
 			"pageType": "edit",
-			"code": "if (!empty($values[\"file_scan\"])) {\n        // Set kolom status menjadi 'selesai'\n        $values[\"status\"] = \"selesai\";\n    }\n\n\n\n\n\n\n\n\n\n// =======================\n// 1. Buat Folder\n// =======================\n\n$npsn = preg_replace('/[^A-Za-z0-9_\\-]/', '_', $values[\"npsn\"]);\n$tahun    = preg_replace('/[^0-9]/', '', $values[\"tahun\"]);\n$nisn = preg_replace('/[^A-Za-z0-9]/', '', $values[\"nisn\"]);\n$nama = preg_replace('/[^A-Za-z0-9]/', '', $values[\"nama siswa\"]);\n\n$folderName = \"files/\".$npsn.\"_\".$tahun;\n\nif (!is_dir(getabspath($folderName))) {\n    mkdir(getabspath($folderName), 0777, true);\n}\n\n// =======================\n// 2. Field Upload\n// =======================\n\n$uploadFields = array(\"file_scan\");\n\nforeach($uploadFields as $field)\n{\n    if(!empty($values[$field]))\n    {\n        $fileArray = my_json_decode($values[$field]);\n\n        for($i = 0; $i < count($fileArray); $i++)\n        {\n            $oldPath = $fileArray[$i][\"name\"];\n\n            // Format nama file: kolom_semester_tahun.pdf\n            $newFileName = $folderName.\"/\".$nama.\"_\".$nisn.\"_\".$tahun.\".pdf\";\n\n            // Jika sudah ada file lama, hapus\n            if(file_exists(getabspath($newFileName))) {\n                unlink(getabspath($newFileName));\n            }\n\n            rename(getabspath($oldPath), getabspath($newFileName));\n\n            $fileArray[$i][\"name\"] = $newFileName;\n        }\n\n        $values[$field] = my_json_encode($fileArray);\n    }\n}\nreturn true;"
+			"code": "if (!empty($values[\"file_scan\"])) {\n        // Set kolom status menjadi 'selesai'\n        $values[\"status\"] = \"selesai\";\n    }\n\n\n\n\n\n\n\n\n\n// =======================\n// 1. Buat Folder\n// =======================\n\n$npsn = preg_replace('/[^A-Za-z0-9_\\-]/', '_', $values[\"npsn\"]);\n$tahun    = preg_replace('/[^0-9]/', '', $values[\"tahun\"]);\n$nisn = preg_replace('/[^A-Za-z0-9]/', '', $values[\"nisn\"]);\n$nama = preg_replace('/[^A-Za-z0-9]/', '', $values[\"nama siswa\"]);\n\n$folderName = \"files/\".$npsn.\"_\".$tahun;\n\nif (!is_dir(getabspath($folderName))) {\n    mkdir(getabspath($folderName), 0777, true);\n}\n\n// =======================\n// 2. Field Upload\n// =======================\n\n$uploadFields = array(\"file_scan\");\n\nforeach($uploadFields as $field)\n{\n    if(!empty($values[$field]))\n    {\n        $fileArray = my_json_decode($values[$field]);\n\n        for($i = 0; $i < count($fileArray); $i++)\n        {\n            $oldPath = $fileArray[$i][\"name\"];\n\n            // Format nama file: kolom_semester_tahun.pdf\n            $newFileName = $folderName.\"/\".$nama.\"_\".$nisn.\"_\".$tahun.\".pdf\";\n\n            // Jika sudah ada file lama, hapus\n            if(file_exists(getabspath($newFileName))) {\n                unlink(getabspath($newFileName));\n            }\n\n            rename(getabspath($oldPath), getabspath($newFileName));\n\n            $fileArray[$i][\"name\"] = $newFileName;\n        }\n\n        $values[$field] = my_json_encode($fileArray);\n    }\n}\n\n\n\n\n\n////=====rename_foto-rekening\n\n\n$uploadFields = array(\"gambar\");\n\nforeach ($uploadFields as $field) {\n\n    if (!empty($values[$field])) {\n\n        $fileArray = my_json_decode($values[$field]);\n\n        if (!is_array($fileArray)) {\n            continue;\n        }\n\n        foreach ($fileArray as $i => $file) {\n\n            if (empty($file[\"name\"])) {\n                continue;\n            }\n\n            // Lokasi file lama\n            $oldPath = $file[\"name\"];\n            $oldFullPath = getabspath($oldPath);\n\n\n\n// Ambil isi kolom nomor rekening dan hapus spasi\n$nomor_rekening = preg_replace('/\\s+/', '', $values[\"nomor rekening\"]);\n\n// Nama file baru\n$newFileName = \"files/rek/\"\n             . $nama . \"_nisn_\"\n             . $nisn . \"_dengan_nomor_rekening_\"\n             . $nomor_rekening . \"_\"\n             . $tahun . \".png\";\n\n            $newFullPath = getabspath($newFileName);\n\n            // Pastikan folder tujuan tersedia\n            $targetDir = dirname($newFullPath);\n\n            if (!is_dir($targetDir)) {\n                mkdir($targetDir, 0755, true);\n            }\n\n            // Pastikan file sumber benar-benar ada\n            if (file_exists($oldFullPath)) {\n\n                // Hapus file tujuan jika sudah ada\n                if (file_exists($newFullPath)) {\n                    unlink($newFullPath);\n                }\n\n                // Rename file\n                if (rename($oldFullPath, $newFullPath)) {\n\n                    // Perbarui nama file pada JSON PHPRunner\n                    $fileArray[$i][\"name\"] = $newFileName;\n\n                }\n            }\n        }\n\n        // Simpan kembali data JSON\n        $values[$field] = my_json_encode($fileArray);\n    }\n}\n\n\nreturn true;"
 		},
 		{
 			"eventId": "EVENT_AFTER_IMPORT",
@@ -2390,6 +2391,7 @@
 								"integrated_edit_field2",
 								"integrated_edit_field3",
 								"integrated_edit_field4",
+								"integrated_edit_field7",
 								"integrated_edit_field5",
 								"integrated_edit_field6"
 							]
@@ -2471,6 +2473,11 @@
 					"type": "integrated_edit_field",
 					"orientation": 0,
 					"updateOnEdit": false
+				},
+				"integrated_edit_field7": {
+					"field": "nomor rekening",
+					"type": "integrated_edit_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -2594,6 +2601,7 @@
 								"integrated_edit_field3",
 								"integrated_edit_field4",
 								"integrated_edit_field6",
+								"integrated_edit_field8",
 								"integrated_edit_field7"
 							]
 						}
@@ -2671,6 +2679,11 @@
 				},
 				"integrated_edit_field7": {
 					"field": "gambar",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field8": {
+					"field": "nomor rekening",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
