@@ -3068,17 +3068,6 @@
 						{
 							"cells": [
 								{
-									"cell": "c1"
-								},
-								{
-									"cell": "c2"
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
 									"cell": "c4"
 								},
 								{
@@ -3100,23 +3089,6 @@
 						}
 					],
 					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"add",
-								"delete",
-								"custom_button"
-							],
-							"align": "left"
-						},
-						"c2": {
-							"model": "c2",
-							"items": [
-								"details_found",
-								"page_size",
-								"print_panel"
-							]
-						},
 						"c4": {
 							"model": "c3",
 							"items": [
@@ -3126,12 +3098,17 @@
 						},
 						"c5": {
 							"model": "c4",
-							"items": []
+							"items": [
+								"details_found",
+								"page_size",
+								"print_panel"
+							]
 						},
 						"c7": {
 							"model": "c3",
 							"items": [
-								"custom_button1"
+								"custom_button_container",
+								"snippet"
 							]
 						},
 						"c8": {
@@ -3224,8 +3201,7 @@
 							"model": "c1",
 							"items": [
 								"expand_menu_button",
-								"collapse_button",
-								"snippet"
+								"collapse_button"
 							]
 						},
 						"c2": {
@@ -3290,9 +3266,6 @@
 									"cell": "headcell_field10"
 								},
 								{
-									"cell": "headcell_field4"
-								},
-								{
 									"cell": "headcell_field6"
 								},
 								{
@@ -3346,9 +3319,6 @@
 									"cell": "headcell_field11"
 								},
 								{
-									"cell": "cell_field4"
-								},
-								{
 									"cell": "cell_field6"
 								},
 								{
@@ -3360,7 +3330,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 17
+									"colspan": 16
 								}
 							],
 							"section": "body"
@@ -3396,9 +3366,6 @@
 								},
 								{
 									"cell": "headcell_field12"
-								},
-								{
-									"cell": "footcell_field4"
 								},
 								{
 									"cell": "footcell_field5"
@@ -3642,24 +3609,6 @@
 							"items": [
 								"grid_field6"
 							],
-							"field": "",
-							"columnName": ""
-						},
-						"headcell_field4": {
-							"model": "headcell_field",
-							"items": [],
-							"field": "",
-							"columnName": ""
-						},
-						"cell_field4": {
-							"model": "cell_field",
-							"items": [],
-							"field": "",
-							"columnName": ""
-						},
-						"footcell_field4": {
-							"model": "footcell_field",
-							"items": [],
 							"field": "",
 							"columnName": ""
 						},
@@ -4299,6 +4248,23 @@
 						"text": "Print_rek"
 					},
 					"page": "print1"
+				},
+				"custom_button_container": {
+					"type": "custom_button_container",
+					"items": [
+						"add",
+						"custom_button1",
+						"delete",
+						"custom_button"
+					],
+					"icon": {
+						"glyph": "menu-hamburger",
+						"style": 0
+					},
+					"label": {
+						"type": 0,
+						"text": "Menu"
+					}
 				}
 			},
 			"dbProps": {},
