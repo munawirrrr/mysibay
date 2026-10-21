@@ -3446,22 +3446,22 @@
 							"items": [
 								"simple_grid_field12"
 							],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						},
 						"cell_field2": {
 							"model": "cell_field",
 							"items": [
 								"simple_grid_field4"
 							],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						},
 						"footcell_field2": {
 							"model": "footcell_field",
 							"items": [],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						},
 						"headcell_field3": {
 							"model": "headcell_field",
@@ -3717,32 +3717,32 @@
 							"items": [
 								"grid_field_label3"
 							],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						},
 						"cell_field10": {
 							"model": "cell_field",
 							"items": [
 								"grid_field3"
 							],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						},
 						"headcell_field14": {
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label4"
 							],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						},
 						"cell_field11": {
 							"model": "cell_field",
 							"items": [
 								"grid_field4"
 							],
-							"field": "nomor rekening",
-							"columnName": "field"
+							"field": "",
+							"columnName": ""
 						}
 					},
 					"deferredItems": [],
