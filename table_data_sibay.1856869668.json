@@ -7577,7 +7577,8 @@
 						"type": 0,
 						"text": "download"
 					},
-					"filename": "reke_Sibay.pdf"
+					"filename": "reke_Sibay.pdf",
+					"orientation": "landscape"
 				},
 				"grid_field": {
 					"field": "nama di rekening",
@@ -7611,11 +7612,13 @@
 					"label": {
 						"type": 0,
 						"text": "download"
-					}
+					},
+					"orientation": "landscape"
 				}
 			},
 			"dbProps": {},
 			"version": 13,
+			"pageWidth": "full",
 			"imageItem": {
 				"type": "page_image"
 			},
