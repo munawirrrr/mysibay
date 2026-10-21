@@ -651,7 +651,7 @@
 		{
 			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
 			"pageType": "list",
-			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"status_proses_kunci_kantor\"] == \"dalam proses validasi petugas kabupaten\") {\r\n    $record[\"css\"] = \"background:#adff2f\";\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n    \r\n}\r\n\r\n\r\nif (($data[\"selisih belum upload\"])>  0) {\r\n    $record[\"selisih_belum_upload_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n    $pageObject->hideItem(\"kunci\", $recordId);\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] == \"semua progres sudah selesai, terima kasih\") {\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#1E90FF;color:#FFFAF0\";\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_sptjm\"] <> \"selesai\") {\r\n    $record[\"status_sptjm_css\"] = \"background:#F5CF27\";\r\n    $pageObject->hideItem(\"kunci\", $recordId);\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n}\r\n\r\n\r\nif ($data[\"jumlah\"] == \"0\") {\r\n    $record[\"status_sptjm_css\"] = \"background:#FFFfFf;color:#FFFfFf\";\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#FFFfFf;color:#FFFfFf\";\r\n    $pageObject->hideItem(\"kunci\", $recordId);\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n    \r\n}\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] == \"semua progres sudah selesai, terima kasih\") {\r\n   $pageObject->hideItem(\"kunci\", $recordId);\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+			"code": "if ($data[\"status_sptjm\"] == \"selesai\" && $data[\"selisih belum upload\"] == \"0\" && $data[\"status_proses_kunci_kantor\"] == \"dalam proses validasi petugas kabupaten\") {\r\n    $record[\"css\"] = \"color:#b97a00\";\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n}\r\n\r\n\r\nif (($data[\"jumlah\"] - $data[\"dikunci_operator\"]) > 0) {\r\n    $record[\"dikunci_operator_css\"] = \"background:#3B1007;color:#FFFAF0\";\r\n    \r\n}\r\n\r\n\r\nif (($data[\"selisih belum upload\"])>  0) {\r\n    $record[\"selisih_belum_upload_css\"] = \"background:#DC143C;color:#FFFAF0\";\r\n    $pageObject->hideItem(\"kunci\", $recordId);\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] == \"semua progres sudah selesai, terima kasih\") {\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#1E90FF;color:#FFFAF0\";\r\n}\r\n\r\n\r\n\r\nif ($data[\"status_sptjm\"] <> \"selesai\") {\r\n    $record[\"status_sptjm_css\"] = \"background:#F5CF27\";\r\n    $pageObject->hideItem(\"kunci\", $recordId);\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n}\r\n\r\n\r\nif ($data[\"jumlah\"] == \"0\") {\r\n    $record[\"status_sptjm_css\"] = \"background:#FFFfFf;color:#FFFfFf\";\r\n    $record[\"status_proses_kunci_kantor_css\"] = \"background:#FFFfFf;color:#FFFfFf\";\r\n    $pageObject->hideItem(\"kunci\", $recordId);\r\n    $pageObject->hideItem(\"batal\", $recordId);\r\n    \r\n}\r\n\r\n\r\nif ($data[\"status_proses_kunci_kantor\"] == \"semua progres sudah selesai, terima kasih\") {\r\n   $pageObject->hideItem(\"kunci\", $recordId);\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 		},
 		{
 			"eventId": "EVENT_BEFORESHOW_LIST",
@@ -2391,7 +2391,8 @@
 					"icon": {
 						"glyph": "th-list",
 						"style": 0
-					}
+					},
+					"background": "transparent"
 				},
 				"grid_details_link": {
 					"type": "grid_details_link",
@@ -2402,7 +2403,8 @@
 					"icon": {
 						"glyph": "th",
 						"style": 0
-					}
+					},
+					"badgeColor": "transparent"
 				},
 				"grid_field_label6": {
 					"type": "grid_field_label",
@@ -2673,6 +2675,7 @@
 				}
 			},
 			"dbProps": {},
+			"responsiveGrid": false,
 			"version": 13,
 			"imageItem": {
 				"type": "page_image"
