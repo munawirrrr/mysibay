@@ -1596,15 +1596,14 @@
 				{
 					"format": "File-based Image",
 					"pageType": "print",
-					"imageWidth": 500,
-					"imageHeight": 500,
+					"imageWidth": null,
+					"imageHeight": null,
 					"imageThumbWidth": 500,
 					"imageThumbHeight": 500,
 					"imageMultipleMode": 2,
 					"imageGallery": false,
 					"imageCaptions": 1,
 					"imageBorder": false,
-					"imageShowThumbnail": true,
 					"fileShowCustom": true,
 					"fileShowIcon": false
 				},
@@ -4247,7 +4246,8 @@
 						"type": 0,
 						"text": "Print_rek"
 					},
-					"page": "print1"
+					"page": "print1",
+					"buttonStyle": "danger"
 				},
 				"custom_button_container": {
 					"type": "custom_button_container",
@@ -7393,7 +7393,7 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"print_pdf"
+								"print_pdf1"
 							]
 						}
 					},
@@ -7512,22 +7512,31 @@
 						"headcell_field3": {
 							"model": "headcell_field",
 							"items": [
-								"grid_field_label"
-							]
+								"text1",
+								"print_pdf"
+							],
+							"columnName": "field",
+							"field": "nama di rekening"
 						},
 						"headcell_field4": {
 							"model": "cell_field",
 							"items": [
 								"grid_field"
-							]
+							],
+							"columnName": "field",
+							"field": "nama di rekening"
 						},
 						"headcell_field5": {
 							"model": "cell_dpreview",
-							"items": []
+							"items": [],
+							"columnName": "field",
+							"field": "nama di rekening"
 						},
 						"headcell_field6": {
 							"model": "footcell_field",
-							"items": []
+							"items": [],
+							"columnName": "field",
+							"field": "nama di rekening"
 						}
 					},
 					"deferredItems": [],
@@ -7555,14 +7564,6 @@
 						"type": 3
 					}
 				},
-				"text": {
-					"type": "text",
-					"label": {
-						"text": "Nomor",
-						"type": 0
-					},
-					"editedByRte": false
-				},
 				"print_pdf": {
 					"type": "print_pdf",
 					"targetPages": [],
@@ -7575,15 +7576,42 @@
 					"label": {
 						"type": 0,
 						"text": "download"
-					}
+					},
+					"filename": "reke_Sibay.pdf"
 				},
 				"grid_field": {
 					"field": "nama di rekening",
 					"type": "grid_field"
 				},
-				"grid_field_label": {
-					"type": "grid_field_label",
-					"field": "nama di rekening"
+				"text1": {
+					"type": "text",
+					"label": {
+						"text": "nama",
+						"type": 0
+					},
+					"editedByRte": false
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "no tabungan",
+						"type": 0
+					},
+					"editedByRte": false
+				},
+				"print_pdf1": {
+					"type": "print_pdf",
+					"targetPages": [],
+					"splitModes": [],
+					"scopes": [],
+					"icon": {
+						"style": 0
+					},
+					"pageSize": "A4",
+					"label": {
+						"type": 0,
+						"text": "download"
+					}
 				}
 			},
 			"dbProps": {},
