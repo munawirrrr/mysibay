@@ -1147,39 +1147,92 @@
 					"deferredItems": [],
 					"recsPerRow": 1
 				},
-				"grid": {
-					"modelId": "simple-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"simple_grid_field9",
-								"simple_grid_field"
-							]
-						}
-					},
-					"deferredItems": [
-						"grid_checkbox",
-						"grid_checkbox_head"
-					],
-					"recsPerRow": 1
-				},
 				"top": {
 					"modelId": "list-sidebar-top",
 					"grid": [],
 					"cells": {},
 					"deferredItems": [],
 					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "vertical-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "cell_top",
+									"colspan": 2
+								}
+							],
+							"section": "head"
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_label",
+									"colspan": 2
+								}
+							],
+							"section": "body"
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_label1"
+								},
+								{
+									"cell": "cell_field1"
+								}
+							],
+							"section": "body"
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_dpreview",
+									"colspan": 2
+								}
+							],
+							"section": "foot"
+						}
+					],
+					"cells": {
+						"cell_top": {
+							"model": "cell_top",
+							"items": [
+								"grid_checkbox"
+							]
+						},
+						"cell_dpreview": {
+							"model": "cell_dpreview",
+							"items": []
+						},
+						"cell_label": {
+							"model": "cell_label",
+							"items": [
+								"simple_grid_field9"
+							],
+							"align": "center"
+						},
+						"cell_label1": {
+							"model": "cell_label",
+							"items": [
+								"simple_grid_field1"
+							],
+							"field": "jumlah_siswa"
+						},
+						"cell_field1": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field"
+							],
+							"field": "jumlah_siswa"
+						}
+					},
+					"deferredItems": [
+						"grid_checkbox_head"
+					],
+					"recsPerRow": 4
 				}
 			},
 			"items": {
@@ -1211,24 +1264,6 @@
 				},
 				"pagination": {
 					"type": "pagination"
-				},
-				"simple_grid_field9": {
-					"field": "tahun",
-					"type": "simple_grid_field",
-					"inlineAdd": true,
-					"inlineEdit": false
-				},
-				"simple_grid_field": {
-					"field": "jumlah_siswa",
-					"type": "simple_grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"grid_checkbox": {
-					"type": "grid_checkbox"
-				},
-				"grid_checkbox_head": {
-					"type": "grid_checkbox_head"
 				},
 				"search_panel_field11": {
 					"field": "tahun",
@@ -1330,6 +1365,28 @@
 				},
 				"collapse_button": {
 					"type": "collapse_button"
+				},
+				"simple_grid_field9": {
+					"field": "tahun",
+					"type": "grid_field",
+					"inlineAdd": true,
+					"inlineEdit": false
+				},
+				"simple_grid_field": {
+					"field": "jumlah_siswa",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field1": {
+					"type": "grid_field_label",
+					"field": "jumlah_siswa"
+				},
+				"grid_checkbox": {
+					"type": "grid_checkbox"
+				},
+				"grid_checkbox_head": {
+					"type": "grid_checkbox_head"
 				}
 			},
 			"dbProps": {},
@@ -1337,10 +1394,7 @@
 			"version": 13,
 			"imageItem": {
 				"type": "page_image",
-				"image": {
-					"source": 3,
-					"image": "anjali-mehta-TPej8i22DXw-unsplash.jpg"
-				},
+				"image": null,
 				"shadow": false,
 				"fullSize": true
 			},
