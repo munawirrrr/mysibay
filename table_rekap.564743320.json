@@ -40,7 +40,9 @@
 	],
 	"pageOrientation": 1,
 	"keyFields": [
-		"npsn"
+		"npsn",
+		"tahun",
+		"tahap"
 	],
 	"detailsBadgeColor": "DC143C",
 	"detailsTables": [
