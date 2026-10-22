@@ -339,10 +339,10 @@
 			{
 				"name": "tahap",
 				"type": 200,
-				"size": 250,
+				"size": 10,
 				"scale": 0,
-				"typeName": "varchar(250)",
-				"nullable": true,
+				"typeName": "varchar(10)",
+				"nullable": false,
 				"autoinc": false,
 				"defaultValueSQL": null,
 				"defaultValue": ""

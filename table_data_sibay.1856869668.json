@@ -380,11 +380,13 @@
 			"table": 564743320,
 			"masterKeys": [
 				"NSM",
-				"tahun"
+				"tahun",
+				"tahap"
 			],
 			"detailsKeys": [
 				"NSM",
-				"tahun"
+				"tahun",
+				"tahap_usulan"
 			]
 		}
 	],
@@ -1997,10 +1999,10 @@
 			{
 				"name": "tahap",
 				"type": 200,
-				"size": 250,
+				"size": 10,
 				"scale": 0,
-				"typeName": "varchar(250)",
-				"nullable": true,
+				"typeName": "varchar(10)",
+				"nullable": false,
 				"autoinc": false,
 				"defaultValueSQL": null,
 				"defaultValue": ""
@@ -2476,7 +2478,8 @@
 				"integrated_edit_field7": {
 					"field": "nomor rekening",
 					"type": "integrated_edit_field",
-					"orientation": 0
+					"orientation": 0,
+					"updateOnEdit": false
 				}
 			},
 			"dbProps": {},
@@ -4231,7 +4234,9 @@
 				},
 				"grid_field4": {
 					"field": "file_scan",
-					"type": "grid_field"
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"grid_field_label4": {
 					"type": "grid_field_label",

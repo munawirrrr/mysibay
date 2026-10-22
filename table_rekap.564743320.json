@@ -1,13 +1,13 @@
 {
 	"orderInfo": [
 		{
-			"index": 0,
-			"field": "",
-			"expr": "data_sibay.nisn",
+			"index": 8,
+			"field": "yatim_piatu",
+			"expr": "COUNT(data_sibay.nisn)",
 			"asc": false
 		}
 	],
-	"sql": "SELECT\n\tceklis.npsn,\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\n\tCOUNT(data_sibay.nisn) AS jumlah,\n\tSUM(data_sibay.kunci_operator <> \"\") AS dikunci_operator,\n\tSUM(data_sibay.kunci_kemenag_pidie <> \"\") AS dikunci_kantor,\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\n\tCOUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END) AS `selisih belum upload`,\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\n\tprofil.`tingkat madrasah`,\n\tcase \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'selesai'\n\t\n\t else 'belum upload & belum diterima dikantor'end AS status_sptjm,\n\tCASE \n    WHEN COUNT(data_sibay.nisn) \n         - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) = 0 \n    THEN 'semua progres sudah selesai, terima kasih'\n\n    WHEN sptjm.status = 'disetujui' \n         AND sptjm.pertinggal_kantor = '1' \n         AND COUNT(data_sibay.nisn) \n             - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) > 0 \n    THEN 'dalam proses validasi petugas kabupaten'              \n\n    ELSE 'belum selesai'     \nEND AS status_proses_kunci_kantor\nFROM\n\tceklis\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\n    AND data_sibay.tahun = YEAR(CURDATE())\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn =data_sibay.npsn AND sptjm.tahun = YEAR(CURDATE())\nGROUP BY\n\tceklis.npsn,\n\tprofil.`nama Madrasah`,\n\tprofil.NSM,\n\tdata_sibay.tahun,\n\tprofil.`tingkat madrasah`\nORDER BY\n\tdata_sibay.nisn DESC\nLIMIT 0, 20\n",
+	"sql": "SELECT\r\n\tceklis.npsn,\r\n\tprofil.`nama Madrasah` AS `NAMA SATUAN PENDIDIKAN`,\r\n\tprofil.NSM,\r\n\tdata_sibay.tahun,\r\n\tSUM(data_sibay.status_siswa = 'Yatim') AS yatim,\r\n\tSUM(data_sibay.status_siswa = 'Piatu') AS piatu,\r\n\tSUM(data_sibay.status_siswa = 'Yatim Piatu') AS yatim_piatu,\r\n\tCOUNT(data_sibay.nisn) AS jumlah,\r\n\tSUM(data_sibay.kunci_operator <> '') AS dikunci_operator,\r\n\tSUM(data_sibay.kunci_kemenag_pidie <> '') AS dikunci_kantor,\r\n\tSUM(data_sibay.status = 'selesai') AS `selesai upload`,\r\n\tCOUNT(data_sibay.nisn) - SUM(data_sibay.status = 'selesai') AS `selisih belum upload`,\r\n\tSUM(data_sibay.status = 'penambahan') AS penambahan,\r\n\tprofil.`tingkat madrasah`,\r\n\tCASE\r\n\t\tWHEN sptjm.status = 'belum disetujui' AND sptjm.pertinggal_kantor = '1' AND data_sibay.tahun <> '' THEN 'belum disetujui tapi sudah diterima dikantor'\r\n\t\tWHEN sptjm.status = 'belum disetujui' AND sptjm.pertinggal_kantor <> '1' AND data_sibay.tahun <> '' THEN 'belum disetujui & belum diterima dikantor'\r\n\t\tWHEN sptjm.status = 'disetujui' AND sptjm.pertinggal_kantor <> '1' AND data_sibay.tahun <> '' THEN 'sudah disetujui tapi belum diterima dikantor'\r\n\t\tWHEN sptjm.status = 'disetujui' AND sptjm.pertinggal_kantor = '1' AND data_sibay.tahun <> '' THEN 'selesai'\r\n\t\tELSE 'belum upload & belum diterima dikantor'\r\n\tEND AS status_sptjm,\r\n\tCASE\r\n\t\tWHEN COUNT(data_sibay.nisn) - SUM(data_sibay.kunci_kemenag_pidie <> '') = 0\r\n\t\t\tTHEN 'semua progres sudah selesai, terima kasih'\r\n\t\tWHEN sptjm.status = 'disetujui' AND sptjm.pertinggal_kantor = '1'\r\n\t\t\tTHEN 'dalam proses validasi petugas kabupaten'\r\n\t\tELSE 'belum selesai'\r\n\tEND AS status_proses_kunci_kantor,\r\n\tdata_sibay.tahap\r\nFROM\r\n\tceklis\r\n\tLEFT OUTER JOIN profil ON profil.NPSN = ceklis.npsn\r\n\tLEFT OUTER JOIN data_sibay ON data_sibay.npsn = ceklis.npsn\r\n\t\tAND data_sibay.tahun = YEAR(CURDATE())\r\n\tLEFT OUTER JOIN sptjm ON sptjm.npsn = data_sibay.npsn\r\n\t\tAND sptjm.tahun = YEAR(CURDATE())\r\nGROUP BY\r\n\tceklis.npsn,\r\n\tprofil.`nama Madrasah`,\r\n\tprofil.NSM,\r\n\tdata_sibay.tahun,\r\n\tdata_sibay.tahap,\r\n\tprofil.`tingkat madrasah`,\r\n\tsptjm.status,\r\n\tsptjm.pertinggal_kantor\r\nORDER BY\r\n\tCOUNT(data_sibay.nisn) DESC",
 	"type": 1,
 	"connId": "keme8950sibayat1566720940",
 	"originalTable": "tahun",
@@ -537,7 +537,7 @@
 		},
 		{
 			"name": "dikunci_kantor",
-			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> \"\")",
+			"sqlExpression": "SUM(data_sibay.kunci_kemenag_pidie <> '')",
 			"index": 10,
 			"strField": "dikunci_kantor",
 			"type": 14,
@@ -554,7 +554,7 @@
 		},
 		{
 			"name": "dikunci_operator",
-			"sqlExpression": "SUM(data_sibay.kunci_operator <> \"\")",
+			"sqlExpression": "SUM(data_sibay.kunci_operator <> '')",
 			"index": 9,
 			"strField": "dikunci_operator",
 			"type": 14,
@@ -591,7 +591,7 @@
 		},
 		{
 			"name": "selisih belum upload",
-			"sqlExpression": "COUNT(data_sibay.nisn) - SUM(CASE WHEN data_sibay.status = 'selesai' THEN 1 ELSE 0 END)",
+			"sqlExpression": "COUNT(data_sibay.nisn) - SUM(data_sibay.status = 'selesai')",
 			"index": 12,
 			"strField": "selisih belum upload",
 			"type": 14,
@@ -611,7 +611,7 @@
 		},
 		{
 			"name": "status_sptjm",
-			"sqlExpression": "case \n\t\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'belum disetujui tapi sudah diterima dikantor'\n\twhen sptjm.status=\"belum disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'belum disetujui & belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor <> '1' and data_sibay.tahun <>\"\" then 'sudah disetujui tapi belum diterima dikantor'\n\twhen sptjm.status=\"disetujui\" and sptjm.pertinggal_kantor = '1' and data_sibay.tahun <>\"\" then 'selesai'\n\t\n\t else 'belum upload & belum diterima dikantor'end",
+			"sqlExpression": "CASE\r\n\t\tWHEN sptjm.status = 'belum disetujui' AND sptjm.pertinggal_kantor = '1' AND data_sibay.tahun <> '' THEN 'belum disetujui tapi sudah diterima dikantor'\r\n\t\tWHEN sptjm.status = 'belum disetujui' AND sptjm.pertinggal_kantor <> '1' AND data_sibay.tahun <> '' THEN 'belum disetujui & belum diterima dikantor'\r\n\t\tWHEN sptjm.status = 'disetujui' AND sptjm.pertinggal_kantor <> '1' AND data_sibay.tahun <> '' THEN 'sudah disetujui tapi belum diterima dikantor'\r\n\t\tWHEN sptjm.status = 'disetujui' AND sptjm.pertinggal_kantor = '1' AND data_sibay.tahun <> '' THEN 'selesai'\r\n\t\tELSE 'belum upload & belum diterima dikantor'\r\n\tEND",
 			"index": 15,
 			"strField": "status_sptjm",
 			"type": 200,
@@ -628,7 +628,7 @@
 		},
 		{
 			"name": "status_proses_kunci_kantor",
-			"sqlExpression": "CASE \n    WHEN COUNT(data_sibay.nisn) \n         - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) = 0 \n    THEN 'semua progres sudah selesai, terima kasih'\n\n    WHEN sptjm.status = 'disetujui' \n         AND sptjm.pertinggal_kantor = '1' \n         AND COUNT(data_sibay.nisn) \n             - SUM(CASE WHEN data_sibay.kunci_kemenag_pidie <> '' THEN 1 ELSE 0 END) > 0 \n    THEN 'dalam proses validasi petugas kabupaten'              \n\n    ELSE 'belum selesai'     \nEND",
+			"sqlExpression": "CASE\r\n\t\tWHEN COUNT(data_sibay.nisn) - SUM(data_sibay.kunci_kemenag_pidie <> '') = 0\r\n\t\t\tTHEN 'semua progres sudah selesai, terima kasih'\r\n\t\tWHEN sptjm.status = 'disetujui' AND sptjm.pertinggal_kantor = '1'\r\n\t\t\tTHEN 'dalam proses validasi petugas kabupaten'\r\n\t\tELSE 'belum selesai'\r\n\tEND",
 			"index": 16,
 			"strField": "status_proses_kunci_kantor",
 			"type": 200,
@@ -642,6 +642,61 @@
 				"Indonesian": "Status Proses Kunci Kantor"
 			},
 			"tableName": ""
+		},
+		{
+			"name": "tahap",
+			"sqlExpression": "data_sibay.tahap",
+			"index": 17,
+			"strField": "tahap",
+			"type": 200,
+			"separateEditViewFormats": true,
+			"viewFormats": [
+				{
+					"pageType": "list"
+				},
+				{
+					"pageType": "print"
+				},
+				{
+					"pageType": "export"
+				},
+				{
+					"pageType": "masterlist"
+				},
+				{
+					"pageType": "masterprint"
+				}
+			],
+			"editFormats": [
+				{},
+				{
+					"pageType": "add"
+				},
+				{
+					"format": "Lookup wizard",
+					"pageType": "search",
+					"required": true,
+					"lookupTable": "data_sibay",
+					"lookupTableConnection": "keme8950sibayat1566720940",
+					"lookupLinkField": "tahap_usulan",
+					"lookupDisplayField": "tahap_usulan",
+					"lookupUnique": true,
+					"lookupWhere": "tahun=':session.tahun'"
+				}
+			],
+			"filterFormat": {
+				"format": "Values list",
+				"filterTotals": 1
+			},
+			"searchOptions": [
+				"Equals"
+			],
+			"filtered": true,
+			"parentFilter": "tahun",
+			"label": {
+				"Indonesian": "Tahap"
+			},
+			"tableName": "data_sibay"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -1168,7 +1223,8 @@
 								"export_field9",
 								"export_field10",
 								"export_field15",
-								"export_field16"
+								"export_field16",
+								"export_field11"
 							]
 						}
 					},
@@ -1280,6 +1336,10 @@
 				},
 				"export_field16": {
 					"field": "status_proses_kunci_kantor",
+					"type": "export_field"
+				},
+				"export_field11": {
+					"field": "tahap",
 					"type": "export_field"
 				}
 			},
@@ -1578,6 +1638,9 @@
 									"cell": "headcell_checkbox"
 								},
 								{
+									"cell": "headcell_checkbox1"
+								},
+								{
 									"cell": "headcell_details",
 									"colspan": 2
 								},
@@ -1633,6 +1696,9 @@
 							"cells": [
 								{
 									"cell": "cell_checkbox"
+								},
+								{
+									"cell": "cell_checkbox1"
 								},
 								{
 									"cell": "cell_details"
@@ -1691,7 +1757,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 18
+									"colspan": 19
 								}
 							],
 							"section": "body"
@@ -1700,7 +1766,8 @@
 							"section": "foot",
 							"cells": [
 								{
-									"cell": "footcell_checkbox"
+									"cell": "footcell_checkbox",
+									"colspan": 2
 								},
 								{
 									"cell": "footcell_details",
@@ -2182,6 +2249,22 @@
 							],
 							"columnName": "",
 							"field": ""
+						},
+						"headcell_checkbox1": {
+							"model": "headcell_checkbox",
+							"items": [
+								"grid_field_label3"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"cell_checkbox1": {
+							"model": "cell_checkbox",
+							"items": [
+								"grid_field3"
+							],
+							"columnName": "checkbox",
+							"field": ""
 						}
 					},
 					"deferredItems": [],
@@ -2588,19 +2671,27 @@
 				},
 				"search_panel_field7": {
 					"field": "status_proses_kunci_kantor",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field6": {
 					"field": "status_sptjm",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field1": {
 					"field": "selisih belum upload",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field": {
 					"field": "selesai upload",
-					"type": "search_panel_field"
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
 				},
 				"search_panel_field4": {
 					"field": "dikunci_kantor",
@@ -2636,6 +2727,7 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field5",
+						"search_panel_field2",
 						"search_panel_field7",
 						"search_panel_field6",
 						"search_panel_field1",
@@ -2665,13 +2757,39 @@
 				},
 				"filter_panel": {
 					"type": "filter_panel",
-					"items": []
+					"items": [
+						"filter_panel_field1",
+						"filter_panel_field"
+					]
 				},
 				"expand_menu_button": {
 					"type": "expand_menu_button"
 				},
 				"collapse_button": {
 					"type": "collapse_button"
+				},
+				"grid_field3": {
+					"field": "tahap",
+					"type": "grid_field",
+					"bold": true
+				},
+				"grid_field_label3": {
+					"type": "grid_field_label",
+					"field": "tahap"
+				},
+				"search_panel_field2": {
+					"field": "tahap",
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
+				},
+				"filter_panel_field": {
+					"field": "tahap",
+					"type": "filter_panel_field"
+				},
+				"filter_panel_field1": {
+					"field": "tahun",
+					"type": "filter_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -2814,6 +2932,9 @@
 								},
 								{
 									"cell": "headcell_field13"
+								},
+								{
+									"cell": "headcell_field10"
 								}
 							]
 						},
@@ -2867,6 +2988,9 @@
 								},
 								{
 									"cell": "cell_field13"
+								},
+								{
+									"cell": "cell_field10"
 								}
 							]
 						},
@@ -2874,7 +2998,7 @@
 							"cells": [
 								{
 									"cell": "cell_dpreview",
-									"colspan": 16
+									"colspan": 17
 								}
 							],
 							"section": "body"
@@ -2929,6 +3053,9 @@
 								},
 								{
 									"cell": "footcell_field13"
+								},
+								{
+									"cell": "footcell_field10"
 								}
 							]
 						}
@@ -3293,6 +3420,25 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "status_proses_kunci_kantor"
+						},
+						"headcell_field10": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label3"
+							],
+							"field": "tahap"
+						},
+						"cell_field10": {
+							"model": "cell_field",
+							"items": [
+								"grid_field3"
+							],
+							"field": "tahap"
+						},
+						"footcell_field10": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tahap"
 						}
 					},
 					"deferredItems": [],
@@ -3535,6 +3681,14 @@
 				"grid_field_label7": {
 					"type": "grid_field_label",
 					"field": "status_proses_kunci_kantor"
+				},
+				"grid_field3": {
+					"field": "tahap",
+					"type": "grid_field"
+				},
+				"grid_field_label3": {
+					"type": "grid_field_label",
+					"field": "tahap"
 				}
 			},
 			"dbProps": {},
@@ -3657,7 +3811,8 @@
 								"integrated_search_field10",
 								"integrated_search_field11",
 								"integrated_search_field14",
-								"integrated_search_field15"
+								"integrated_search_field15",
+								"integrated_search_field12"
 							]
 						}
 					},
@@ -3768,6 +3923,11 @@
 				},
 				"integrated_search_field15": {
 					"field": "status_proses_kunci_kantor",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field12": {
+					"field": "tahap",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -4065,7 +4225,8 @@
 								"simple_grid_field10",
 								"simple_grid_field11",
 								"simple_grid_field14",
-								"simple_grid_field17"
+								"simple_grid_field17",
+								"simple_grid_field12"
 							]
 						}
 					},
@@ -4142,6 +4303,10 @@
 				},
 				"simple_grid_field17": {
 					"field": "status_proses_kunci_kantor",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field12": {
+					"field": "tahap",
 					"type": "simple_grid_field"
 				}
 			},
@@ -4259,7 +4424,8 @@
 								"simple_grid_field10",
 								"simple_grid_field11",
 								"simple_grid_field14",
-								"simple_grid_field17"
+								"simple_grid_field17",
+								"simple_grid_field12"
 							]
 						}
 					},
@@ -4334,6 +4500,10 @@
 				"simple_grid_field17": {
 					"field": "status_proses_kunci_kantor",
 					"type": "simple_grid_field"
+				},
+				"simple_grid_field12": {
+					"field": "tahap",
+					"type": "simple_grid_field"
 				}
 			},
 			"dbProps": {},
@@ -4346,6 +4516,149 @@
 			"imagePosition": "right",
 			"listTotals": 1,
 			"title": {}
+		},
+		{
+			"id": "search1",
+			"type": "search",
+			"layoutId": "nomenu",
+			"disabled": 0,
+			"default": 1,
+			"forms": {
+				"above-grid": {
+					"modelId": "search-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "search-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_search"
+							],
+							"align": "center"
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "search-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_header"
+							],
+							"align": "center",
+							"padding": {
+								"top": "100px"
+							}
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-search",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_search_field12"
+							],
+							"align": "center"
+						}
+					},
+					"deferredItems": [],
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"search_header": {
+					"type": "search_header",
+					"title": {
+						"page": "search1",
+						"table": "rekap",
+						"type": 7
+					}
+				},
+				"search_search": {
+					"type": "search_search",
+					"icon": {
+						"style": 0
+					},
+					"label": {
+						"type": 0,
+						"text": "oke"
+					}
+				},
+				"integrated_search_field12": {
+					"field": "tahap",
+					"type": "integrated_search_field",
+					"orientation": 0
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"Indonesian": "tahap"
+			}
 		}
 	],
 	"geoCoding": {

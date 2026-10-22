@@ -1,6 +1,7 @@
 {
 	"type": "EVENT_BUTTON",
 	"name": "batalkan kunci",
-	"serverCode": "while($record = $button->getNextSelectedRecord())\n{\n    $sql = \"UPDATE data_sibay \n            SET kunci_kemenag_pidie = '' \n            WHERE npsn = '\".$record[\"npsn\"].\"' \n            AND tahun = '\".$record[\"tahun\"].\"'\";\n\n    DB::Exec($sql);\n}",
-	"afterJsCode": "location.reload();"
+	"serverCode": "$tahap = intval($params[\"tahap\"]);\r\n$result = array();\r\n$jumlah = 0;\r\n\r\nwhile($record = $button->getNextSelectedRecord())\r\n{\r\n    $sql = DB::PrepareSQL(\r\n        \"UPDATE data_sibay\r\n         SET kunci_kemenag_pidie = ''\r\n         WHERE npsn = ':1' AND tahap = ':2' AND tahun = ':3'\",\r\n        trim($record[\"npsn\"]), $tahap, trim($record[\"tahun\"])\r\n    );\r\n    DB::Exec($sql);\r\n    $jumlah++;\r\n}\r\n\r\n$result[\"jumlah\"] = $jumlah;",
+	"beforeJsCode": "var tahap = prompt(\"Buka kunci tahap berapa? (1 atau 2)\");\r\nif (!tahap) { return false; }\r\nif (!confirm(\"Yakin buka kunci tahap \" + tahap + \" untuk data terpilih?\")) { return false; }\r\nparams[\"tahap\"] = tahap;",
+	"afterJsCode": "alert(result[\"jumlah\"] + \" data dibuka kuncinya.\");\r\nlocation.reload();"
 }
