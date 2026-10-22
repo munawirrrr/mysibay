@@ -2883,7 +2883,7 @@
 				"topbarCustomThemeColor": "#008cba",
 				"logoCustomThemeColor": "#dddddd",
 				"direction": "ltr",
-				"customCss": "\r\n\r\n\r\n\r\n\r\nfoote{\r\n    display:none;\r\n}",
+				"customCss": "\r\n\r\n\r\n\r\n\r\nfooter{\r\n    display:none;\r\n}",
 				"panelLikeGrid": true,
 				"verticalBorders": false,
 				"stripedGrid": false,

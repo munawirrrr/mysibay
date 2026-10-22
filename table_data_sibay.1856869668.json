@@ -1600,7 +1600,7 @@
 					"imageHeight": null,
 					"imageThumbWidth": 500,
 					"imageThumbHeight": 500,
-					"imageMultipleMode": 2,
+					"imageMultipleMode": 3,
 					"imageGallery": false,
 					"imageCaptions": 1,
 					"imageBorder": false,
@@ -7414,6 +7414,9 @@
 								},
 								{
 									"cell": "headcell_field1"
+								},
+								{
+									"cell": "headcell_field2"
 								}
 							]
 						},
@@ -7428,20 +7431,11 @@
 								},
 								{
 									"cell": "cell_field1"
-								}
-							]
-						},
-						{
-							"cells": [
-								{
-									"cell": "headcell_field5"
 								},
 								{
-									"cell": "cell_dpreview",
-									"colspan": 2
+									"cell": "headcell_field5"
 								}
-							],
-							"section": "body"
+							]
 						},
 						{
 							"section": "foot",
@@ -7454,6 +7448,9 @@
 								},
 								{
 									"cell": "footcell_field1"
+								},
+								{
+									"cell": "headcell_field7"
 								}
 							]
 						}
@@ -7503,12 +7500,6 @@
 							"field": "gambar",
 							"columnName": "field"
 						},
-						"cell_dpreview": {
-							"model": "cell_dpreview",
-							"items": [],
-							"columnName": "field",
-							"field": "gambar"
-						},
 						"headcell_field3": {
 							"model": "headcell_field",
 							"items": [
@@ -7526,17 +7517,31 @@
 							"columnName": "field",
 							"field": "nama di rekening"
 						},
-						"headcell_field5": {
-							"model": "cell_dpreview",
-							"items": [],
-							"columnName": "field",
-							"field": "nama di rekening"
-						},
 						"headcell_field6": {
 							"model": "footcell_field",
 							"items": [],
 							"columnName": "field",
 							"field": "nama di rekening"
+						},
+						"headcell_field2": {
+							"model": "headcell_field",
+							"items": [
+								"text2"
+							],
+							"columnName": "",
+							"field": ""
+						},
+						"headcell_field5": {
+							"model": "cell_field",
+							"items": [],
+							"columnName": "",
+							"field": ""
+						},
+						"headcell_field7": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "",
+							"field": ""
 						}
 					},
 					"deferredItems": [],
@@ -7614,6 +7619,14 @@
 						"text": "download"
 					},
 					"orientation": "landscape"
+				},
+				"text2": {
+					"type": "text",
+					"label": {
+						"text": "validasi (betul/salah)",
+						"type": 0
+					},
+					"editedByRte": false
 				}
 			},
 			"dbProps": {},
