@@ -1778,6 +1778,11 @@
 			"eventId": "EVENT_BEFOREQUERY_LIST",
 			"pageType": "list",
 			"code": "if (!empty($_SESSION[\"tahun\"])) {\n\n    if (trim($strWhereClause) != \"\") {\n        $strWhereClause .= \" AND \";\n    }\n\n    $strWhereClause .= \"(data_sibay.tahun = \" . intval($_SESSION[\"tahun\"]) . \")\";\n\n}// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n"
+		},
+		{
+			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
+			"pageType": "list",
+			"code": "if (Security::getUserName()!=\"admin\"){\r\n\r\n        $pageObject->hideField(\"nama Madrasah\");\r\n                $pageObject->hideField(\"npsn\");\r\n        \r\n}\r\n        "
 		}
 	],
 	"sortByFields": {

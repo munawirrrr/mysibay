@@ -421,6 +421,11 @@
 			"eventId": "EVENT_BEFOREQUERY_LIST",
 			"pageType": "list",
 			"code": "if (!empty($_SESSION[\"tahun\"])) {\r\n\r\n    if (trim($strWhereClause) != \"\") {\r\n        $strWhereClause .= \" AND \";\r\n    }\r\n\r\n    $strWhereClause .= \"(sptjm.tahun = \" . intval($_SESSION[\"tahun\"]) . \")\";\r\n\r\n}"
+		},
+		{
+			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
+			"pageType": "list",
+			"code": "if (Security::getUserName()!=\"admin\"){\r\n\r\n        $pageObject->hideField(\"nama Madrasah\");\r\n        $pageObject->hideField(\"Nomor Telpon\");\r\n        $pageObject->hideField(\"npsn\");\r\n        \r\n}\r\n        "
 		}
 	],
 	"sortByFields": {
@@ -1662,6 +1667,7 @@
 				}
 			},
 			"dbProps": {},
+			"responsiveGrid": false,
 			"version": 13,
 			"imageItem": {
 				"type": "page_image"
