@@ -2133,10 +2133,9 @@
 				"image": {
 					"type": "image",
 					"image": {
-						"image": "bantuan_siswa_yatim_2d.png",
+						"image": "bantuan-siswa-yatim-pensil.png",
 						"source": 2
 					},
-					"mobileControl": "button",
 					"width": "1300px",
 					"height": "1000px",
 					"mobileDisplay": "desktop"
